@@ -1,0 +1,36 @@
+@use 'constants' as const
+.copyright
+  color: gray
+  p
+    position: relative
+    top: 1px
+    text-transform: uppercase
+    margin-bottom: 0
+    color: gray
+  &__name
+    padding-left: 10px
+    padding-right: 10px
+    border-left: 1px solid gray
+    @include const.w-max(407px)
+      border-right: none
+    @include const.w-max(460px)
+      border-left: none
+      padding-right: 19px
+  span
+    color: gray
+  padding: 40px 0
+  &__container
+    padding-right: 20px
+    padding-left: 20px
+    display: flex
+    gap: 20px
+    align-items: center
+    justify-content: center
+    @include const.w-max(480px)
+      flex-wrap: wrap
+  &__politica
+    padding-top: 0
+    margin-bottom: 20px
+    a
+      color: gray
+      text-decoration: underline

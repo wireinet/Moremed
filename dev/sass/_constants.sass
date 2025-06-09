@@ -1,0 +1,23 @@
+$max-width: 1440px
+
+.container
+  width: 100%
+  max-width: $max-width
+  margin: 0 auto
+  padding: 0 40px
+  @media (max-width: 480px)
+    padding: 0 20px
+
+@mixin pseudo
+  content: ""
+  position: absolute
+  left: 0
+  top: 0
+
+@mixin max($value)
+  @media (max-width: $value)
+    @content
+
+@mixin min($value)
+  @media (min-width: $value)
+    @content

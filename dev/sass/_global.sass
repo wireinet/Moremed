@@ -1,0 +1,131 @@
+@use 'constants' as const
+html
+  font-size: 1rem
+
+body
+  font-size: 1rem
+  background: white
+  font-family: Golos
+
+a
+  transition: 0.25s ease-out
+  text-decoration: none
+  color: black
+  &:hover
+    transition: 0.2s ease-in
+    color: gray
+strong
+  font-weight: 500
+b
+  font-weight: 600
+
+p
+  font-family: inherit
+  font-size: 1rem
+  margin-bottom: 20px
+  line-height: 125%
+  color: const.$main-dark
+  &.nm
+    margin-bottom: 0
+  &.fade
+    color: grey
+    font-size: 0.8rem
+
+button, .button
+  text-decoration: none
+  cursor: pointer
+  font-family: inherit
+  display: inline-block
+  background: const.$main
+  border: none
+  color: const.$main-dark !important
+  text-transform: uppercase
+  font-size: 0.875rem
+  line-height: 150%
+  text-align: center
+  padding: 16px 16px
+  border-radius: 4px
+  font-weight: 500
+  transition: 0.5s ease-out
+  &--transparent
+    padding-right: 24px
+    padding-left: 24px
+    background: none
+    background: transparent
+    border-radius: 6px
+    border: 1px solid const.$main
+  &:hover
+    transition: 0.25s ease-in
+    background: lighten(const.$main, 10%)
+
+.title
+  position: relative
+  font-size: 3.4rem
+  color: const.$main-dark
+  font-weight: 700
+  text-transform: uppercase
+  line-height: 3.2rem
+  margin-bottom: 80px
+  @include const.w-max(515px)
+    margin-bottom: 40px
+  &:after, &:before
+    @include const.pseudo
+    top: auto
+    left: 0
+    bottom: -40px
+    display: block
+    height: 6px
+    border-radius: 20px
+    @include const.w-max(515px)
+      bottom: -20px
+  &:after
+    width: 100px
+    background-color: const.$main-dark
+    @include const.w-max(515px)
+      width: 60px
+  &:before
+    top: auto
+    left: 110px
+    width: 15px
+    background-color: const.$main
+    @include const.w-max(515px)
+      left: 70px
+  span
+    display: block
+    font-size: 2rem
+    font-weight: 400
+  @include const.w-max(515px)
+    font-size: 2.5rem
+    span
+      font-size: 1.45rem
+      line-height: 120%
+  &--center
+    text-align: center
+    &:after
+      left: calc(50% - 60px)
+    &:before
+      left: calc(50% + 50px)
+    @include const.w-max(515px)
+      &:after
+        left: calc(50% - 40px)
+      &:before
+        left: calc(50% + 30px)
+
+.title-simple
+  color: const.$main-dark
+  text-transform: uppercase
+  font-size: 3rem
+  font-weight: 400
+  margin-bottom: 20px
+  span
+    display: block
+    font-size: 2.8rem
+    font-weight: 600
+  @include const.w-max(570px)
+    font-size: 2rem
+    span
+      font-size: 1.6rem
+  @include const.w-max(380px)
+    font-size: 1.8rem
+    span
+      font-size: 1.7rem
