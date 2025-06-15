@@ -1,0 +1,51 @@
+@use 'user'
+@use 'colors' as color
+@use 'accessibility'
+@use 'constants' as const
+.menu
+  position: absolute
+  top: 120px
+  left: 50%
+  transform: translateX(-50%)
+  z-index: 3
+  &__wrapper
+    max-width: max-content
+    height: 40px
+    padding-left: 20px
+    padding-right: 20px
+    background: white
+    display: flex
+    gap: 40px
+    align-items: center
+    justify-content: space-between
+    border-radius: 100px
+    position: relative
+  &__nav
+    display: flex
+    gap: 20px
+  &__item
+    a
+      color: color.$ultramarine
+      transition: 0.5s ease-out
+      &:hover
+        color: color.$persid
+        transition: 0.25s ease-in
+  &__additions
+    display: flex
+    gap: 20px
+    align-items: center
+  @include const.max(880px)
+    display: none
+
+.submenu
+  display: none
+  position: absolute
+  background: white
+  top: 50px
+  left: 0
+  padding: 20px
+  width: 100%
+  border-radius: 10px
+  display: none
+  &__item
+    margin-bottom: 10px

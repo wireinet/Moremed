@@ -1,12 +1,17 @@
 doctype html
 html(lang="en")
     head
+        -var title = 'Экспертный центр лучевой диагностики и лечения'
         include templates/head
-    body
-        header.header
+    body.home
+        include templates/header
+        include templates/menu
+        include templates/banner
+        include templates/advantages
+        .wrap-bg
+            include templates/home-about
+            include templates/service-block
+        include templates/doctors-block
         main.content
-        footer
-            include templates/footer
-        script(src="libs/jquery-3.7.1.min.js")
-        script(src="libs/swiper/swiper-bundle.min.js")
-        script(src="scripts.js")
+        include templates/footer
+        include templates/scripts

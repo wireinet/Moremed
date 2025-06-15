@@ -1,0 +1,77 @@
+@use 'colors' as color
+@use 'constants' as const
+@use 'logo'
+@use 'hamburger'
+.topbar
+  @include const.max(570px)
+    position: fixed
+    width: 100%
+    z-index: 100
+    top: 20px
+  &__wrapper
+    margin-top: 20px
+    width: 100%
+    height: 60px
+    display: flex
+    align-items: center
+    gap: 20px
+    justify-content: space-between
+    margin-bottom: 20px
+    @include const.max(570px)
+      width: max-content
+      background-color: white
+      margin: 0 auto
+      border-radius: 100px
+    @include const.max(340px)
+      gap: 10px
+  &__group
+    display: flex
+    gap: 20px
+    align-items: center
+    @include const.max(340px)
+      gap: 10px
+  &__logo
+    @include const.max(570px)
+      width: 43px
+  &__address
+    font-size: .8rem
+    line-height: 120%
+    color: color.$ultramarine
+    p
+      margin-bottom: 0
+    @include const.max(880px)
+      display: none
+  &__contact
+    display: flex
+    flex-direction: column
+    gap: 0
+    @include const.max(700px)
+      background: white
+      width: 34px
+      height: 34px
+      display: flex
+      align-items: center
+      justify-content: center
+      border-radius: 100px
+      span, button
+        display: none
+  &__search
+    @include const.max(400px)
+      display: none
+  &__phone
+    a
+      display: flex
+      align-items: center
+      gap: 10px
+      color: color.$ultramarine
+      margin-bottom: 2px
+  .button--simple-text
+    padding-left: 26px
+    text-align: left
+    @include const.max(640px)
+      display: none
+  .hamburger
+    @include const.min(881px)
+      display: none
+    @include const.max(700px)
+      order: 10

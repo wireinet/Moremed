@@ -1,0 +1,26 @@
+@use 'colors' as color
+@use 'constants' as const
+.doctors-block
+  margin-top: 150px
+  margin-bottom: 100px
+  padding-top: 40px
+  padding-bottom: 40px
+  background: color.$block-bg
+  position: relative
+  &:after
+    @include const.pseudo
+    background: url(images/wave-1.svg)
+    background-size: contain
+    background-position: bottom center
+    background-repeat: repeat-x
+    height: 100px
+    top: -100px
+    width: 100%
+    display: block
+  &__links
+    margin: 60px auto
+    width: 100%
+    justify-content: center
+    display: flex
+    flex-wrap: wrap
+    gap: 20px

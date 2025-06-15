@@ -1,0 +1,33 @@
+@use 'colors' as color
+@use 'constants' as const
+.home-about
+  display: flex
+  flex-direction: column
+  gap: 40px
+  &__row
+    gap: 60px
+    display: flex
+    align-items: center
+    @include const.max(720px)
+      flex-direction: column
+      align-items: flex-start
+  &__img
+    img
+      @include const.max(1000px)
+        height: 280px
+    @include const.max(720px)
+      order: 0
+      img
+        width: 100%
+        height: auto
+  &__text
+    @include const.max(720px)
+      order: 1
+
+
+
+  h3
+    font-size: 2rem
+    font-weight: 800
+    margin-bottom: 20px
+    color: color.$ultramarine

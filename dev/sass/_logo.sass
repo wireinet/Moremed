@@ -1,0 +1,5 @@
+@use 'constants' as const
+.logo
+  @include const.max(570px)
+    path:not(.logo__sign)
+      display: none

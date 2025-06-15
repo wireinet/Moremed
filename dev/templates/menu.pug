@@ -1,0 +1,62 @@
+.menu
+  .menu__wrapper.wrapper
+    ul.menu__nav.nav
+      //JS: li.menu__item(submenu)
+      li.menu__item.hassubmenu
+        a(href="services") Услуги
+        ul.submenu
+          li.submenu__item
+            a(href="/services/cardiology") Аллергология
+          li.submenu__item
+            a(href="/services/cardiology") Андролог
+          li.submenu__item
+            a(href="/services/cardiology") Анестезиология
+          li.submenu__item
+            a(href="/services/cardiology") Анестезиология
+          li.submenu__item
+            a(href="/services/cardiology") Бактериолог
+          li.submenu__item
+            a(href="/services/cardiology") Бальнеолог
+          li.submenu__item
+            a(href="/services/cardiology") Валеолог
+          li.submenu__item
+            a(href="/services/cardiology") Венеролог
+          li.submenu__item
+            a(href="/services/cardiology") Вертебролог
+          li.submenu__item
+            a(href="/services/cardiology") Вирусолог
+          li.submenu__item
+            a(href="/services/cardiology") Кардиология
+          li.submenu__item
+            a(href="/services/cardiology") Компьютерная томография
+          li.submenu__item
+            a(href="/services/cardiology") Комплексные исследования
+          li.submenu__item
+            a(href="/services/cardiology") Магнитно-резонансная томография
+          li.submenu__item
+            a(href="/services/cardiology") Микробиолог
+          li.submenu__item
+            a(href="/services/cardiology") Нарколог
+          li.submenu__item
+            a(href="/services/cardiology") Нейропсихолог
+      li.menu__item
+        a(href="/services/checkups") Чекапы
+      li.menu__item
+        a(href="/services/discounts") Акции
+      li.menu__item
+        a(href="/services/doctors") Врачи
+      li.menu__item
+        a(href="/services/clinic") Клиника
+      li.menu__item
+        a(href="/services/articles") Статьи
+      li.menu__item
+        a(href="/services/vacancy") Вакансии
+      li.menu__item
+        a(href="/services/review") Отзывы
+      li.menu__item
+        a(href="/services/contacts") Контакты
+    ul.menu__additions
+      .menu__user
+        include user
+      .menu__accessibility
+        include accessibility

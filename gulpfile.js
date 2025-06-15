@@ -9,14 +9,14 @@ const sass = require('gulp-sass')(require('sass'));
     const sourcemaps = require('gulp-sourcemaps');
     
 // scripts
-// const concat = require('gulp-concat');
+const concat = require('gulp-concat');
 // const uglify = require('gulp-uglify');
 
 // svg
 const svgmin = require('gulp-svgmin');
 
 function svg(done) {
-    src('dev/img/*.svg')
+    src('dev/img/**/*.svg')
     .pipe(svgmin())
     .pipe(dest('public/images'))
     .pipe(browserSync.stream());
@@ -61,6 +61,11 @@ function libs() {
     .pipe(dest('./public/libs'))
     .pipe(browserSync.stream());
 }
+// function data() {
+//     return src('./dev/templates/*.json')
+//     .pipe(dest('./public/data'))
+//     .pipe(browserSync.stream());
+// }
 
 // PUG
 function views() {
@@ -76,9 +81,9 @@ return src('./dev/*.pug')
 };
 
 function scripts() {
-    return src('dev/*.js')
+    return src('dev/scripts/*.js')
     // .pipe(uglify())
-    // .pipe(concat('scripts.min.js'))
+    .pipe(concat('scripts.js'))
     .pipe(dest('public/'))
     .pipe(browserSync.stream());
     }
@@ -97,13 +102,12 @@ function copy_libs(){
 
 function watchers() {
     watch(['dev/*.pug', 'dev/templates/**/*.pug'], views);
-    // watch('public/page-shtukaturka.html', copypage_shtukaturka);
-    // watch('public/page-stajka.html', copypage_stajka);
     watch('dev/img/**/*', images);
-    watch('dev/img/*.svg', svg);
+    watch('dev/img/**/*.svg', svg);
     watch(['dev/sass/*.sass'], style);
     watch('dev/libs/**/*', copy_libs);
-    watch('dev/*.js', scripts);
+    watch('dev/scripts/*.js', scripts);
+    // watch('dev/templates/*.json', data);
 }
 
 exports.views = views;
@@ -115,5 +119,5 @@ exports.scripts = scripts;
 exports.copyfonts = copyfonts;
 exports.svg = svg;
 exports.copy_libs = copy_libs;
-
+// exports.data = data;
 exports.default = parallel(views, copyfonts, scripts, style, svg, libs, copy_libs, images, copyFavicon, watchers, browsersync);

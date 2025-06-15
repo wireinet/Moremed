@@ -1,0 +1,131 @@
+{
+  "menu": [
+    {
+      "item": "Услуги",
+      "href": "/services",
+      "hasSubmenu": true,
+      "submenu": [
+          {
+            "practice": "Аллергология",
+            "href": "/services/allergy"
+          },
+          {
+            "practice": "Андролог",
+            "href": "/services/androlog"
+          },
+          {
+            "practice": "Анестезиология",
+            "href": "/services/anesteziol"
+          },
+          {
+            "practice": "Бактериолог",
+            "href": "/services/bakteriol"
+          },
+          {
+            "practice": "Бальнеолог",
+            "href": "/services/balneolog"
+          },
+          {
+            "practice": "Бальнеолог",
+            "href": "/services/balneolog"
+          },
+          {
+            "practice": "Валеолог",
+            "href": "/services/valeolog"
+          },
+          {
+            "practice": "Венеролог",
+            "href": "/services/venerolog"
+          },
+          {
+            "practice": "Вертебролог",
+            "href": "/services/vertebrol"
+          },
+          {
+            "practice": "Вирусолог",
+            "href": "/services/virusolog"
+          },
+          {
+            "practice": "Кардиология",
+            "href": "/services/cardiolog"
+          },
+          {
+            "practice": "Компьютерная томография",
+            "href": "/services/tamograf"
+          },
+          {
+            "practice": "Комплексные исследования",
+            "href": "/services/tamograf"
+          },
+          {
+            "practice": "Магнитно-резонансная томография",
+            "href": "/services/mrt"
+          },
+          {
+            "practice": "Микробиолог",
+            "href": "/services/microbiolog"
+          },
+          {
+            "practice": "Нарколог",
+            "href": "/services/narkolog"
+          },
+          {
+            "practice": "Нейропсихолог",
+            "href": "/services/neiropsiholog"
+          },
+          {
+            "practice": "Флебология",
+            "href": "/services/flebologia"
+          },
+          {
+            "practice": "Хирургия",
+            "href": "/services/hirurgiya"
+          },
+          {
+            "practice": "Узи",
+            "href": "/services/uzi"
+          }
+        ]
+      },
+        {
+          "item": "Чекапы",
+          "href": "/services/testirovanie",
+          "hasSubmenu": false
+        },
+        {
+          "item": "Акции",
+          "href": "/services/discounts",
+          "hasSubmenu": false
+        },
+        {
+          "item": "Врачи",
+          "href": "/services/doctors",
+          "hasSubmenu": false
+        },
+        {
+          "item": "Клиника",
+          "href": "/services/clinica",
+          "hasSubmenu": false
+        },
+        {
+          "item": "Статьи",
+          "href": "/services/articles",
+          "hasSubmenu": false
+        },
+        {
+          "item": "Вакансии",
+          "href": "/services/vacancy",
+          "hasSubmenu": false
+        },
+        {
+          "item": "Отзывы",
+          "href": "/services/review",
+          "hasSubmenu": false
+        },
+        {
+          "item": "Контакты",
+          "href": "/services/contacts",
+          "hasSubmenu": false
+        }
+    ]
+  }

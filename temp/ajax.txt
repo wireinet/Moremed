@@ -1,0 +1,23 @@
+//MENU
+let menuItems = null;
+$.ajax({
+    type: 'GET',
+    url: '/data/menu.json',
+    dataType: 'json',
+    success: function(data)
+    {
+        menuItems = data;
+    }
+});
+setTimeout(()=>{
+    let menuItemsList = menuItems.menu;
+    menuItemsList.forEach(menuItemInList=>{
+        $('.menu__nav.nav').append(`
+            <li class="menu__item" href=${menuItemInList.href}>${menuItemInList.item}</a>
+            `);
+            if(menuItemInList.hasSubmenu) {
+                $('.menu__item').addClass('hassubmenu');
+                $('.menu__item').append(`<ul class="submenu">111</ul>`);
+            };
+    });
+},100);

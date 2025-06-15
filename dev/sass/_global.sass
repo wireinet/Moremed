@@ -1,131 +1,155 @@
 @use 'constants' as const
+@use 'colors' as color
 html
   font-size: 1rem
 
-body
-  font-size: 1rem
-  background: white
-  font-family: Golos
+.wrapper
+  width: 100%
+  max-width: const.$max-width
+  margin: 0 auto
+  padding: 0 40px
+  @media (max-width: 1060px)
+    padding: 0 20px
 
-a
-  transition: 0.25s ease-out
-  text-decoration: none
-  color: black
-  &:hover
-    transition: 0.2s ease-in
-    color: gray
-strong
-  font-weight: 500
-b
-  font-weight: 600
+body
+  background: white
+  min-height: 1000px
+  font-family: 'Mulish', sans-serif
+  font-size: 1rem
 
 p
-  font-family: inherit
-  font-size: 1rem
   margin-bottom: 20px
-  line-height: 125%
-  color: const.$main-dark
-  &.nm
-    margin-bottom: 0
-  &.fade
-    color: grey
-    font-size: 0.8rem
+  font-size: 1rem
+  line-height: 120%
+  color: color.$ultramarine
 
+strong
+  font-weight: 700
+  
 button, .button
-  text-decoration: none
-  cursor: pointer
   font-family: inherit
-  display: inline-block
-  background: const.$main
-  border: none
-  color: const.$main-dark !important
-  text-transform: uppercase
-  font-size: 0.875rem
-  line-height: 150%
-  text-align: center
-  padding: 16px 16px
-  border-radius: 4px
-  font-weight: 500
+  background: color.$blue
   transition: 0.5s ease-out
-  &--transparent
-    padding-right: 24px
-    padding-left: 24px
-    background: none
-    background: transparent
-    border-radius: 6px
-    border: 1px solid const.$main
+  cursor: pointer
+  padding: 10px 14px
+  border-radius: 100px
+  color: white
+  font-weight: 500
+  position: relative
+  overflow: hidden
+  display: inline-block
+  width: max-content
+  &:not(.button--simple-text)
+    height: 40px
+    display: flex
+    align-items: center
+    justify-content: center
+    &:after
+      content: ""
+      width: 200px
+      height: 200px
+      border-radius: 200%
+      background: color.$persid
+      display: block
+      position: absolute
+      left: -200px
+      top: 0
+      transition: 0.55s ease-in
+      z-index: 0
+      opacity: 0
+  span
+    width: max-content
   &:hover
-    transition: 0.25s ease-in
-    background: lighten(const.$main, 10%)
+    transition: 0.2s 0.55s ease-in
+    &:after
+      top: -200%
+      transform: scale(3)
+      opacity: 1
+  &--simple-text
+    padding: 0
+    background: none
+    color: color.$blue
+    &:hover
+      transition: 0.9s ease-in-out
+      color: color.$persid
+  span
+    color: white
+    position: relative
+    z-index: 1
+  &--transparent
+    background: none
+    border: 2px solid color.$persid
+    height: 36px
+    &:hover
+      &:after
+        background: color.$blue
+        opacity: 0.3
+    span
+      font-weight: 600
+      color: color.$persid
+
+.wrap-bg
+  background: url(images/logo-sign-m-bg.svg) no-repeat
+  background-size: 2500px auto
+  background-position: top center
+
+img
+  border-radius: 20px
+
+ul.list
+  display: flex
+  gap: 20px
+  flex-wrap: wrap
+  margin-bottom: 20px
+  li
+    display: flex
+    align-items: center
+    gap: 16px
+    border-radius: 100px
+    padding: 2px
+    background: color.$list-item-bg
+    position: relative
+    color: color.$ultramarine
+    font-size: 1.2rem
+    padding-right: 24px
+    @include const.max(400px)
+      font-size: 1rem
+    &::before
+      content: ""
+      display: block
+      width: 43px
+      height: 43px
+      border-radius: 100px
+      background: #F4FCFF url(images/check.svg) no-repeat
+      background-position: center
+      background-size: contain
+      left: 0
+      @include const.max(400px)
+        width: 30px
+        height: 30px
 
 .title
-  position: relative
-  font-size: 3.4rem
-  color: const.$main-dark
+  text-align: left
+  font-size: 2.875rem
+  line-height: 130%
   font-weight: 700
-  text-transform: uppercase
-  line-height: 3.2rem
-  margin-bottom: 80px
-  @include const.w-max(515px)
-    margin-bottom: 40px
-  &:after, &:before
-    @include const.pseudo
-    top: auto
-    left: 0
-    bottom: -40px
-    display: block
-    height: 6px
-    border-radius: 20px
-    @include const.w-max(515px)
-      bottom: -20px
-  &:after
-    width: 100px
-    background-color: const.$main-dark
-    @include const.w-max(515px)
-      width: 60px
-  &:before
-    top: auto
-    left: 110px
-    width: 15px
-    background-color: const.$main
-    @include const.w-max(515px)
-      left: 70px
-  span
-    display: block
-    font-size: 2rem
-    font-weight: 400
-  @include const.w-max(515px)
-    font-size: 2.5rem
-    span
-      font-size: 1.45rem
-      line-height: 120%
+  color: color.$persid
+  &--bg
+    background: url(images/title-bg.svg) no-repeat
+    background-position: center 20px
+    background-size: 200px 5rem
+  &--home
+    padding-top: 20px
+    padding-bottom: 60px
   &--center
     text-align: center
-    &:after
-      left: calc(50% - 60px)
-    &:before
-      left: calc(50% + 50px)
-    @include const.w-max(515px)
-      &:after
-        left: calc(50% - 40px)
-      &:before
-        left: calc(50% + 30px)
+    .subtitle
+      color: color.$blue
 
-.title-simple
-  color: const.$main-dark
-  text-transform: uppercase
-  font-size: 3rem
-  font-weight: 400
-  margin-bottom: 20px
-  span
-    display: block
-    font-size: 2.8rem
-    font-weight: 600
-  @include const.w-max(570px)
-    font-size: 2rem
-    span
-      font-size: 1.6rem
-  @include const.w-max(380px)
-    font-size: 1.8rem
-    span
-      font-size: 1.7rem
+.hidden
+  display: none !important
+
+.subdescription
+  text-align: center
+  max-width: 800px
+  margin: 0 auto

@@ -1,274 +1,157 @@
-// MOB MENU
+// ACCESSIBILITY
 $(function(){
-    $('.hamburger').on('click', function(){
-        $('.topbar__menu').css('opacity', 0)
-        $('.topbar__menu').toggleClass('topbar__menu--mob');
-        $('.topbar__menu').animate({opacity: 1}, 300);
+    const accessibility = $('.accessibility');
+    let accessibilitySaveToStorage = false;
+    accessibility.click(function(){
+        accessibility.toggleClass('active');
+        $("body").toggleClass('accessibility');
+        accessibilitySaveToStorage = $(this).hasClass('active') ? true : false;
+        localStorage.setItem('accessibility', accessibilitySaveToStorage);
+        localStorage.getItem('accessibility');
     });
-
-    function moveMenuInHamburger() {
-        if(window.matchMedia('(max-width:1100px)').matches){
-            $('.topbar__menu').appendTo($('.topbar__hamburger'));
+    if(localStorage.getItem('accessibility') === 'true') {
+        accessibility.addClass('active');
+        $("body").addClass('accessibility');
         }
-        else {
-            // $('.topbar__hamburger').remove($('.topbar__menu'));
-            $('.topbar__menu').appendTo($('.topbar__group--phone'));
-            $('.topbar__button').css('order', 100);
-        }
-    }
-    moveMenuInHamburger()
-    $(window).resize(moveMenuInHamburger);
 });
 
-// fixed header -------------------------------------------------------------------------
-const topbar = $('.topbar');
-window.addEventListener('scroll', ()=>{
-    if(window.scrollY >= 150) {
-        topbar.addClass('fixed');
-    }
-    else {
-        topbar.removeClass('fixed');
-    }
-});
-
-// MODALS -------------------------------------------------------------------------------
-    // disable scroll
-    const disableScrollBody = () => {
-        document.body.dataset.scrollY = window.scrollY;
-        document.body.style.cssText = `
-            position:fixed;
-            top:-${window.scrollY}px;
-            left:0;
-            width:100%;
-            overflow:hidden;
-            height:100vh;
-        `
-    }
-    const enableScrollBody = () => {
-        document.body.style.cssText = ``;
-        window.scroll({
-            top: document.body.dataset.scrollY
-        });
-    }
-
-// --SCROLL
+// // Alphabet to current
 $(function(){
-    var hashTagActive = "";
-    $(".scroll").on("click touchstart" , function (event) {
-
-            event.preventDefault();
-            $('.topbar__menu').removeClass('topbar__menu--mob')
-            var dest = 0;
-            if ($(this.hash).offset().top > $(document).height() - $(window).height()) {
-                dest = $(document).height() - $(window).height();
-            } else {
-                dest = $(this.hash).offset().top;
-            }
-            $('html,body').animate({
-                scrollTop: dest - 290 + "px"
-            }, 2000, 'swing');
-            
-    });
+  let badgesUniq = new Set();
+  const servicesItem = $('.services__item');
+  $.each(servicesItem, function(index, item){
+    let badge = $(item).text().charAt(0);
+    badgesUniq.add(badge);
+  });
+  for(let letter of badgesUniq) {
+    // create alphabet list
+    const alphabetList = $('.alphabet__list');
+    let alphabetItem = $('<li>', {class:'alphabet__item', text: letter});
+    alphabetList.append(alphabetItem);
+  };
 });
 
-document.addEventListener('DOMContentLoaded', ()=>{
-    const year = new Date().getFullYear();
-    const staticYear = document.querySelector('.copyright__year');
-    staticYear.innerHTML = year;
-})
+//ADD LETTER TO SERVICES ITEM
+$(function(){
+  const servicesItem = $('.services__item');
+    $.each(servicesItem, function(index, item){
+    let badge = $(item).text().charAt(0);
+    let prevBadge = $(item).prev().text().charAt(0);
+    if(prevBadge != badge){
+      $(item).prepend('<div class="services__item-badge">'+badge+'</div>');
+      }
+      else {
+        $(item).prepend('<div class="services__item-linked"></div>');
+      }
+  });
+});
 
-// SLIDERS
+// CLICK ON ALPHABET
+$(function(){
+    const alphabetItem = $('.alphabet__item');
+    alphabetItem.on('click', function() {
+      $(this).toggleClass('active');
+      // create reset
+      if(!$('.alphabet__reset').length) {
+        $('<li>', {class:'alphabet__item alphabet__reset'}).appendTo('.alphabet__list');
+        }
+
+      // reset
+      $(function(){
+        const alphabetReset = $('.alphabet__reset');
+        alphabetReset.on('click', function(){
+          $('.alphabet__item').removeClass('active');
+          $('.alphabet__reset').remove();
+          seviceItem.removeClass('hidden');
+          seviceItem.removeClass('selected');
+        })
+      });
+      
+      // pressed letter
+      let choisenLetter = $(this).text().charAt(0);
+      let seviceItem = $('.services__item');
+      $(seviceItem).each(function(index, service){
+        // let serviceBadge = $(this).find('.services__item-badge').text();
+        let serviceLetter = $(service).text().charAt(0);
+        if(choisenLetter === serviceLetter) {
+          setTimeout(function(){
+            seviceItem.addClass('hidden');
+            $(service).toggleClass('selected');
+              if(!seviceItem.hasClass('selected')) {
+                seviceItem.removeClass('hidden');
+                $('.alphabet__reset').remove();
+              };
+          }, 100);
+        }
+      });
+
+      
+
+    })
+  });
+// SLIDER
 setTimeout(()=>{
-const slide1 = new Swiper('.equipment__slider--eq .swiper', {
-    spaceBetween: 30,
+const avatar = new Swiper('.avatar', {
     slidesPerView: '1',
+    loop: true,
     pagination: {
         el: '.swiper-pagination',
         type: 'bullets',
-    },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-        400: {
-            slidesPerView: '1',
-            spaceBetween: 10,
-        },
-        900: {
-            spaceBetween: 5,
-            slidesPerView: '2',
-        },
-        1000: {
-            spaceBetween: 10,
-            slidesPerView: '3',
-        }
     },
     autoplay: {
         delay: 30000,
     }
 });
-const slide2 = new Swiper('.equipment__slider--mt .swiper', {
-    spaceBetween: 30,
+}, 1000);
+
+// VIDEO POPUP
+$(function() {
+  const avatar = $('.avatar');
+  if(avatar.hasClass('avatar--video')) {
+    avatar.on('click', function(){
+      alert('Видео');
+    })
+  }
+})
+// SLIDER BANNER HOME
+setTimeout(()=>{
+const slide1 = new Swiper('.banner__slider', {
     slidesPerView: '1',
+    loop: true,
     pagination: {
         el: '.swiper-pagination',
         type: 'bullets',
     },
     navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-        400: {
-            slidesPerView: '1',
-            spaceBetween: 10,
-        },
-        900: {
-            spaceBetween: 5,
-            slidesPerView: '2',
-        },
-        1000: {
-            spaceBetween: 10,
-            slidesPerView: '3',
-        }
+        nextEl: '.banner__nav'
     },
     autoplay: {
         delay: 30000,
     }
 });
-// WORK SLIDERS
-const slider_Work_Kv = new Swiper('.work__slider--kv .swiper', {
-    spaceBetween: 30,
-    slidesPerView: '1',
-    pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
-    },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-        960: {
-            slidesPerView: '2',
-            spaceBetween: 10,
-        }
-    },
-    autoplay: {
-        delay: 8000,
-    }
-});
-const slider_Work_Other = new Swiper('.work__slider--other .swiper', {
-    spaceBetween: 30,
-    slidesPerView: '1',
-    pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
-    },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-        960: {
-            slidesPerView: '2',
-            spaceBetween: 10,
-        }
-    },
-    autoplay: {
-        delay: 8000,
-    }
+}, 1000);
+$(function() {  
+    $("body").niceScroll({
+        cursorcolor:"#20AEE4",
+        cursorwidth: "8px",
+        scrollspeed: 120,
+    });
+    $(".services__list").niceScroll({
+        cursorcolor:"#20AEE4",
+        cursorwidth: "4px",
+        scrollspeed: 120,
+        autohidemode: false
+    });
+    
 });
 
-}, 200);
-
-// WORK TABS
+$(function(){})
+// USER
 $(function(){
-    const sliders = $('.work__slider');
-    const sliderKv = $('.work__slider--kv');
-    const sliderOther = $('.work__slider--other');
-    const tabsLabel = $('.work__tabs .tabs__label');
-    tabsLabel.click(function(index){
-        sliders.removeClass('active');
-        let currentTab = $(this).index()+1;
-        if(currentTab === 1) {
-            sliderKv.addClass('active');
-            tabsLabel.removeClass('active');
-            $(this).addClass('active');
-        }
-        if(currentTab === 2) {
-            sliderOther.addClass('active');
-            tabsLabel.removeClass('active');
-            $(this).addClass('active');
-        }
+    const user = $('.user');
+    const userIdent = $('.user__ident');
+    user.click(function(){
+        userIdent.toggleClass('user__ident--logined');
+        alert('Welcome to our site!');
     });
 });
-
-// SWIPEBOX
-$(function(){
-    $('.swipebox').swipebox({
-        removeBarsOnMobile : false,
-        hideBarsDelay: 12000,
-        afterOpen: disableScrollBody,
-        afterClose: enableScrollBody,
-    });
-});
-
-// FAQ
-$(function(){
-    const faqAnswer = $('.faq__answer');
-    const faqAnswerActive = $('.faq__answer.active');
-    const faqItem = $('.faq__item');
-    $('.faq__item').on('click', function(){
-
-        if(!$(this).hasClass('active')) {
-            faqItem.removeClass('active');
-            faqAnswer.slideUp();
-            $(this).find(faqAnswer).slideDown();
-            $(this).toggleClass('active');
-        }
-        else {
-            $(this).find(faqAnswer).slideUp();
-            setTimeout(function(){
-                $(this).removeClass('active')
-            }, 200);
-        }
-    });
-});
-
-
-// function get_ya_browser() {
-//     var ua = navigator.userAgent;    
-//     if (!ua.search(/YaBrowser/) > 0) {topTop()}
-// }
-// get_ya_browser();
-
-function topTop(){
-    const totop =  $(".totop")
-    totop.hide();
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 100) {
-                totop.fadeIn();
-            } else {
-                totop.fadeOut();
-            }
-        });
-
-        // scroll body to 0px on click
-        totop.click(function () {
-            $('body,html').animate({
-                scrollTop: 0
-            }, 800);
-            return false;
-        });
-}
-topTop();

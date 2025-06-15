@@ -1,0 +1,44 @@
+@use 'colors' as color
+@use 'constants' as const
+.search
+  position: relative
+  &__input
+    font-family: inherit
+    padding: 6px 12px
+    border-radius: 100px
+    border: none
+    height: 34px
+    transition: 0.25s ease-in-out
+    outline: 2px solid transparent
+    &::placeholder
+      font-family: 'Mulish', sans-serif
+    &:focus-visible
+      outline: none
+    &:focus
+      transition: 0.25s ease-in-out
+      outline: 2px solid color.$blue
+      padding-right: 20px
+    @include const.max(1015px)
+      display: none
+  &__submit
+    border: none
+    width: 34px
+    height: 34px
+    background: white url(images/search-2.svg)
+    background-repeat: no-repeat
+    background-position: center
+    font-size: 0
+    background-size: 16px
+    cursor: pointer
+    transition: background 0.5s ease-out
+    border-radius: 100px
+    @include const.min(1016px)
+      background: white url(images/search.svg)
+      background-repeat: no-repeat
+      background-position: center
+      background-size: 16px
+      position: absolute
+      right: 6px
+    &:hover
+      background-size: 20px
+      transition: background 0.25s ease-in 
