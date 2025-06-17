@@ -1,14 +1,83 @@
-li.doctor__item
-  .doctor__avatar
-    .avatar.swiper
-      .avatar__slides.swiper-wrapper
-        .avatar__slide.swiper-slide.avatar__slide
-          img(src="images/avatars/doctor-evstigneev-photo-1.webp", alt="evstigneev-1")
-        .avatar__slide.swiper-slide
-          img(src="images/avatars/doctor-evstigneev-photo-2.webp", alt="evstigneev-2")
-        .avatar__slide.swiper-slide
-          img(src="images/avatars/doctor-evstigneev-photo-3.webp", alt="evstigneev-3")
-      .swiper-pagination
-  .doctor__info
-    h3.doctor__name Евгений Афонасьевич
-      strong Евстигнеев
+li.doctor__item(data-practice="terap")
+  .doctor__main
+    .doctor__avatar
+      .avatar.swiper
+        .avatar__slides.swiper-wrapper
+          .avatar__slide.swiper-slide.avatar__slide
+            img(src="images/avatars/doctor-evstigneev-photo-1.webp", alt="evstigneev-1")
+          .avatar__slide.swiper-slide
+            img(src="images/avatars/doctor-evstigneev-photo-2.webp", alt="evstigneev-2")
+          .avatar__slide.swiper-slide
+            img(src="images/avatars/doctor-evstigneev-photo-3.webp", alt="evstigneev-3")
+        .swiper-pagination
+    .doctor__info
+      a.doctor__name(href="/doctor-single.html")
+        h3 Евгений Афонасьевич
+          strong Евстигнеев
+      p.doctor__exp Стаж: <strong>10</strong> лет
+      p.doctor__practice Терапевт
+      p.doctor__reception Ближ. прием в субботу, в 9:00
+      p.video-link video/video-example-man.mp4
+  .doctor__footer
+    div
+      p.doctor__price Стоимость услуг: <span>от 3000</span>
+      a.doctor__review-add(href="/review") Оставить отзыв
+    div
+      .button.button--small.doctor__zapis
+        span Запись на прием
+        
+li.doctor__item(data-practice="hirur")
+  .doctor__main
+    .doctor__avatar
+      .avatar.swiper
+        .avatar__slides.swiper-wrapper
+          .avatar__slide.swiper-slide.avatar__slide
+            img(src="images/avatars/doctor-rojonin-photo-2.webp", alt="evstigneev-2")
+          .avatar__slide.swiper-slide
+            img(src="images/avatars/doctor-rojonin-photo-1.webp", alt="evstigneev-1")
+        .swiper-pagination
+    .doctor__info
+      a.doctor__name(href="/doctor-single.html")
+        h3 Андрей Дмитриевич
+          strong Рожонин
+      p.doctor__exp Стаж: <strong>10</strong> лет
+      p.doctor__practice Хирург
+      p.doctor__reception Ближ. прием во вторник, в 10:30
+      p.video-link
+  .doctor__footer
+    div
+      p.doctor__price Стоимость услуг: <span>от 3000</span>
+      a.doctor__review-add(href="/review") Оставить отзыв
+    div
+      .button.button--small.doctor__zapis
+        span Запись на прием
+
+li.doctor__item(data-practice="nevrol")
+  .doctor__main
+    .doctor__avatar
+      .avatar.swiper
+        .avatar__slides.swiper-wrapper
+          .avatar__slide.swiper-slide.avatar__slide
+            img(src="images/avatars/doctor-abrosimova-photo-1.webp", alt="abrosimova-1")
+          .avatar__slide.swiper-slide
+            img(src="images/avatars/doctor-abrosimova-photo-2.webp", alt="abrosimova-2")
+          .avatar__slide.swiper-slide
+            img(src="images/avatars/doctor-abrosimova-photo-3.webp", alt="abrosimova-3")
+          .avatar__slide.swiper-slide
+            img(src="images/avatars/doctor-abrosimova-photo-4.webp", alt="abrosimova-4")
+        .swiper-pagination
+    .doctor__info
+      a.doctor__name(href="/doctor-single.html")
+        h3 Елена Андреевна
+          strong Абросимова
+      p.doctor__exp Стаж: <strong>8</strong> лет
+      p.doctor__practice Невролог
+      p.doctor__reception Ближ. прием в понедельник, в 12:30
+      p.video-link video/video-example-woman.mp4
+  .doctor__footer
+    div
+      p.doctor__price Стоимость услуг: <span>от 1400</span>
+      a.doctor__review-add(href="/review") Оставить отзыв
+    div
+      .button.button--small.doctor__zapis
+        span Запись на прием

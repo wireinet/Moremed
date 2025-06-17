@@ -1,3 +1,40 @@
-<svg width="858" height="461" viewBox="0 0 858 461" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path opacity="0.1" d="M507.745 0.5C564.931 0.5 470.446 238.642 461.68 260.795C431.227 337.767 589.524 198.572 613.576 175.68C668.112 123.787 694.426 114.902 700.059 131.189C720.18 189.385 481.689 485.309 748.132 346.839C770.633 335.166 794.146 324.328 816.39 312.731C832.132 304.513 845.823 293.587 857.184 280.788C821.069 396.115 467.436 554.45 520.938 388.149C538.424 333.858 572.987 279.592 509.4 333.43C314.33 498.593 346.21 396.506 384.043 294.395C407.433 231.283 433.098 168.169 408.82 168.169C385.987 168.158 318.968 223.987 164.307 388.215C79.2077 478.592 7.1113 334.707 0.629822 304.425C21.7144 347.106 73.051 374.272 159.012 288.829C390.274 58.9244 470.846 0.5 507.745 0.5Z" fill="#20AEE4"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="858"
+   height="461"
+   viewBox="0 0 858 461"
+   fill="none"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="logo-sign-m-bg.svg"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.64425163"
+     inkscape:cx="435.38889"
+     inkscape:cy="411.32997"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="-4"
+     inkscape:window-y="-4"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <path
+     opacity="0.1"
+     d="M507.745 0.5C564.931 0.5 470.446 238.642 461.68 260.795C431.227 337.767 589.524 198.572 613.576 175.68C668.112 123.787 694.426 114.902 700.059 131.189C720.18 189.385 481.689 485.309 748.132 346.839C770.633 335.166 794.146 324.328 816.39 312.731C832.132 304.513 845.823 293.587 857.184 280.788C821.069 396.115 467.436 554.45 520.938 388.149C538.424 333.858 572.987 279.592 509.4 333.43C314.33 498.593 346.21 396.506 384.043 294.395C407.433 231.283 433.098 168.169 408.82 168.169C385.987 168.158 318.968 223.987 164.307 388.215C79.2077 478.592 7.1113 334.707 0.629822 304.425C21.7144 347.106 73.051 374.272 159.012 288.829C390.274 58.9244 470.846 0.5 507.745 0.5Z"
+     fill="#20AEE4"
+     id="path1" />
 </svg>

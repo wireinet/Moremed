@@ -1,0 +1,22 @@
+.play
+  transition: 0.5s ease-in-out
+  border-radius: 100px
+  svg
+    transition: 0.5s ease-in-out
+    path
+      transform-origin: center
+      transition: 1.2s ease-in-out
+  &:hover
+    transition: 0.25s ease-in-out
+    box-shadow: 0 0 30px rgba(161, 213, 255, 0.6)
+    cursor: pointer
+    svg
+      transition: 0.25s ease-in-out
+      transform: scale(1.2)
+      path
+        transition: 0.35s ease-in-out
+        transform: scale(1.2)
+  &--asided
+    left: 40px !important
+    top: auto !important
+    bottom: 40px !important

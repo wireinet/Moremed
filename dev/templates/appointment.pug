@@ -1,0 +1,76 @@
+.appointment
+  .appointment__options
+    .appointment__item
+      p.appointment__label Специальность или услуга
+      .appointment__selected.appointment__selected--practice
+        span
+        ul.appointment__list
+          li.appointment__option Гинеколог
+          li.appointment__option Кардиолог
+          li.appointment__option Неврология
+          li.appointment__option Эндокринология
+          li.appointment__option Онколог
+          li.appointment__option Ортопедия
+          li.appointment__option Лабораторные исследования
+
+      p.appointment__label тест
+      .appointment__selected.appointment__selected--practice
+        span
+        ul.appointment__list
+          li.appointment__option 1
+          li.appointment__option 2
+
+    .appointment__item
+      p.appointment__label Выбрать врача
+      .appointment__select.appointment__select--doctors
+        .appointment__option
+          .form__doctor
+              img.form__doctor__avatar(src="images/avatars/doctor-ivanov-photo-1.webp")
+              h3.form__doctor-name Иванов Иван Петрович
+              p.form__doctor__date Ближ. прием в субботу, в 9:00
+        .appointment__option
+          .form__doctor
+              img.form__doctor__avatar(src="images/avatars/doctor-andreeva-photo-1.webp")
+              h3.form__doctor-name Лариса Федоровна Андреева
+              p.form__doctor__date Ближ. прием в субботу, в 9:00
+        .appointment__option
+          .form__doctor
+              img.form__doctor__avatar(src="images/avatars/doctor-petrov-photo-1.webp")
+              h3.form__doctor-name Евгений Афонасьевич Петров
+              p.form__doctor__date Ближ. прием в субботу, в 9:00
+  .appointment__result
+    .appointment__item
+      p.appointment__label Доступно для записи:
+      .appointment__available
+        .appointment__date
+          .appointment__date-item
+            p 4-5 Мар
+            p Вт-Ср
+          .appointment__date-item.active
+            p 6 Мар
+            p Вт-Ср
+          .appointment__date-item
+            p 7-8 Мар
+            p Пт-Сб
+          .appointment__date-item
+            p 9-11 Мар
+            p Вт-Чт
+        .appointment__time
+          .appointment__time-item.active
+            p 13:30
+          .appointment__time-item
+            p 14:40
+          .appointment__time-item
+            p 16:20
+          .appointment__time-item
+            p 16:50
+          .appointment__time-item
+            p 13:30
+  .appointment__send
+    .appointment__agreement
+      input(type="checkbox")
+      p Cоглашаюсь с политикой конфиденциальности
+      form.appointment__form.form
+        input(placeholder="Ваше имя")
+        input(placeholder="Телефон")
+        input(type="submit" value="Записаться")
