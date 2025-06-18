@@ -1,0 +1,62 @@
+@use 'colors' as color
+@use 'constants' as const
+.discount
+  &__list
+    display: flex
+    flex-wrap: wrap
+    gap: 40px
+  &__item
+    display: flex
+    flex-direction: column
+    justify-content: flex-end
+    align-items: flex-start
+    flex: 1 1 320px
+    height: 295px
+    position: relative
+    z-index: 1
+    padding: 20px
+  &__name
+    order: 1
+  &__title
+    font-family: inherit
+    font-size: 1.2rem
+    font-weight: 500
+    background-color: white
+    display: inline
+    box-decoration-break: clone
+    padding: 2px 6px
+    line-height: 120%
+    border-radius: 6px
+  &__date
+    order: 0
+    background: color.$discount-date url(images/time.svg) no-repeat
+    background-position: 6px center
+    color: white
+    font-weight: 500
+    border-radius: 100px
+    padding: 6px 10px 6px 30px
+    margin-bottom: 10px
+  &__procent
+    position: absolute
+    top: 20px
+    right: 20px
+    background: #FFF397
+    border-radius: 100px
+    width: 50px
+    height: 50px
+    display: flex
+    align-items: center
+    justify-content: center
+    font-size: 0.9rem
+    font-weight: 900
+    font-family: inherit
+    color: color.$ultramarine
+  &__img
+    position: absolute
+    left: 0
+    top: 0
+    z-index: -1
+    width: 100%
+    height: 100%
+    object-fit: cover
+

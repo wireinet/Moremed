@@ -1,0 +1,52 @@
+li.checkup__item.block-item
+  .checkup__main
+    .checkup__avatar.avatar__size
+      .avatar.swiper
+        .avatar__slides.swiper-wrapper
+          .avatar__slide.swiper-slide.checkup__slide
+            img(src="images/avatars/checkup-kardio-1.webp", alt="kardio-1")
+          .avatar__slide.swiper-slide
+            img(src="images/avatars/checkup-kardio-2.webp", alt="kardio-2")
+          .avatar__slide.swiper-slide
+            img(src="images/avatars/checkup-kardio-3.webp", alt="kardio-3")
+        .swiper-pagination
+    .checkup__info
+      .checkup__for
+        .checkup__label Чек-ап
+        p.gender Для всех
+        p.practice Неврология
+        p.age 30-35 лет
+      .checkup__title
+        h3 Невралогический <span>(Расширенный)</span>
+      .checkup__price Стоимость: <span>43 000</span>
+  .checkup__sublists
+    .checkup__sublist Приемы врачей
+      span 4
+      ul.checkup__popuplist
+        li Терапевт
+        li Кардиолог
+        li Дерматолог
+        li Узист
+    .checkup__sublist Анализы
+      span 5
+      ul.checkup__popuplist
+        li Анализы 1
+        li Анализы 2
+        li Анализы 3
+        li Анализы 4
+        li Анализы 5
+    .checkup__sublist МРТ
+      span 1
+      ul.checkup__popuplist
+        li Опция 1
+    .checkup__sublist КТ
+      span 3
+      ul.checkup__popuplist
+        li Опция 1
+        li Опция 2
+        li Опция 3
+  .checkup__footer
+    a.button.button--transparent.button--small(href="/checkup-single.html")
+      span Подробнее
+    button.button--small.checkup__zapis
+      span Записаться

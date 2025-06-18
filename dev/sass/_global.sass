@@ -53,6 +53,8 @@ button, .button
   overflow: hidden
   display: inline-block
   width: max-content
+  &--center
+    margin: 0 auto
   &:not(.button--simple-text)
     height: 40px
     display: flex
@@ -161,19 +163,57 @@ ul.list
   &--home
     padding-top: 20px
     padding-bottom: 60px
+    &:has(.subdescription)
+      padding-bottom: 40px
   &--center
     text-align: center
     .subtitle
       color: color.$blue
-
+  @include const.max(740px)
+    font-size: 2.4rem
 .hidden
   display: none !important
 
 .subdescription
   text-align: center
+  font-weight: 500
   max-width: 800px
   margin: 0 auto 60px auto
 
 *::selection
   background: #32b0de
   color: white
+
+// DOCTOR AND CHECKUPS BLOCKS
+.block-item
+  display: flex
+  max-width: 460px
+  flex-direction: column
+  justify-content: space-between
+  background: #F3FCFF
+  border-radius: 20px
+  padding: 20px
+  gap: 20px
+  overflow: hidden
+  position: relative
+  box-shadow: 16px 17px 100px 0 rgba(165, 218, 238, 0), 3px 10px 20px 0 rgba(34, 176, 228, 0);
+  transition: all 0.8s ease-out
+  &:after
+    @include const.pseudo
+    width: 80%
+    height: 80%
+    display: block
+    background: color.$faded
+    filter: blur(20px)
+    z-index: 0
+    border-radius: 600px
+    transition: all 0.8s ease-out
+    left: -100px
+    top: -50px
+  &:hover
+    transition: all 0.6s ease-in
+    box-shadow: 16px 17px 100px 0 rgba(165, 218, 238, 0.2), 3px 10px 20px 0 rgba(34, 175, 228, 0.1)
+    &:after
+      transition: 0.4s ease-in
+      transform: translate(-120px, -100px)
+      opacity: 1

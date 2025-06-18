@@ -21,7 +21,7 @@
     @include const.pseudo
     background: url(images/wave-2.svg)
     background-size: contain
-    background-position: bottom center
+    background-position: top center
     background-repeat: repeat-x
     height: 80px
     top: auto
@@ -35,3 +35,5 @@
     display: flex
     flex-wrap: wrap
     gap: 20px
+  @include const.max(680px)
+    margin-bottom: 80px

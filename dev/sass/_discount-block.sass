@@ -1,0 +1,36 @@
+@use 'colors' as color
+@use 'constants' as const
+.discount-block
+  min-height: 200px
+  background: color.$block-bg
+  margin-top: 100px
+  margin-bottom: 120px
+  padding-top: 40px
+  padding-bottom: 40px
+  position: relative
+  &:before
+    @include const.pseudo
+    background: url(images/wave-3.svg)
+    background-size: contain
+    background-position: bottom center
+    background-repeat: repeat-x
+    height: 86px
+    top: -86px
+    width: 100%
+    display: block
+  &:after
+    @include const.pseudo
+    background: url(images/wave-4.svg)
+    background-size: contain
+    background-position: top center
+    background-repeat: repeat-x
+    height: 80px
+    top: auto
+    bottom: -80px
+    width: 100%
+    display: block
+  &__content
+    position: relative
+    display: flex
+    flex-direction: column
+    gap: 40px

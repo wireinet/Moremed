@@ -1,0 +1,16 @@
+form
+  .form.form--slim
+    .form__agreement
+      input(type="checkbox")
+      p Cоглашаюсь с политикой конфиденциальности
+    .form__data
+      input(name="name" placeholder="Ваше имя")
+      input(name="phone" placeholder="Телефон")
+      //- hidden
+      input#form-doctor(hidden name="doctor" value="")
+      input#form-practice(hidden name="practice" value="")
+      input#form-date(hidden name="date" value="")
+      input#form-time(hidden name="time" value="")
+      //send
+      button.form__submit(disabled)
+        span Записаться

@@ -89,6 +89,80 @@ $(function(){
 
     })
   });
+// FORM SELECT
+$(function() {
+  const selectActive = $('.appointment__item--simple .appointment__selected');
+  const selectList = $('.appointment__item--simple .appointment__list');
+  selectActive.each(function(index, item) {
+    let defaultForSelect = $(this).find('.appointment__option').first().text();
+    $(this).find('span').text(defaultForSelect);
+
+    $(this).click(function() {
+      selectList.removeClass('opened');
+      $(this).find('.appointment__list').addClass('opened');
+    });
+  });
+});
+
+// OPTION --SIMPLE
+  const selectOption = $('.appointment__item--simple .appointment__option');
+  selectOption.click(function() {
+    let selectedOption = $(this).text();
+    $(this).closest('.appointment__selected').find('span').text(selectedOption);
+    setTimeout(() => {
+      $(this).parent().removeClass('opened');
+      $(this).parent().removeClass('opened');
+      // Запись в скрытом поле формы
+      if($(this).closest('.appointment__item--practice')) {
+        $('#form-practice').val(selectedOption);
+        console.log('Значение скрытого инпута специальности(#form-practice): ' + $('#form-practice').val());
+      }
+    }, 50);
+  });
+
+// DOCTORS LIST
+$(function() {
+  const doctorsList = $('.appointment__doctors-list');
+  const doctorOption = $('.appointment__doctor');
+  doctorOption.hide();
+  doctorOption.first().show();
+  doctorOption.click(function(){
+    doctorsList.toggleClass('open');
+    doctorOption.toggle();
+    $(this).show().toggleClass('selected');
+    // Запись в скрытом поле формы
+    let docName = $('.appointment__doctor.selected').find('.appointment__doctor-name').text();
+    if(docName) {
+      $('#form-doctor').val(docName);
+      console.log('Значение скрытого инпута имя врача (#form-doctor): ' + $('#form-doctor').val());
+    }
+  });
+});
+
+// DATA AND TIME SELECT
+$(function() {
+  // date
+  const dateItem = $('.appointment__date-item');
+  dateItem.click(function() {
+    dateItem.removeClass('selected');
+    $(this).toggleClass('selected');
+    $('.appointment__time-item').removeClass('selected');
+    // Запись в скрытом поле формы
+    let dateChoisen = $('.appointment__date-item.selected').text();
+    $('#form-date').val(dateChoisen);
+    console.log('Значение скрытого инпута даты (#form-date): ' + $('#form-date').val());
+  })
+  // time
+  const timeItem = $('.appointment__time-item');
+  timeItem.click(function() {
+    timeItem.removeClass('selected');
+    $(this).toggleClass('selected');
+    // Запись в скрытом поле формы
+    let timeChoisen = $('.appointment__time-item.selected').text();
+    $('#form-time').val(timeChoisen);
+    console.log('Значение скрытого инпута времени(#form-time): ' + $('#form-time').val());
+  })
+});
 // SLIDER
 setTimeout(()=>{
 const avatar = new Swiper('.avatar', {
@@ -176,6 +250,26 @@ const slide1 = new Swiper('.banner__slider', {
     }
 });
 }, 1000);
+$(function(){
+  const checkupPopupList = $('.checkup__popuplist');
+  const checkupSublist = $('.checkup__sublist');
+  if(matchMedia('(max-width:570px)').matches){ 
+    checkupSublist.click(function(){
+      $(this).find('.checkup__popuplist').toggleClass('open');
+    });
+  }
+  else {
+    checkupSublist.mouseenter(function(){
+      checkupPopupList.removeClass('open');
+      $(this).find('.checkup__popuplist').addClass('open');
+    });
+    checkupSublist.mouseleave(function(){
+      checkupPopupList.removeClass('open');
+    });
+  }
+
+
+});
     // disable scroll
     const disableScrollBody = () => {
         document.body.dataset.scrollY = window.scrollY;
@@ -233,40 +327,77 @@ $(function(){
 
       });
   })
-// FORM SELECT
-$(function() {
-  const selectActive = $('.appointment__selected');
-  const selectlist = $('.appointment__list');
-  const selectOption = $('.appointment__option');
-  let defaultValueFormSelect = selectActive.find('.appointment__option');
-  selectActive.each(function(index, item) {
-    let defaultForSelect = $(this).find('.appointment__option').first().text();
-    $(this).find('span').text(defaultForSelect);
-    selectOption.click(function() {
-      let selectedOption = $(this).text();
-      selectActive.find('span').text(selectedOption);
-    })
-    $(this).click(function() {
-      $(this).find('.appointment__list').toggleClass('opened');
-    });
+// FORM--slim
+$(function(){
+  // disable send
+  const agreementCheckbox = $('.form__agreement input');
+  const send = $('.form__submit');
+  send.click(function(e){
+    e.preventDefault();
+    formSend();
+    }
+  )
 
-  });
-});
-$(function() {  
-    $("body").niceScroll({
-        cursorcolor:"#20AEE4",
-        cursorwidth: "8px",
-        scrollspeed: 120,
-    });
-    $(".services__list").niceScroll({
-        cursorcolor:"#20AEE4",
-        cursorwidth: "4px",
-        scrollspeed: 120,
-        autohidemode: false
-    });
+  function formSend(){
+    console.log('sending...');
+    const form = $('.form');
+    let sendFormOk = `<div class="form__sended"><strong>Спасибо!</strong>Мы с вами свяжемся как можно скорее!</div>`;
+    form.html(sendFormOk);
+  }
+
+
+
+  agreementCheckbox.on('change', function(){
+    if(agreementCheckbox.is(':checked')){
+      send.attr('disabled', false);
+    }else{
+      send.attr('disabled', true);
+    }
+  })
     
+  });
+$(function() {
+    function startNiceScroll() {
+        $("body").niceScroll({
+            cursorcolor:"#20AEE4",
+            cursorwidth: "8px",
+            scrollspeed: 120,
+        });
+        $(".services__list").niceScroll({
+            cursorcolor:"#20AEE4",
+            cursorwidth: "4px",
+            scrollspeed: 120,
+            autohidemode: false
+        });
+        $(".appointment__date").niceScroll({
+            cursorcolor:"#20AEE4",
+            cursorwidth: "4px",
+            scrollspeed: 120,
+            autohidemode: false,
+            grabcursorenabled: true,
+            emulatetouch: true,
+        });
+        $(".appointment__time").niceScroll({
+            cursorcolor:"#20AEE4",
+            cursorwidth: "4px",
+            scrollspeed: 120,
+            autohidemode: false,
+            grabcursorenabled: true,
+            emulatetouch: true,
+        });
+    }
+    startNiceScroll();
+    // Рестарт Nicescroll при скроле
+    $(window).scroll(function() {
+        startNiceScroll();
+        // if(matchMedia('(max-width: 640px)').matches) {
+        //     $("body").niceScroll().remove()
+        //     $(".services__list").niceScroll().remove()
+        //     $(".appointment__date").niceScroll().remove()
+        //     $(".appointment__time").niceScroll().remove()
+        // }
+    });
 });
-
 // POPUPs
 const popup = function(button, popup) {
     const popupClose = $('.popup__close');

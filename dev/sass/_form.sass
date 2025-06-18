@@ -1,0 +1,113 @@
+@use 'colors' as color
+@use 'constants' as const
+.form
+  &__agreement
+    margin-bottom: 20px
+    display: flex
+    align-items: center
+    gap: 10px
+    p
+      color: color.$gray
+      margin-bottom: 0
+  &__data
+    display: flex
+    align-items: stretch
+    gap: 0
+    height: auto
+    input
+      height: 40px
+      font-family: inherit
+      flex: 1 1 200px
+      padding: 10px
+      font-size: 1rem
+      border: 1px solid color.$white2
+      transition: 0.5s ease-out
+      color: color.$ultramarine
+      margin-top: -1px
+      &:focus
+        transition: 0.5s ease-out
+        background-color: color.$light
+        border: 1px solid color.$blue
+        outline: none
+        &::placeholder
+          color: color.$ultramarine
+      &::placeholder
+        color: color.$gray
+      &:first-child
+        border-radius: 10px 0 0 10px
+      &:last-child
+        border-radius: 0 10px 10px 0
+      &:not(:first-child)   
+        @include const.min(741px)
+          margin-left: -1px
+    @include const.max(740px)
+      display: block
+      input:not([hidden])
+        display: block
+        text-align: center
+        width: 100%
+        &:first-child
+          border-radius: 10px 10px 0 0
+        &:last-child
+          border-radius: 0 0 10px 10px
+  &__submit
+    margin-top: -1px
+    flex: 0 0 200px
+    color: color.$faded
+    background: color.$blue url(images/send.svg) no-repeat
+    background-position: 90% center
+    transition: 0.5s ease-out
+    border-color: color.$blue
+    overflow: hidded
+    border-radius: 0 10px 10px 0 !important
+    font-size: 1rem
+    padding: 10px 40px 10px 10px
+    height: 40px !important
+    &[disabled]
+      background: #e3e3e3 url(images/send-gray.svg) no-repeat
+      background-position: 90% center
+      border: 1px solid #e3e3e3
+      span
+        color: gray
+      &::before
+        display: none
+      &:hover
+        cursor: not-allowed
+        &::before
+          display: none
+    &::after
+      display: none !important
+    @include const.min(741px)
+      &:hover
+        &:before
+          opacity: 1
+          transition: 0.7s ease-in
+          transform: translateX(-90px) translateY(-20px)
+      &:before
+        @include const.pseudo
+        width: 200px
+        height: 200px
+        background-color: #0c83c8
+        transform: translateX(-200px)
+        transition: 0.5s ease-out
+        border-radius: 100px
+        top: -60px
+        opacity: 0
+    &:hover
+      cursor: pointer
+      transition: 0.25s ease-in
+    @include const.max(740px)
+      border-radius: 0 0 10px 10px !important
+      width: 100%
+      background-position: 97% center
+      text-align: left !important
+  &__sended
+    padding-left: 60px
+    background-image: url(images/ok.svg)
+    background-repeat: no-repeat
+    background-position: left center
+    color: color.$ultramarine
+    font-size: 1.25rem
+    line-height: 120%
+    strong
+      display: block

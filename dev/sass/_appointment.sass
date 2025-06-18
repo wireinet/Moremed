@@ -1,50 +1,112 @@
 @use 'colors' as color
 @use 'constants' as const
+@use 'form'
 
 .appointment
   display: grid
   gap: 20px
-  grid-template-columns: minmax(280px, 360px) 1fr
+  grid-template-columns: 360px 1fr
   max-width: 920px
   margin: 0 auto
+  overflow: hidden
+  @include const.max(680px)
+    display: block
+  &__options
+    display: flex
+    flex-direction: column
+    justify-content: space-between
   &__item
+    margin-bottom: 20px
+    &--simple
+      .appointment__selected
+        display: block
+        background: white
+        border-radius: 6px
+        border: 1px solid color.$white2
+        padding: 10px
+        position: relative
+        min-height: 40px
+        &:hover
+          cursor: pointer
+          transition: 0.25s ease-in
+          background-color: color.$light
+          border-color: color.$blue-fade
+        &:after
+          @include const.pseudo
+          width: 40px
+          height: 100%
+          background: url(images/select-arrow.svg) no-repeat
+          background-position: center
+          left: auto
+          right: 0
+    &--doctors
+      .appointment__doctors-list
+        display: flex
+        gap: 10px
+        flex-direction: column
+        padding: 4px
+        border: none
+        border: 1px solid color.$white2
+        border-radius: 100px 10px 10px 100px
+        &.open
+          border-radius: 10px
+          padding: 10px
+      .appointment__doctor
+        align-items: flex-start
+        grid-column-gap: 20px
+        transition: 0.25s ease-in
+        background: white
+        border-radius: 100px 6px 6px 100px
+        display: flex
+        &.selected
+          background-color: color.$light
+        &:hover
+          background-color: color.$light
+          cursor: pointer
+        &-avatar
+          flex: 0 0 60px
+          width: 60px
+          border-radius: 100px
+          border: 2px solid white
+          grid-row: 1/2
+        &-name, &-date
+          margin: 0
+          grid-column: 2
+        &-name
+          padding-top: 10px
+          font-size: 1rem
+          line-height: 120%
+          color: color.$persid
+          font-weight: 700
+          margin-bottom: 5px
+        &-date
+          font-size: 0.8rem
+          color: #989898
   &__label
     font-size: 0.85rem
     color: color.$persid
-  &__selected
-    display: block
-    background: white
-    border-radius: 6px
-    border: 1px solid color.$white2
-    padding: 10px
-    position: relative
-    min-height: 40px
-    &:hover
-      cursor: pointer
-      transition: 0.25s ease-in
-      background-color: color.$light
-      border-color: color.$blue-fade
-    &:after
-      @include const.pseudo
-      width: 40px
-      height: 100%
-      background: url(images/select-arrow.svg) no-repeat
-      background-position: center
-      left: auto
-      right: 0
+    margin-bottom: 12px
   &__list
-    display: none
+    display: block
+    position: absolute
+    left: -2px
+    top: 44px
+    transition: 0.2s const.$gently
+    background: white
+    width: 101%
+    border-radius: 6px
+    border: 2px solid color.$blue-fade
+    padding: 10px
+    z-index: -1
+    visibility: hidden
+    opacity: 0
+    transform: translateY(-50px)
     &.opened
-      display: block
-      position: absolute
-      left: -2px
-      top: -2px
-      background: white
-      width: 110%
-      border-radius: 6px
-      border: 2px solid color.$blue-fade
-      padding: 10px
       z-index: 1
+      opacity: 1
+      transition: 0.2s const.$gently
+      visibility: visible
+      transform: translateY(0)
   &__option
     font-size: 1rem
     color: color.$ultramarine
@@ -53,3 +115,48 @@
     padding: 10px
     &:hover
       color: color.$persid
+  &__available
+    display: flex
+    flex-direction: column
+    gap: 40px
+  &__date, &__time
+    display: flex
+    width: 100%
+    width: auto
+    display: flex
+    gap: 12px
+    margin-bottom: 20px
+    overflow: auto
+    padding-right: 20px
+    @include const.max(680px)
+      padding-bottom: 40px
+    &-item
+      border-radius: 6px
+      border: 1px solid color.$white2
+      padding: 10px
+      width: max-content
+      min-width: 95px
+      flex: 1 0 max-content
+      &:hover
+        background-color: color.$light
+        border-color: color.$blue-fade
+        cursor: pointer
+      &.selected
+        background: color.$blue
+        p
+          color: white !important
+      p
+        margin-bottom: 10px
+        &:first-child
+          font-weight: 600
+        &:last-child
+          color: color.$persid
+          margin: 0
+  &__time-item
+    p
+      text-align: center
+  &__result
+    overflow: hidden
+  &__send
+    grid-column: 1 / -1
+    margin-bottom: 40px
