@@ -1,0 +1,35 @@
+@use 'colors' as color
+.breadcrumbs
+  display: flex
+  align-items: center
+  gap: 24px
+  margin-top: 20px
+  margin-bottom: 20px
+  a
+    color: color.$persid
+    display: inline-block
+    padding: 2px 10px
+    transition: 0.25s ease-in-out
+    caret-color: transparent
+    &:hover
+      background: white
+      border-radius: 100px
+    &:not(:last-child)
+      margin-right: 0
+      position: relative
+      &::after
+        position: absolute
+        content: ''
+        left: auto
+        right: -24px
+        top: 0
+        display: inline-block
+        width: 24px
+        height: 24px
+        background: url(images/breadcrumbs-arrow.svg) no-repeat
+        background-size: 24px
+    &.active
+      margin-left: 10px
+      border-radius: 100px
+      color: color.$persid
+      background: color.$faded

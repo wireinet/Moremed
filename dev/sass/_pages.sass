@@ -1,0 +1,157 @@
+@use 'colors' as color
+@use 'constants' as const
+.page
+  background: color.$page
+  section
+    margin-bottom: 40px
+  h1
+    font-size: 2.85rem
+    line-height: 130%
+    font-weight: 700
+    color: color.$persid
+  h2
+    font-size: 1.5rem
+    line-height: 125%
+    font-weight: 700
+    color: color.$persid
+    margin-bottom: 20px
+  h3
+    font-size: 1.1rem
+    line-height: 125%
+    font-weight: 700
+    color: color.$ultramarine
+    margin-bottom: 20px
+  &__header
+    background: color.$page-header
+    padding-bottom: 20px
+    position: relative
+    z-index: 1
+    &:after
+      @include const.pseudo
+      width: 100%
+      height: 100%
+      background-image: url(images/wave-page-header.svg)
+      background-repeat: repeat-x
+      background-size: 120%
+      background-position: left bottom
+      z-index: -1
+  &__info
+    display: flex
+    align-items: stretch
+    justify-content: space-between
+    gap: 40px
+    @include const.max(780px)
+      flex-direction: column
+    &-intro
+      flex: 1 1 50%
+    &-image
+      flex: 1 1 50%
+      @include const.max(990px)
+        flex: 1 1 20%
+      @include const.max(780px)
+        width: 100%
+        max-width: 670px
+      img
+        user-select: none
+        width: 100%
+        height: 100%
+        object-fit: cover
+    &-gallery
+      position: relative
+      max-width: 500px
+      overflow: hidden
+      border-radius: 20px
+      .play
+        position: absolute
+        top: 20px
+        left: 20px
+      img
+        border-radius: 0
+        width: 100%
+        height: 100%
+        object-fit: cover
+    &-links
+      display: flex
+      gap: 20px
+  &__bg-wrapper1
+    background: url(images/page-white-bg.svg)
+    background-position: -600px top
+    background-size: 2160px
+    background-repeat: repeat-x
+  &__bg-wrapper2
+    background: url(images/logo-sign-m-bg.svg)
+    background-position: center top
+    background-size: 2000px
+    background-repeat: no-repeat
+
+  &--checkups
+    .advantages
+      padding: 40px
+      background: rgba(255, 255, 255, 0.6)
+      &__icon
+        background: url(images/icons-bg2.svg) no-repeat
+
+// CHECKUPS page
+.checkups
+  &-single
+    &-title
+      display: flex
+      gap: 20px
+      margin-bottom: 20px
+    &-price
+      display: inline-block
+      padding: 10px
+      background: color.$faded
+      border-radius: 10px
+      margin-top: 10px
+      p
+        color: color.$ultramarine
+        margin-bottom: 0
+        strong
+          padding-left: 10px
+          color: color.$persid
+          font-size: 1.1rem
+          font-weight: 700
+          &::after
+            content: " ₽"
+
+.block-moreinfo
+  display: flex
+  gap: 40px
+  background: white
+  padding: 40px
+  border-radius: 20px
+  @include const.max(900px)
+    flex-direction: column
+  &-text
+    flex: 1 1 50%
+    p
+      b
+        color: color.$persid
+        font-weight: 800
+      strong
+        font-weight: 800
+  &-image
+    flex: 1 1 20%
+    height: 100%
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+  @include const.max(900px)
+    width: 100%
+    max-width: 400px
+
+.zapis
+  margin-top: 100px
+  margin-bottom: 100px
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  background: white
+  border-radius: 20px
+  padding: 40px
+#zapis
+  h2
+    font-size: 2rem

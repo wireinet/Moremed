@@ -1,0 +1,79 @@
+@use 'colors' as color
+@use 'constants' as const
+.footer
+  background: color.$footer url(images/logo-sign-m-bg.svg) no-repeat
+  background-size: 190%
+  background-position: 100% 100%
+  border-radius: 20px
+  margin-bottom: 20px
+  &__col
+    display: flex
+    flex-direction: column
+    gap: 40px
+    justify-content: space-between
+  &__group
+    display: flex
+    flex-direction: column
+    gap: 20px
+  &__contact
+    display: flex
+    align-items: flex-start
+    gap: 10px
+    p
+      font-size: .85rem
+      line-height: 125%
+      margin-bottom: 0
+    a
+      font-size: 18px
+      font-weight: 600
+      color: color.$ultramarine
+  &__title
+    color: color.$ultramarine
+    font-size: 1.25rem
+    font-weight: 800
+  &__menu
+    overflow: hidden
+    overflow-y: auto
+    @include const.min(481px)
+      height: 200px
+    &-item
+      display: block
+      margin-bottom: 10px
+      padding: 10x 10px 10px 0
+      a
+        transition: 0.35s ease-out
+        font-size: .85rem
+        color: color.$ultramarine
+        &:hover
+          color: color.$persid
+          transition: 0.2s ease-in
+  &__widget
+    @include const.min(481px)
+      align-self: flex-end
+  .footer__row
+    padding-top: 40px
+    padding-bottom: 40px
+    margin-left: 40px
+    margin-right: 40px
+    display: flex
+    align-items: stretch
+    justify-content: space-between
+    flex-wrap: wrap
+    gap: 40px
+    &:not(:last-child)
+      border-bottom: 1px solid color.$persid
+    &:last-child
+      a, p
+        color: #6692B2
+        margin-bottom: 0
+  &__links
+    font-size: 0.85rem
+    display: flex
+    flex-wrap: wrap
+    flex: 1 1 auto
+    gap: 20px
+    a
+      text-decoration: underline
+  &__copyright
+    flex: 1 1 50%
+    font-size: 0.85rem

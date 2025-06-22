@@ -1,0 +1,48 @@
+@use 'colors' as color
+@use 'constants' as const
+.equipment
+  &__slider
+    padding-bottom: 40px
+  &__item
+    max-width: 100%
+    text-align: center
+    display: flex
+    flex-direction: column
+    align-items: center
+  &__img
+    width: 240px
+    height: 220px
+    position: relative
+    z-index: 0
+    border-radius: 20px
+    margin-bottom: 10px
+    box-shadow: 0 10px 27px 0 rgba(103, 212, 254, 0.47), 0 49px 60px 0 #dff6ff
+    overflow: hidden
+    img
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      object-fit: cover
+      border-radius: 0
+  &__name
+    font-size: 1rem
+    font-weight: 600
+    display: inline-block
+    color: color.$persid
+    padding: 4px 10px
+    background: white
+    border-radius: 100px
+    margin-bottom: 10px
+    position: relative
+    z-index: 1
+  &__description
+    position: relative
+    z-index: 1
+    font-size: 0.9rem
+    font-weight: 400
+    display: inline-block
+    color: color.$ultramarine
+  & .slider__arrow
+    top: calc(50% - 80px)

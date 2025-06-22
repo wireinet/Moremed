@@ -1,3 +1,4 @@
+// checkup sublist open
 $(function(){
   const checkupPopupList = $('.checkup__popuplist');
   const checkupSublist = $('.checkup__sublist');
@@ -15,6 +16,17 @@ $(function(){
       checkupPopupList.removeClass('open');
     });
   }
-
-
 });
+
+// Checkup sublist count
+$(function(){
+  const checkupSublist = $('.checkup__sublist');
+  const checkupSublistCount = $('.checkup__sublist span');
+
+  checkupSublist.each(function(index, item){
+    let popuplistItems = $(item).find('.checkup__popuplist li');
+    $(item).find('span').text(popuplistItems.length)
+    // $(item).find('span').text(popuplistItems.length);
+
+  });
+})

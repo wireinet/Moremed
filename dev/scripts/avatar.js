@@ -12,9 +12,9 @@ const avatar = new Swiper('.avatar', {
 
 // check video POPUP
 $(function() {
-  let doctor = $('.doctor__item');
+  let blockItem = $('.block-item');
   let avatar = $('.avatar');
-  doctor.each(function(index, item){
+  blockItem.each(function(index, item){
     let videoLink = $(this).find('.video-link').text();
     let currentAvatar = $(this).find('.avatar');
     if(videoLink != "") {

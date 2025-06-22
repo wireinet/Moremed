@@ -177,9 +177,9 @@ const avatar = new Swiper('.avatar', {
 
 // check video POPUP
 $(function() {
-  let doctor = $('.doctor__item');
+  let blockItem = $('.block-item');
   let avatar = $('.avatar');
-  doctor.each(function(index, item){
+  blockItem.each(function(index, item){
     let videoLink = $(this).find('.video-link').text();
     let currentAvatar = $(this).find('.avatar');
     if(videoLink != "") {
@@ -243,13 +243,14 @@ const slide1 = new Swiper('.banner__slider', {
         type: 'bullets',
     },
     navigation: {
-        nextEl: '.banner__nav'
+        nextEl: '.banner .slider__arrow--next'
     },
     autoplay: {
         delay: 30000,
     }
 });
 }, 1000);
+// checkup sublist open
 $(function(){
   const checkupPopupList = $('.checkup__popuplist');
   const checkupSublist = $('.checkup__sublist');
@@ -267,9 +268,49 @@ $(function(){
       checkupPopupList.removeClass('open');
     });
   }
-
-
 });
+
+// Checkup sublist count
+$(function(){
+  const checkupSublist = $('.checkup__sublist');
+  const checkupSublistCount = $('.checkup__sublist span');
+
+  checkupSublist.each(function(index, item){
+    let popuplistItems = $(item).find('.checkup__popuplist li');
+    $(item).find('span').text(popuplistItems.length)
+    // $(item).find('span').text(popuplistItems.length);
+
+  });
+})
+// EQUIPMENT
+setTimeout(()=>{
+const avatar = new Swiper('.clinic-block__slider', {
+    slidesPerView: '1',
+    loop: true,
+    navigation: {
+      nextEl: '.clinic-block__slider .slider__arrow--next',
+      prevEl: '.clinic-block__slider .slider__arrow--prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+    },
+    breakpoints: {
+      1200:{
+        slidesPerView: '4',
+      },
+      900:{
+        slidesPerView: '3',
+      },
+      600:{
+        slidesPerView: '2',
+      },
+      480:{
+        slidesPerView: '1',
+      },
+    }
+});
+}, 1000);
     // disable scroll
     const disableScrollBody = () => {
         document.body.dataset.scrollY = window.scrollY;
@@ -327,6 +368,50 @@ $(function(){
 
       });
   })
+// EQUIPMENT
+setTimeout(()=>{
+const avatar = new Swiper('.equipment__slider', {
+    slidesPerView: '1',
+    loop: true,
+    navigation: {
+      nextEl: '.equipment .slider__arrow--next',
+      prevEl: '.equipment .slider__arrow--prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+    },
+    breakpoints: {
+      1200:{
+        slidesPerView: '4',
+      },
+      900:{
+        slidesPerView: '3',
+      },
+      600:{
+        slidesPerView: '2',
+      },
+      480:{
+        slidesPerView: '1',
+      },
+    }
+});
+}, 1000);
+// FILTER CHECKUPS
+$(function(){
+  let checkupFilterItem = $('.filter__check-item');
+  let resetFilterButton = $('.filter__reset button');
+  
+  // filter-checks
+    checkupFilterItem.click(function(){
+      $(this).toggleClass('checked');
+    });
+
+  // filter-reset
+    resetFilterButton.click(function(){
+      checkupFilterItem.removeClass('checked');
+    });
+});
 // FORM--slim
 $(function(){
   // disable send
@@ -356,34 +441,67 @@ $(function(){
   })
     
   });
+// INCLUDE
+$(function(){
+  const includeItem = $('.include__item');
+  includeItem.click(function(){
+    $(this).find('.include__content').slideToggle();
+  });
+});
 $(function() {
     function startNiceScroll() {
-        $("body").niceScroll({
-            cursorcolor:"#20AEE4",
-            cursorwidth: "8px",
-            scrollspeed: 120,
+    $("body").niceScroll({
+        cursorcolor:"#20AEE4",
+        cursorwidth: "8px",
+        scrollspeed: 120,
+        horizrailenabled: false
+    });
+    $(".services__list").niceScroll({
+        cursorcolor:"#20AEE4",
+        cursorwidth: "4px",
+        scrollspeed: 120,
+        autohidemode: false
+    });
+    $(".appointment__date").niceScroll({
+        cursorcolor:"#20AEE4",
+        cursorwidth: "4px",
+        scrollspeed: 120,
+        autohidemode: false,
+        grabcursorenabled: true,
+        emulatetouch: true,
+    });
+    $(".appointment__time").niceScroll({
+        cursorcolor:"#20AEE4",
+        cursorwidth: "0",
+        scrollspeed: 120,
+        autohidemode: false,
+        grabcursorenabled: true,
+        emulatetouch: true,
+    });
+    $(".checkup-block__slide").niceScroll({
+        cursorcolor:"#20AEE4",
+        cursorwidth: "4px",
+        scrollspeed: 120,
+        autohidemode: true,
+        grabcursorenabled: true,
+        emulatetouch: true,
+    });
+    $(".checkup__popuplist").niceScroll({
+        cursorcolor:"#20ace400",
+        cursorwidth: "4px",
+        scrollspeed: 120,
+        autohidemode: false,
+        grabcursorenabled: true,
+        emulatetouch: true,
         });
-        $(".services__list").niceScroll({
-            cursorcolor:"#20AEE4",
-            cursorwidth: "4px",
-            scrollspeed: 120,
-            autohidemode: false
-        });
-        $(".appointment__date").niceScroll({
-            cursorcolor:"#20AEE4",
-            cursorwidth: "4px",
-            scrollspeed: 120,
-            autohidemode: false,
-            grabcursorenabled: true,
-            emulatetouch: true,
-        });
-        $(".appointment__time").niceScroll({
-            cursorcolor:"#20AEE4",
-            cursorwidth: "4px",
-            scrollspeed: 120,
-            autohidemode: false,
-            grabcursorenabled: true,
-            emulatetouch: true,
+    $(".footer__menu").niceScroll({
+        cursorcolor:"#20AEE4",
+        cursorborder: "1px solid #20AEE4",
+        cursorwidth: "2px",
+        scrollspeed: 260,
+        autohidemode: true,
+        grabcursorenabled: false,
+        emulatetouch: true,
         });
     }
     startNiceScroll();
@@ -417,6 +535,25 @@ const popup = function(button, popup) {
     });
     console.log($(this));
 }
+// --SCROLL
+$(function(){
+    var hashTagActive = "";
+    $(".scroll").on("click touchstart" , function (event) {
+
+            event.preventDefault();
+            $('.topbar__menu').removeClass('topbar__menu--mob')
+            var dest = 0;
+            if ($(this.hash).offset().top > $(document).height() - $(window).height()) {
+                dest = $(document).height() - $(window).height();
+            } else {
+                dest = $(this.hash).offset().top;
+            }
+            $('html,body').animate({
+                scrollTop: dest - 290 + "px"
+            }, 2000, 'swing');
+            
+    });
+});
 // USER
 $(function(){
     const user = $('.user');

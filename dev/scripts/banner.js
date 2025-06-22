@@ -8,7 +8,7 @@ const slide1 = new Swiper('.banner__slider', {
         type: 'bullets',
     },
     navigation: {
-        nextEl: '.banner__nav'
+        nextEl: '.banner .slider__arrow--next'
     },
     autoplay: {
         delay: 30000,

@@ -3,27 +3,12 @@
 @use 'accessibility'
 @use 'constants' as const
 .menu
-  position: absolute
-  top: 120px
-  left: 50%
-  transform: translateX(-50%)
-  z-index: 3
-  &__wrapper
-    max-width: max-content
-    height: 40px
-    padding-left: 20px
-    padding-right: 20px
-    background: white
-    display: flex
-    gap: 40px
-    align-items: center
-    justify-content: space-between
-    border-radius: 100px
-    position: relative
   &__nav
     display: flex
     gap: 20px
   &__item
+    &.current-menu-item
+      font-weight: 700
     a
       color: color.$ultramarine
       transition: 0.5s ease-out
@@ -36,6 +21,41 @@
     align-items: center
   @include const.max(880px)
     display: none
+
+.home
+  .menu
+    @include const.center
+    position: absolute
+    top: 120px
+    z-index: 3
+    &__wrapper
+      max-width: max-content
+      height: 40px
+      padding-left: 20px
+      padding-right: 20px
+      background: white
+      display: flex
+      gap: 40px
+      align-items: center
+      justify-content: space-between
+      border-radius: 100px
+      position: relative
+.page
+  .menu
+    &__wrapper
+      display: flex
+      justify-content: space-between
+    &__nav, &__additions
+      max-width: max-content
+      height: 40px
+      padding-left: 20px
+      padding-right: 20px
+      background: white
+      display: flex
+      align-items: center
+      border-radius: 100px
+
+  
 
 .submenu
   display: none

@@ -1,8 +1,9 @@
-.checkup__block.wrapper
+.checkup-block.wrapper
   .title.title--center.title--home.title--bg2
     h2 Чекапы
     p.subtitle Комплексные обследования
     p.subdescription Вы можете пройти комплексное медицинское обследование для диагностики заболеваний на ранней стадии
-  include checkup-list
-  a.button.button--transparent.button--center
+  .checkup-block__slide
+    include checkup-list
+  a.button.button--transparent.button--center(href="/checkups.html")
     span Все Чек-апы

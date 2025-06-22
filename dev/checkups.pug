@@ -1,0 +1,87 @@
+doctype html
+html(lang="en")
+  head
+    -var title = 'Чекапы'
+    include templates/head
+  body.page.checkups.page--checkups
+    .page__header
+      include templates/header
+      include templates/menu
+      .breadcrumbs.wrapper
+        a(href="/") Главная
+        a(href="/services") Услуги
+        a(href="/checkups.html").active Чекапы
+    main.content.page__content
+      .page__bg-wrapper1
+        section.page__info.wrapper.checkups-info
+          .page__info-intro
+            h1 Чекапы
+            h2 Комплексные обследования здоровья
+            p Комплексные обследования позволят своевременно узнать о состоянии своего здоровья, выявить недуги на ранних стадиях и сохранить хорошее самочувствие и качество жизни на долгие годы. Позаботьтесь о себе уже сегодня, пройдите полное медицинское обследование в нашей клинике.
+            h2 Что такое комплексное обследование?
+            p Это целый ряд диагностических процедур, направленных на оценку общего состояния вашего организма, выявление возможных нарушений и профилактику заболеваний. Такой подход позволяет своевременно обнаружить проблемы со здоровьем и принять необходимые меры для поддержания хорошего самочувствия.
+            .page__info-links
+              a.button(href="#checkups-list")
+                span Программы
+              a.button(href="/doctors")
+                span Врачи
+              a.button(href="/")
+                span Запись
+          .page__info-image
+            img(src="images/checkups-general-image.webp", alt="checkup-general")
+        section.checkup__filter.filter.checkups-filter.wrapper
+          .filter__sidebar-mob
+            include templates/filter-icon.svg
+            p Подберите свой чекап
+          .filter__sidebar
+            h2.filter__title Подберите свой чекап
+            .filter__group
+              p.filter__title Для кого
+              .filter__options
+                .filter__check-item
+                  p(for="filter-for-woman") Для женщин
+                .filter__check-item
+                  p(for="filter-for-man") Для мужчин
+            .filter__group
+              p.filter__title Направления
+              .filter__options
+                .filter__check-item
+                  p(for="filter-for-woman") Гастроентерология
+                .filter__check-item
+                  p(for="filter-for-man") Гинекология
+                .filter__check-item
+                  p(for="filter-for-man") Диетология
+                .filter__check-item
+                  p(for="filter-for-man") Кардиология
+                .filter__check-item
+                  p(for="filter-for-man") Комплексное обследование
+                .filter__check-item
+                  p(for="filter-for-man") Онкология
+                .filter__check-item
+                  p(for="filter-for-man") Урология
+                .filter__check-item
+                  p(for="filter-for-man") Эндокринология
+            .filter__reset
+              button.button--icon
+                include templates/icon-reset.svg
+                span Сбросить
+          .filter__content
+            include templates/checkup-list
+      section.checkups-advantages
+        include templates/advantages-checkups
+      section.checkups-base.wrapper
+        .block-moreinfo
+          .block-moreinfo-text
+            h2 Основные этапы комплексного обследования:
+            ul.list
+              li Первичная консультация врача-терапевта, сбор анамнеза и жалоб пациента.
+              li Проведение необходимых лабораторных исследований (анализы крови, мочи).
+              li Диагностика основных органов и систем организма (УЗИ, ЭКГ, рентгенография и др.).
+              li Консультации узких специалистов (кардиолог, эндокринолог, гастроэнтеролог и другие врачи).
+              li Подведение итогов обследования и составление индивидуальной программы коррекции образа жизни и профилактики заболеваний.
+          .block-moreinfo-image
+            img(src="images/image-context-doctor.webp", alt="context-doctor")
+
+    include templates/popups
+    include templates/footer
+    include templates/scripts

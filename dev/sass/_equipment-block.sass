@@ -1,0 +1,31 @@
+@use 'colors' as color
+@use 'constants' as const
+.equipment-block
+  padding-top: 40px
+  background: color.$block-bg
+  position: relative
+  margin-bottom: 100px
+  &:before
+    @include const.pseudo
+    background: url(images/wave-5.svg)
+    background-size: contain
+    background-position: bottom center
+    background-repeat: repeat-x
+    height: 86px
+    top: -86px
+    width: 100%
+    display: block
+  &:after
+    @include const.pseudo
+    background: url(images/wave-6.svg)
+    background-size: contain
+    background-position: top center
+    background-repeat: repeat-x
+    height: 80px
+    top: auto
+    bottom: -80px
+    width: 100%
+    display: block
+  & .subdescription
+    max-width: 400px
+    margin-bottom: 40px
