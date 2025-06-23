@@ -26,6 +26,8 @@
     padding-bottom: 20px
     position: relative
     z-index: 1
+    @include const.max(570px)
+      padding-top: 87px
     &:after
       @include const.pseudo
       width: 100%
