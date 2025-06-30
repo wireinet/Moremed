@@ -1,0 +1,22 @@
+@use 'colors'as color
+.checkup-single
+  &-title
+    display: flex
+    gap: 20px
+    margin-bottom: 20px
+  &-price
+    display: inline-block
+    padding: 10px
+    background: color.$faded
+    border-radius: 10px
+    margin-top: 10px
+    p
+      color: color.$ultramarine
+      margin-bottom: 0
+      strong
+        padding-left: 10px
+        color: color.$persid
+        font-size: 1.1rem
+        font-weight: 700
+        &::after
+          content: " ₽"

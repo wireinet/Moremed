@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+  head
+    -var title = 'Контакты'
+    include templates/head
+  body.page.contacts.page--contacts
+    .page__header
+      include templates/header
+      include templates/menu
+      .breadcrumbs.wrapper
+        a(href="/") Главная
+        a(href="/clinic.html").active Контакты
+    main.content.page__content
+      .page__bg-wrapper1
+        section.contacts__content.wrapper
+          h1 Контакты
+          .table-like
+            p Телефон:
+            p
+              a(href="tel:+78617308968") +7 (8617) 30-89-68
+            p e-mail:
+            p 
+              a(href="mailto:info@moremedrf.ru") info@moremedrf.ru
+            p Адрес:
+            p 353905, Краснодарский край, г. Новороссийск, ул.Энгельса, дом № 91
+            p Центральный офис:
+            p г. Новороссийск, ул. Энгельса 91
+        section.contacts__map
+          include templates/map-block
+    include templates/footer
+    include templates/scripts

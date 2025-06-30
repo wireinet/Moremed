@@ -4,25 +4,9 @@
   p
     margin-bottom: 0
   &__item
-    &[data-practice]
-      &::before
-        @include const.pseudo
-        width: 100%
-        height: 100%
-        background-repeat: no-repeat !important
-        background-position: 100% 60px !important
-        background-size: 100px !important
-        display: block
-        opacity: 0.15
-    &[data-practice="terap"]
-      &::before
-        background: url(images/services/terap.svg)
-    &[data-practice="hirur"]
-      &::before
-        background: url(images/services/hirur.svg)
-    &[data-practice="nevrol"]
-      &::before
-        background: url(images/services/nevrol.svg)
+    &:hover
+      .doctor__name
+        color: color.$ultramarine
     &.selected
       display: flex !important
   &__main, &__footer
@@ -32,9 +16,9 @@
     gap: 20px
   &__name
     font-size: 1.125rem
+    color: color.$persid
     font-weight: 500
     line-height: 120%
-    color: color.$persid
     transition: color 0.5s ease-out
     &:hover
       color: color.$ultramarine
@@ -43,8 +27,6 @@
       display: block
     color: color.$persid
   &__list
-    // display: grid
-    // grid-template-columns: repweat(auto-fit, minmax(320px, 1fr))
     display: flex
     flex-wrap: wrap
     gap: 40px
@@ -84,16 +66,12 @@
       color: color.$persid
       transition: 0.25s ease-in
   &__filter-list
-    width: 100%
     max-width: 800px
     display: flex
     flex-wrap: wrap
     align-items: center
-    justify-content: center
     column-gap: 40px
     row-gap: 20px
-    margin: 0 auto
-    margin-bottom: 40px
   &__filter-item
     font-size: 1rem
     color: color.$ultramarine
@@ -113,6 +91,23 @@
       box-shadow: 0 4px 24px 0 rgba(32, 174, 228, 0.4)
       border: 1px solid color.$blue
 
-.home
-  .doctor__list
-    justify-content: center
+.doctor-practice
+  &[data-practice]
+    &::before
+      @include const.pseudo
+      width: 100%
+      height: 100%
+      background-repeat: no-repeat !important
+      background-position: 100% 60px !important
+      background-size: 100px !important
+      display: block
+      opacity: 0.15
+  &[data-practice="terap"]
+    &::before
+      background: url(images/services/terap.svg)
+  &[data-practice="hirur"]
+    &::before
+      background: url(images/services/hirur.svg)
+  &[data-practice="nevrol"]
+    &::before
+      background: url(images/services/nevrol.svg)

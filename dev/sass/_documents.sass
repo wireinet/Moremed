@@ -1,0 +1,62 @@
+@use 'colors' as color
+@use 'constants' as const
+.documents
+  display: flex
+  width: 100%
+  flex-direction: column
+  &__item
+    display: flex
+    gap: 20px
+    align-items: center
+    background: linear-gradient(270deg, color.$faded, white)
+    padding-bottom: 10px
+    border-bottom: 1px solid color.$blue
+    border-color: transparent
+    width: 100%
+    padding: 10px
+    border-radius: 10px
+    transition: border-color 0.5s ease-out
+    margin-bottom: 20px
+    p
+      margin-bottom: 0
+    &:hover
+      border-color: color.$blue
+      transition: border-color 0.25s ease-in
+      .documents__download
+        background-color: white
+        transition: 0.25s ease-in
+        background-size: 14px
+  &__icon
+    width: 40px
+    height: 40px
+    background: url(images/icons/docs.svg)
+    &--pdf
+      background-position: 0 0
+    &--xls
+      background-position: 40px 0
+    &--doc
+      background-position: 80px 0
+    &--txt
+      background-position: 80px 82px
+  &__main
+    flex: 1
+  &__name
+    display: block
+    font-size: 1rem
+    font-weight: 600
+    line-height: 120%
+    margin-bottom: 6px
+  &__size
+    color: color.$gray
+  &__download
+    display: block
+    width: 40px
+    height: 40px
+    border-radius: 100px
+    justify-self: flex-end
+    background-size: 13px
+    background-image: url(images/icons/download.svg)
+    background-repeat: no-repeat
+    background-position: center
+    filter: grayscale(1)
+    transition: 0.25s ease-out

@@ -1,0 +1,39 @@
+doctype html
+html(lang="en")
+  head
+    -var title = '10% скидка на МРТ и КТ исследование по воскресениям!'
+    include templates/head
+  body.page.discount-single.page--discount-single
+    .page__header
+      include templates/header
+      include templates/menu
+      .breadcrumbs.wrapper
+        a(href="/") Главная
+        a(href="/discounts.html") Скидки
+        a(href="/discount-single.html").active 10% скидка на МРТ и КТ исследование по воскресениям!
+    main.content.page__content
+      .page__bg-wrapper1
+        section.discount-single__header.wrapper
+          .discount-single__img
+            img(src="images/discount/discount-1.webp")
+          .discount-single__info
+            .discount__date до 11 декабря 2026 года
+            h1.section-titles.discount-single__title 10% скидка на МРТ и КТ исследование по воскресениям!
+            .discount-single__alert
+              include templates/filter-info-icon.svg
+              p требуется подготовка
+            .discount-single__alert
+              include templates/filter-info-icon.svg
+              p необходима предварительная консультация
+        section.discount-single__content.wrapper
+          h2 Описание условия акции
+          p Современные технологии достигли такого уровня, что семантический разбор внешних противодействий создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса поэтапного и последовательного развития общества. Однозначно, независимые государства и по сей день остаются уделом либералов, которые жаждут быть смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности. В рамках спецификации современных стандартов, интерактивные прототипы неоднозначны и будут призваны к ответу.
+        section.discount-single__appointment.wrapper
+          h2 Запись
+          include templates/form-slim
+        section.discount-single__similar.wrapper
+          h2 Другие акции
+          include templates/discount-list
+    include templates/popups
+    include templates/footer
+    include templates/scripts

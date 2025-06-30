@@ -21,9 +21,6 @@
     left: 0
     @include const.max(480px)
       background: rgba(255 255 255 / 0.9)
-    svg
-      position: relative
-      left: -1px
     &::after
       content: ""
       position: absolute
@@ -44,8 +41,8 @@
         opacity: 0.2
         transform: scale(3) translateX(20px)
         transition: 0.5s ease-out
-    &:first-child
-      transform: rotate(180deg)
     &--next
       left: auto
       right: 0
+    &--prev
+      transform: rotate(180deg)

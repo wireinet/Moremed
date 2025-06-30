@@ -1,0 +1,89 @@
+@use 'toc'
+@use 'author'
+@use 'colors' as color
+@use 'constants' as const
+.article-single
+  .page__bg-wrapper1
+    background-size: 2500px
+    background-position: -400px 0
+    background-repeat: repeat
+  &__content
+    padding-top: 20px
+    display: flex
+    gap: 40px
+    @include const.max(960px)
+      flex-direction: column
+    section
+      margin-bottom: 40px
+  &__toc
+    flex: 1 0 300px
+    max-width: 350px
+    .toc__collapse
+      display: none
+    &-track
+      height: 100%
+      &.fixed
+        position: fixed
+        top: 20px
+        left: auto
+        z-index: 10
+        width: 300px
+        @include const.max(570px)
+          top: 80px !important
+        .toc
+          transform: translateY(20px)
+          background: white
+          padding: 20px
+          box-shadow: 0 20px 20px 0 #aed7f499
+          @include const.max(960px)
+            &__collapse
+              display: block
+          &.collapsed
+            transition: 0.25s ease-in-out
+            @include const.max(570px)
+              width: 210px
+              transform: translateX(90px) scale(0.8)
+            .toc__collapse
+              transform: rotate(0)
+              transition: 0.25s ease-in-out
+            .toc__list
+              display: none
+        @include const.max(960px)
+          right: 20px
+          top: 20px
+        
+  &__header
+    display: flex
+    flex-wrap: wrap
+    gap: 40px
+    margin-bottom: 40px
+    .toc
+      background: none
+      box-shadow: none
+      padding: 0
+  &__post
+    height: auto
+    overflow-x: hidden
+  &__image
+    flex: 1 1 242px
+    max-width: 300px
+    height: auto
+    overflow: hidden
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+  &__title
+    display: flex
+    gap: 20px
+    align-items:  center
+    margin-bottom: 10px
+    p
+      margin: 0
+  &__date
+    color: color.$gray
+  &__excerpt
+    color: color.$persid
+  &__author
+    margin-bottom: 20px
+      

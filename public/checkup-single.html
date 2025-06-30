@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" type="text/css" href="libs/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="libs/swipebox/swipebox.min.css">
     <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -101,13 +102,13 @@
               </ul>
             </li>
             <li class="menu__item"><a href="/checkups.html">Чекапы</a></li>
-            <li class="menu__item"><a href="/services/discounts">Акции</a></li>
-            <li class="menu__item"><a href="/services/doctors">Врачи</a></li>
-            <li class="menu__item"><a href="/services/clinic">Клиника</a></li>
-            <li class="menu__item"><a href="/services/articles">Статьи</a></li>
-            <li class="menu__item"><a href="/services/vacancy">Вакансии</a></li>
-            <li class="menu__item"><a href="/services/review">Отзывы</a></li>
-            <li class="menu__item"><a href="/services/contacts">Контакты</a></li>
+            <li class="menu__item"><a href="/discounts.html">Акции</a></li>
+            <li class="menu__item"><a href="/doctors.html">Врачи</a></li>
+            <li class="menu__item"><a href="/clinic.html">Клиника</a></li>
+            <li class="menu__item"><a href="/articles.html">Статьи</a></li>
+            <li class="menu__item"><a href="/clinic-vacancy.html">Вакансии</a></li>
+            <li class="menu__item"><a href="/reviews.html">Отзывы</a></li>
+            <li class="menu__item"><a href="/contacts.html">Контакты</a></li>
           </ul>
           <ul class="menu__additions">
             <div class="menu__user">
@@ -493,7 +494,7 @@
         <h2>Врачи чекапов</h2>
         <div class="doctor">
           <ul class="doctor__list">
-            <li class="doctor__item block-item" data-practice="terap">
+            <li class="doctor__item block-item doctor-practice" data-practice="terap">
               <div class="doctor__main">
                 <div class="doctor__avatar avatar__size">
                   <div class="avatar swiper">
@@ -505,8 +506,7 @@
                     <div class="swiper-pagination"></div>
                   </div>
                 </div>
-                <div class="doctor__info"><a class="doctor__name" href="/doctor-single.html">
-                    <h3>Евгений Афонасьевич<strong>Евстигнеев</strong></h3></a>
+                <div class="doctor__info"><a class="doctor__name" href="/doctor-single.html"><span>Евгений Афонасьевич</span><strong>Евстигнеев</strong></a>
                   <p class="doctor__exp">Стаж: <strong>10</strong> лет</p>
                   <p class="doctor__practice">Терапевт</p>
                   <p class="doctor__reception">Ближ. прием в субботу, в 9:00</p>
@@ -522,7 +522,7 @@
                 </div>
               </div>
             </li>
-            <li class="doctor__item block-item" data-practice="hirur">
+            <li class="doctor__item block-item doctor-practice" data-practice="hirur">
               <div class="doctor__main">
                 <div class="doctor__avatar avatar__size">
                   <div class="avatar swiper">
@@ -533,8 +533,7 @@
                     <div class="swiper-pagination"></div>
                   </div>
                 </div>
-                <div class="doctor__info"><a class="doctor__name" href="/doctor-single.html">
-                    <h3>Андрей Дмитриевич<strong>Рожонин</strong></h3></a>
+                <div class="doctor__info"><a class="doctor__name" href="/doctor-single.html"><span>Андрей Дмитриевич<strong>Рожонин</strong></span></a>
                   <p class="doctor__exp">Стаж: <strong>10</strong> лет</p>
                   <p class="doctor__practice">Хирург</p>
                   <p class="doctor__reception">Ближ. прием во вторник, в 10:30</p>
@@ -550,7 +549,7 @@
                 </div>
               </div>
             </li>
-            <li class="doctor__item block-item" data-practice="nevrol">
+            <li class="doctor__item block-item doctor-practice" data-practice="nevrol">
               <div class="doctor__main">
                 <div class="doctor__avatar avatar__size">
                   <div class="avatar swiper">
@@ -563,8 +562,7 @@
                     <div class="swiper-pagination"></div>
                   </div>
                 </div>
-                <div class="doctor__info"><a class="doctor__name" href="/doctor-single.html">
-                    <h3>Елена Андреевна<strong>Абросимова</strong></h3></a>
+                <div class="doctor__info"><a class="doctor__name" href="/doctor-single.html"><span>Елена Андреевна<strong>Абросимова</strong></span></a>
                   <p class="doctor__exp">Стаж: <strong>8</strong> лет</p>
                   <p class="doctor__practice">Невролог</p>
                   <p class="doctor__reception">Ближ. прием в понедельник, в 12:30</p>
@@ -719,6 +717,7 @@
     <script src="libs/jquery-3.7.1.min.js"></script>
     <script src="libs/swiper/swiper-bundle.min.js"></script>
     <script src="libs/jquery.nicescroll.min.js"></script>
+    <script src="libs/swipebox/jquery.swipebox.min.js"></script>
     <script src="scripts.js"></script>
   </body>
 </html>

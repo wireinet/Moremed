@@ -1,0 +1,16 @@
+.doctors
+  &__header
+    display: flex
+    flex-wrap: wrap
+    gap: 20px
+    align-items: center
+    justify-content: space-between
+    ul.doctor__filter-list
+      flex: 0 1 auto
+    .search
+      flex: 1
+      &::before
+        background: url(images/icons/doc-icon.svg) no-repeat
+  &__pagination
+    .pagination__list
+      justify-content: center

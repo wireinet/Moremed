@@ -1,0 +1,56 @@
+@use 'colors' as color
+@use 'constants' as const
+.hash
+  height: 200px
+  display: none
+  &__list
+    display: flex
+    align-items: center
+    flex-wrap: wrap
+    gap: 20px
+  &__item
+    display: inline-block
+    position: relative
+    background: color.$faded
+    width: max-content
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: 10px 14px 10px 40px
+    border-radius: 20px
+    overflow: hidden
+    height: 40px
+    &:after
+      @include const.pseudo
+      width: 80px
+      height: 80px
+      left: -45px
+      top: -20px
+      border-radius: 100px
+      background: white
+    &:before
+      @include const.pseudo
+      width: 35px
+      height: 40px
+      left: 0
+      top: 0
+      background: url(images/hash.svg) no-repeat
+      background-size: 12px
+      background-position: center
+      z-index: 2
+    a
+      color: color.$ultramarine
+      position: relative
+      &:hover
+        &::after
+          opacity: 1
+          transition: opacity 0.25s ease-in
+      &::after
+        @include const.pseudo
+        height: 1px
+        width: 100%
+        top: auto
+        bottom: -3px
+        border: 1px dashed #76D6FA
+        opacity: 0
+        transition: opacity 0.25s ease-out

@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" type="text/css" href="libs/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="libs/swipebox/swipebox.min.css">
     <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -100,13 +101,13 @@
             </ul>
           </li>
           <li class="menu__item"><a href="/checkups.html">Чекапы</a></li>
-          <li class="menu__item"><a href="/services/discounts">Акции</a></li>
-          <li class="menu__item"><a href="/services/doctors">Врачи</a></li>
-          <li class="menu__item"><a href="/services/clinic">Клиника</a></li>
-          <li class="menu__item"><a href="/services/articles">Статьи</a></li>
-          <li class="menu__item"><a href="/services/vacancy">Вакансии</a></li>
-          <li class="menu__item"><a href="/services/review">Отзывы</a></li>
-          <li class="menu__item"><a href="/services/contacts">Контакты</a></li>
+          <li class="menu__item"><a href="/discounts.html">Акции</a></li>
+          <li class="menu__item"><a href="/doctors.html">Врачи</a></li>
+          <li class="menu__item"><a href="/clinic.html">Клиника</a></li>
+          <li class="menu__item"><a href="/articles.html">Статьи</a></li>
+          <li class="menu__item"><a href="/clinic-vacancy.html">Вакансии</a></li>
+          <li class="menu__item"><a href="/reviews.html">Отзывы</a></li>
+          <li class="menu__item"><a href="/contacts.html">Контакты</a></li>
         </ul>
         <ul class="menu__additions">
           <div class="menu__user">
@@ -280,9 +281,9 @@
             <h2>Услуги</h2>
             <p class="subtitle">Популярные:</p>
           </div>
-                  <div class="alphabet">
-                    <ul class="alphabet__list"></ul>
-                  </div>
+          <div class="alphabet">
+            <ul class="alphabet__list"></ul>
+          </div>
           <div class="services">
             <ul class="services__list">
               <li class="services__item icon icon--berem">Ведение беременности</li>
@@ -310,14 +311,14 @@
             <h2>Врачи</h2>
           </div>
           <p class="subdescription">Наши врачи обладают многолетним опытом работы и заслужили доверие тысяч пациентов благодаря своей компетентности и внимательному отношению к каждому человеку. Мы гордимся тем, что наши специалисты долгие годы остаются верны своему делу и работают ради вашего здоровья и благополучия.</p>
-          <div class="doctor-block__filter doctor__filter">
+          <div class="doctors-block__filter doctor__filter">
             <ul class="doctor__filter-list">
               <li class="doctor__filter-item active">Все</li>
             </ul>
           </div>
           <div class="doctor">
             <ul class="doctor__list">
-              <li class="doctor__item block-item" data-practice="terap">
+              <li class="doctor__item block-item doctor-practice" data-practice="terap">
                 <div class="doctor__main">
                   <div class="doctor__avatar avatar__size">
                     <div class="avatar swiper">
@@ -329,8 +330,7 @@
                       <div class="swiper-pagination"></div>
                     </div>
                   </div>
-                  <div class="doctor__info"><a class="doctor__name" href="/doctor-single.html">
-                      <h3>Евгений Афонасьевич<strong>Евстигнеев</strong></h3></a>
+                  <div class="doctor__info"><a class="doctor__name" href="/doctor-single.html"><span>Евгений Афонасьевич</span><strong>Евстигнеев</strong></a>
                     <p class="doctor__exp">Стаж: <strong>10</strong> лет</p>
                     <p class="doctor__practice">Терапевт</p>
                     <p class="doctor__reception">Ближ. прием в субботу, в 9:00</p>
@@ -346,7 +346,7 @@
                   </div>
                 </div>
               </li>
-              <li class="doctor__item block-item" data-practice="hirur">
+              <li class="doctor__item block-item doctor-practice" data-practice="hirur">
                 <div class="doctor__main">
                   <div class="doctor__avatar avatar__size">
                     <div class="avatar swiper">
@@ -357,8 +357,7 @@
                       <div class="swiper-pagination"></div>
                     </div>
                   </div>
-                  <div class="doctor__info"><a class="doctor__name" href="/doctor-single.html">
-                      <h3>Андрей Дмитриевич<strong>Рожонин</strong></h3></a>
+                  <div class="doctor__info"><a class="doctor__name" href="/doctor-single.html"><span>Андрей Дмитриевич<strong>Рожонин</strong></span></a>
                     <p class="doctor__exp">Стаж: <strong>10</strong> лет</p>
                     <p class="doctor__practice">Хирург</p>
                     <p class="doctor__reception">Ближ. прием во вторник, в 10:30</p>
@@ -374,7 +373,7 @@
                   </div>
                 </div>
               </li>
-              <li class="doctor__item block-item" data-practice="nevrol">
+              <li class="doctor__item block-item doctor-practice" data-practice="nevrol">
                 <div class="doctor__main">
                   <div class="doctor__avatar avatar__size">
                     <div class="avatar swiper">
@@ -387,8 +386,7 @@
                       <div class="swiper-pagination"></div>
                     </div>
                   </div>
-                  <div class="doctor__info"><a class="doctor__name" href="/doctor-single.html">
-                      <h3>Елена Андреевна<strong>Абросимова</strong></h3></a>
+                  <div class="doctor__info"><a class="doctor__name" href="/doctor-single.html"><span>Елена Андреевна<strong>Абросимова</strong></span></a>
                     <p class="doctor__exp">Стаж: <strong>8</strong> лет</p>
                     <p class="doctor__practice">Невролог</p>
                     <p class="doctor__reception">Ближ. прием в понедельник, в 12:30</p>
@@ -541,24 +539,18 @@
             <h2>Акции</h2>
           </div>
           <ul class="discount__list">
-            <li class="discount__item">
-              <div class="discount__name">
-                <h3 class="discount__title">10% скидка на МРТ и КТ исследование по воскресениям!</h3>
-              </div>
+            <li class="discount__item"><a class="discount__name" href="discount-single.html">
+                <h3 class="discount__title">10% скидка на МРТ и КТ исследование по воскресениям!</h3></a>
               <div class="discount__procent">-10%</div>
               <div class="discount__date">до 31 мая 2025 года</div><img class="discount__img" src="images/discount/discount-1.webp">
             </li>
-            <li class="discount__item">
-              <div class="discount__name">
-                <h3 class="discount__title">«Мужское / Женское здоровье - комплексный подход - Чекап-базовый» - за 42500 рублей!</h3>
-              </div>
+            <li class="discount__item"><a class="discount__name" href="discount-single.html">
+                <h3 class="discount__title">«Мужское / Женское здоровье - комплексный подход - Чекап-базовый» - за 42500 рублей!</h3></a>
               <div class="discount__procent">-8%</div>
               <div class="discount__date">до 11 декабря 2026 года</div><img class="discount__img" src="images/discount/discount-2.webp">
             </li>
-            <li class="discount__item">
-              <div class="discount__name">
-                <h3 class="discount__title">МРТ всего тела со скидкой!</h3>
-              </div>
+            <li class="discount__item"><a class="discount__name" href="discount-single.html">
+                <h3 class="discount__title">МРТ всего тела со скидкой!</h3></a>
               <div class="discount__procent">-90%</div>
               <div class="discount__date">до 15 августа 2025 года</div><img class="discount__img" src="images/discount/discount-3.webp">
             </li>
@@ -1016,6 +1008,7 @@
     <script src="libs/jquery-3.7.1.min.js"></script>
     <script src="libs/swiper/swiper-bundle.min.js"></script>
     <script src="libs/jquery.nicescroll.min.js"></script>
+    <script src="libs/swipebox/jquery.swipebox.min.js"></script>
     <script src="scripts.js"></script>
   </body>
 </html>

@@ -1,0 +1,39 @@
+doctype html
+html(lang="en")
+  head
+    -var title = 'Клиника - документы'
+    include templates/head
+  body.page.clinic.page--clinic
+    h1.hidden Документы клиники
+    .page__header
+      include templates/header
+      include templates/menu
+      .breadcrumbs.wrapper
+        a(href="/") Главная
+        a(href="/clinic.html").active Клиника
+    main.content.page__content
+      .page__bg-wrapper1
+        section.clinic__content.wrapper
+          aside.clinic__aside
+              ul.clinic__parts
+                li.clinic__part
+                  a(href="/clinic.html") О клинике
+                li.clinic__part
+                  a(href="/clinic-requisites.html") Реквизиты
+                li.clinic__part
+                  a(href="/clinic-information.html") Информация об организации
+                li.clinic__part
+                  a.active(href="/clinic-docs.html") Документы организации
+                li.clinic__part
+                  a(href="/clinic-for-patients.html") Информация для пациентов
+                li.clinic__part
+                  a(href="/clinic-organs.html") Вышестоящие и контролирующие органы
+                li.clinic__part
+                  a(href="/clinic-vacancy.html") Вакансии
+          .clinic__part-content
+            section.clinic__documents
+              h2 Документы организации
+              include templates/documents
+
+    include templates/footer
+    include templates/scripts

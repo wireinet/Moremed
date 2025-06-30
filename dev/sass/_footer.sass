@@ -11,6 +11,9 @@
     flex-direction: column
     gap: 40px
     justify-content: space-between
+    &:first-child
+      .footer__contact
+        align-items: center
   &__group
     display: flex
     flex-direction: column
@@ -34,6 +37,16 @@
   &__menu
     overflow: hidden
     overflow-y: auto
+    &::-webkit-scrollbar
+      width: 2px !important
+    &::-webkit-scrollbar-track
+      background: #fdfeff
+    &::-webkit-scrollbar-thumb
+      background-color: color.$blue
+      border-radius: 100px
+      border: 3px solid color.$blue
+    scrollbar-width: thin !important
+    scrollbar-color: color.$blue color.$footer !important
     @include const.min(481px)
       height: 200px
     &-item
@@ -60,6 +73,9 @@
     justify-content: space-between
     flex-wrap: wrap
     gap: 40px
+    @include const.max(1060px)
+      margin-left: 20px
+      margin-right: 20px
     &:not(:last-child)
       border-bottom: 1px solid color.$persid
     &:last-child

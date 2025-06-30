@@ -1,0 +1,46 @@
+doctype html
+html(lang="en")
+  head
+    -var title = 'Клиника - информация об организации'
+    include templates/head
+  body.page.clinic.page--clinic
+    h1.hidden Информация об организации
+    .page__header
+      include templates/header
+      include templates/menu
+      .breadcrumbs.wrapper
+        a(href="/") Главная
+        a(href="/clinic.html").active Клиника
+    main.content.page__content
+      .page__bg-wrapper1
+        section.clinic__content.wrapper
+          aside.clinic__aside
+              ul.clinic__parts
+                li.clinic__part
+                  a(href="/clinic.html") О клинике
+                li.clinic__part
+                  a(href="/clinic-requisites.html") Реквизиты
+                li.clinic__part
+                  a.active(href="/clinic-information.html") Информация об организации
+                li.clinic__part
+                  a(href="/clinic-docs.html") Документы организации
+                li.clinic__part
+                  a(href="/clinic-for-patients.html") Информация для пациентов
+                li.clinic__part
+                  a(href="/clinic-organs.html") Вышестоящие и контролирующие органы
+                li.clinic__part
+                  a(href="/clinic-vacancy.html") Вакансии
+          .clinic__part-content
+            section
+              div
+                p ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ «КЛИНИКА НОБИЛИ» (ООО «КЛИНИКА НОБИЛИ», КНИНИКА «МОРЕМЕД.РФ)
+                p Адрес: 
+                  a(href="https://yandex.ru/maps/-/CHcJbBid" target="_blank" ) 353905, Краснодарский край, г. Новороссийск, ул.Энгельса, дом № 91
+                p Телефон: 
+                  a(href="tel:+78617308968") +7 (8617) 30-89-68
+                p e-mail: 
+                  a(href="mailto:info@moremedrf.ru" target="_blank") info@moremedrf.ru
+                p Скачать 
+                  a(href="files/company.pdf" target="_blank") файлом (pdf)
+    include templates/footer
+    include templates/scripts

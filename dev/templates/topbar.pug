@@ -10,7 +10,9 @@
         span Запись онлайн
     .topbar__group
       .topbar__search
-        include search
+        .search
+          input.search__input(placeholder="поиск")
+          input(type="submit").search__submit
       include hamburger
       .topbar__contact
         .topbar__phone

@@ -1,5 +1,8 @@
+@use 'constants' as const
 .checkup-block
   margin-bottom: 160px
+  @include const.max(570px)
+    margin-bottom: 80px
   .subdescription
     max-width: 600px
   &__slide
@@ -11,5 +14,4 @@
     .checkup__list
       flex-wrap: nowrap
     .checkup__item
-      margin-top: 40px
       flex: 1 0 470px

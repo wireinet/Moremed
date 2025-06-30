@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+  head
+    -var title = 'Акции'
+    include templates/head
+  body.page.discounts.page--discounts
+    .page__header
+      include templates/header
+      include templates/menu
+      .breadcrumbs.wrapper
+        a(href="/") Главная
+        a(href="/discounts.html").active Скидки
+    main.content.page__content
+      section.discounts__header.wrapper
+        h1 Акции
+      section.discount.wrapper
+        include templates/discount-list
+      .discounts__pagination.wrapper
+        include templates/pagination
+    include templates/popups
+    include templates/footer
+    include templates/scripts

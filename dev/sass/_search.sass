@@ -2,11 +2,15 @@
 @use 'constants' as const
 .search
   position: relative
+  max-width: 250px
+  padding: 1px
   &__input
+    width: 100%
+    min-width: 200px
     font-family: inherit
     padding: 6px 12px
     border-radius: 100px
-    border: none
+    border: 1px solid color.$blue
     height: 34px
     transition: 0.25s ease-in-out
     outline: 2px solid transparent
@@ -17,28 +21,33 @@
     &:focus
       transition: 0.25s ease-in-out
       outline: 2px solid color.$blue
-      padding-right: 20px
-    @include const.max(1127px)
-      display: none
+      padding-right: 40px
   &__submit
-    border: none
-    width: 34px
-    height: 34px
-    background: white url(images/search-2.svg)
+    background: url(images/search.svg)
     background-repeat: no-repeat
     background-position: center
-    font-size: 0
     background-size: 16px
+    right: 6px
+    font-size: 0
+    border: none
+    position: absolute
+    width: 34px
+    height: 34px
     cursor: pointer
-    transition: background 0.5s ease-out
-    border-radius: 100px
-    @include const.min(1128px)
-      background: white url(images/search.svg)
-      background-repeat: no-repeat
-      background-position: center
-      background-size: 16px
-      position: absolute
-      right: 6px
     &:hover
       background-size: 20px
-      transition: background 0.25s ease-in 
+      transition: background 0.25s ease-in
+  &--special
+    .search__input
+      padding-left: 40px
+    &::before
+      @include const.pseudo
+      width: 40px
+      height: 34px
+      position: absolute
+      left: 0
+      top: 0
+      display: block
+      background: red //pаменется соответствием
+      background-size: 20px !important
+      background-position: center !important

@@ -1,0 +1,50 @@
+@use 'colors' as color
+@use 'constants' as const
+.toc
+  background: white
+  padding: 20px
+  border-radius: 10px
+  display: flex
+  flex-direction: column
+  gap: 20px
+  box-shadow: 0 20px 20px 0 #aed7f499
+  position: relative
+  &:hover
+    transition: 0.25s ease-in
+    .toc__collapse
+      transition: background 0.25s ease-in
+      background-size: 80%
+      cursor: pointer
+  &__title
+    color: color.$persid
+    font-weight: 600
+    font-size: 1.25rem
+  &__list
+    display: flex
+    align-items: flex-start
+    flex-direction: column
+    gap: 10px
+  &__item
+    font-size: .85rem
+    display: inline-block
+    color: color.$persid
+    cursor: pointer
+    background-color: #F3FCFF
+    padding: 6px 12px
+    border-radius: 100px
+    &.active
+      color: white
+      background-color: color.$blue
+  &__collapse
+    width: 40px
+    height: 40px
+    background: url(images/icons/toc-collapse-icon.svg) no-repeat
+    background-position: center
+    background-size: contain
+    position: absolute
+    right: 0
+    bottom: 0
+    transition: background 0.5s ease-out
+    caret-color: transparent
+    transform: rotate(180deg)
+    transition: 0.25s ease-in-out

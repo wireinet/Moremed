@@ -1,0 +1,26 @@
+doctype html
+html(lang="en")
+  head
+    -var title = 'Отзывы'
+    include templates/head
+  body.page.reviews.page--reviews
+    .page__header
+      include templates/header
+      include templates/menu
+      .breadcrumbs.wrapper
+        a(href="/") Главная
+        a(href="/clinic.html").active Отзывы
+    main.content.page__content
+      .page__bg-wrapper1
+        section.reviews__content.wrapper
+          h1 Отзывы
+          .reviews__tabs.tabs
+            .tabs__tabs
+              .tabs__tab-label.active О клинике
+              .tabs__tab-label Отзывы на врачей
+            .tabs__tab-content.active
+              p Тут виджет с отзывами на клинику
+            .tabs__tab-content
+              p Тут на врачей
+    include templates/scripts
+    include templates/footer

@@ -1,0 +1,39 @@
+doctype html
+html(lang="en")
+  head
+    -var title = 'Врачи'
+    include templates/head
+  body.page.doctors.page--doctors
+    .page__header
+      include templates/header
+      include templates/menu
+      .breadcrumbs.wrapper
+        a(href="/") Главная
+        a(href="/doctors.html").active Врачи
+    main.content.page__content
+      .page__bg-wrapper1
+        section.wrapper.doctors__header
+          h1 Врачи
+          ul.doctor__filter-list
+            li.doctor__filter-item.active Все
+          .search.search--special
+            input.search__input(placeholder="Поиск врача")
+            input(type="submit").search__submit
+        section.wrapper.doctors__list
+          include templates/doctors-list
+        section.doctors__pagination
+          include templates/pagination
+        section.doctors__hash
+          include templates/hash-list
+        section.doctors__moreinfo.wrapper
+          .block-moreinfo
+            .block-moreinfo-text
+              p Мы ценим каждого пациента и стремимся создать комфортную атмосферу для всех, кто обращается за медицинской помощью. Уверены, что вместе мы сможем справиться с любыми проблемами и поддержать ваше здоровье на высоком уровне!
+              <br>
+              P Наши врачи — настоящие профессионалы своего дела. Они обладают многолетним опытом работы и заслужили доверие тысяч пациентов благодаря своей компетентности и внимательному отношению к каждому человеку. Мы гордимся тем, что наши специалисты долгие годы остаются верны своему делу, продолжая совершенствовать знания и навыки ради вашего здоровья и благополучия.
+            .block-moreinfo-image
+              img(src="images/image-context-doctors2.webp" alt="context-doctors")
+
+    include templates/popups
+    include templates/footer
+    include templates/scripts

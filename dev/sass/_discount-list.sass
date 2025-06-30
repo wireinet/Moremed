@@ -15,6 +15,11 @@
     position: relative
     z-index: 1
     padding: 20px
+    &:hover
+      .discount__title
+        transition: 0.25 ease-in
+        color: color.$persid
+        background: color.$faded
   &__name
     order: 1
   &__title
@@ -27,6 +32,7 @@
     padding: 2px 6px
     line-height: 120%
     border-radius: 6px
+    transition: 0.5 ease-out
   &__date
     order: 0
     background: color.$discount-date url(images/time.svg) no-repeat
@@ -36,6 +42,7 @@
     border-radius: 100px
     padding: 6px 10px 6px 30px
     margin-bottom: 10px
+    display: inline-block
   &__procent
     position: absolute
     top: 20px
@@ -52,6 +59,7 @@
     font-family: inherit
     color: color.$ultramarine
   &__img
+    user-select: none
     position: absolute
     left: 0
     top: 0
@@ -59,4 +67,5 @@
     width: 100%
     height: 100%
     object-fit: cover
+    cursor: default
 

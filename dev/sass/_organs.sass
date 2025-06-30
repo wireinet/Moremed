@@ -1,0 +1,24 @@
+@use 'colors' as color
+@use 'constants' as const
+.organs
+  &__list
+    display: flex
+    flex-wrap: wrap
+    gap: 20px
+  &__item
+    flex: 1 1 40%
+
+.organ
+  display: flex
+  gap: 10px
+  align-items: center
+  flex-direction: column
+  justify-content: center
+  background: white
+  border-radius: 20px
+  padding: 20px
+  color: color.$persid
+  text-align: center
+  line-height: 120%
+  border: 1px solid color.$faded
+

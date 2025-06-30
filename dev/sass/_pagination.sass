@@ -1,0 +1,32 @@
+@use 'colors' as color
+@use 'constants' as const
+.pagination
+  margin-bottom: 40px
+  &__list
+    display: flex
+    gap: 60px
+  &__item
+    display: flex
+    align-items: center
+    justify-content: center
+    border-radius: 100px
+    min-width: 24px
+    min-height: 24px
+    transition: 0.25s ease-in-out
+    &:hover
+      transition: 0.25s ease-in-out
+      background-color: white
+    a
+      padding: 4px
+      caret-color: transparent
+      font-size: 1rem
+      display: inline-block
+      text-decoration: none
+      font-family: inherit
+      color: color.$ultramarine
+    &.current
+      transform: scale(1.2)
+      transition: 0.25s ease-in-out
+      background-color: color.$blue
+      a
+        color: white

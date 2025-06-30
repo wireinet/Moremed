@@ -1,0 +1,98 @@
+@use 'colors' as color
+@use 'constants' as const
+.articles
+  &__header
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: space-between
+    gap: 20px
+    &-group
+      display: flex
+      flex-wrap: wrap
+      align-items: center
+      row-gap: 10px
+      column-gap: 60px
+    .search
+      @include const.max(780px)
+        width: 100%
+        max-width: 100%
+      &--special
+        &:before
+          background: url(images/icons/article-icon.svg) no-repeat
+    .alphabet
+      position: relative
+      top: 2px
+      &__list
+        justify-content: flex-start
+  &__all
+    display: flex
+    gap: 20px
+    @include const.max(800px)
+      flex-direction: column
+  &__filter
+    padding: 20px
+    width: 320px
+    flex: 0 0 400px
+    height: 100%
+    background-color: rgba(255, 255, 255, 0.6)
+    border-radius: 20px
+    display: flex
+    flex-direction: column
+    gap: 40px
+    @include const.max(800px)
+      flex: 1 1 100%
+      width: 100%
+    &-header
+      display: flex
+      gap: 20px
+      a
+        font-size: 1.25rem
+        color: color.$white3
+        &.current
+          color: color.$persid
+    &-title
+      font-size: 1.25rem
+      color: color.$persid
+      font-weight: 600
+      margin-bottom: 20px
+    &-group
+      display: flex
+      flex-direction: column
+      gap: 10px
+      margin-bottom: 40px
+    &-themes, &-authors
+      display: flex
+      gap: 10px
+      flex-wrap: wrap
+      li
+        color: color.$persid
+        font-size: 1rem
+        cursor: pointer
+        padding: 6px 10px
+        border-radius: 100px
+        background-color: rgba(212, 243, 255, 0.25)
+        transition: 0.5s ease-in
+        &:hover
+          transition: 0.25s ease-in
+          background-color: rgba(212, 243, 255, 0.9)
+        &.active
+          color: white
+          background: color.$blue
+          padding: 6px 10px
+          border-radius: 100px
+    &-info
+      display: flex
+      align-items: center
+      gap: 10px
+      svg
+        flex: 0 0 32px
+      p
+        margin-bottom: 0
+        color: color.$ultramarine
+  &__area
+    width: 100%
+
+  .pagination
+    margin-top: 20px
+    margin-bottom: 20px

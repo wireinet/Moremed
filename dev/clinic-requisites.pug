@@ -1,0 +1,59 @@
+doctype html
+html(lang="en")
+  head
+    -var title = 'Клиника - реквизиты'
+    include templates/head
+  body.page.clinic.page--clinic
+    h1.hidden "Моремед" реквизиты
+    .page__header
+      include templates/header
+      include templates/menu
+      .breadcrumbs.wrapper
+        a(href="/") Главная
+        a(href="/clinic.html").active Клиника
+    main.content.page__content
+      .page__bg-wrapper1
+        section.clinic__content.wrapper
+          aside.clinic__aside
+              ul.clinic__parts
+                li.clinic__part
+                  a(href="/clinic.html") О клинике
+                li.clinic__part
+                  a.active(href="/clinic-requisites.html") Реквизиты
+                li.clinic__part
+                  a(href="/clinic-information.html") Информация об организации
+                li.clinic__part
+                  a(href="/clinic-docs.html") Документы организации
+                li.clinic__part
+                  a(href="/clinic-for-patients.html") Информация для пациентов
+                li.clinic__part
+                  a(href="/clinic-organs.html") Вышестоящие и контролирующие органы
+                li.clinic__part
+                  a(href="/clinic-vacancy.html") Вакансии
+          .clinic__part-content
+            section.table-like
+              p Полное наименование:
+              p Общество с ограниченной ответственностью «КЛИНИКА НОБИЛИ»
+              p Сокращенное наименование:
+              p ООО «КЛИНИКА НОБИЛИ»
+              p ИНН/КПП:
+              p 2315219209/231501001
+              p ОГРН:
+              p 1202300071050
+              p Юридический адрес:
+              p г. Новороссийск, ул. Энгельса, д. 91
+              p Фактический адрес:
+              p г. Новороссийск, ул. Энгельса, д. 91
+              p Телефон, факс:
+              p 8 (8617) 30-89-59
+              p Электронная почта:
+              p
+                a(href="mailto:info@moremedrf.ru" target="_blank") info@moremedrf.ru
+              p Сайт:
+              p
+                a(href="http://моремед.рф" target="_blank") http://моремед.рф
+              p Банковские реквизиты:
+              p БИК 040349602Р/с №40702810130000050580 в ПАО "Сбербанк" Кор/счет 30101810100000000602
+
+    include templates/footer
+    include templates/scripts

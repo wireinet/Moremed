@@ -163,6 +163,123 @@ $(function() {
     console.log('Значение скрытого инпута времени(#form-time): ' + $('#form-time').val());
   })
 });
+// ARTICLES ALPHABET
+$(function() {
+  const alphabetContainer = $('.alphabet__list');
+  let badgesUniq = new Set();
+  const articleItem = $('.article__item');
+  // get letters
+  $.each(articleItem, function(index, item){
+    let name = $(item).find('.article__name').text();
+    let letter = $(item).find('.article__name').text().charAt(0);
+    badgesUniq.add(letter);
+  });
+  // create alphabet items
+  badgesUniq.forEach(item =>{
+    alphabetContainer.append(`
+      <li class="alphabet__item">
+        ${item}
+      </li>
+    `);
+  });
+});
+
+// ARTICLES THEMES
+$(function() {
+  const themesContainer = $('.articles__filter-themes');
+  const themeItem = $('.articles__filter-themes li');
+  const articleItems = $('.article__item');
+  const themesUniq = new Set();
+  articleItems.each(function (index, item) {
+    $(item).each(function (index, item) {
+      const articleTheme = $(item).find('.article__tag').text();
+      themesUniq.add(articleTheme);
+  });
+});
+themesUniq.forEach(item =>{
+  themesContainer.append(`
+    <li>
+      ${item}
+    </li>
+  `);
+});
+});
+$(function() {
+  $('.articles__filter-themes li').click(function(){
+      $('.pagination__list').fadeOut(100);
+      $('.articles__filter-themes li').first().removeClass('active');
+      $(this).toggleClass('active');
+      let theme = $(this).text();
+      const activeThemes = $('.articles__filter-themes li.active')
+      .map((i, el) => $(el).text().trim()).get();
+
+      const articleItems = $('.article__item');
+      articleItems.fadeOut(100);
+
+      articleItems.each(function (index, item) {
+      const articleTheme = $(item).find('.article__tag').text();
+
+      if (activeThemes.length > 0 && activeThemes.includes(articleTheme)) {
+        $(item).fadeIn(100);
+      }
+      });
+
+    if (activeThemes.length === 0) {
+      articleItems.fadeIn(100);
+      $('.pagination__list').fadeIn(100);
+    }
+    $('.articles__filter-themes li').first().click(function(){
+      articleItems.fadeIn(100);
+      articleItems.removeClass('active');
+    })
+    });
+});
+
+// ARTICLES AUTHORS
+$(function() {
+  // Get authors
+  let authors = $('.article__item');
+  let authorsUniq = new Set();
+  const authorsContainer = $('.articles__filter-authors');
+  authors.each(function(item){
+    let authorsExists = $(this).attr('data-author');
+    authorsUniq.add(authorsExists);
+  });
+  // Render authors
+  authorsUniq.forEach(item =>{
+    authorsContainer.append(`
+      <li>
+        ${item}
+      </li>
+    `);
+  });
+  ///
+  $('.articles__filter-authors li').click(function(){
+    $('.pagination__list').fadeOut(100);
+    $(this).toggleClass('active');
+    let author = $(this).text();
+
+    const activeAuthors = $('.articles__filter-authors li.active')
+    .map((i, el) => $(el).text().trim()).get();
+
+    const articleItems = $('.article__item');
+    articleItems.fadeOut(100);
+
+    articleItems.each(function (index, item) {
+    const articleAuthor = $(item).data('author');
+
+    if (activeAuthors.length > 0 && activeAuthors.includes(articleAuthor)) {
+      $(item).fadeIn(100);
+    }
+    });
+
+  if (activeAuthors.length === 0) {
+    articleItems.fadeIn(100);
+    $('.pagination__list').fadeIn(100);
+  }
+
+  });
+});
 // SLIDER
 setTimeout(()=>{
 const avatar = new Swiper('.avatar', {
@@ -250,6 +367,21 @@ const slide1 = new Swiper('.banner__slider', {
     }
 });
 }, 1000);
+// FILTER CHECKUPS
+$(function(){
+  let checkupFilterItem = $('.filter__check-item');
+  let resetFilterButton = $('.filter__reset button');
+  
+  // filter-checks
+    checkupFilterItem.click(function(){
+      $(this).toggleClass('checked');
+    });
+
+  // filter-reset
+    resetFilterButton.click(function(){
+      checkupFilterItem.removeClass('checked');
+    });
+});
 // checkup sublist open
 $(function(){
   const checkupPopupList = $('.checkup__popuplist');
@@ -341,15 +473,14 @@ $(function(){
 });
 // use filter
 $(function(){
-
     const doctorFilter = $(".doctor__filter-item");
+    const hashContainer = $('.hash__list');
     doctorFilter.click(function(){
       doctorFilter[0].classList.remove("active");
       $(this).toggleClass("active");
       let buttonFilter = $(this).text();
       let doctorItem = $(".doctor__item");
       doctorItem.addClass('hidden');
-      console.log(buttonFilter);
 
       doctorItem.each(function(index, item){
         let practice = $(item).find(".doctor__practice").text();
@@ -363,11 +494,88 @@ $(function(){
         $(this).addClass('active');
         doctorItem.removeClass('hidden');
         doctorItem.removeClass('selected');
+        $('.hash').fadeOut(200);
       }
+      else{
+        $('.hash').fadeIn(200);
+      }
+
+      if($('.doctor__item.selected').length === 0){
+        doctorFilter[0].classList.add("active");
+        doctorItem.removeClass('selected');
+        doctorItem.removeClass('hidden');
+        $('.hash').fadeOut(200);
+        hashContainer.empty();
+      }
+
+      // Список хеш-тегов
+      const terapevtHash = ['Повышенная температура', 'Хронические недомогания', 'Кардиологические симптомы', 'Проблемы с пищеварением', 'Кожные изменения'];
+      const hirurgHash = ['Сломанные кости', 'Внутренние боли', 'Боль в суставах', 'Боль при движении'];
+      const nevrolHash = ['Головные боли', 'Мигрени', 'Судороги'];
+
+      // Функция для вывода соответствующих хеш-тегов
+      function currentHashItems(HashListItems){
+        hashContainer.empty();
+        HashListItems.forEach(function(linkName){
+          const hashItem = document.createElement('li');
+          hashItem.className = 'hash__item';
+          let hashLink = document.createElement('a');
+          hashLink.href = '#';
+          hashLink.textContent = linkName;
+          hashItem.appendChild(hashLink);
+          hashContainer.append(hashItem);
+        });
+      }
+
+      if(buttonFilter === "Терапевт"){
+        currentHashItems(terapevtHash);
+      }
+      else if(buttonFilter === "Хирург"){
+        currentHashItems(hirurgHash);
+      }
+      else if(buttonFilter === "Невролог"){
+        currentHashItems(nevrolHash);
+      }
+      if(buttonFilter === "Все"){
+        hashContainer.empty();
+      }
+
+
 
 
       });
   })
+// DOCTOR SINGLE SLIDER
+setTimeout(()=>{
+const avatar = new Swiper('.doctor-single__slider', {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    loop: true,
+    navigation: {
+      nextEl: '.doctor-single__slider .slider__arrow--next',
+      prevEl: '.doctor-single__slider .slider__arrow--prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+    },
+    breakpoints: {
+      1200:{
+        slidesPerView: '4',
+      },
+      900:{
+        slidesPerView: '3',
+        spaceBetween: 30,
+      },
+      600:{
+        slidesPerView: '2',
+      },
+      480:{
+        slidesPerView: '1',
+      },
+    }
+});
+}, 1000);
 // EQUIPMENT
 setTimeout(()=>{
 const avatar = new Swiper('.equipment__slider', {
@@ -397,21 +605,6 @@ const avatar = new Swiper('.equipment__slider', {
     }
 });
 }, 1000);
-// FILTER CHECKUPS
-$(function(){
-  let checkupFilterItem = $('.filter__check-item');
-  let resetFilterButton = $('.filter__reset button');
-  
-  // filter-checks
-    checkupFilterItem.click(function(){
-      $(this).toggleClass('checked');
-    });
-
-  // filter-reset
-    resetFilterButton.click(function(){
-      checkupFilterItem.removeClass('checked');
-    });
-});
 // FORM--slim
 $(function(){
   // disable send
@@ -448,6 +641,45 @@ $(function(){
     $(this).find('.include__content').slideToggle();
   });
 });
+// LIGHTBOX SWIPEBOX
+$(function() {
+  $('.swipebox').swipebox();
+});
+// ВРЕМЕННОЕ РЕШЕНИЕ ДЛЯ ПОНИМАНИЯ - ОТКЛЮЧИ ПОТОМ, КОГДА НА PHP БУДЕТ
+function menuCurrentItem() {
+  if($('body').hasClass('page--clinic')) {
+    let currentMenuItem = $('.clinic .menu li.menu__item').eq(4).find('a').addClass('active');
+  }
+  else if($('body').hasClass('page--doctors')) {
+    let currentMenuItem = $('.doctors .menu li.menu__item').eq(3).find('a').addClass('active');
+  }
+  else if($('body').hasClass('page--discounts')) {
+    let currentMenuItem = $('.discounts .menu li.menu__item').eq(2).find('a').addClass('active');
+  }
+  else if($('body').hasClass('page--checkups')) {
+    let currentMenuItem = $('.checkups .menu li.menu__item').eq(1).find('a').addClass('active');
+  }
+  else if($('body').hasClass('page--services')) {
+    let currentMenuItem = $('.services .menu li.menu__item').eq(0).find('a').addClass('active');
+  }
+  else if($('body').hasClass('page--articles')) {
+    let currentMenuItem = $('.articles .menu li.menu__item').eq(5).find('a').addClass('active');
+  }
+  else if($('body').hasClass('page--vacancy')) {
+    let currentMenuItem = $('.vacancy .menu li.menu__item').eq(6).find('a').addClass('active');
+  }
+  else if($('body').hasClass('page--clinic-vacancy')) {
+    let currentMenuItem = $('.page--clinic-vacancy .menu li.menu__item').eq(6).find('a').addClass('active');
+  }
+  else if($('body').hasClass('page--reviews')) {
+    let currentMenuItem = $('.reviews .menu li.menu__item').eq(7).find('a').addClass('active');
+  }
+  else if($('body').hasClass('page--contacts')) {
+    let currentMenuItem = $('.contacts .menu li.menu__item').eq(8).find('a').addClass('active');
+  }
+}
+menuCurrentItem();
+// NICESCROLL
 $(function() {
     function startNiceScroll() {
     $("body").niceScroll({
@@ -456,44 +688,44 @@ $(function() {
         scrollspeed: 120,
         horizrailenabled: false
     });
-    $(".services__list").niceScroll({
-        cursorcolor:"#20AEE4",
-        cursorwidth: "4px",
-        scrollspeed: 120,
-        autohidemode: false
-    });
-    $(".appointment__date").niceScroll({
-        cursorcolor:"#20AEE4",
-        cursorwidth: "4px",
-        scrollspeed: 120,
-        autohidemode: false,
-        grabcursorenabled: true,
-        emulatetouch: true,
-    });
-    $(".appointment__time").niceScroll({
-        cursorcolor:"#20AEE4",
-        cursorwidth: "0",
-        scrollspeed: 120,
-        autohidemode: false,
-        grabcursorenabled: true,
-        emulatetouch: true,
-    });
-    $(".checkup-block__slide").niceScroll({
-        cursorcolor:"#20AEE4",
-        cursorwidth: "4px",
-        scrollspeed: 120,
-        autohidemode: true,
-        grabcursorenabled: true,
-        emulatetouch: true,
-    });
-    $(".checkup__popuplist").niceScroll({
-        cursorcolor:"#20ace400",
-        cursorwidth: "4px",
-        scrollspeed: 120,
-        autohidemode: false,
-        grabcursorenabled: true,
-        emulatetouch: true,
-        });
+    // $(".services__list").niceScroll({
+    //     cursorcolor:"#20AEE4",
+    //     cursorwidth: "4px",
+    //     scrollspeed: 120,
+    //     autohidemode: false
+    // });
+    // $(".appointment__date").niceScroll({
+    //     cursorcolor:"#20AEE4",
+    //     cursorwidth: "4px",
+    //     scrollspeed: 120,
+    //     autohidemode: false,
+    //     grabcursorenabled: true,
+    //     emulatetouch: true,
+    // });
+    // $(".appointment__time").niceScroll({
+    //     cursorcolor:"#20AEE4",
+    //     cursorwidth: "0",
+    //     scrollspeed: 120,
+    //     autohidemode: false,
+    //     grabcursorenabled: true,
+    //     emulatetouch: true,
+    // });
+    // $(".checkup-block__slide").niceScroll({
+    //     cursorcolor:"#20AEE4",
+    //     cursorwidth: "4px",
+    //     scrollspeed: 120,
+    //     autohidemode: true,
+    //     grabcursorenabled: true,
+    //     emulatetouch: true,
+    // });
+    // $(".checkup__popuplist").niceScroll({
+    //     cursorcolor:"#20ace400",
+    //     cursorwidth: "4px",
+    //     scrollspeed: 120,
+    //     autohidemode: false,
+    //     grabcursorenabled: true,
+    //     emulatetouch: true,
+    //     });
     $(".footer__menu").niceScroll({
         cursorcolor:"#20AEE4",
         cursorborder: "1px solid #20AEE4",
@@ -505,16 +737,18 @@ $(function() {
         });
     }
     startNiceScroll();
-    // Рестарт Nicescroll при скроле
-    $(window).scroll(function() {
-        startNiceScroll();
-        // if(matchMedia('(max-width: 640px)').matches) {
-        //     $("body").niceScroll().remove()
-        //     $(".services__list").niceScroll().remove()
-        //     $(".appointment__date").niceScroll().remove()
-        //     $(".appointment__time").niceScroll().remove()
-        // }
-    });
+
+
+});
+// PAGINATION
+$(function(){
+  const pagination = $('.pagination__item');
+  pagination.on('click', function(){
+    if(!$(this).hasClass('current')){
+      pagination.removeClass('current');
+      $(this).addClass('current');
+    }
+  });
 });
 // POPUPs
 const popup = function(button, popup) {
@@ -538,21 +772,124 @@ const popup = function(button, popup) {
 // --SCROLL
 $(function(){
     var hashTagActive = "";
-    $(".scroll").on("click touchstart" , function (event) {
-
-            event.preventDefault();
-            $('.topbar__menu').removeClass('topbar__menu--mob')
-            var dest = 0;
-            if ($(this.hash).offset().top > $(document).height() - $(window).height()) {
-                dest = $(document).height() - $(window).height();
-            } else {
-                dest = $(this.hash).offset().top;
-            }
-            $('html,body').animate({
-                scrollTop: dest - 290 + "px"
-            }, 2000, 'swing');
-            
+        $(".scroll").on("click touchstart" , function (event) {
+        event.preventDefault();
+        var dest = 0;
+        if ($(this.hash).offset().top > $(document).height() - $(window).height()) {
+            dest = $(document).height() - $(window).height();
+        } else {
+            dest = $(this.hash).offset().top;
+        }
+        $('html,body').animate({
+            scrollTop: dest - 80 + "px"
+        }, 2000, 'swing');
     });
+
+});
+// TABS
+$(function () {
+  const tabs = $('.tabs__tab-label');
+  const tabContent = $('.tabs__tab-content');
+
+  function removeActiveTab(collection) {
+    collection.removeClass('active');
+  }
+
+  function setToActive(collection, index) {
+    collection.eq(index).addClass('active');
+  }
+
+  tabs.on('click', function () {
+    const currentIndex = $(this).index();
+
+    removeActiveTab(tabs);
+    removeActiveTab(tabContent);
+
+    setToActive(tabs, currentIndex);
+    setToActive(tabContent, currentIndex);
+  });
+});
+// TABLE OF CONTENT
+// create TOC list
+$(function(){
+  const tocContainer = $('.toc__list');
+  let articleTitles = $('.article-single__post h2');
+  articleTitles.each(function(index, title){
+    let titles = $(title).text();
+    tocContainer.append(`
+      <li><a class="scroll toc__item" href="#${titles}">${titles}</a></li>
+      `);
+  });
+});
+
+// TOC FIXED
+$(function(){
+  const toc = $('.article-single__toc-track');
+  $(window).scroll(function(){
+    if($(this).scrollTop() > 100){
+      if(!toc.hasClass('fixed')){
+        toc.addClass('fixed');
+        let tocCollapseButton = $('<div>', {class: 'toc__collapse'});
+        $('.toc').append(tocCollapseButton);
+        // TOC COLLAPSED
+
+            $('.toc__collapse').click(function(){
+              $('.toc').toggleClass('collapsed');
+            });
+      }
+    } else {
+      toc.removeClass('fixed');
+      $('.toc__collapse').remove();
+      // $('.toc').removeClass('collapsed');
+    }
+  });
+});
+
+// TOC REPLACE
+$(function(){
+  const toc = $('.article-single__toc');
+
+  function moveTocToHeader(){
+      toc.remove();
+      $('.article-single__image').after(toc);
+    }
+  function moveTocToSide(){
+      toc.remove();
+      $('.article-single__content').prepend(toc);
+    }
+
+    function tocAdaptive(){
+      if(matchMedia('(max-width: 960px)').matches){
+        moveTocToHeader();
+      }
+      else {moveTocToSide()}
+    }
+
+    $(window).resize(function(){
+      tocAdaptive();
+    });
+
+});
+
+// TOC LINK
+$(function(){
+  let headers = $('.article-single__post h2');
+  headers.each(function(index, header){
+    $(this).attr('id', `title-${index + 1}`);
+  });
+  let links = $('.toc__list');
+  links.each(function(index, link){
+    let links = $(link).find('a');
+    links.each(function(index, link){
+      $(this).attr('href', `#title-${index + 1}`);
+    })
+  });
+});
+
+// TOC ACTIVE LINK
+$(function(){
+  $(window).scroll(function(){
+  });
 });
 // USER
 $(function(){

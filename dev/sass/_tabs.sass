@@ -1,0 +1,40 @@
+@use 'colors' as color
+@use 'constants' as const
+.tabs
+  &__tabs
+    display: flex
+    align-items: center
+    flex-wrap: wrap
+    gap: 40px
+  &__tab-label
+    background: color.$faded
+    padding: 12px 20px
+    border-radius: 100px
+    transition: 0.25s ease-in
+    &:hover
+      cursor: pointer
+      transition: 0.25s ease-out
+      background: color.$blue-fade
+    &.active
+      background: color.$blue
+      color: white
+  &__tab-content
+    display: flex
+    align-items: flex-start
+    gap: 40px
+    padding: 40px 0
+    display: none
+    @include const.max(920px)
+      flex-wrap: wrap
+    &.active
+      display: flex
+  &__col
+    flex: 1 1 auto
+    &--img
+      flex: 1 0 30%
+      max-width: 400px
+      img
+        border-radius: 20px
+        width: 100%
+        height: 100%
+        object-fit: contain

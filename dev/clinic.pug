@@ -1,0 +1,45 @@
+doctype html
+html(lang="en")
+  head
+    -var title = 'О клинике'
+    include templates/head
+  body.page.clinic.page--clinic
+    h1.hidden Клиника "Моремед"
+    .page__header
+      include templates/header
+      include templates/menu
+      .breadcrumbs.wrapper
+        a(href="/") Главная
+        a(href="/clinic.html").active Клиника
+    main.content.page__content
+      .page__bg-wrapper1
+        section.clinic__content.wrapper
+          aside.clinic__aside
+              ul.clinic__parts
+                li.clinic__part
+                  a.active(href="/clinic.html") О клинике
+                li.clinic__part
+                  a(href="/clinic-requisites.html") Реквизиты
+                li.clinic__part
+                  a(href="/clinic-information.html") Информация об организации
+                li.clinic__part
+                  a(href="/clinic-docs.html") Документы организации
+                li.clinic__part
+                  a(href="/clinic-for-patients.html") Информация для пациентов
+                li.clinic__part
+                  a(href="/clinic-organs.html") Вышестоящие и контролирующие органы
+                li.clinic__part
+                  a(href="/clinic-vacancy.html") Вакансии
+          .clinic__part-content
+            section.blocks
+              .clinic__part-text
+                h2 МОРЕМЕД.РФ - это медицинский центр диагностики и лечения.
+                p Мы собрали высококвалифицированных специалистов и экспертное медицинское оборудование последнего поколения.
+                p В клинике можно пройти обследования всего организма за один день, чекап организма, а также получить консультации по таким направлениям медицины как: неврология, кардиология, терапия, эндокринология, гинекология, урология, флебология, ортопедия, сдать различные анализы.
+                p Современное лазерное оборудование позволяет проводить операции одного дня и малоинвазивные вмешательства, такие как удаление новообразований, эндовазальная коагуляция варикозных вен нижних конечностей.
+                p Специалистами отделения лучевой диагностики проводятся комплексные обследования пациентов, позволяющие получать точную характеристику любого опухолевого процесса на ранних стадиях.
+                p Отделение лучевой диагностики включает в себя все виды исследований: МРТ, КТ и УЗИ. Установлен один из наиболее совершенных аппаратов МРТ экспертного класса от немецкого производителя, первый в своем сегменте.
+              img(src="images/clinic-img-1.webp")
+
+    include templates/footer
+    include templates/scripts

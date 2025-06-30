@@ -1,4 +1,4 @@
-li.doctor__item.block-item(data-practice="terap")
+li.doctor__item.block-item.doctor-practice(data-practice="terap")
   .doctor__main
     .doctor__avatar.avatar__size
       .avatar.swiper
@@ -12,8 +12,8 @@ li.doctor__item.block-item(data-practice="terap")
         .swiper-pagination
     .doctor__info
       a.doctor__name(href="/doctor-single.html")
-        h3 Евгений Афонасьевич
-          strong Евстигнеев
+        span Евгений Афонасьевич
+        strong Евстигнеев
       p.doctor__exp Стаж: <strong>10</strong> лет
       p.doctor__practice Терапевт
       p.doctor__reception Ближ. прием в субботу, в 9:00
@@ -26,7 +26,7 @@ li.doctor__item.block-item(data-practice="terap")
       .button.button--small.doctor__zapis
         span Запись на прием
         
-li.doctor__item.block-item(data-practice="hirur")
+li.doctor__item.block-item.doctor-practice(data-practice="hirur")
   .doctor__main
     .doctor__avatar.avatar__size
       .avatar.swiper
@@ -38,7 +38,7 @@ li.doctor__item.block-item(data-practice="hirur")
         .swiper-pagination
     .doctor__info
       a.doctor__name(href="/doctor-single.html")
-        h3 Андрей Дмитриевич
+        span Андрей Дмитриевич
           strong Рожонин
       p.doctor__exp Стаж: <strong>10</strong> лет
       p.doctor__practice Хирург
@@ -52,7 +52,7 @@ li.doctor__item.block-item(data-practice="hirur")
       .button.button--small.doctor__zapis
         span Запись на прием
 
-li.doctor__item.block-item(data-practice="nevrol")
+li.doctor__item.block-item.doctor-practice(data-practice="nevrol")
   .doctor__main
     .doctor__avatar.avatar__size
       .avatar.swiper
@@ -68,7 +68,7 @@ li.doctor__item.block-item(data-practice="nevrol")
         .swiper-pagination
     .doctor__info
       a.doctor__name(href="/doctor-single.html")
-        h3 Елена Андреевна
+        span Елена Андреевна
           strong Абросимова
       p.doctor__exp Стаж: <strong>8</strong> лет
       p.doctor__practice Невролог

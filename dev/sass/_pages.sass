@@ -1,21 +1,43 @@
 @use 'colors' as color
 @use 'constants' as const
+
+.home
+  .doctor
+    &__list
+      justify-content: center
+    &__filter-list
+      justify-content: center
+      width: 100%
+      margin: 0 auto
+      @include const.max(480px)
+        justify-content: flex-start
+
 .page
+  display: flex
+  flex-direction: column
+  justify-content: space-between
   background: color.$page
+  height: 100%
+  &__header
+    flex: 0
+  &__content
+    flex: 1
+  footer
+    flex: 0
   section
     margin-bottom: 40px
-  h1
+  h1:not(.section-titles)
     font-size: 2.85rem
     line-height: 130%
     font-weight: 700
     color: color.$persid
-  h2
+  h2:not(.section-titles)
     font-size: 1.5rem
     line-height: 125%
     font-weight: 700
     color: color.$persid
     margin-bottom: 20px
-  h3
+  h3:not(.section-titles)
     font-size: 1.1rem
     line-height: 125%
     font-weight: 700
@@ -76,53 +98,65 @@
       display: flex
       gap: 20px
   &__bg-wrapper1
-    background: url(images/page-white-bg.svg)
-    background-position: -600px top
-    background-size: 2160px
-    background-repeat: repeat-x
+    position: relative
+    &::before
+      @include const.pseudo
+      width: 100%
+      height: 100%
+      top: 0
+      left: 0
+      background: url(images/page-white-bg.svg)
+      background-position: -600px top
+      background-size: 2500px
+      background-repeat: repeat
+      z-index: -2
+      @include const.max(360px)
+        background-position: 400px 20px
+        background-size: 1460px
+    &::after
+      @include const.pseudo
+      width: 100%
+      height: 400px
+      background: linear-gradient(0, color.$page, transparent)
+      top: auto
+      bottom: 0
+      z-index: -1
   &__bg-wrapper2
     background: url(images/logo-sign-m-bg.svg)
     background-position: center top
     background-size: 2000px
     background-repeat: no-repeat
-
   &--checkups
     .advantages
       padding: 40px
       background: rgba(255, 255, 255, 0.6)
       &__icon
         background: url(images/icons-bg2.svg) no-repeat
+  &--doctors
+    .page__bg-wrapper1:nth-child(1)
+      background-position: center top
 
-// CHECKUPS page
-.checkups
-  &-single
-    &-title
-      display: flex
-      gap: 20px
-      margin-bottom: 20px
-    &-price
-      display: inline-block
-      padding: 10px
-      background: color.$faded
-      border-radius: 10px
-      margin-top: 10px
-      p
-        color: color.$ultramarine
-        margin-bottom: 0
-        strong
-          padding-left: 10px
-          color: color.$persid
-          font-size: 1.1rem
-          font-weight: 700
-          &::after
-            content: " ₽"
-
+.block-group
+  display: grid
+  grid-template-columns: 1fr 1fr
+  gap: 40px
+  img
+    width: 100%
+    margin-bottom: 40px
+  @include const.max(1000px)
+    display: block
+    img
+      width: 100%
+      max-width: 400px
+      
 .block-moreinfo
   display: flex
   gap: 40px
   background: white
   padding: 40px
   border-radius: 20px
+  @include const.max(1060px)
+    padding: 20px
   @include const.max(900px)
     flex-direction: column
   &-text
@@ -140,9 +174,9 @@
       width: 100%
       height: 100%
       object-fit: cover
-  @include const.max(900px)
-    width: 100%
-    max-width: 400px
+    @include const.max(900px)
+      width: 100%
+      max-width: 400px
 
 .zapis
   margin-top: 100px

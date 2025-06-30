@@ -1,0 +1,46 @@
+doctype html
+html(lang="en")
+  head
+    -var title = 'Статьи'
+    include templates/head
+  body.page.articles.page--articles
+    .page__header
+      include templates/header
+      include templates/menu
+      .breadcrumbs.wrapper
+        a(href="/") Главная
+        a(href="/articles.html").active Статьи
+    main.content.page__content
+      section.articles__header.wrapper
+        .articles__header-group
+          h1 Статьи
+          include templates/alphabet
+        .search.search--special
+          input.search__input(placeholder="Поиск статей")
+          input(type="submit").search__submit
+      section.articles__all.wrapper
+        .articles__filter
+          .articles__filter-header
+            a(href="/articles").current Статьи
+            a(href="/articles/news") Новости
+          .articles__filter-group
+            h3.section-titles.articles__filter-title  Выберите темы
+            ul.articles__filter-themes
+              li.active Все статьи
+          .articles__filter-group
+            h3.section-titles.articles__filter-title  Статьи по врачам
+            ul.articles__filter-authors
+              //- li Евгений Афонасьевич Евстигнеев
+              //- li Маргарита Павловна Астахова
+              //- li Федор Евгеньевич Барсуков
+              //- li Елизавета Федоровна Лескова
+          .articles__filter-info
+            include templates/filter-info-icon.svg
+            p Все статьи написаны и проверены нашими врачами
+        .articles__area
+            include templates/articles-list
+            .article__pagination
+              include templates/pagination
+    include templates/popups
+    include templates/footer
+    include templates/scripts

@@ -1,3 +1,4 @@
+// NICESCROLL
 $(function() {
     function startNiceScroll() {
     $("body").niceScroll({
@@ -6,44 +7,44 @@ $(function() {
         scrollspeed: 120,
         horizrailenabled: false
     });
-    $(".services__list").niceScroll({
-        cursorcolor:"#20AEE4",
-        cursorwidth: "4px",
-        scrollspeed: 120,
-        autohidemode: false
-    });
-    $(".appointment__date").niceScroll({
-        cursorcolor:"#20AEE4",
-        cursorwidth: "4px",
-        scrollspeed: 120,
-        autohidemode: false,
-        grabcursorenabled: true,
-        emulatetouch: true,
-    });
-    $(".appointment__time").niceScroll({
-        cursorcolor:"#20AEE4",
-        cursorwidth: "0",
-        scrollspeed: 120,
-        autohidemode: false,
-        grabcursorenabled: true,
-        emulatetouch: true,
-    });
-    $(".checkup-block__slide").niceScroll({
-        cursorcolor:"#20AEE4",
-        cursorwidth: "4px",
-        scrollspeed: 120,
-        autohidemode: true,
-        grabcursorenabled: true,
-        emulatetouch: true,
-    });
-    $(".checkup__popuplist").niceScroll({
-        cursorcolor:"#20ace400",
-        cursorwidth: "4px",
-        scrollspeed: 120,
-        autohidemode: false,
-        grabcursorenabled: true,
-        emulatetouch: true,
-        });
+    // $(".services__list").niceScroll({
+    //     cursorcolor:"#20AEE4",
+    //     cursorwidth: "4px",
+    //     scrollspeed: 120,
+    //     autohidemode: false
+    // });
+    // $(".appointment__date").niceScroll({
+    //     cursorcolor:"#20AEE4",
+    //     cursorwidth: "4px",
+    //     scrollspeed: 120,
+    //     autohidemode: false,
+    //     grabcursorenabled: true,
+    //     emulatetouch: true,
+    // });
+    // $(".appointment__time").niceScroll({
+    //     cursorcolor:"#20AEE4",
+    //     cursorwidth: "0",
+    //     scrollspeed: 120,
+    //     autohidemode: false,
+    //     grabcursorenabled: true,
+    //     emulatetouch: true,
+    // });
+    // $(".checkup-block__slide").niceScroll({
+    //     cursorcolor:"#20AEE4",
+    //     cursorwidth: "4px",
+    //     scrollspeed: 120,
+    //     autohidemode: true,
+    //     grabcursorenabled: true,
+    //     emulatetouch: true,
+    // });
+    // $(".checkup__popuplist").niceScroll({
+    //     cursorcolor:"#20ace400",
+    //     cursorwidth: "4px",
+    //     scrollspeed: 120,
+    //     autohidemode: false,
+    //     grabcursorenabled: true,
+    //     emulatetouch: true,
+    //     });
     $(".footer__menu").niceScroll({
         cursorcolor:"#20AEE4",
         cursorborder: "1px solid #20AEE4",
@@ -55,14 +56,6 @@ $(function() {
         });
     }
     startNiceScroll();
-    // Рестарт Nicescroll при скроле
-    $(window).scroll(function() {
-        startNiceScroll();
-        // if(matchMedia('(max-width: 640px)').matches) {
-        //     $("body").niceScroll().remove()
-        //     $(".services__list").niceScroll().remove()
-        //     $(".appointment__date").niceScroll().remove()
-        //     $(".appointment__time").niceScroll().remove()
-        // }
-    });
+
+
 });
