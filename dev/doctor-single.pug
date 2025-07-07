@@ -28,8 +28,6 @@ html(lang="en")
                 h1.section-titles Евгений Афонасьевич <strong>Евстигнеев</strong>
               p.doctor-single__practice Врач-терапевт общей практики, специалист-врач первой категории
               p.doctor-single__exp Стаж: <span>10 лет</span>
-              a.button
-                span Запись на приём
           .doctor-single__price
             .price-table
               p
@@ -43,8 +41,25 @@ html(lang="en")
               .price-table__row
                 p.price-table__service Вторичный прием
                 p.price-table__price 520
-            a.button(href="/prices.html")
+            a.button.scroll(href="#doctor-single__prices")
               span Все цены
+        section.wrapper
+          .doctor-single__slider.swiper
+            ul.swiper-wrapper
+              li.swiper-slide
+                img(src="images/doctor-single-slides/doctor-single-slide-1.webp", alt="photo-1")
+              li.swiper-slide
+                img(src="images/doctor-single-slides/doctor-single-slide-2.webp", alt="photo-2")
+              li.swiper-slide
+                img(src="images/doctor-single-slides/doctor-single-slide-3.webp", alt="photo-3")
+              li.swiper-slide
+                img(src="images/doctor-single-slides/doctor-single-slide-4.webp", alt="photo-4")
+              li.swiper-slide
+                img(src="images/doctor-single-slides/doctor-single-slide-1.webp", alt="photo-1")
+            .swiper-scrollbar
+        section#appointment.doctor-single__appointment.wrapper
+          h2 Записаться на приём
+          include templates/appointment-single
         section.doctor-single__symptoms.symptoms.wrapper
           h2 С чем обращаются:
           ul.list.list--short.list--small
@@ -113,25 +128,25 @@ html(lang="en")
                 img(src="images/sertificats/sertificat-2.webp")
               a.swipebox(href="images/sertificats/sertificat-3.webp" rel="gallery-1")
                 img(src="images/sertificats/sertificat-3.webp")
-        section.wrapper
-          .doctor-single__slider.swiper
-            ul.swiper-wrapper
-              li.swiper-slide
-                img(src="images/doctor-single-slides/doctor-single-slide-1.webp", alt="photo-1")
-              li.swiper-slide
-                img(src="images/doctor-single-slides/doctor-single-slide-2.webp", alt="photo-2")
-              li.swiper-slide
-                img(src="images/doctor-single-slides/doctor-single-slide-3.webp", alt="photo-3")
-              li.swiper-slide
-                img(src="images/doctor-single-slides/doctor-single-slide-4.webp", alt="photo-4")
-              li.swiper-slide
-                img(src="images/doctor-single-slides/doctor-single-slide-1.webp", alt="photo-1")
-            .swiper-scrollbar
-            .equipment__nav.slider__navigation
       .page__bg-wrapper1
-        section#appointment.doctor-single__appointment.wrapper
-          h2 Записаться на приём
-          include templates/appointment-single
+        section#doctor-single__prices.doctor-single__prices.wrapper
+            h2 Цена на услуги врача
+            .price-table.price-table--zebra
+              .price-table__row
+                p.price-table__service Услуга #1
+                p.price-table__price 134200
+              .price-table__row
+                p.price-table__service Другая услуга с очень длинным и сложным названием #2
+                p.price-table__price 12300
+              .price-table__row
+                p.price-table__service Еще одна услуга #3
+                p.price-table__price 45100
+              .price-table__row
+                p.price-table__service Следующая услуга с таким же длинным и сложным названием, а может даже более длинным #4
+                p.price-table__price 11200
+              .price-table__row
+                p.price-table__service Услуга #5
+                p.price-table__price 34450
         section.doctor-single__articles.wrapper
           h2 Статьи врача
           .article
@@ -164,9 +179,11 @@ html(lang="en")
                 a(href="/article-single.html")
                   h3.section-titles.article__name Разрешенные дозировки препаратов
                 .article__description Какие дозировки распространенных препаратов существуют и как надо их принимать
+          a(href="/articles.html").button.button--center
+            span Все статьи врача
         section.doctor-single__similar.wrapper
           h2 Другие терапевты
-          include templates/doctors-list
+          include templates/doctors-slider
         section.doctor-single__others.wrapper
           h2 Другие врачи
           .hash__list
