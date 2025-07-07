@@ -56,7 +56,7 @@
     span
       font-weight: 600
       &::after
-        content: ' ₽'
+        content: '₽'
   &__review-add
     color: color.$white3
     font-size: 0.8rem
@@ -90,7 +90,16 @@
       background: color.$blue
       box-shadow: 0 4px 24px 0 rgba(32, 174, 228, 0.4)
       border: 1px solid color.$blue
-
+  &__slider
+    min-height: 200px
+    .swiper-slide
+      .doctor__item
+        margin: 0 auto
+      &.selected
+        display: block !important
+    .slider__arrow
+      top: calc(50% - 50px)
+    padding-bottom: 40px
 .doctor-practice
   &[data-practice]
     &::before

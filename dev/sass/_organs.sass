@@ -2,12 +2,12 @@
 @use 'constants' as const
 .organs
   &__list
-    display: flex
+    display: grid
+    grid-template-columns: 1fr 1fr
     flex-wrap: wrap
     gap: 20px
-  &__item
-    flex: 1 1 40%
-
+    @include const.max(480px)
+      grid-template-columns: 1fr
 .organ
   display: flex
   gap: 10px
@@ -17,8 +17,39 @@
   background: white
   border-radius: 20px
   padding: 20px
-  color: color.$persid
   text-align: center
   line-height: 120%
   border: 1px solid color.$faded
+  flex: 0 1 40%
+  cursor: pointer
+  &.opened
+    align-items: flex-start
+    justify-content: flex-start
+    display: flex
+    gap: 20px
+    align-items: center
+    flex-direction: row
+    flex-wrap: wrap
+    .organ__logo
+      flex: 0 0 100px
+      width: 100px
+    .organ__name
+      text-align: left
+      font-size: 1.2rem
+      @include const.min(481px)
+        flex: 1 0 50%
+    @include const.min(481px)
+      grid-column: span 2
+  &__name
+    font-size: 1rem
+    color: color.$persid
+    line-height: 120%
+  &__info
+    display: none
+    @include const.min(481px)
+      flex: 1 1 100%
+    .table-like
+      padding-top: 20px
+      p 
+        text-align: left
 

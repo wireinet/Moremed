@@ -5,7 +5,13 @@
     @include const.min(701px)
       display: flex
       gap: 20px
+  .advantages
+        padding: 40px
+        background: rgba(255, 255, 255, 0.6)
+        &__icon
+          background: url(images/icons-bg2.svg) no-repeat
 
+          
 .filter
   &__sidebar
     flex: 0 0 300px
@@ -106,3 +112,5 @@
       &::after
         opacity: 1
         transform: scale(1)
+  &__reset
+    display: none

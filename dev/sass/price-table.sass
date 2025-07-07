@@ -1,0 +1,36 @@
+@use 'colors' as color
+.price-table
+  width: 100%
+  min-width: 300px
+  flex: 1
+  & > *
+    font-size: 1rem
+    color: color.$persid
+  &__row
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding-bottom: 10px
+    &:not(:last-child)
+      border-bottom: 1px solid #B8DCE8
+      margin-bottom: 10px
+    p
+      margin-bottom: 0
+      color: color.$persid
+  &__service
+    margin-right: 40px
+  &__price
+    width: max-content
+    font-weight: 700
+    white-space: nowrap
+    &:after
+      content: " ₽"
+  &--zebra
+    .price-table__row
+      padding: 10px
+      border-radius: 10px
+      background-color: color.$light
+      &:not(:last-child)
+        border: none
+      &:nth-child(odd)
+        background-color: color.$faded

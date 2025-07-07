@@ -4,13 +4,19 @@
   a
     display: block
   &__list
-    display: grid
+    // display: grid
+    // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+    display: flex
+    flex-wrap: wrap
     gap: 20px
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
   &__item
     width: 100%
+    flex: 1 1 250px
+    max-width: 300px
     margin-bottom: 20px
     position: relative
+    &.selected
+      display: block !important
     .article__tag
       position: absolute
       left: 10px

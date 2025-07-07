@@ -2,7 +2,7 @@
 @use 'colors' as color
 @use 'accessibility'
 @use 'constants' as const
-.menu
+.top-menu
   &__nav
     display: flex
     gap: 20px
@@ -26,7 +26,7 @@
     display: none
 
 .home
-  .menu
+  .top-menu
     @include const.center
     position: absolute
     top: 120px
@@ -43,8 +43,9 @@
       justify-content: space-between
       border-radius: 100px
       position: relative
+
 .page
-  .menu
+  .top-menu
     &__wrapper
       display: flex
       justify-content: space-between
@@ -59,7 +60,6 @@
       border-radius: 100px
 
   
-
 .submenu
   display: none
   position: absolute

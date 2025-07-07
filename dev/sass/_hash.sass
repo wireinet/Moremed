@@ -1,8 +1,6 @@
 @use 'colors' as color
 @use 'constants' as const
 .hash
-  height: 200px
-  display: none
   &__list
     display: flex
     align-items: center
@@ -12,14 +10,18 @@
     display: inline-block
     position: relative
     background: color.$faded
-    width: max-content
+    width: auto
     display: flex
     align-items: center
-    justify-content: center
+    justify-content: flex-start
     padding: 10px 14px 10px 40px
     border-radius: 20px
     overflow: hidden
     height: 40px
+    overflow: hidden
+    @include const.max(570px)
+      max-width: 100%
+      overflow: hidden
     &:after
       @include const.pseudo
       width: 80px
@@ -41,11 +43,14 @@
     a
       color: color.$ultramarine
       position: relative
+      @include const.max(570px)
+        display: inline-block
+        max-width: 100%
       &:hover
-        &::after
+        &::before
           opacity: 1
           transition: opacity 0.25s ease-in
-      &::after
+      &::before
         @include const.pseudo
         height: 1px
         width: 100%

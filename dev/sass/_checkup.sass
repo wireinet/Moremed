@@ -1,11 +1,26 @@
 @use 'colors' as color
 @use 'constants' as const
 .checkup
+  &__slider
+    margin-bottom: 20px
+    @include const.max(980px)
+      .slider__arrow
+        display: none
+    @include const.max(570px)
+      .slider__arrow
+        display: none
+    &-list
+      padding-bottom: 40px
+  &__slide
+    .checkup__item
+      margin: 0 auto 
   &__main
     display: flex
     gap: 20px
     & .video-link
       display: none
+    @include const.max(390px)
+      flex-direction: column
   &__info
     position: relative
     z-index: 1
@@ -56,6 +71,8 @@
     cursor: pointer
     transition: 0.5s ease-out
     position: relative
+    @include const.max(390px)
+      background: color.$faded
     span
       margin-left: 10px
       background-color: color.$blue
@@ -121,3 +138,9 @@
     max-width: 470px
     min-width: 390px
     flex: 0 0 470px
+    @include const.max(390px)
+      min-width: 100%
+.home, .checkups
+  .checkup
+    &__item
+      background: rgba(255, 255, 255, 0.6)

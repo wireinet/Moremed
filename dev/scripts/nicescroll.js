@@ -1,12 +1,12 @@
 // NICESCROLL
 $(function() {
     function startNiceScroll() {
-    $("body").niceScroll({
-        cursorcolor:"#20AEE4",
-        cursorwidth: "8px",
-        scrollspeed: 120,
-        horizrailenabled: false
-    });
+    // $("body").niceScroll({
+    //     cursorcolor:"#20AEE4",
+    //     cursorwidth: "8px",
+    //     scrollspeed: 120,
+    //     horizrailenabled: false
+    // });
     // $(".services__list").niceScroll({
     //     cursorcolor:"#20AEE4",
     //     cursorwidth: "4px",

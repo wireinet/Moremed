@@ -1,63 +1,9 @@
-@use 'constants' as const
 .faq
-  background: linear-gradient(180deg, #fff 0%, #e7e7e7 100%)
-  background-position: botton
-  padding-bottom: 50px
-  @include const.w-max(480px)
-    padding-bottom: 20px
-  &__list
-    max-width: 960px
-    margin: 0 auto
-    display: flex
-    flex-direction: column
-    gap: 20px
-    padding-top: 60px
-    padding-bottom: 60px
-  &__item
-    display: block
-    padding: 20px
-    background: white
-    border-radius: 10px
-    .faq__answer
-      display: none
-    &.active
-      box-shadow: 0 19px 25px 0 rgba(0, 0, 0, 0.02)
-      .faq__answer
-        display: block
-      .faq__question
-        &:after
-          transform: rotate(180deg)
-  &__question
-    cursor: pointer
-    padding: 10px
-    padding-left: 60px
-    background-image: url(../images/faq-question-icon.svg)
-    background-repeat: no-repeat
-    background-position: left center
-    background-size: 40px
-    display: block
-    position: relative
-    user-select: none
-    &::after
-      @include const.pseudo
-      width: 40px
-      height: 40px
-      background: url(../images/faq-arrow.svg)
+  .openbox
+    &__header
+      padding-left: 60px
+      background-image: url(images/icons/faq.svg)
+      background-size: 45px
+      background-position: left center
       background-repeat: no-repeat
-      background-position: center
-      display: block
-      left: auto
-      right: 0
-    p
-      @include const.w-min(480px)
-        font-size: 1.3rem
-      font-weight: 500
-      margin-bottom: 0
-  &__answer
-    padding-top: 20px
-    user-select: none
-    p
-      &:last-child
-        margin-bottom: 0
-      @include const.w-min(480px)
-        font-size: 1.2rem
+      min-height: 60px

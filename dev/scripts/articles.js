@@ -5,19 +5,58 @@ $(function() {
   const articleItem = $('.article__item');
   // get letters
   $.each(articleItem, function(index, item){
-    let name = $(item).find('.article__name').text();
     let letter = $(item).find('.article__name').text().charAt(0);
     badgesUniq.add(letter);
   });
   // create alphabet items
   badgesUniq.forEach(item =>{
-    alphabetContainer.append(`
-      <li class="alphabet__item">
-        ${item}
-      </li>
-    `);
+    alphabetContainer.append(`<li class="alphabet__item">${item}</li>`);
   });
 });
+
+// CLICK ON ALPHABET
+$(function(){
+    const alphabetItem = $('.articles .alphabet__item');
+    alphabetItem.on('click', function() {
+      $(this).toggleClass('active');
+      // create reset
+      if(!$('.alphabet__reset').length) {
+        $('<li>', {class:'alphabet__item alphabet__reset'}).appendTo('.alphabet__list');
+        }
+      // reset
+      $(function(){
+        const alphabetReset = $('.alphabet__reset');
+        alphabetReset.on('click', function(){
+          $('.alphabet__item').removeClass('active');
+          $('.alphabet__reset').remove();
+          articleItem.removeClass('hidden');
+          articleItem.removeClass('selected');
+        })
+      });
+      
+      // pressed letter
+      let choisenLetter = $(this).text();
+      console.log(choisenLetter);
+      let articleItem = $('.article__item');
+      $(articleItem).each(function(index, article){
+        let articleNameLetter = $(article).find('.article__name').text().charAt(0);
+        if(choisenLetter === articleNameLetter) {
+          setTimeout(function(){
+            articleItem.addClass('hidden');
+            $(article).toggleClass('selected');
+              if(!articleItem.hasClass('selected')) {
+                articleItem.removeClass('hidden');
+                $('.alphabet__reset').remove();
+              };
+          }, 100);
+        }
+      });
+    })
+  });
+
+
+
+
 
 // ARTICLES THEMES
 $(function() {

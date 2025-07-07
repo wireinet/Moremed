@@ -1,0 +1,47 @@
+@use 'constants' as const
+.services-links-block
+  background: white
+  padding: 40px
+  border-radius: 50px
+  display: flex
+  gap: 20px
+  box-shadow: 0 20px 60px rgba(141, 196, 237, 0.64)
+  overflow: hidden
+  position: relative
+  @include const.max(570px)
+    padding: 20px
+    border-radius: 20px
+  &::before
+    @include const.pseudo
+    width: 600px
+    height: 400px
+    display: block
+    background: url(images/block-bg-1.svg)
+    background-repeat: no-repeat
+    background-size: contain
+    z-index: 0
+  &::after
+    @include const.pseudo
+    width: 600px
+    height: 400px
+    left: auto
+    right: 0
+    top: auto
+    bottom: 0
+    display: block
+    transform: rotate(180deg)
+    background: url(images/block-bg-1.svg)
+    background-repeat: no-repeat
+    background-size: contain
+    z-index: 0
+  @include const.max(960px)
+    flex-wrap: wrap
+  &__info
+    position: relative
+    z-index: 1
+    flex: 1 0 400px
+    @include const.max(700px)
+      flex: 1
+  &__content
+    position: relative
+    z-index: 1

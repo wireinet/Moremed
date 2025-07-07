@@ -1,0 +1,23 @@
+@use 'colors' as color
+.vacancy
+  .openbox
+    &__item
+      padding: 10px
+      &:hover
+        border-color: color.$persid
+    .open
+      border-color: color.$ultramarine
+      .openbox__header
+        &::after
+          transform: rotate(90deg)
+    &__header
+      &::after
+        height: 21px
+        background-image: url(images/icons/arrow-right.svg)
+    &__title
+      font-size: 1rem
+    &__content
+      .list
+        margin-bottom: 40px
+        &--small
+          gap: 0

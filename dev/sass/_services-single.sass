@@ -1,0 +1,53 @@
+@use 'constants' as const
+@use 'colors' as color
+.services-single
+  &__title
+    display: flex
+    align-items: center
+    gap: 10px
+    margin-bottom: 20px
+  &__name
+    font-size: 2.6rem
+    color: color.$persid
+    font-weight: 600
+    @include const.max(480px)
+      font-size: 2rem
+  &__icon
+    flex: 0 0 60px
+    width: 60px
+    height: 60px
+    svg
+      width: 100%
+  .page__info-intro
+    flex: 1
+    z-index: 0
+  .page__info-img
+    flex: 0 1 40%
+    @include const.max(800px)
+      max-width: 400px
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+  .advantages
+    background: rgba(255, 255, 255, 0.6)
+    &__icon
+      background: url(images/icons-bg.svg) no-repeat
+  .appointment
+    margin: 40px 0
+  &__how
+    .openbox__list
+      width: 100%
+      max-width: 100%
+      display: grid
+      align-items: start
+      grid-template-columns: repeat(2, 1fr)
+      @include const.max(800px)
+        grid-template-columns: 1fr
+  .doctor
+    &__practice
+      display: none
+
+      
+
+  

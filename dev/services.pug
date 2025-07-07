@@ -1,0 +1,38 @@
+doctype html
+html(lang="en")
+  head
+    -var title = 'Услуги'
+    include templates/head
+  body.page.services.page--services
+    .page__header
+      include templates/header
+      include templates/top-menu
+      .breadcrumbs.wrapper
+        a(href="/") Главная
+        a(href="/services.html").active Услуги
+    main.content.page__content
+      .page__bg-wrapper1
+        section.wrapper.services__header
+          h1 Услуги
+          include templates/alphabet
+          .search.search--special
+            input.search__input(placeholder="Поиск услуги")
+            input(type="submit").search__submit
+        section.wrapper
+          include templates/services-list
+        section.wrapper
+          h2 Чекапы (Комплексные обследования)
+          p Предлагаем к вашим услугам комплесные проверки, чекапы, где вы сможете продиагностировать весь организм с помощью специально подготовленных процедур, направленных на анализ конкретного случая
+          include templates/checkup-slider
+        section.wrapper
+          .block-moreinfo
+            .block-moreinfo-text
+              p Мы ценим каждого пациента и стремимся создать комфортную атмосферу для всех, кто обращается за медицинской помощью. Уверены, что вместе мы сможем справиться с любыми проблемами и поддержать ваше здоровье на высоком уровне!
+              p Наши врачи — настоящие профессионалы своего дела. Они обладают многолетним опытом работы и заслужили доверие тысяч пациентов благодаря своей компетентности и внимательному отношению к каждому человеку. Мы гордимся тем, что наши специалисты долгие годы остаются верны своему делу, продолжая совершенствовать знания и навыки ради вашего здоровья и благополучия.
+            .block-moreinfo-image
+              img(src="images/image-context-services.webp", alt="")
+        section.wrapper
+          include templates/doctors-slider
+    include templates/popups
+    include templates/footer
+    include templates/scripts

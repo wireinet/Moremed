@@ -38,7 +38,8 @@ p
   font-size: 1rem
   line-height: 120%
   color: color.$ultramarine
-
+  &.nm
+    margin-bottom: 0
 .light
   color: color.$persid !important
 
@@ -133,6 +134,21 @@ img
   border-radius: 20px
   user-select: none
 
+ol
+  list-style: decimal
+  list-style-position: inside
+  margin-bottom: 20px
+  & > li > ul, & > li > ol
+    margin-top: 10px
+    padding-left: 20px
+  li
+    line-height: 120%
+    color: color.$ultramarine
+    margin-bottom: 10px
+    &::marker
+      color: color.$persid
+      font-weight: 600
+
 ul.list
   display: flex
   gap: 20px
@@ -152,14 +168,15 @@ ul.list
     padding-top: 10px
   &--short
     li
-      font-size: 1.2rem
+      font-size: 1.1rem
       display: flex
       align-items: center
       gap: 16px
       border-radius: 100px
-      padding: 2px
       background: color.$list-item-bg
-      padding-right: 24px
+      padding-left: 2px !important
+      padding: 0 !important
+      padding-right: 16px !important
       top: 0
       @include const.max(400px)
         font-size: 1rem
@@ -179,14 +196,20 @@ ul.list
           height: 30px
           flex: 0 0 30px
   &--small
+    gap: 10px
     li
       gap: 10px
       font-size: .875rem
+      padding-top: 12px
+      padding-left: 30px
+      background-size: 20px
       &:before
         background-size: 25px 25px !important
   &--block
     display: grid
     grid-template-columns: repeat(auto-fit, minmax(360px, 1fr))
+    @include const.max(480px)
+      grid-template-columns: 1fr
     margin-bottom: 40px
     li
       display: block
@@ -321,6 +344,10 @@ ul.list
 
 #swipebox-bottom-bar, #swipebox-top-bar
   background: transparent
+
+.swiper-scrollbar-drag
+  background: color.$blue
+
 
 .table-like
   display: grid

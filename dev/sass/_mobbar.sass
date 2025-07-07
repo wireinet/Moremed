@@ -1,0 +1,18 @@
+@use 'colors' as color
+@use 'constants' as const
+.mobbar
+  display: none
+  position: fixed
+  bottom: 0
+  left: 0
+  width: 100%
+  z-index: 10
+  height: 90px
+  padding: 10px
+  // @include const.max(570px)
+  //   display: block
+  &__wrapper
+    height: 100%
+    background: rgba(41, 170, 219, 0.85)
+    backdrop-filter: blur(2px)
+    border-radius: 10px 10px 40px 40px

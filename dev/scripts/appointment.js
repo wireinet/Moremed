@@ -13,7 +13,7 @@ $(function() {
   });
 });
 
-// OPTION --SIMPLE
+// OPTION--SIMPLE
   const selectOption = $('.appointment__item--simple .appointment__option');
   selectOption.click(function() {
     let selectedOption = $(this).text();

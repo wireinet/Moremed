@@ -75,10 +75,9 @@
         </div>
       </div>
     </header>
-    <div class="menu">
-      <div class="menu__wrapper wrapper">
-        <ul class="menu__nav nav">
-          <!--JS: li.menu__item(submenu)-->
+    <div class="top-menu">
+      <div class="top-menu__wrapper wrapper">
+        <ul class="top-menu__nav nav">
           <li class="menu__item hassubmenu"><a href="/services.html">Услуги</a>
             <ul class="submenu">
               <li class="submenu__item"><a href="/services/cardiology">Аллергология</a></li>
@@ -109,8 +108,8 @@
           <li class="menu__item"><a href="/reviews.html">Отзывы</a></li>
           <li class="menu__item"><a href="/contacts.html">Контакты</a></li>
         </ul>
-        <ul class="menu__additions">
-          <div class="menu__user">
+        <ul class="top-menu__additions">
+          <div class="top-menu__user">
             <div class="user"><svg class="user__icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g class="user__ident">
 <path d="M11 11C12.6569 11 14 9.65685 14 8C14 6.34315 12.6569 5 11 5C9.34315 5 8 6.34315 8 8C8 9.65685 9.34315 11 11 11Z" stroke="#B5B8B9" stroke-width="1.5"/>
@@ -120,7 +119,7 @@
 </svg>
             </div>
           </div>
-          <div class="menu__accessibility">
+          <div class="top-menu__accessibility">
             <div class="accessibility"><svg class="accessibility__icon" width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_676_330)">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M5 16C6.38071 16 7.5 14.8807 7.5 13.5C7.5 12.1193 6.38071 11 5 11C3.61929 11 2.5 12.1193 2.5 13.5C2.5 14.8807 3.61929 16 5 16ZM5 18C7.48528 18 9.5 15.9853 9.5 13.5C9.5 11.0147 7.48528 9 5 9C2.51472 9 0.5 11.0147 0.5 13.5C0.5 15.9853 2.51472 18 5 18Z" fill="#B5B8B9"/>
@@ -284,25 +283,24 @@
           <div class="alphabet">
             <ul class="alphabet__list"></ul>
           </div>
-          <div class="services">
-            <ul class="services__list">
-              <li class="services__item icon icon--berem">Ведение беременности</li>
-              <li class="services__item icon icon--ginek">Гинекология</li>
-              <li class="services__item icon icon--kardiol">Кардиология</li>
-              <li class="services__item icon icon--kt">Компьютерная томография (КТ)</li>
-              <li class="services__item icon icon--kt">МРТ</li>
-              <li class="services__item icon icon--nevrol">Неврология</li>
-              <li class="services__item icon icon--laser">Лазерная хирургия</li>
-              <li class="services__item icon icon--lab">Лабораторные исследования</li>
-              <li class="services__item icon icon--ortop">Ортопедия</li>
-              <li class="services__item icon icon--onkol">Онколог</li>
-              <li class="services__item icon icon--terap">Терапия</li>
-              <li class="services__item icon icon--flebo">Флебология</li>
-              <li class="services__item icon icon--hirur">Хирургия</li>
-              <li class="services__item icon icon--uzi">Узи</li>
-              <li class="services__item icon icon--endo">Эндокринологи</li>
-            </ul><a class="button button--transparent" href="/services"><span>Все услуги</span></a>
-          </div>
+          <!-- Надо чтобы в админке можно было выставить любое имя ссылки (есть в разделе меню)-->
+          <ul class="services__list">
+            <li class="services__item icon icon--berem"><a href="services-single.html">Ведение беременности</a></li>
+            <li class="services__item icon icon--ginek"><a href="services-single.html">Гинекология</a></li>
+            <li class="services__item icon icon--kardiol"><a href="services-single.html">Кардиология</a></li>
+            <li class="services__item icon icon--kt"><a href="services-single.html">Компьютерная томография (КТ)</a></li>
+            <li class="services__item icon icon--kt"><a href="services-single.html">МРТ</a></li>
+            <li class="services__item icon icon--nevrol"><a href="services-single.html">Неврология</a></li>
+            <li class="services__item icon icon--laser"><a href="services-single.html">Лазерная хирургия</a></li>
+            <li class="services__item icon icon--lab"><a href="services-single.html">Лабораторные исследования</a></li>
+            <li class="services__item icon icon--ortop"><a href="services-single.html">Ортопедия</a></li>
+            <li class="services__item icon icon--onkol"><a href="services-single.html">Онколог</a></li>
+            <li class="services__item icon icon--terap"><a href="services-single.html">Терапия</a></li>
+            <li class="services__item icon icon--flebo"><a href="services-single.html">Флебология</a></li>
+            <li class="services__item icon icon--hirur"><a href="services-single.html">Хирургия</a></li>
+            <li class="services__item icon icon--uzi"><a href="services-single.html">Узи</a></li>
+            <li class="services__item icon icon--endo"><a href="services-single.html">Эндокринология</a></li>
+          </ul><a class="button button--transparent button--center" href="/services"><span>Все услуги</span></a>
         </div>
       </div>
       <div class="doctors-block">
@@ -311,98 +309,102 @@
             <h2>Врачи</h2>
           </div>
           <p class="subdescription">Наши врачи обладают многолетним опытом работы и заслужили доверие тысяч пациентов благодаря своей компетентности и внимательному отношению к каждому человеку. Мы гордимся тем, что наши специалисты долгие годы остаются верны своему делу и работают ради вашего здоровья и благополучия.</p>
-          <div class="doctors-block__filter doctor__filter">
-            <ul class="doctor__filter-list">
-              <li class="doctor__filter-item active">Все</li>
-            </ul>
-          </div>
-          <div class="doctor">
-            <ul class="doctor__list">
-              <li class="doctor__item block-item doctor-practice" data-practice="terap">
-                <div class="doctor__main">
-                  <div class="doctor__avatar avatar__size">
-                    <div class="avatar swiper">
-                      <div class="avatar__slides swiper-wrapper">
-                        <div class="avatar__slide swiper-slide avatar__slide"><img src="images/avatars/doctor-evstigneev-photo-1.webp" alt="evstigneev-1"></div>
-                        <div class="avatar__slide swiper-slide"><img src="images/avatars/doctor-evstigneev-photo-2.webp" alt="evstigneev-2"></div>
-                        <div class="avatar__slide swiper-slide"><img src="images/avatars/doctor-evstigneev-photo-3.webp" alt="evstigneev-3"></div>
+          <div class="doctor slider">
+            <div class="doctor__slider swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide doctor__slide">
+                  <li class="doctor__item block-item doctor-practice" data-practice="terap">
+                    <div class="doctor__main">
+                      <div class="doctor__avatar avatar__size">
+                        <div class="avatar swiper">
+                          <div class="avatar__slides swiper-wrapper">
+                            <div class="avatar__slide swiper-slide avatar__slide"><img src="images/avatars/doctor-evstigneev-photo-1.webp" alt="evstigneev-1"></div>
+                            <div class="avatar__slide swiper-slide"><img src="images/avatars/doctor-evstigneev-photo-2.webp" alt="evstigneev-2"></div>
+                            <div class="avatar__slide swiper-slide"><img src="images/avatars/doctor-evstigneev-photo-3.webp" alt="evstigneev-3"></div>
+                          </div>
+                          <div class="swiper-pagination"></div>
+                        </div>
                       </div>
-                      <div class="swiper-pagination"></div>
-                    </div>
-                  </div>
-                  <div class="doctor__info"><a class="doctor__name" href="/doctor-single.html"><span>Евгений Афонасьевич</span><strong>Евстигнеев</strong></a>
-                    <p class="doctor__exp">Стаж: <strong>10</strong> лет</p>
-                    <p class="doctor__practice">Терапевт</p>
-                    <p class="doctor__reception">Ближ. прием в субботу, в 9:00</p>
-                    <p class="video-link">video/video-example-man.mp4</p>
-                  </div>
-                </div>
-                <div class="doctor__footer">
-                  <div>
-                    <p class="doctor__price">Стоимость услуг: <span>от 3000</span></p><a class="doctor__review-add" href="/review">Оставить отзыв</a>
-                  </div>
-                  <div>
-                    <div class="button button--small doctor__zapis"><span>Запись на прием</span></div>
-                  </div>
-                </div>
-              </li>
-              <li class="doctor__item block-item doctor-practice" data-practice="hirur">
-                <div class="doctor__main">
-                  <div class="doctor__avatar avatar__size">
-                    <div class="avatar swiper">
-                      <div class="avatar__slides swiper-wrapper">
-                        <div class="avatar__slide swiper-slide avatar__slide"><img src="images/avatars/doctor-rojonin-photo-2.webp" alt="evstigneev-2"></div>
-                        <div class="avatar__slide swiper-slide"><img src="images/avatars/doctor-rojonin-photo-1.webp" alt="evstigneev-1"></div>
+                      <div class="doctor__info"><a class="doctor__name" href="/doctor-single.html"><span>Евгений Афонасьевич</span><strong>Евстигнеев</strong></a>
+                        <p class="doctor__exp">Стаж: <strong>10</strong> лет</p>
+                        <p class="doctor__practice">Терапевт</p>
+                        <p class="doctor__reception">Ближ. прием в субботу, в 9:00</p>
+                        <p class="video-link">video/video-example-man.mp4</p>
                       </div>
-                      <div class="swiper-pagination"></div>
                     </div>
-                  </div>
-                  <div class="doctor__info"><a class="doctor__name" href="/doctor-single.html"><span>Андрей Дмитриевич<strong>Рожонин</strong></span></a>
-                    <p class="doctor__exp">Стаж: <strong>10</strong> лет</p>
-                    <p class="doctor__practice">Хирург</p>
-                    <p class="doctor__reception">Ближ. прием во вторник, в 10:30</p>
-                    <p class="video-link"></p>
-                  </div>
-                </div>
-                <div class="doctor__footer">
-                  <div>
-                    <p class="doctor__price">Стоимость услуг: <span>от 3000</span></p><a class="doctor__review-add" href="/review">Оставить отзыв</a>
-                  </div>
-                  <div>
-                    <div class="button button--small doctor__zapis"><span>Запись на прием</span></div>
-                  </div>
-                </div>
-              </li>
-              <li class="doctor__item block-item doctor-practice" data-practice="nevrol">
-                <div class="doctor__main">
-                  <div class="doctor__avatar avatar__size">
-                    <div class="avatar swiper">
-                      <div class="avatar__slides swiper-wrapper">
-                        <div class="avatar__slide swiper-slide avatar__slide"><img src="images/avatars/doctor-abrosimova-photo-1.webp" alt="abrosimova-1"></div>
-                        <div class="avatar__slide swiper-slide"><img src="images/avatars/doctor-abrosimova-photo-2.webp" alt="abrosimova-2"></div>
-                        <div class="avatar__slide swiper-slide"><img src="images/avatars/doctor-abrosimova-photo-3.webp" alt="abrosimova-3"></div>
-                        <div class="avatar__slide swiper-slide"><img src="images/avatars/doctor-abrosimova-photo-4.webp" alt="abrosimova-4"></div>
+                    <div class="doctor__footer">
+                      <div>
+                        <p class="doctor__price">Стоимость услуг: <span>от 3000</span></p><a class="doctor__review-add" href="/review">Оставить отзыв</a>
                       </div>
-                      <div class="swiper-pagination"></div>
+                      <div>
+                        <div class="button button--small doctor__zapis"><span>Запись на прием</span></div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="doctor__info"><a class="doctor__name" href="/doctor-single.html"><span>Елена Андреевна<strong>Абросимова</strong></span></a>
-                    <p class="doctor__exp">Стаж: <strong>8</strong> лет</p>
-                    <p class="doctor__practice">Невролог</p>
-                    <p class="doctor__reception">Ближ. прием в понедельник, в 12:30</p>
-                    <p class="video-link">video/video-example-woman.mp4</p>
-                  </div>
+                  </li>
                 </div>
-                <div class="doctor__footer">
-                  <div>
-                    <p class="doctor__price">Стоимость услуг: <span>от 1400</span></p><a class="doctor__review-add" href="/review">Оставить отзыв</a>
-                  </div>
-                  <div>
-                    <div class="button button--small doctor__zapis"><span>Запись на прием</span></div>
-                  </div>
+                <div class="swiper-slide doctor__slide">
+                  <li class="doctor__item block-item doctor-practice" data-practice="hirur">
+                    <div class="doctor__main">
+                      <div class="doctor__avatar avatar__size">
+                        <div class="avatar swiper">
+                          <div class="avatar__slides swiper-wrapper">
+                            <div class="avatar__slide swiper-slide avatar__slide"><img src="images/avatars/doctor-rojonin-photo-2.webp" alt="evstigneev-2"></div>
+                            <div class="avatar__slide swiper-slide"><img src="images/avatars/doctor-rojonin-photo-1.webp" alt="evstigneev-1"></div>
+                          </div>
+                          <div class="swiper-pagination"></div>
+                        </div>
+                      </div>
+                      <div class="doctor__info"><a class="doctor__name" href="/doctor-single.html"><span>Андрей Дмитриевич<strong>Рожонин</strong></span></a>
+                        <p class="doctor__exp">Стаж: <strong>10</strong> лет</p>
+                        <p class="doctor__practice">Хирург</p>
+                        <p class="doctor__reception">Ближ. прием во вторник, в 10:30</p>
+                        <p class="video-link"></p>
+                      </div>
+                    </div>
+                    <div class="doctor__footer">
+                      <div>
+                        <p class="doctor__price">Стоимость услуг: <span>от 3000</span></p><a class="doctor__review-add" href="/review">Оставить отзыв</a>
+                      </div>
+                      <div>
+                        <div class="button button--small doctor__zapis"><span>Запись на прием</span></div>
+                      </div>
+                    </div>
+                  </li>
                 </div>
-              </li>
-            </ul>
+                <div class="swiper-slide doctor__slide">
+                  <li class="doctor__item block-item doctor-practice" data-practice="nevrol">
+                    <div class="doctor__main">
+                      <div class="doctor__avatar avatar__size">
+                        <div class="avatar swiper">
+                          <div class="avatar__slides swiper-wrapper">
+                            <div class="avatar__slide swiper-slide avatar__slide"><img src="images/avatars/doctor-abrosimova-photo-1.webp" alt="abrosimova-1"></div>
+                            <div class="avatar__slide swiper-slide"><img src="images/avatars/doctor-abrosimova-photo-2.webp" alt="abrosimova-2"></div>
+                            <div class="avatar__slide swiper-slide"><img src="images/avatars/doctor-abrosimova-photo-3.webp" alt="abrosimova-3"></div>
+                            <div class="avatar__slide swiper-slide"><img src="images/avatars/doctor-abrosimova-photo-4.webp" alt="abrosimova-4"></div>
+                          </div>
+                          <div class="swiper-pagination"></div>
+                        </div>
+                      </div>
+                      <div class="doctor__info"><a class="doctor__name" href="/doctor-single.html"><span>Елена Андреевна<strong>Абросимова</strong></span></a>
+                        <p class="doctor__exp">Стаж: <strong>8</strong> лет</p>
+                        <p class="doctor__practice">Невролог</p>
+                        <p class="doctor__reception">Ближ. прием в понедельник, в 12:30</p>
+                        <p class="video-link">video/video-example-woman.mp4</p>
+                      </div>
+                    </div>
+                    <div class="doctor__footer">
+                      <div>
+                        <p class="doctor__price">Стоимость услуг: <span>от 1400</span></p><a class="doctor__review-add" href="/review">Оставить отзыв</a>
+                      </div>
+                      <div>
+                        <div class="button button--small doctor__zapis"><span>Запись на прием</span></div>
+                      </div>
+                    </div>
+                  </li>
+                </div>
+              </div>
+              <div class="swiper-scrollbar"></div>
+            </div>
           </div>
           <div class="doctors-block__links"><a class="button" href="/doctors.html/#zapis"><span>Записаться на прием</span></a><a class="button button--transparent" href="/doctors.html"><span>Все врачи</span></a></div>
         </div>
@@ -458,54 +460,90 @@
               <p class="appointment__label">Доступно для записи:</p>
               <div class="appointment__available">
                 <div class="appointment__date">
-                  <div class="appointment__date-item">
-                    <p>4-5 Мар</p>
-                    <p>Вт-Ср</p>
-                  </div>
-                  <div class="appointment__date-item">
-                    <p>6 Мар</p>
-                    <p>Вт-Ср</p>
-                  </div>
-                  <div class="appointment__date-item">
-                    <p>7-8 Мар</p>
-                    <p>Пт-Сб</p>
-                  </div>
-                  <div class="appointment__date-item">
-                    <p>9-11 Мар</p>
-                    <p>Вт-Чт</p>
-                  </div>
-                  <div class="appointment__date-item">
-                    <p>4-5 Мар</p>
-                    <p>Вт-Ср</p>
-                  </div>
-                  <div class="appointment__date-item">
-                    <p>6 Мар</p>
-                    <p>Вт-Ср</p>
-                  </div>
-                  <div class="appointment__date-item">
-                    <p>7-8 Мар</p>
-                    <p>Пт-Сб</p>
-                  </div>
-                  <div class="appointment__date-item">
-                    <p>9-11 Мар</p>
-                    <p>Вт-Чт</p>
+                  <div class="swiper">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <div class="appointment__date-item">
+                          <p>4-5 Мар</p>
+                          <p>Вт-Ср</p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="appointment__date-item">
+                          <p>6 Мар</p>
+                          <p>Вт-Ср</p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="appointment__date-item">
+                          <p>7-8 Мар</p>
+                          <p>Пт-Сб</p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="appointment__date-item">
+                          <p>9-11 Мар</p>
+                          <p>Вт-Чт</p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="appointment__date-item">
+                          <p>4-5 Мар</p>
+                          <p>Вт-Ср</p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="appointment__date-item">
+                          <p>6 Мар</p>
+                          <p>Вт-Ср</p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="appointment__date-item">
+                          <p>7-8 Мар</p>
+                          <p>Пт-Сб</p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="appointment__date-item">
+                          <p>9-11 Мар</p>
+                          <p>Вт-Чт</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-scrollbar"></div>
                   </div>
                 </div>
                 <div class="appointment__time">
-                  <div class="appointment__time-item">
-                    <p>13:30</p>
-                  </div>
-                  <div class="appointment__time-item">
-                    <p>14:40</p>
-                  </div>
-                  <div class="appointment__time-item">
-                    <p>16:20</p>
-                  </div>
-                  <div class="appointment__time-item">
-                    <p>16:50</p>
-                  </div>
-                  <div class="appointment__time-item">
-                    <p>13:30</p>
+                  <div class="swiper">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <div class="appointment__time-item">
+                          <p>13:30</p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="appointment__time-item">
+                          <p>14:40</p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="appointment__time-item">
+                          <p>16:20</p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="appointment__time-item">
+                          <p>16:50</p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="appointment__time-item">
+                          <p>13:30</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-scrollbar"></div>
                   </div>
                 </div>
               </div>
@@ -538,23 +576,32 @@
           <div class="title title-bg title--home title--center title--bg">
             <h2>Акции</h2>
           </div>
-          <ul class="discount__list">
-            <li class="discount__item"><a class="discount__name" href="discount-single.html">
-                <h3 class="discount__title">10% скидка на МРТ и КТ исследование по воскресениям!</h3></a>
-              <div class="discount__procent">-10%</div>
-              <div class="discount__date">до 31 мая 2025 года</div><img class="discount__img" src="images/discount/discount-1.webp">
-            </li>
-            <li class="discount__item"><a class="discount__name" href="discount-single.html">
-                <h3 class="discount__title">«Мужское / Женское здоровье - комплексный подход - Чекап-базовый» - за 42500 рублей!</h3></a>
-              <div class="discount__procent">-8%</div>
-              <div class="discount__date">до 11 декабря 2026 года</div><img class="discount__img" src="images/discount/discount-2.webp">
-            </li>
-            <li class="discount__item"><a class="discount__name" href="discount-single.html">
-                <h3 class="discount__title">МРТ всего тела со скидкой!</h3></a>
-              <div class="discount__procent">-90%</div>
-              <div class="discount__date">до 15 августа 2025 года</div><img class="discount__img" src="images/discount/discount-3.webp">
-            </li>
-          </ul><a class="button button--transparent button--center" href="/discount.html"><span>Все акции</span></a>
+          <div class="discount__slider slider swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <li class="discount__item"><a class="discount__name" href="discount-single.html">
+                    <h3 class="discount__title">10% скидка на МРТ и КТ исследование по воскресениям!</h3></a>
+                  <div class="discount__procent">-10%</div>
+                  <div class="discount__date">до 31 мая 2025 года</div><img class="discount__img" src="images/discount/discount-1.webp">
+                </li>
+              </div>
+              <div class="swiper-slide">
+                <li class="discount__item"><a class="discount__name" href="discount-single.html">
+                    <h3 class="discount__title">«Мужское / Женское здоровье - комплексный подход - Чекап-базовый» - за 42500 рублей!</h3></a>
+                  <div class="discount__procent">-8%</div>
+                  <div class="discount__date">до 11 декабря 2026 года</div><img class="discount__img" src="images/discount/discount-2.webp">
+                </li>
+              </div>
+              <div class="swiper-slide">
+                <li class="discount__item"><a class="discount__name" href="discount-single.html">
+                    <h3 class="discount__title">МРТ всего тела со скидкой!</h3></a>
+                  <div class="discount__procent">-90%</div>
+                  <div class="discount__date">до 15 августа 2025 года</div><img class="discount__img" src="images/discount/discount-3.webp">
+                </li>
+              </div>
+            </div>
+            <div class="swiper-scrollbar"></div>
+          </div><a class="button button--transparent button--center" href="/discount.html"><span>Все акции</span></a>
         </div>
       </div>
       <div class="checkup-block wrapper">
@@ -564,222 +611,233 @@
           <p class="subdescription">Вы можете пройти комплексное медицинское обследование для диагностики заболеваний на ранней стадии</p>
         </div>
         <div class="checkup-block__slide">
-          <ul class="checkup__list">
-            <li class="checkup__item block-item">
-              <div class="checkup__main">
-                <div class="checkup__avatar avatar__size">
-                  <div class="avatar swiper">
-                    <div class="avatar__slides swiper-wrapper">
-                      <div class="avatar__slide swiper-slide checkup__slide"><img src="images/avatars/checkup-kardio-1.webp" alt="kardio-1"></div>
-                      <div class="avatar__slide swiper-slide"><img src="images/avatars/checkup-kardio-2.webp" alt="kardio-2"></div>
-                      <div class="avatar__slide swiper-slide"><img src="images/avatars/checkup-kardio-3.webp" alt="kardio-3"></div>
+          <div class="checkup__slider swiper slider">
+            <ul class="swiper-wrapper checkup__slider-list">
+              <div class="swiper-slide checkup__slide">
+                <li class="checkup__item block-item">
+                  <div class="checkup__main">
+                    <div class="checkup__avatar avatar__size">
+                      <div class="avatar swiper">
+                        <div class="avatar__slides swiper-wrapper">
+                          <div class="avatar__slide swiper-slide checkup__slide"><img src="images/avatars/checkup-kardio-1.webp" alt="kardio-1"></div>
+                          <div class="avatar__slide swiper-slide"><img src="images/avatars/checkup-kardio-2.webp" alt="kardio-2"></div>
+                          <div class="avatar__slide swiper-slide"><img src="images/avatars/checkup-kardio-3.webp" alt="kardio-3"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                      </div>
+                      <p class="video-link">video/video-example-man.mp4</p>
                     </div>
-                    <div class="swiper-pagination"></div>
-                  </div>
-                  <p class="video-link">video/video-example-man.mp4</p>
-                </div>
-                <div class="checkup__info">
-                  <div class="checkup__for">
-                    <div class="checkup__label">Чек-ап</div>
-                    <p class="gender">Для всех</p>
-                    <p class="practice">Кардиология</p>
-                    <p class="age">30-35 лет</p>
-                  </div>
-                  <div class="checkup__title">
-                    <h3>Кардиологический</h3>
-                  </div>
-                  <div class="checkup__price">Стоимость: <span>43 000</span></div>
-                </div>
-              </div>
-              <div class="checkup__sublists">
-                <div class="checkup__sublist">Приемы врачей<span></span>
-                  <ul class="checkup__popuplist">
-                    <li>Терапевт</li>
-                    <li>Кардиолог</li>
-                    <li>Дерматолог</li>
-                    <li>Узист</li>
-                  </ul>
-                </div>
-                <div class="checkup__sublist">Анализы<span></span>
-                  <ul class="checkup__popuplist">
-                    <li>Анализы 1</li>
-                    <li>Анализы 2</li>
-                    <li>Анализы 3</li>
-                    <li>Анализы 4</li>
-                    <li>Анализы 5</li>
-                    <li>Анализы 6</li>
-                    <li>Анализы 7</li>
-                    <li>Анализы 8</li>
-                  </ul>
-                </div>
-                <div class="checkup__sublist">МРТ<span></span>
-                  <ul class="checkup__popuplist">
-                    <li>Опция 1</li>
-                  </ul>
-                </div>
-                <div class="checkup__sublist">КТ<span></span>
-                  <ul class="checkup__popuplist">
-                    <li>Опция 1</li>
-                    <li>Опция 2</li>
-                    <li>Опция 3</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="checkup__footer"><a class="button button--transparent button--small" href="/checkup-single.html"><span>Подробнее</span></a>
-                <button class="button--small checkup__zapis"><span>Записаться</span></button>
-              </div>
-            </li>
-            <li class="checkup__item block-item">
-              <div class="checkup__main">
-                <div class="checkup__avatar avatar__size">
-                  <div class="avatar swiper">
-                    <div class="avatar__slides swiper-wrapper">
-                      <div class="avatar__slide swiper-slide checkup__slide"><img src="images/avatars/checkup-nevrolog-1.webp" alt="nevro-1"></div>
-                      <div class="avatar__slide swiper-slide"><img src="images/avatars/checkup-nevrolog-2.webp" alt="nevro-2"></div>
+                    <div class="checkup__info">
+                      <div class="checkup__for">
+                        <div class="checkup__label">Чек-ап</div>
+                        <p class="gender">Для всех</p>
+                        <p class="practice">Кардиология</p>
+                        <p class="age">30-35 лет</p>
+                      </div>
+                      <div class="checkup__title">
+                        <h3>Кардиологический</h3>
+                      </div>
+                      <div class="checkup__price">Стоимость: <span>43 000</span></div>
                     </div>
-                    <div class="swiper-pagination"></div>
                   </div>
-                  <p class="video-link"></p>
-                </div>
-                <div class="checkup__info">
-                  <div class="checkup__for">
-                    <div class="checkup__label">Чек-ап</div>
-                    <p class="gender">Для всех</p>
-                    <p class="practice">Неврология</p>
-                    <p class="age">20-80 лет</p>
-                  </div>
-                  <div class="checkup__title">
-                    <h3>Невралогический <span>(Расширенный)</span></h3>
-                  </div>
-                  <div class="checkup__price">Стоимость: <span>65 000</span></div>
-                </div>
-              </div>
-              <div class="checkup__sublists">
-                <div class="checkup__sublist">Приемы врачей<span></span>
-                  <ul class="checkup__popuplist">
-                    <li>Терапевт</li>
-                    <li>Кардиолог</li>
-                  </ul>
-                </div>
-                <div class="checkup__sublist">Анализы<span></span>
-                  <ul class="checkup__popuplist">
-                    <li>Анализы 1</li>
-                    <li>Анализы 2</li>
-                    <li>Анализы 3</li>
-                    <li>Анализы 4</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="checkup__footer"><a class="button button--transparent button--small" href="/checkup-single.html"><span>Подробнее</span></a>
-                <button class="button--small checkup__zapis"><span>Записаться</span></button>
-              </div>
-            </li>
-            <li class="checkup__item block-item">
-              <div class="checkup__main">
-                <div class="checkup__avatar avatar__size">
-                  <div class="avatar swiper">
-                    <div class="avatar__slides swiper-wrapper">
-                      <div class="avatar__slide swiper-slide checkup__slide"><img src="images/avatars/checkup-ginekolog-1.webp" alt="gineko-1"></div>
-                      <div class="avatar__slide swiper-slide"><img src="images/avatars/checkup-ginekolog-2.webp" alt="gineko-2"></div>
+                  <div class="checkup__sublists">
+                    <div class="checkup__sublist">Приемы врачей<span></span>
+                      <ul class="checkup__popuplist">
+                        <li>Терапевт</li>
+                        <li>Кардиолог</li>
+                        <li>Дерматолог</li>
+                        <li>Узист</li>
+                      </ul>
                     </div>
-                    <div class="swiper-pagination"></div>
-                  </div>
-                  <p class="video-link">video/video-example-woman.mp4</p>
-                </div>
-                <div class="checkup__info">
-                  <div class="checkup__for">
-                    <div class="checkup__label">Чек-ап</div>
-                    <p class="gender gender--female">Для женщин</p>
-                    <p class="practice">Гинекология</p>
-                    <p class="age">18-40 лет</p>
-                  </div>
-                  <div class="checkup__title">
-                    <h3>Гинекологичкеский (базовый)</h3>
-                  </div>
-                  <div class="checkup__price">Стоимость: <span>45 000</span></div>
-                </div>
-              </div>
-              <div class="checkup__sublists">
-                <div class="checkup__sublist">Приемы врачей<span></span>
-                  <ul class="checkup__popuplist">
-                    <li>Терапевт</li>
-                    <li>Кардиолог</li>
-                  </ul>
-                </div>
-                <div class="checkup__sublist">Анализы<span></span>
-                  <ul class="checkup__popuplist">
-                    <li>Анализы 1</li>
-                    <li>Анализы 2</li>
-                    <li>Анализы 3</li>
-                  </ul>
-                </div>
-                <div class="checkup__sublist">Узи<span></span>
-                  <ul class="checkup__popuplist">
-                    <li>Узи 1</li>
-                    <li>Узи 2</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="checkup__footer"><a class="button button--transparent button--small" href="/checkup-single.html"><span>Подробнее</span></a>
-                <button class="button--small checkup__zapis"><span>Записаться</span></button>
-              </div>
-            </li>
-            <li class="checkup__item block-item">
-              <div class="checkup__main">
-                <div class="checkup__avatar avatar__size">
-                  <div class="avatar swiper">
-                    <div class="avatar__slides swiper-wrapper">
-                      <div class="avatar__slide swiper-slide checkup__slide"><img src="images/avatars/checkup-man-1.webp" alt="gineko-1"></div>
+                    <div class="checkup__sublist">Анализы<span></span>
+                      <ul class="checkup__popuplist">
+                        <li>Анализы 1</li>
+                        <li>Анализы 2</li>
+                        <li>Анализы 3</li>
+                        <li>Анализы 4</li>
+                        <li>Анализы 5</li>
+                        <li>Анализы 6</li>
+                        <li>Анализы 7</li>
+                        <li>Анализы 8</li>
+                      </ul>
                     </div>
-                    <div class="swiper-pagination"></div>
+                    <div class="checkup__sublist">МРТ<span></span>
+                      <ul class="checkup__popuplist">
+                        <li>Опция 1</li>
+                      </ul>
+                    </div>
+                    <div class="checkup__sublist">КТ<span></span>
+                      <ul class="checkup__popuplist">
+                        <li>Опция 1</li>
+                        <li>Опция 2</li>
+                        <li>Опция 3</li>
+                      </ul>
+                    </div>
                   </div>
-                  <p class="video-link"></p>
-                </div>
-                <div class="checkup__info">
-                  <div class="checkup__for">
-                    <div class="checkup__label">Чек-ап</div>
-                    <p class="gender gender--male">Для мужчин</p>
-                    <p class="practice">Гинекология</p>
-                    <p class="age">18-40 лет</p>
+                  <div class="checkup__footer"><a class="button button--transparent button--small" href="/checkup-single.html"><span>Подробнее</span></a>
+                    <button class="button--small checkup__zapis"><span>Записаться</span></button>
                   </div>
-                  <div class="checkup__title">
-                    <h3>Чекап мужской базовый</h3>
+                </li>
+              </div>
+              <div class="swiper-slide checkup__slide">
+                <li class="checkup__item block-item">
+                  <div class="checkup__main">
+                    <div class="checkup__avatar avatar__size">
+                      <div class="avatar swiper">
+                        <div class="avatar__slides swiper-wrapper">
+                          <div class="avatar__slide swiper-slide checkup__slide"><img src="images/avatars/checkup-nevrolog-1.webp" alt="nevro-1"></div>
+                          <div class="avatar__slide swiper-slide"><img src="images/avatars/checkup-nevrolog-2.webp" alt="nevro-2"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                      </div>
+                      <p class="video-link"></p>
+                    </div>
+                    <div class="checkup__info">
+                      <div class="checkup__for">
+                        <div class="checkup__label">Чек-ап</div>
+                        <p class="gender">Для всех</p>
+                        <p class="practice">Неврология</p>
+                        <p class="age">20-80 лет</p>
+                      </div>
+                      <div class="checkup__title">
+                        <h3>Невралогический <span>(Расширенный)</span></h3>
+                      </div>
+                      <div class="checkup__price">Стоимость: <span>65 000</span></div>
+                    </div>
                   </div>
-                  <div class="checkup__price">Стоимость: <span>45 000</span></div>
-                </div>
+                  <div class="checkup__sublists">
+                    <div class="checkup__sublist">Приемы врачей<span></span>
+                      <ul class="checkup__popuplist">
+                        <li>Терапевт</li>
+                        <li>Кардиолог</li>
+                      </ul>
+                    </div>
+                    <div class="checkup__sublist">Анализы<span></span>
+                      <ul class="checkup__popuplist">
+                        <li>Анализы 1</li>
+                        <li>Анализы 2</li>
+                        <li>Анализы 3</li>
+                        <li>Анализы 4</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="checkup__footer"><a class="button button--transparent button--small" href="/checkup-single.html"><span>Подробнее</span></a>
+                    <button class="button--small checkup__zapis"><span>Записаться</span></button>
+                  </div>
+                </li>
               </div>
-              <div class="checkup__sublists">
-                <div class="checkup__sublist">Приемы врачей<span></span>
-                  <ul class="checkup__popuplist">
-                    <li>Терапевт</li>
-                    <li>Кардиолог</li>
-                  </ul>
-                </div>
-                <div class="checkup__sublist">Анализы<span></span>
-                  <ul class="checkup__popuplist">
-                    <li>Анализы 1</li>
-                    <li>Анализы 2</li>
-                    <li>Анализы 3</li>
-                  </ul>
-                </div>
-                <div class="checkup__sublist">Узи<span></span>
-                  <ul class="checkup__popuplist">
-                    <li>Узи 1</li>
-                    <li>Узи 2</li>
-                  </ul>
-                </div>
+              <div class="swiper-slide checkup__slide">
+                <li class="checkup__item block-item">
+                  <div class="checkup__main">
+                    <div class="checkup__avatar avatar__size">
+                      <div class="avatar swiper">
+                        <div class="avatar__slides swiper-wrapper">
+                          <div class="avatar__slide swiper-slide checkup__slide"><img src="images/avatars/checkup-ginekolog-1.webp" alt="gineko-1"></div>
+                          <div class="avatar__slide swiper-slide"><img src="images/avatars/checkup-ginekolog-2.webp" alt="gineko-2"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                      </div>
+                      <p class="video-link">video/video-example-woman.mp4</p>
+                    </div>
+                    <div class="checkup__info">
+                      <div class="checkup__for">
+                        <div class="checkup__label">Чек-ап</div>
+                        <p class="gender gender--female">Для женщин</p>
+                        <p class="practice">Гинекология</p>
+                        <p class="age">18-40 лет</p>
+                      </div>
+                      <div class="checkup__title">
+                        <h3>Гинекологичкеский (базовый)</h3>
+                      </div>
+                      <div class="checkup__price">Стоимость: <span>45 000</span></div>
+                    </div>
+                  </div>
+                  <div class="checkup__sublists">
+                    <div class="checkup__sublist">Приемы врачей<span></span>
+                      <ul class="checkup__popuplist">
+                        <li>Терапевт</li>
+                        <li>Кардиолог</li>
+                      </ul>
+                    </div>
+                    <div class="checkup__sublist">Анализы<span></span>
+                      <ul class="checkup__popuplist">
+                        <li>Анализы 1</li>
+                        <li>Анализы 2</li>
+                        <li>Анализы 3</li>
+                      </ul>
+                    </div>
+                    <div class="checkup__sublist">Узи<span></span>
+                      <ul class="checkup__popuplist">
+                        <li>Узи 1</li>
+                        <li>Узи 2</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="checkup__footer"><a class="button button--transparent button--small" href="/checkup-single.html"><span>Подробнее</span></a>
+                    <button class="button--small checkup__zapis"><span>Записаться</span></button>
+                  </div>
+                </li>
               </div>
-              <div class="checkup__footer"><a class="button button--transparent button--small" href="/checkup-single.html"><span>Подробнее</span></a>
-                <button class="button--small checkup__zapis"><span>Записаться</span></button>
+              <div class="swiper-slide checkup__slide">
+                <li class="checkup__item block-item">
+                  <div class="checkup__main">
+                    <div class="checkup__avatar avatar__size">
+                      <div class="avatar swiper">
+                        <div class="avatar__slides swiper-wrapper">
+                          <div class="avatar__slide swiper-slide checkup__slide"><img src="images/avatars/checkup-man-1.webp" alt="gineko-1"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                      </div>
+                      <p class="video-link"></p>
+                    </div>
+                    <div class="checkup__info">
+                      <div class="checkup__for">
+                        <div class="checkup__label">Чек-ап</div>
+                        <p class="gender gender--male">Для мужчин</p>
+                        <p class="practice">Гинекология</p>
+                        <p class="age">18-40 лет</p>
+                      </div>
+                      <div class="checkup__title">
+                        <h3>Чекап мужской базовый</h3>
+                      </div>
+                      <div class="checkup__price">Стоимость: <span>45 000</span></div>
+                    </div>
+                  </div>
+                  <div class="checkup__sublists">
+                    <div class="checkup__sublist">Приемы врачей<span></span>
+                      <ul class="checkup__popuplist">
+                        <li>Терапевт</li>
+                        <li>Кардиолог</li>
+                      </ul>
+                    </div>
+                    <div class="checkup__sublist">Анализы<span></span>
+                      <ul class="checkup__popuplist">
+                        <li>Анализы 1</li>
+                        <li>Анализы 2</li>
+                        <li>Анализы 3</li>
+                      </ul>
+                    </div>
+                    <div class="checkup__sublist">Узи<span></span>
+                      <ul class="checkup__popuplist">
+                        <li>Узи 1</li>
+                        <li>Узи 2</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="checkup__footer"><a class="button button--transparent button--small" href="/checkup-single.html"><span>Подробнее</span></a>
+                    <button class="button--small checkup__zapis"><span>Записаться</span></button>
+                  </div>
+                </li>
               </div>
-            </li>
-          </ul>
+            </ul>
+            <div class="swiper-scrollbar"></div>
+          </div>
         </div><a class="button button--transparent button--center" href="/checkups.html"><span>Все Чек-апы</span></a>
       </div>
       <div class="equipment-block">
         <div class="equipment-block__wrapper wrapper">
           <div class="title title--home title--center title--bg">
-            <h2>Наше оборудование</h2>
+            <h2>Оборудование</h2>
             <p class="subdescription">Используем современное и точное оборудование для диагностики и лечения</p>
           </div>
           <div class="equipment">
@@ -885,6 +943,39 @@
         </video>
       </div>
     </div>
+    <div class="mobbar">
+      <div class="mobbar__wrapper">
+        <li class="menu__item hassubmenu"><a href="/services.html">Услуги</a>
+          <ul class="submenu">
+            <li class="submenu__item"><a href="/services/cardiology">Аллергология</a></li>
+            <li class="submenu__item"><a href="/services/cardiology">Андролог</a></li>
+            <li class="submenu__item"><a href="/services/cardiology">Анестезиология</a></li>
+            <li class="submenu__item"><a href="/services/cardiology">Анестезиология</a></li>
+            <li class="submenu__item"><a href="/services/cardiology">Бактериолог</a></li>
+            <li class="submenu__item"><a href="/services/cardiology">Бальнеолог</a></li>
+            <li class="submenu__item"><a href="/services/cardiology">Валеолог</a></li>
+            <li class="submenu__item"><a href="/services/cardiology">Венеролог</a></li>
+            <li class="submenu__item"><a href="/services/cardiology">Вертебролог</a></li>
+            <li class="submenu__item"><a href="/services/cardiology">Вирусолог</a></li>
+            <li class="submenu__item"><a href="/services/cardiology">Кардиология</a></li>
+            <li class="submenu__item"><a href="/services/cardiology">Компьютерная томография</a></li>
+            <li class="submenu__item"><a href="/services/cardiology">Комплексные исследования</a></li>
+            <li class="submenu__item"><a href="/services/cardiology">Магнитно-резонансная томография</a></li>
+            <li class="submenu__item"><a href="/services/cardiology">Микробиолог</a></li>
+            <li class="submenu__item"><a href="/services/cardiology">Нарколог</a></li>
+            <li class="submenu__item"><a href="/services/cardiology">Нейропсихолог</a></li>
+          </ul>
+        </li>
+        <li class="menu__item"><a href="/checkups.html">Чекапы</a></li>
+        <li class="menu__item"><a href="/discounts.html">Акции</a></li>
+        <li class="menu__item"><a href="/doctors.html">Врачи</a></li>
+        <li class="menu__item"><a href="/clinic.html">Клиника</a></li>
+        <li class="menu__item"><a href="/articles.html">Статьи</a></li>
+        <li class="menu__item"><a href="/clinic-vacancy.html">Вакансии</a></li>
+        <li class="menu__item"><a href="/reviews.html">Отзывы</a></li>
+        <li class="menu__item"><a href="/contacts.html">Контакты</a></li>
+      </div>
+    </div>
     <footer class="wrapper">
       <div class="footer">
         <div class="footer__row">
@@ -955,7 +1046,7 @@
               <li class="footer__menu-item"><a href="/service-single.html">Терапевтия</a></li>
               <li class="footer__menu-item"><a href="/service-single.html">Гинекология</a></li>
               <li class="footer__menu-item"><a href="/service-single.html">Эндокринология</a></li>
-              <li class="footer__menu-item"><a href="/service-single.html">Чекап</a></li>
+              <li class="footer__menu-item"><a href="/checkups.html">Чекапы</a></li>
               <li class="footer__menu-item"><a href="/service-single.html">Лабораторные исследования</a></li>
               <li class="footer__menu-item"><a href="/service-single.html">Хирургия</a></li>
               <li class="footer__menu-item"><a href="/service-single.html">Урология</a></li>
@@ -970,7 +1061,7 @@
               <ul class="footer__menu">
                 <li class="footer__menu-item"><a href="/clinic.html">Клиника</a></li>
                 <li class="footer__menu-item"><a href="/doctors.html">Врачи</a></li>
-                <li class="footer__menu-item"><a href="/discount.html">Акции</a></li>
+                <li class="footer__menu-item"><a href="/discounts.html">Акции</a></li>
                 <li class="footer__menu-item"><a href="/">Отзывы</a></li>
                 <li class="footer__menu-item"><a href="/contacts.html">Контакты</a></li>
               </ul>

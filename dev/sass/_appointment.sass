@@ -9,6 +9,10 @@
   max-width: 920px
   margin: 0 auto
   overflow: hidden
+  .swiper
+    padding-bottom: 20px
+  @include const.max(750px)
+    grid-template-columns: 300px 1fr
   @include const.max(680px)
     display: block
   &__options
@@ -48,6 +52,7 @@
         border: none
         border: 1px solid color.$white2
         border-radius: 100px 10px 10px 100px
+        background: white
         &.open
           border-radius: 10px
           padding: 10px
@@ -55,11 +60,10 @@
         align-items: flex-start
         grid-column-gap: 20px
         transition: 0.25s ease-in
-        background: white
         border-radius: 100px 6px 6px 100px
         display: flex
-        &.selected
-          background-color: color.$light
+        // &.selected
+        //   background-color: color.$light
         &:hover
           background-color: color.$light
           cursor: pointer
@@ -78,7 +82,7 @@
           line-height: 120%
           color: color.$persid
           font-weight: 700
-          margin-bottom: 5px
+          margin-bottom: 5px!important
         &-date
           font-size: 0.8rem
           color: #989898
@@ -102,11 +106,11 @@
     opacity: 0
     transform: translateY(-50px)
     &.opened
-      z-index: 1
       opacity: 1
       transition: 0.2s const.$gently
       visibility: visible
       transform: translateY(0)
+      z-index: 2
   &__option
     font-size: 1rem
     color: color.$ultramarine
@@ -125,10 +129,10 @@
     width: auto
     display: flex
     gap: 12px
-    margin-bottom: 20px
     overflow: auto
     padding-right: 20px
     padding-bottom: 20px
+    overflow: hidden
     &-item
       border-radius: 6px
       border: 1px solid color.$white2
@@ -136,6 +140,7 @@
       width: max-content
       min-width: 95px
       flex: 1 0 max-content
+      background: white
       &:hover
         background-color: color.$light
         border-color: color.$blue-fade

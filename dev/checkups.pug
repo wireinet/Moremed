@@ -6,7 +6,7 @@ html(lang="en")
   body.page.checkups.page--checkups
     .page__header
       include templates/header
-      include templates/menu
+      include templates/top-menu
       .breadcrumbs.wrapper
         a(href="/") Главная
         a(href="/services") Услуги
@@ -35,32 +35,32 @@ html(lang="en")
             p Подберите свой чекап
           .filter__sidebar
             h2.filter__title Подберите свой чекап
-            .filter__group
+            .filter__group.filter__gender
               p.filter__title Для кого
               .filter__options
                 .filter__check-item
-                  p(for="filter-for-woman") Для женщин
+                  p Для женщин
                 .filter__check-item
-                  p(for="filter-for-man") Для мужчин
-            .filter__group
+                  p Для мужчин
+            .filter__group.filter__practice
               p.filter__title Направления
               .filter__options
                 .filter__check-item
-                  p(for="filter-for-woman") Гастроентерология
+                  p Гастроентерология
                 .filter__check-item
-                  p(for="filter-for-man") Гинекология
+                  p Гинекология
                 .filter__check-item
-                  p(for="filter-for-man") Диетология
+                  p Диетология
                 .filter__check-item
-                  p(for="filter-for-man") Кардиология
+                  p Кардиология
                 .filter__check-item
-                  p(for="filter-for-man") Комплексное обследование
+                  p Комплексное обследование
                 .filter__check-item
-                  p(for="filter-for-man") Онкология
+                  p Онкология
                 .filter__check-item
-                  p(for="filter-for-man") Урология
+                  p Урология
                 .filter__check-item
-                  p(for="filter-for-man") Эндокринология
+                  p Эндокринология
             .filter__reset
               button.button--icon
                 include templates/icon-reset.svg

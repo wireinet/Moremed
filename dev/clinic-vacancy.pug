@@ -7,7 +7,7 @@ html(lang="en")
     h1.hidden Вакансии клиники "Моремед"
     .page__header
       include templates/header
-      include templates/menu
+      include templates/top-menu
       .breadcrumbs.wrapper
         a(href="/") Главная
         a(href="/clinic.html").active Клиника
@@ -38,9 +38,10 @@ html(lang="en")
                 p Контактное лицо: <strong>Елена Михайловна</strong>
                 p E-mail <strong>info@moremedrf.ru</strong>
             section.blocks
-              .clinic__vacancy
+              .clinic__vacancy.vacancy
                 h2 Открытые вакансии
                 p Мы рады видеть в команде инициативных и вовлеченных сотрудников, готовых решать сложные задачи и реализовывать масштабные проекты
+                include templates/openbox-vacancy
               img(src="images/image-context-doctors2.webp" alt="image-context")
     include templates/footer
     include templates/scripts

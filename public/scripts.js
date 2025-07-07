@@ -89,6 +89,77 @@ $(function(){
 
     })
   });
+// APPOINTNENT SLIDER
+setTimeout(()=>{
+const appointmentDataSlider = new Swiper('.appointment__date .swiper', {
+    slidesPerView: '3',
+    spaceBetween: 20,
+    loop: true,
+    scrollbar: {
+      el: '.swiper-scrollbar',
+      draggable: true,
+    },
+    breakpoints: {
+      840 :{
+        slidesPerView: '4',
+        spaceBetween: 10,
+      },
+      930:{
+        slidesPerView: '5',
+        spaceBetween: 10,
+      },
+      700:{
+        slidesPerView: '3',
+        spaceBetween: 10,
+      },
+      681:{
+        slidesPerView: '3',
+        spaceBetween: 1,
+      },
+      560:{
+        slidesPerView: '5',
+        spaceBetween: 10,
+      },
+      450:{
+        slidesPerView: '4',
+        spaceBetween: 1,
+      },
+      320:{
+        slidesPerView: '3',
+        spaceBetween: 1,
+      },
+    }
+});
+const appointmentTimeSlider = new Swiper('.appointment__time .swiper', {
+    slidesPerView: '3',
+    spaceBetween: 10,
+    loop: true,
+    scrollbar: {
+      el: '.swiper-scrollbar',
+      draggable: true,
+    },
+    breakpoints: {
+      930:{
+        slidesPerView: '5',
+      },
+      820:{
+        slidesPerView: '4',
+      },
+      600:{
+        slidesPerView: '5',
+      },
+      681:{
+        slidesPerView: '3',
+      },
+      460:{
+        slidesPerView: '4',
+      },
+      320:{
+        slidesPerView: '3',
+      },
+    }
+});
+}, 1000);
 // FORM SELECT
 $(function() {
   const selectActive = $('.appointment__item--simple .appointment__selected');
@@ -104,7 +175,7 @@ $(function() {
   });
 });
 
-// OPTION --SIMPLE
+// OPTION--SIMPLE
   const selectOption = $('.appointment__item--simple .appointment__option');
   selectOption.click(function() {
     let selectedOption = $(this).text();
@@ -170,19 +241,58 @@ $(function() {
   const articleItem = $('.article__item');
   // get letters
   $.each(articleItem, function(index, item){
-    let name = $(item).find('.article__name').text();
     let letter = $(item).find('.article__name').text().charAt(0);
     badgesUniq.add(letter);
   });
   // create alphabet items
   badgesUniq.forEach(item =>{
-    alphabetContainer.append(`
-      <li class="alphabet__item">
-        ${item}
-      </li>
-    `);
+    alphabetContainer.append(`<li class="alphabet__item">${item}</li>`);
   });
 });
+
+// CLICK ON ALPHABET
+$(function(){
+    const alphabetItem = $('.articles .alphabet__item');
+    alphabetItem.on('click', function() {
+      $(this).toggleClass('active');
+      // create reset
+      if(!$('.alphabet__reset').length) {
+        $('<li>', {class:'alphabet__item alphabet__reset'}).appendTo('.alphabet__list');
+        }
+      // reset
+      $(function(){
+        const alphabetReset = $('.alphabet__reset');
+        alphabetReset.on('click', function(){
+          $('.alphabet__item').removeClass('active');
+          $('.alphabet__reset').remove();
+          articleItem.removeClass('hidden');
+          articleItem.removeClass('selected');
+        })
+      });
+      
+      // pressed letter
+      let choisenLetter = $(this).text();
+      console.log(choisenLetter);
+      let articleItem = $('.article__item');
+      $(articleItem).each(function(index, article){
+        let articleNameLetter = $(article).find('.article__name').text().charAt(0);
+        if(choisenLetter === articleNameLetter) {
+          setTimeout(function(){
+            articleItem.addClass('hidden');
+            $(article).toggleClass('selected');
+              if(!articleItem.hasClass('selected')) {
+                articleItem.removeClass('hidden');
+                $('.alphabet__reset').remove();
+              };
+          }, 100);
+        }
+      });
+    })
+  });
+
+
+
+
 
 // ARTICLES THEMES
 $(function() {
@@ -382,12 +492,33 @@ $(function(){
       checkupFilterItem.removeClass('checked');
     });
 });
+// CHECKUP SLIDER
+setTimeout(()=>{
+const checkupSlider = new Swiper('.checkup__slider', {
+    slidesPerView: '1',
+    spaceBetween: 30,
+    loop: true,
+    scrollbar: {
+      el: '.swiper-scrollbar',
+      draggable: true,
+    },
+    breakpoints: {
+      1200:{
+        slidesPerView: '3',
+      },
+      920:{
+        slidesPerView: '2',
+      },
+    }
+});
+}, 1000);
 // checkup sublist open
 $(function(){
   const checkupPopupList = $('.checkup__popuplist');
   const checkupSublist = $('.checkup__sublist');
   if(matchMedia('(max-width:570px)').matches){ 
     checkupSublist.click(function(){
+      checkupPopupList.removeClass('open');
       $(this).find('.checkup__popuplist').toggleClass('open');
     });
   }
@@ -410,10 +541,38 @@ $(function(){
   checkupSublist.each(function(index, item){
     let popuplistItems = $(item).find('.checkup__popuplist li');
     $(item).find('span').text(popuplistItems.length)
-    // $(item).find('span').text(popuplistItems.length);
 
   });
 })
+$(function(){
+
+  const checkupFilterItems = $('.filter__check-item');
+  const checkupItems = $('.checkup__item');
+  
+  checkupFilterItems.click(function(){
+
+    $(this).toggleClass('active');
+    const activeFilters = $('.filter__check-item.checked')
+    .map((i, el) => $(el).text().trim()).get();
+    checkupItems.fadeOut(100);
+    checkupItems.each(function (index, checkupitem) {
+    const checkupForGender = $(checkupitem).find('.gender').text();
+    const checkupForPractice = $(checkupitem).find('.practice').text();
+    if (activeFilters.length > 0 && activeFilters.includes(checkupForGender)) {
+      $(this).fadeIn(100);
+    }
+    if (activeFilters.length > 0 && activeFilters.includes(checkupForPractice)) {
+      $(this).fadeIn(100);
+    }
+    });
+
+  if (activeFilters.length === 0) {
+    checkupItems.fadeIn(100);
+  }
+
+  });
+
+});
 // EQUIPMENT
 setTimeout(()=>{
 const avatar = new Swiper('.clinic-block__slider', {
@@ -461,113 +620,206 @@ const avatar = new Swiper('.clinic-block__slider', {
             top: document.body.dataset.scrollY
         });
     }
-// Create Doctor Filter
+// DISCOUNT SLIDER
+setTimeout(()=>{
+const discountSlider = new Swiper('.discount__slider', {
+    slidesPerView: '1',
+    spaceBetween: 30,
+    loop: true,
+    // navigation: {
+    //   nextEl: '.discount__slider .slider__arrow--next',
+    //   prevEl: '.discount__slider .slider__arrow--prev',
+    // },
+    // pagination: {
+    //     el: '.swiper-pagination',
+    //     type: 'bullets',
+    // },
+    scrollbar: {
+      el: '.swiper-scrollbar',
+      draggable: true,
+    },
+    breakpoints: {
+      1200:{
+        slidesPerView: '3',
+      },
+      920:{
+        slidesPerView: '2',
+      },
+    }
+});
+}, 1000);
+// DOCTORS SLIDER
+// 
 $(function(){
-  const filterContainer = $(".doctor__filter-list");
-  const doctors = $(".doctor__item");
+  const doctorsSlider = new Swiper('.doctor__slider', {
+      slidesPerView: '1',
+      spaceBetween: 30,
+      loop: true,
+      navigation: {
+        nextEl: '.doctor__slider .slider__arrow--next',
+        prevEl: '.doctor__slider .slider__arrow--prev',
+      },
+      // pagination: {
+      //     el: '.swiper-pagination',
+      //     type: 'bullets',
+      // },
+      scrollbar: {
+      el: '.swiper-scrollbar',
+      draggable: true,
+      },
+      breakpoints: {
+        1200:{
+          slidesPerView: '3',
+        },
+        800:{
+          slidesPerView: '2',
+        },
+      }
+  });
+
+// Create Doctor Filter
+
+  const filterContainer = $(".doctors .doctor__filter-list");
+  const doctors = $(".doctors .doctor__item");
   doctors.each(function(idex, item){
     let practice = $(item).find(".doctor__practice").text();
     let doctorFilterItem = $("<li>", {class: "doctor__filter-item", text: practice});
     filterContainer.append(doctorFilterItem);
   });
-});
-// use filter
-$(function(){
-    const doctorFilter = $(".doctor__filter-item");
-    const hashContainer = $('.hash__list');
+
+// use filters on home and doctors page
+  $(function(){
+  
+    const doctorFilter = $(".doctors .doctor__filter-item");
+    const hashContainer = $('.doctors__hash .hash__list');
+
     doctorFilter.click(function(){
+
       doctorFilter[0].classList.remove("active");
       $(this).toggleClass("active");
       let buttonFilter = $(this).text();
-      let doctorItem = $(".doctor__item");
-      doctorItem.addClass('hidden');
 
-      doctorItem.each(function(index, item){
-        let practice = $(item).find(".doctor__practice").text();
-        if(practice === buttonFilter){
-          $(item).toggleClass('selected');
+      
+      if($('body').hasClass('home')){
+        // Пытался в логику фильтра при слайдере, но одни глюки у свайпера...пока отказался от этой затеи:
+        // doctorsHomePageSort();
         }
-      });
+        else if($('body').hasClass('doctors')){
+          doctorsPageSort();
+          hashTags();
+        }
 
-      if(buttonFilter === "Все"){
-        doctorFilter.removeClass('active');
-        $(this).addClass('active');
-        doctorItem.removeClass('hidden');
-        doctorItem.removeClass('selected');
-        $('.hash').fadeOut(200);
-      }
-      else{
-        $('.hash').fadeIn(200);
+      function doctorsPageSort(){
+        let doctorItem = $(".doctor__item");
+        let doctorHash = $(".doctors__hash");
+        doctorItem.addClass('hidden');
+
+        doctorItem.each(function(index, item){
+          let practice = $(item).find(".doctor__practice").text();
+          if(practice === buttonFilter){
+            $(item).toggleClass('selected');
+          }
+        });
+          if(buttonFilter === "Все"){
+            doctorFilter.removeClass('active');
+            $(this).addClass('active');
+            doctorItem.removeClass('hidden');
+            doctorItem.removeClass('selected');
+            doctorHash.fadeOut(200);
+          }
+          else{
+            doctorHash.fadeIn(200);
+          }
+
+        if($('.doctor__item.selected').length === 0){
+          doctorFilter[0].classList.add("active");
+          doctorItem.removeClass('selected');
+          doctorItem.removeClass('hidden');
+          doctorHash.fadeOut(200);
+          hashContainer.empty();
+        }
       }
 
-      if($('.doctor__item.selected').length === 0){
-        doctorFilter[0].classList.add("active");
-        doctorItem.removeClass('selected');
-        doctorItem.removeClass('hidden');
-        $('.hash').fadeOut(200);
-        hashContainer.empty();
-      }
-
-      // Список хеш-тегов
-      const terapevtHash = ['Повышенная температура', 'Хронические недомогания', 'Кардиологические симптомы', 'Проблемы с пищеварением', 'Кожные изменения'];
-      const hirurgHash = ['Сломанные кости', 'Внутренние боли', 'Боль в суставах', 'Боль при движении'];
-      const nevrolHash = ['Головные боли', 'Мигрени', 'Судороги'];
+      function hashTags(){
+        // Список хеш-тегов
+        const terapevtHash = ['Повышенная температура', 'Хронические недомогания', 'Кардиологические симптомы', 'Проблемы с пищеварением', 'Кожные изменения'];
+        const hirurgHash = ['Сломанные кости', 'Внутренние боли', 'Боль в суставах', 'Боль при движении'];
+        const nevrolHash = ['Головные боли', 'Мигрени', 'Судороги'];
 
       // Функция для вывода соответствующих хеш-тегов
       function currentHashItems(HashListItems){
-        hashContainer.empty();
-        HashListItems.forEach(function(linkName){
-          const hashItem = document.createElement('li');
-          hashItem.className = 'hash__item';
-          let hashLink = document.createElement('a');
-          hashLink.href = '#';
-          hashLink.textContent = linkName;
-          hashItem.appendChild(hashLink);
-          hashContainer.append(hashItem);
+          hashContainer.empty();
+          HashListItems.forEach(function(linkName){
+            const hashItem = document.createElement('li');
+            hashItem.className = 'hash__item';
+            let hashLink = document.createElement('a');
+            hashLink.href = '#';
+            hashLink.textContent = linkName;
+            hashItem.appendChild(hashLink);
+            hashContainer.append(hashItem);
+          });
+        }
+
+        if(buttonFilter === "Терапевт"){
+          currentHashItems(terapevtHash);
+        }
+        else if(buttonFilter === "Хирург"){
+          currentHashItems(hirurgHash);
+        }
+        else if(buttonFilter === "Невролог"){
+          currentHashItems(nevrolHash);
+        }
+        if(buttonFilter === "Все"){
+          hashContainer.empty();
+        }
+      }
+
+      function doctorsHomePageSort() {
+        function updateSwiper() {
+          setTimeout(() => {
+            doctorsSlider.update();
+            doctorsSlider.updateSlides();
+            doctorsSlider.updateSize();
+          }, 100);
+        }
+        let doctorItem = $(".doctor__slider .doctor__slide");
+        doctorItem.addClass('hidden');
+        doctorItem.each(function(index, item){
+          updateSwiper();
+          let practice = $(item).find(".doctor__practice").text();
+          if(practice === buttonFilter){
+            $(item).toggleClass('selected');
+          }
         });
       }
-
-      if(buttonFilter === "Терапевт"){
-        currentHashItems(terapevtHash);
-      }
-      else if(buttonFilter === "Хирург"){
-        currentHashItems(hirurgHash);
-      }
-      else if(buttonFilter === "Невролог"){
-        currentHashItems(nevrolHash);
-      }
-      if(buttonFilter === "Все"){
-        hashContainer.empty();
-      }
-
-
-
-
       });
-  })
+});
+///on home and doctorspage
+
+});
 // DOCTOR SINGLE SLIDER
 setTimeout(()=>{
 const avatar = new Swiper('.doctor-single__slider', {
     slidesPerView: 1,
-    spaceBetween: 10,
     loop: true,
-    navigation: {
-      nextEl: '.doctor-single__slider .slider__arrow--next',
-      prevEl: '.doctor-single__slider .slider__arrow--prev',
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
+    scrollbar: {
+      el: '.swiper-scrollbar',
+      draggable: true,
     },
     breakpoints: {
       1200:{
-        slidesPerView: '4',
+        slidesPerView: '5',
       },
       900:{
+        slidesPerView: '4',
+      },
+      700:{
         slidesPerView: '3',
-        spaceBetween: 30,
       },
       600:{
+        slidesPerView: '2',
+      },
+      500:{
         slidesPerView: '2',
       },
       480:{
@@ -682,12 +934,12 @@ menuCurrentItem();
 // NICESCROLL
 $(function() {
     function startNiceScroll() {
-    $("body").niceScroll({
-        cursorcolor:"#20AEE4",
-        cursorwidth: "8px",
-        scrollspeed: 120,
-        horizrailenabled: false
-    });
+    // $("body").niceScroll({
+    //     cursorcolor:"#20AEE4",
+    //     cursorwidth: "8px",
+    //     scrollspeed: 120,
+    //     horizrailenabled: false
+    // });
     // $(".services__list").niceScroll({
     //     cursorcolor:"#20AEE4",
     //     cursorwidth: "4px",
@@ -740,6 +992,50 @@ $(function() {
 
 
 });
+// OPENBOX типа FAQ
+$(function() {
+  const openboxHeader = $('.openbox__header');
+  openboxHeader.click(function(){
+    let item = $(this).closest('.openbox__item');
+    if(item.hasClass('open')){
+      item.find('.openbox__content').slideUp(200, function(){
+        item.removeClass('open');
+      });
+    }
+    else {
+      $(this).next('.openbox__content').slideToggle(200);
+      item.toggleClass('open');
+    }
+  });
+  // openboxHeader.click(function(){
+  //   let item = $(this).closest('.openbox__item');
+  //   if(item.hasClass('open')){
+
+  //   }
+    // if($(this).closest('.openbox__item').hasClass('openbox__header--active')){
+
+
+    // }
+  });
+// ORGANS
+$(function() {
+  const organ = $('.organs__item');
+  organ.click(function(){
+    if($(this).hasClass('opened')){
+      $(this).removeClass('opened');
+      organ.find('.organ__info').slideUp(200);
+    }
+    else{
+      organ.removeClass('opened');
+      organ.find('.organ__info').slideUp(200);
+      $(this).find('.organ__info').slideToggle(200);
+      $(this).toggleClass('opened');
+    }
+
+
+
+  });
+})
 // PAGINATION
 $(function(){
   const pagination = $('.pagination__item');

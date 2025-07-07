@@ -1,0 +1,65 @@
+@use 'colors' as color
+@use 'constants' as const
+.openbox
+  &__list
+    display: flex
+    flex-direction: column
+    gap: 20px
+    max-width: 950px
+  &__item
+    border-radius: 10px
+    border: 1px solid color.$white2
+    padding: 20px
+    background: white
+    transition: 0.5s ease-out
+    &.open
+      transition: 0.25s ease-in
+      border: 1px solid color.$blue
+      .openbox__header
+        &:after
+          transition: 0.25s ease-in
+          transform: rotate(180deg)
+      .openbox__content
+        display: block
+  &__header
+    cursor: pointer
+    display: flex
+    gap: 20px
+    align-items: center
+    padding-right: 60px
+    position: relative
+    &:after
+      @include const.pseudo
+      width: 20px
+      height: 30px
+      background-image: url(images/icons/expand-arrow.svg)
+      background-position: center
+      background-size: 16px
+      background-repeat: no-repeat
+      left: auto
+      right: 0
+      transition: 0.25s ease-out
+  &__icon
+    width: 20px
+    height: 20px
+    display: flex
+    align-items: center
+    justify-content: center
+    img
+      width: 30px !important
+      height: auto
+      border-radius: 0
+  &__title
+    font-size: 1.3rem
+    line-height: 125%
+    font-weight: 600
+    color: color.$persid
+    margin-bottom: 0
+  &__content
+    padding-top: 20px
+    display: none
+    p
+      color: color.$ultramarine
+      &:last-child
+        margin-bottom: 0
+  

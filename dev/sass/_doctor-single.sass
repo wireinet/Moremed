@@ -67,8 +67,8 @@
     padding-right: 20px
     position: relative
     padding-bottom: 40px
-    .slider__arrow
-      top: calc(43% - 20px)
+    // .slider__arrow
+    //   top: calc(43% - 20px)
     .swiper-slide
       text-align: center
       padding: 20px
@@ -80,6 +80,9 @@
   .appointment__single
     gap: 20px
     display: flex
+      padding-top: 40px
+    @include const.max(681px)
+      align-items: center
   &__appointment
     &-avatar
       width: 140px
@@ -112,30 +115,11 @@
       line-height: 110%
       color: color.$persid
       font-weight: 600
+      @include const.min(681px)
+        padding-top: 10px
     .appointment
       margin: 40px 0
-      max-width: 100%
+      max-width: 960px
       padding: 0
       .form--slim
         max-width: 920px
-
-.price-table
-  flex: 1
-  & > *
-    font-size: 1rem
-    color: color.$persid
-  &__row
-    display: flex
-    justify-content: space-between
-    padding-bottom: 10px
-    &:not(:last-child)
-      border-bottom: 1px solid #B8DCE8
-      margin-bottom: 10px
-    p
-      margin-bottom: 0
-      color: color.$persid
-  &__service
-    margin-right: 40px
-  &__price
-    &:after
-      content: " ₽"

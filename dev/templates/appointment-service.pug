@@ -1,0 +1,24 @@
+.appointment
+  .appointment__options
+    .appointment__item.appointment__item--doctors
+      p.appointment__label Выбрать врача
+      .appointment__selected
+        ul.appointment__doctors-list
+          .appointment__doctor.selected
+            img.appointment__doctor-avatar(src="images/avatars/doctor-ivanov-photo-1.webp")
+            div.appointment__doctor-data
+              h3.appointment__doctor-name Иванов Иван Петрович
+              p.appointment__doctor-date Ближ. прием в субботу, в 9:00
+          .appointment__doctor
+            img.appointment__doctor-avatar(src="images/avatars/doctor-andreeva-photo-1.webp")
+            div.appointment__doctor-data
+              h3.appointment__doctor-name Лариса Федоровна Андреева
+              p.appointment__doctor-date Ближ. прием в субботу, в 9:00
+          .appointment__doctor
+            img.appointment__doctor-avatar(src="images/avatars/doctor-petrov-photo-1.webp")
+            div.appointment__doctor-data
+              h3.appointment__doctor-name Евгений Афонасьевич Петров
+              p.appointment__doctor-date Ближ. прием в субботу, в 9:00
+  include appointment-result
+  .appointment__send
+    include form-slim

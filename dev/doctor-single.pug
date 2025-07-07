@@ -6,7 +6,7 @@ html(lang="en")
   body.page.doctor-single.page--doctor-single
     .page__header
       include templates/header
-      include templates/menu
+      include templates/top-menu
       .breadcrumbs.wrapper
         a(href="/") Главная
         a(href="/doctors.html") Терапевт
@@ -115,7 +115,6 @@ html(lang="en")
                 img(src="images/sertificats/sertificat-3.webp")
         section.wrapper
           .doctor-single__slider.swiper
-            include templates/slider-navigation
             ul.swiper-wrapper
               li.swiper-slide
                 img(src="images/doctor-single-slides/doctor-single-slide-1.webp", alt="photo-1")
@@ -127,7 +126,7 @@ html(lang="en")
                 img(src="images/doctor-single-slides/doctor-single-slide-4.webp", alt="photo-4")
               li.swiper-slide
                 img(src="images/doctor-single-slides/doctor-single-slide-1.webp", alt="photo-1")
-            .swiper-pagination
+            .swiper-scrollbar
             .equipment__nav.slider__navigation
       .page__bg-wrapper1
         section#appointment.doctor-single__appointment.wrapper
