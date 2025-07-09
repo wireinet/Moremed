@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+  head
+    -var title = 'Результаты поиска'
+    include templates/head
+  body.page.search-page.page--search
+    .page__header
+      include templates/header
+      include templates/top-menu
+    main.content.page__content
+      .page__bg-wrapper1
+        section.page__info.wrapper
+          .page__info-intro
+            .services-single__title
+              h1 Вы искали: 
+                span
+        section.search-page__result.wrapper
+          //- Цикл WP если что-то нашлось
+          p По вашему запросу ничего не найдено
+    include templates/popups
+    include templates/footer
+    include templates/scripts

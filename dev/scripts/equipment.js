@@ -3,13 +3,17 @@ setTimeout(()=>{
 const avatar = new Swiper('.equipment__slider', {
     slidesPerView: '1',
     loop: true,
-    navigation: {
-      nextEl: '.equipment .slider__arrow--next',
-      prevEl: '.equipment .slider__arrow--prev',
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
+    // navigation: {
+    //   nextEl: '.equipment .slider__arrow--next',
+    //   prevEl: '.equipment .slider__arrow--prev',
+    // },
+    // pagination: {
+    //     el: '.swiper-pagination',
+    //     type: 'bullets',
+    // },
+    scrollbar: {
+      el: '.swiper-scrollbar',
+      draggable: true,
     },
     breakpoints: {
       1200:{

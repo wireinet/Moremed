@@ -1,0 +1,28 @@
+@use 'colors' as color
+.login-form
+  display: flex
+  align-items: center
+  flex-direction: column
+  gap: 20px
+  padding: 20px
+  p
+    margin-bottom: 0
+    font-size: 1.2rem
+    color: color.$ultramarine
+  &__oauth
+    display: flex
+    justify-content: center
+    gap: 20px
+    &-item
+      flex: 1 1 auto
+      display: inline-block
+      background-color: #F3F3F3
+      padding: 8px
+      border-radius: 100px
+      cursor: pointer
+      &:hover
+        background-color: #e0e0e0
+      img
+        display: block
+        margin: 0 auto
+        width: 70%

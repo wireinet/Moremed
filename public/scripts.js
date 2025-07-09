@@ -578,13 +578,17 @@ setTimeout(()=>{
 const avatar = new Swiper('.clinic-block__slider', {
     slidesPerView: '1',
     loop: true,
-    navigation: {
-      nextEl: '.clinic-block__slider .slider__arrow--next',
-      prevEl: '.clinic-block__slider .slider__arrow--prev',
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
+    // navigation: {
+    //   nextEl: '.clinic-block__slider .slider__arrow--next',
+    //   prevEl: '.clinic-block__slider .slider__arrow--prev',
+    // },
+    // pagination: {
+    //     el: '.swiper-pagination',
+    //     type: 'bullets',
+    // },
+    scrollbar: {
+      el: '.swiper-scrollbar',
+      draggable: true,
     },
     breakpoints: {
       1200:{
@@ -833,13 +837,17 @@ setTimeout(()=>{
 const avatar = new Swiper('.equipment__slider', {
     slidesPerView: '1',
     loop: true,
-    navigation: {
-      nextEl: '.equipment .slider__arrow--next',
-      prevEl: '.equipment .slider__arrow--prev',
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
+    // navigation: {
+    //   nextEl: '.equipment .slider__arrow--next',
+    //   prevEl: '.equipment .slider__arrow--prev',
+    // },
+    // pagination: {
+    //     el: '.swiper-pagination',
+    //     type: 'bullets',
+    // },
+    scrollbar: {
+      el: '.swiper-scrollbar',
+      draggable: true,
     },
     breakpoints: {
       1200:{
@@ -931,6 +939,36 @@ function menuCurrentItem() {
   }
 }
 menuCurrentItem();
+// MOBBAR SLIDER
+$('document').ready(function(){
+  function showMobbar(){
+    $('.mobbar').addClass('open');
+  }
+  setTimeout(showMobbar, 1000);
+});
+setTimeout(()=>{
+const mobbarSlider = new Swiper('.mobbar__slider', {
+    slidesPerView: '5',
+    spaceBetween: 30,
+    loop: true,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+});
+}, 200);
+// MOBMENU
+$(function() {
+  const mobmenuTriggerButton = $('.hamburger');
+  const mobmenu = $('.popup--mobmenu');
+  const hassubmenu = $('.mobmenu__item.hassubmenu a');
+  hassubmenu.on('click', function(e) {
+    e.preventDefault();
+    $(this).parent('.hassubmenu').toggleClass('opened');
+    $(this).siblings('.mobmenu__submenu').slideToggle();
+  })
+  popup(mobmenuTriggerButton, mobmenu);
+});
 // NICESCROLL
 $(function() {
     function startNiceScroll() {
@@ -1056,14 +1094,34 @@ const popup = function(button, popup) {
       popup.addClass('active');
     });
     popupClose.click(function(){
+      let currentPopup = $(this).closest('.popup');
+      if(currentPopup.hasClass('popup--form')){
+        currentPopup.find('input:not([type="submit"])').each(function(){
+          if($(this).val() !== ''){
+            $(this).val('');
+          }
+          $(this).removeClass('error');
+        })
+      }
       popup.removeClass('active');
       enableScrollBody();
+      $(this).find('.popup').find('input').each(function(){
+        $(this).val('');
+      });
     })
-    bg.click(function(e){
-      popup.removeClass('active');
-      enableScrollBody();
-    });
-    console.log($(this));
+      bg.click(function(e){
+        if(!$(e.target).closest(popupContent).length){
+          popup.removeClass('active');
+          enableScrollBody();
+        }
+      });
+    // close popup on esc
+    $(document).keydown(function(e){
+      if(e.keyCode === 27){
+        popup.removeClass('active');
+        enableScrollBody();
+      }
+    })
 }
 // --SCROLL
 $(function(){
@@ -1082,6 +1140,57 @@ $(function(){
     });
 
 });
+// SEARCHING
+$(function() {
+
+function searchGlobal() {
+  // Вероятно будет событе submit на форме, но для демонстрации у меня обычный div.search и событие клика + enter
+  const searchSubmit = $('.search__submit');
+  const searchInput = $('.search__input');
+  // on submit:
+  searchSubmit.on('click', function() {
+    let inputValue = $(this).siblings('input');
+    if(inputValue.val() != ''){
+      window.location.replace('/search-page.html?search=' + encodeURIComponent(inputValue.val()));
+    }
+  });
+  searchInput.keyup(function(e) {
+    if(e.keyCode == 13) {
+      if($(this).val() != ''){
+        window.location.replace('/search-page.html?search=' + encodeURIComponent(searchInput.val()));
+      }
+    }
+  });
+
+
+} //searchGlobal
+
+searchGlobal();
+
+function searchResultOnSearchPage() {
+  let searchResult = window.location.search;
+  const urlData = new URLSearchParams(searchResult);
+  let searchString = urlData.get('search');
+
+  if ($('body').hasClass('search-page')) {
+    let searchPageTitle = $('.services-single__title h1 span');
+    searchPageTitle.text(searchString);
+  }
+}
+
+searchResultOnSearchPage();
+
+// Полноэкранный поиск
+// При маленьком размере экрана (1127px)
+
+function fullScreenSearch() {
+  const searchOnMobile = $('.mob-search');
+  const fullScreenSearchPopup = $('.popup--full-screen-search');
+  popup(searchOnMobile, fullScreenSearchPopup);
+}
+fullScreenSearch();
+
+});//
 // TABS
 $(function () {
   const tabs = $('.tabs__tab-label');
@@ -1187,12 +1296,98 @@ $(function(){
   $(window).scroll(function(){
   });
 });
+// TOPMENU
+$(function () {
+  function createSliderFromTopMenu() {
+    const topMenu = $('.top-menu__nav');
+    const topMenuSubmenuItem = $('.top-menu__nav .submenu__item');
+    const topMenuSubmenuSlides = []; 
+
+    // Группируем элементы по 4 в .swiper-slide
+    for (let i = 0; i < topMenuSubmenuItem.length; i += 4) {
+      const slide = $('<div>', { class: 'swiper-slide' });
+      topMenuSubmenuItem.slice(i, i + 4).each(function () {
+        slide.append(this);
+      });
+      topMenuSubmenuSlides.push(slide);
+    }
+
+    // Создаём структуру Swiper
+    const swiperContainer = $('<div>', { class: 'swiper top-menu__slider' });
+    const swiperWrapper = $('<div>', { class: 'swiper-wrapper' });
+
+    // Добавляем слайды в .swiper-wrapper
+    topMenuSubmenuSlides.forEach(slide => {
+      swiperWrapper.append(slide);
+    });
+
+    // Вставляем структуру Swiper
+    topMenu.find('li.hassubmenu').append(swiperContainer.append(swiperWrapper));
+    let swiperScrollBar = $('<div>', {class: 'swiper-scrollbar'});
+    swiperContainer.append(swiperScrollBar);
+    $('.top-menu__nav .submenu').remove();
+  }
+  createSliderFromTopMenu();
+
+  // Инициализация Swiper после создания слайдов
+  const topMenuSlider = new Swiper('.top-menu__slider', {
+    slidesPerView: 4,
+    spaceBetween: 20,
+    loop: false,
+    scrollbar: {
+      el: '.swiper-scrollbar',
+      draggable: true,
+    }
+  });
+
+  // open submenu 1
+    const topMenuLink = $('.top-menu__nav a');
+    topMenuLink.on('click', function (e) {
+      if($(this).parent('li.menu__item').hasClass('hassubmenu')){
+        e.preventDefault();
+        $(this).siblings('.top-menu__slider').slideToggle(300);
+      }
+    });
+
+});///TOP MENU
+
 // USER
 $(function(){
-    const user = $('.user');
-    const userIdent = $('.user__ident');
-    user.click(function(){
-        userIdent.toggleClass('user__ident--logined');
-        alert('Welcome to our site!');
-    });
+    function loginform(){
+        const user = $('.user');
+        const popupLogin = $('.popup--login-form');
+        popup(user, popupLogin);
+        let loginRequest = $('.login-form input[type="submit"]');
+        loginRequest.on('click', function(e){
+            let userLogin = $('.login-form input[name="username"]');
+            let userPass = $('.login-form input[name="userpass"]');
+            e.preventDefault();
+            function checkFilled(){
+                if (userLogin.val() == "" ){userLogin.addClass('error');}
+                else {userLogin.removeClass('error');}
+
+                if (userPass.val() == "" ){userPass.addClass('error');}
+                else {userPass.removeClass('error');}
+            }
+            if (userLogin.val() != "" && userPass.val() != ""){
+                userLogin.removeClass('error');
+                userPass.removeClass('error');
+                userLogin.addClass('access-granted');
+                userPass.addClass('access-granted');
+                setTimeout(function(){
+                    popupLogin.removeClass('active');
+                    enableScrollBody();
+                    logined();
+                }, 1000);
+            }
+            else {checkFilled();}
+
+        });
+    }
+    loginform();
+    function logined(){
+        $('.user__ident').toggleClass('user__ident--logined');
+        // И все что нужно сделать при залогиненном пользователе...
+        // Загрузить аватар и тд..
+    }
 });

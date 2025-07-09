@@ -1,0 +1,103 @@
+@use 'colors' as color
+@use 'constants' as const
+.mobmenu
+  width: 100%
+  height: 100%
+  display: flex
+  flex-direction: column
+  align-items: stretch
+  justify-content: stretch
+  &__header
+    background: url(images/bg-mobmenu.svg) no-repeat
+    background-position: left top
+    background-size: contain
+    min-height: 100px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding: 40px 20px
+  &__menu
+    padding: 20px
+    flex: 1
+    overflow: auto
+    margin-right: 20px
+  &__list
+    display: inline-flex
+    flex-direction: column
+    gap: 20px
+    height: auto
+  &__item
+    font-size: 1.125rem
+    color: color.$ultramarine
+    display: inline-block
+    a
+      color: color.$ultramarine
+    &.hassubmenu
+      & > a
+        display: inline-block
+        padding: 6px 0
+        position: relative
+        transition: 0.25s ease
+        &::after
+          @include const.pseudo
+          width: 20px
+          height: 20px
+          background: url(images/icons/expand-arrow.svg) no-repeat
+          background-position: center
+          background-size: 14px
+          top: 6px
+          left: auto
+          right: -30px
+          transition: 0.25s ease
+    &.opened
+      & > a
+        background: color.$faded
+        padding: 6px 10px
+        border-radius: 20px
+        color: color.$ultramarine
+        font-weight: 700
+        margin-bottom: 10px
+        transition: 0.25s ease
+        &::after
+          transition: 0.25s ease
+          transform: rotate(180deg)
+  &__submenu
+    padding-left: 20px
+    display: none
+    &-item
+      border-bottom: 1px solid color.$white3
+      padding: 10px 0
+      a
+        font-size: 1.05rem
+  &__footer
+    display: flex
+    flex-direction: column
+    gap: 10px
+    padding: 20px
+    background: linear-gradient(0deg, #D4F3FF, transparent)
+  &__contacts
+    display: flex
+    gap: 20px
+    justify-content: space-between
+  &__contact
+    display: grid
+    align-items: center
+    grid-template-columns: 24px 1fr 
+    gap: 4px
+    color: color.$ultramarine
+    img
+      width: 20px
+    a
+      width: max-content
+      font-size: 0.84rem
+      font-weight: 600
+      color: color.$ultramarine
+    p
+      margin-bottom: 0
+      font-size: 0.7rem
+      font-weight: 600
+  &__buttons
+    display: flex
+    justify-content: space-between
+
+

@@ -6,12 +6,13 @@
   &__nav
     display: flex
     gap: 20px
-  &__item
-    &.current-menu-item
-      font-weight: 700
+    position: relative
+  .menu__item
     a
       color: color.$ultramarine
       transition: 0.5s ease-out
+    &.current-menu-item
+      font-weight: 700
       &.active
         color: color.$persid
         font-weight: 600
@@ -24,13 +25,39 @@
     align-items: center
   @include const.max(880px)
     display: none
-
+  &__slider
+    position: absolute
+    background: white
+    top: 50px
+    left: 0
+    padding: 20px
+    width: 100%
+    border-radius: 10px
+    padding-bottom: 20px
+    .swiper-scrollbar
+      bottom: 10px
+      height: 2px
+    .swiper-slide
+      padding-right: 20px
+      &:not(:last-child)
+        &::after
+          @include const.pseudo
+          height: 95%
+          width: 1px
+          background: color.$white2
+          left: auto
+          right: 30px
+    display: none
+    .submenu
+      display: block
 .home
   .top-menu
     @include const.center
     position: absolute
     top: 120px
     z-index: 3
+    &__nav
+      position: static
     &__wrapper
       max-width: max-content
       height: 40px
@@ -58,17 +85,24 @@
       display: flex
       align-items: center
       border-radius: 100px
+    &__slider
+      width: 910px
+      @include const.max(960px)
+        width: 100%
 
-  
 .submenu
   display: none
-  position: absolute
-  background: white
-  top: 50px
-  left: 0
-  padding: 20px
-  width: 100%
-  border-radius: 10px
-  display: none
   &__item
-    margin-bottom: 10px
+    padding-bottom: 10px
+    &:not(:last-child)
+      margin-bottom: 10px
+    a
+      color: color.$ultramarine
+
+.subsubmenu
+  position: absolute
+  left: 0
+  top: 0
+  width: 100%
+  height: auto
+  display: none

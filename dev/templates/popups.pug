@@ -3,4 +3,34 @@
     include play
     video.video(width="400")
       source(src="" type="video/mp4")
-      //- source(src="video/video-example-man.mp4" type="video/mp4")
+
+.popup.popup--mobmenu
+  .popup__content
+    include mobmenu
+
+.popup.popup--full-screen.popup--full-screen-search
+  include close-popup
+  .popup__content
+    .search
+      input.search__input(placeholder="поиск")
+      input.search__submit
+
+.popup.popup--login-form.popup--form
+  .popup__content.popup__content--bg
+    include close-popup
+    form.login-form
+      img(src="images/icons/user-icon.svg", alt="user")
+      p Войти
+      input.simple(type="text" name="username" placeholder="логин") 
+      input.simple(type="password" name="userpass" placeholder="пароль") 
+      input.simple(type="submit" value="Войти")
+      ul.login-form__oauth
+        li.login-form__oauth-item
+          a
+            img(src="/images/examples/vkid.webp" alt="vk-id")
+        li.login-form__oauth-item
+          a
+            img(src="/images/examples/yandexid.webp" alt="yandex-id")
+        li.login-form__oauth-item
+          a
+            img(src="/images/examples/mailid.webp" alt="mail-id")

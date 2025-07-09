@@ -2,6 +2,7 @@
 @use 'colors' as color
 html
   font-size: 1rem
+  overflow-x: hidden
 
 .wrapper
   width: 100%
@@ -15,7 +16,7 @@ body
   background: white
   font-family: 'Mulish', sans-serif
   font-size: 1rem
-  overflow-x: hidden !important
+  overflow-x: hidden
   &.home
     position: relative
     &:after
@@ -52,6 +53,38 @@ a.logo-link
 strong
   font-weight: 700
   
+input.simple
+  width: 100%
+  height: 40px
+  background: white
+  border: 1px solid color.$white2
+  text-align: center
+  border-radius: 10px
+  font-size: 1rem
+  transition: 0.25s ease-out
+  &::placeholder
+    color: color.$gray
+  &:focus, &:focus-visible
+    transition: 0.25s ease-in
+    border: 1px solid color.$blue
+    outline: 2px solid color.$blue
+  &[type="submit"]
+    width: 100%
+    border: none
+    background-color: color.$blue
+    color: white
+    transition: 0.25s ease-out
+    &:hover
+      cursor: pointer
+      background-color: color.$persid
+  &.error
+    background: color.$error
+    border-color: color.$error
+    &::placeholder
+      color: white
+  &.access-granted
+    background: color.$access
+    border-color: color.$access
 button, .button
   font-family: inherit
   background: color.$blue

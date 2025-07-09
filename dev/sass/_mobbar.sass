@@ -6,13 +6,52 @@
   bottom: 0
   left: 0
   width: 100%
-  z-index: 10
+  z-index: 1000
   height: 90px
   padding: 10px
-  // @include const.max(570px)
-  //   display: block
+  transition: 0.25s const.$gently
+  transform: translateY(200px)
+  opacity: 0
+  &.open
+    transition: 0.5s const.$gently
+    transform: translateY(0)
+    opacity: 1
+  @include const.max(570px)
+    display: block
   &__wrapper
     height: 100%
     background: rgba(41, 170, 219, 0.85)
     backdrop-filter: blur(2px)
     border-radius: 10px 10px 40px 40px
+    padding: 6px 50px 0 50px
+    @include const.max(430px)
+      padding: 8px 30px 0 30px
+  &__item
+    display: flex
+    flex-direction: column
+    align-items: center
+    margin: 0 auto
+    position: relative
+    &:after
+      @include const.pseudo
+      background: #8EDEFB
+      left: auto
+      right: -14px
+      width: 1px
+      height: 100%
+    a
+      font-size: 0.65rem
+      color: white
+  .swiper-button-next, .swiper-button-prev
+    color: color.$faded
+    &::after
+      font-size: 16px
+  .swiper-button-next
+    &::after
+      position: relative
+      left: auto
+      right: -9px
+  .swiper-button-prev
+    &::after
+      position: relative
+      left: -9px

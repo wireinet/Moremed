@@ -58,6 +58,13 @@
       span, button
         display: none
   &__search
+    .mob-search
+      display: none
+      @include const.max(1127px)
+        display: block
+    .search
+        @include const.max(1127px)
+          display: none
     @include const.max(400px)
       display: none
   &__phone
@@ -77,18 +84,3 @@
       display: none
     @include const.max(700px)
       order: 10
-  .search
-    &__input
-      @include const.max(1127px)
-        display: none
-    &__submit
-      @include const.max(1127px)
-        background: white url(images/search-2.svg)
-        background-repeat: no-repeat
-        background-position: center
-        font-size: 0
-        background-size: 16px
-        cursor: pointer
-        transition: background 0.5s ease-out
-        border-radius: 100px
-        position: static

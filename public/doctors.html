@@ -55,6 +55,7 @@
             </div>
             <div class="topbar__group">
               <div class="topbar__search">
+                <div class="mob-search"></div>
                 <div class="search">
                   <input class="search__input" placeholder="поиск">
                   <input class="search__submit" type="submit">
@@ -81,23 +82,30 @@
           <ul class="top-menu__nav nav">
             <li class="menu__item hassubmenu"><a href="/services.html">Услуги</a>
               <ul class="submenu">
-                <li class="submenu__item"><a href="/services/cardiology">Аллергология</a></li>
-                <li class="submenu__item"><a href="/services/cardiology">Андролог</a></li>
-                <li class="submenu__item"><a href="/services/cardiology">Анестезиология</a></li>
-                <li class="submenu__item"><a href="/services/cardiology">Анестезиология</a></li>
-                <li class="submenu__item"><a href="/services/cardiology">Бактериолог</a></li>
-                <li class="submenu__item"><a href="/services/cardiology">Бальнеолог</a></li>
-                <li class="submenu__item"><a href="/services/cardiology">Валеолог</a></li>
-                <li class="submenu__item"><a href="/services/cardiology">Венеролог</a></li>
-                <li class="submenu__item"><a href="/services/cardiology">Вертебролог</a></li>
-                <li class="submenu__item"><a href="/services/cardiology">Вирусолог</a></li>
-                <li class="submenu__item"><a href="/services/cardiology">Кардиология</a></li>
-                <li class="submenu__item"><a href="/services/cardiology">Компьютерная томография</a></li>
-                <li class="submenu__item"><a href="/services/cardiology">Комплексные исследования</a></li>
-                <li class="submenu__item"><a href="/services/cardiology">Магнитно-резонансная томография</a></li>
-                <li class="submenu__item"><a href="/services/cardiology">Микробиолог</a></li>
-                <li class="submenu__item"><a href="/services/cardiology">Нарколог</a></li>
-                <li class="submenu__item"><a href="/services/cardiology">Нейропсихолог</a></li>
+                <li class="submenu__item"><a href="/services-single.html">Аллергология</a></li>
+                <li class="submenu__item"><a href="/services-single.html">Андролог</a></li>
+                <li class="submenu__item"><a href="/services-single.html">Анестезиология</a></li>
+                <li class="submenu__item"><a href="/services-single.html">Анестезиология</a></li>
+                <li class="submenu__item"><a href="/services-single.html">Бактериолог</a></li>
+                <li class="submenu__item"><a href="/services-single.html">Бальнеолог</a></li>
+                <li class="submenu__item"><a href="/services-single.html">Валеолог</a></li>
+                <li class="submenu__item"><a href="/services-single.html">Венеролог</a></li>
+                <li class="submenu__item"><a href="/services-single.html">Вертебролог</a></li>
+                <li class="submenu__item"><a href="/services-single.html">Вирусолог</a></li>
+                <li class="submenu__item hassubmenu"><a href="/services-single.html">Кардиология</a>
+                  <ul class="subsubmenu">
+                    <li><a href="services-single.html">Кардиология 1</a></li>
+                    <li><a href="services-single.html">Кардиология 2</a></li>
+                    <li><a href="services-single.html">Кардиология 3</a></li>
+                    <li><a href="services-single.html">Кардиология 4</a></li>
+                  </ul>
+                </li>
+                <li class="submenu__item"><a href="/services-single.html">Компьютерная томография</a></li>
+                <li class="submenu__item"><a href="/services-single.html">Комплексные исследования</a></li>
+                <li class="submenu__item"><a href="/services-single.html">Магнитно-резонансная томография</a></li>
+                <li class="submenu__item"><a href="/services-single.html">Микробиолог</a></li>
+                <li class="submenu__item"><a href="/services-single.html">Нарколог</a></li>
+                <li class="submenu__item"><a href="/services-single.html">Нейропсихолог</a></li>
               </ul>
             </li>
             <li class="menu__item"><a href="/checkups.html">Чекапы</a></li>
@@ -282,37 +290,164 @@
         </video>
       </div>
     </div>
+    <div class="popup popup--mobmenu">
+      <div class="popup__content">
+        <div class="mobmenu">
+          <div class="mobmenu__header"><a class="logo-link" href="/"><svg class="logo" width="217" height="41" viewBox="0 0 217 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path class="logo__sign" d="M32.0806 1.74042C18.9177 1.73972 0.57392 10.3079 1.06629 19.4206C1.20928 22.0529 3.70238 25.9083 8.99373 20.6557C19.8096 9.9173 23.5779 7.18841 25.3036 7.18841C27.9782 7.18841 23.5592 18.3116 23.1492 19.3463C21.7249 22.9415 29.1284 16.44 30.2533 15.3707C32.8039 12.9469 34.0346 12.5319 34.298 13.2926C35.2391 16.0109 24.085 29.8329 36.5463 23.3652C37.5987 22.82 38.6984 22.3138 39.7388 21.7721C41.3208 20.9473 42.482 19.5555 42.9983 17.91C44.9311 11.7382 44.844 6.07125 41.2256 3.82779C38.8934 2.38239 35.6793 1.74113 32.0806 1.74042ZM20.677 15.0199C19.6091 15.0192 16.4747 17.627 9.24137 25.2978C6.46397 28.2436 4.36537 27.7817 3.16087 26.4617C3.08691 26.3814 2.94277 26.4739 2.98856 26.5711C6.67461 34.4665 15.0181 39.6494 24.2378 39.2366C30.2927 38.9661 37.0864 31.34 40.9986 22.9938C41.0606 22.8599 40.8888 22.7505 40.7592 22.8287C25.1803 32.2182 24.8056 28.7561 25.9207 25.2947C26.7385 22.7589 28.355 20.2243 25.381 22.7389C16.2578 30.4534 17.7488 25.6851 19.5183 20.9157C20.6122 17.9678 21.8125 15.0199 20.677 15.0199Z" fill="url(#paint0_radial_622_7993)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M170.768 23.8934L172.32 23.9259V29.6762H169.49L169.186 26.816H158.533L158.259 29.6762H155.429V23.8934H155.978C156.626 23.8933 157.144 23.6827 157.529 23.2568C157.752 22.9948 157.929 22.6798 158.062 22.3157C158.194 21.9516 158.291 21.5556 158.351 21.1322L159.811 11.5988H170.768V23.8934ZM161.454 21.7709C161.374 22.2957 161.273 22.7121 161.151 23.0143C161.028 23.3186 160.835 23.6109 160.573 23.8934H167.512V14.4595H162.551L161.454 21.7709Z" fill="#25245B"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M80.3485 11.3238C81.5269 11.3238 82.6165 11.5371 83.6209 11.9625C84.6247 12.3886 85.482 12.9686 86.1927 13.699C86.9027 14.4098 87.4506 15.2346 87.8359 16.1785C88.2212 17.1224 88.4142 18.1325 88.4142 19.2074C88.4142 20.3019 88.2107 21.3421 87.8065 22.3281C87.4 23.3114 86.8118 24.1683 86.0405 24.8994C85.3305 25.5875 84.4937 26.1272 83.5301 26.5111C82.5658 26.8978 81.5058 27.0905 80.3485 27.0905C79.1722 27.0905 78.0861 26.8876 77.0936 26.4812C76.099 26.0747 75.2465 25.5178 74.5358 24.8071C73.8258 24.0964 73.2682 23.2589 72.8632 22.2961C72.4568 21.3326 72.2539 20.3019 72.2539 19.2074C72.2539 18.0931 72.4719 17.0377 72.9086 16.0418C73.3446 15.0493 73.9476 14.1849 74.7189 13.4566C75.4289 12.7853 76.2569 12.2627 77.1994 11.8887C78.1432 11.5126 79.1941 11.3238 80.3485 11.3238ZM80.3655 14.2469C79.6731 14.2469 79.0263 14.3678 78.4262 14.6101C77.8255 14.8503 77.3015 15.2049 76.8543 15.6683C76.4471 16.0719 76.1207 16.5749 75.8776 17.1814C75.6318 17.7858 75.5108 18.4622 75.5108 19.2074C75.5109 19.9532 75.6319 20.6293 75.8776 21.2328C76.1207 21.84 76.4568 22.3531 76.8837 22.7764C77.7796 23.7055 78.9399 24.1684 80.3655 24.1684C81.0367 24.1683 81.6572 24.052 82.2269 23.8217C82.7974 23.5885 83.2948 23.2616 83.7231 22.8384C84.6796 21.9495 85.1588 20.7407 85.1588 19.2074C85.1588 18.4425 85.0361 17.7464 84.791 17.1195C84.5466 16.4954 84.1901 15.9705 83.7231 15.5465C83.2948 15.1429 82.7918 14.826 82.2114 14.5957C81.6318 14.3633 81.0163 14.247 80.3655 14.2469Z" fill="#25245B"/>
+<path d="M176.367 22.9199C177.016 22.9199 177.528 23.1134 177.903 23.4992C178.279 23.8831 178.468 24.3715 178.468 24.9582C178.468 25.5478 178.279 26.0301 177.903 26.4048C177.528 26.7809 177.016 26.9671 176.367 26.9672C175.738 26.9672 175.236 26.781 174.861 26.4048C174.485 26.0301 174.297 25.5477 174.297 24.9582C174.297 24.3715 174.485 23.8831 174.861 23.4992C175.236 23.1132 175.738 22.9199 176.367 22.9199Z" fill="#25245B"/>
+<path d="M61.5421 18.9025L66.5031 11.5988H69.8209V26.816H66.5634V16.8022H66.4417L62.1509 23.1943H60.8425L56.4893 16.8022H56.3675V26.816H53.2339V11.5988H56.5517L61.5421 18.9025Z" fill="#25245B"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M98.2737 11.5993C99.126 11.5993 99.9173 11.7498 100.648 12.0548C101.379 12.3591 102.008 12.7951 102.536 13.3642C103.022 13.8495 103.408 14.4244 103.693 15.0837C103.976 15.7423 104.118 16.4583 104.118 17.2289C104.118 17.9592 103.981 18.6501 103.707 19.2987C103.433 19.9482 103.063 20.5274 102.596 21.0332C102.068 21.5804 101.43 22.0184 100.679 22.3431C99.9292 22.6671 99.126 22.8286 98.2737 22.8286H94.1047V26.816H90.8488V11.5993H98.2737ZM94.1047 19.908H98.3661C99.1374 19.908 99.7358 19.6452 100.162 19.1254C100.629 18.6028 100.861 17.9711 100.861 17.2289C100.861 16.8697 100.801 16.5328 100.679 16.2208C100.558 15.9109 100.406 15.633 100.222 15.3928C99.9793 15.1132 99.6798 14.8978 99.3241 14.7463C98.9685 14.5956 98.579 14.5219 98.153 14.5219H94.1047V19.908Z" fill="#25245B"/>
+<path d="M118.665 14.5214H109.808V17.5632H117.721V20.4853H109.808V23.8934H118.97V26.816H106.553V11.5988H118.665V14.5214Z" fill="#25245B"/>
+<path d="M130.018 18.9025L134.979 11.5988H138.296V26.816H135.039V16.8022H134.917L130.627 23.1943H129.318L124.965 16.8022H124.843V26.816H121.709V11.5988H125.027L130.018 18.9025Z" fill="#25245B"/>
+<path d="M153.451 14.5214H144.594V17.5632H152.508V20.4853H144.594V23.8934H153.756V26.816H141.339V11.5988H153.451V14.5214Z" fill="#25245B"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M188.479 11.5993C189.331 11.5993 190.123 11.7499 190.853 12.0548C191.583 12.3591 192.214 12.7951 192.741 13.3642C193.227 13.8495 193.612 14.4245 193.897 15.0837C194.18 15.7423 194.323 16.4583 194.323 17.2289C194.323 17.9592 194.186 18.6501 193.912 19.2987C193.638 19.9482 193.268 20.5274 192.802 21.0332C192.274 21.5804 191.635 22.0184 190.884 22.3431C190.134 22.6671 189.331 22.8286 188.479 22.8286H184.31V26.816H181.054V11.5993H188.479ZM184.31 19.908H188.571C189.343 19.908 189.94 19.6452 190.366 19.1254C190.833 18.6028 191.066 17.9712 191.067 17.2289C191.067 16.8697 191.005 16.5328 190.884 16.2208C190.763 15.9109 190.611 15.633 190.428 15.3928C190.185 15.1132 189.885 14.8978 189.529 14.7463C189.174 14.5956 188.784 14.5219 188.357 14.5219H184.31V19.908Z" fill="#25245B"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M207.287 12.8468H208.985C209.915 12.8468 210.788 13.0453 211.607 13.4411C212.427 13.8377 213.118 14.3626 213.685 15.012C214.128 15.5417 214.483 16.1459 214.746 16.827C215.008 17.511 215.138 18.2269 215.138 18.9799C215.138 19.8335 214.978 20.6216 214.653 21.3443C214.331 22.0649 213.896 22.702 213.35 23.25C212.784 23.8191 212.127 24.267 211.379 24.5945C210.631 24.9185 209.834 25.082 208.985 25.082H207.287V26.816H204.031V25.082H202.326C201.455 25.082 200.633 24.9085 199.862 24.562C199.09 24.2176 198.442 23.7595 197.914 23.1897C197.366 22.6001 196.935 21.9536 196.62 21.2535C196.306 20.5498 196.149 19.792 196.149 18.9799C196.149 18.167 196.296 17.3962 196.591 16.6763C196.884 15.9531 197.295 15.3094 197.822 14.7396C198.37 14.1501 199.03 13.6865 199.8 13.3498C200.572 13.0159 201.414 12.8468 202.326 12.8468H204.031V11.3238H207.287V12.8468ZM202.51 15.7673C201.576 15.7673 200.815 16.084 200.226 16.7109C199.618 17.28 199.314 18.0411 199.314 18.9948C199.314 19.928 199.608 20.6684 200.197 21.2163C200.785 21.8453 201.555 22.1594 202.51 22.1594H204.031V15.7673H202.51ZM207.287 22.1594H208.829C209.252 22.1594 209.66 22.0826 210.054 21.9319C210.445 21.7783 210.794 21.55 211.097 21.2457C211.379 20.9633 211.597 20.6338 211.748 20.2578C211.9 19.881 211.974 19.4625 211.974 18.9948C211.974 18.549 211.9 18.1471 211.748 17.7928C211.597 17.4364 211.41 17.1172 211.188 16.8347C210.907 16.51 210.557 16.2503 210.146 16.0573C209.73 15.8636 209.291 15.7673 208.829 15.7673H207.287V22.1594Z" fill="#25245B"/>
+<defs>
+<radialGradient id="paint0_radial_622_7993" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(39.6991 -5.23211) rotate(125.122) scale(51.8909 51.891)">
+<stop stop-color="#20AEE4"/>
+<stop offset="0.433745" stop-color="#20AEE4"/>
+<stop offset="0.788509" stop-color="#0455A1"/>
+<stop offset="1" stop-color="#25245B"/>
+</radialGradient>
+</defs>
+</svg></a>
+            <div class="popup__close"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.3839 2L2 13.3839M2 2L13.3839 13.3839" stroke="#FE5151" stroke-width="2" stroke-linecap="round"/>
+</svg>
+            </div>
+          </div>
+          <div class="mobmenu__menu">
+            <ul class="mobmenu__list">
+              <li class="mobmenu__item hassubmenu"><a href="/services.html">Услуги</a>
+                <ul class="mobmenu__submenu">
+                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Аллергология</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Андролог</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Анестезиология</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Анестезиология</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Бактериолог</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Бальнеолог</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Валеолог</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Венеролог</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Вертебролог</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Вирусолог</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Кардиология</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Компьютерная томография</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Комплексные исследования</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Магнитно-резонансная томография</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Микробиолог</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Нарколог</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Нейропсихолог</a></li>
+                </ul>
+              </li>
+              <li class="mobmenu__item"><a href="/checkups.html">Чекапы</a></li>
+              <li class="mobmenu__item"><a href="/discounts.html">Акции</a></li>
+              <li class="mobmenu__item"><a href="/doctors.html">Врачи</a></li>
+              <li class="mobmenu__item"><a href="/clinic.html">Клиника</a></li>
+              <li class="mobmenu__item"><a href="/articles.html">Статьи</a></li>
+              <li class="mobmenu__item"><a href="/clinic-vacancy.html">Вакансии</a></li>
+              <li class="mobmenu__item"><a href="/reviews.html">Отзывы</a></li>
+              <li class="mobmenu__item"><a href="/contacts.html">Контакты</a></li>
+            </ul>
+          </div>
+          <div class="mobmenu__footer">
+            <div class="mobmenu__contacts">
+              <div class="mobmenu__contact"><img src="images/icons/map-icon.svg" alt="">
+                <p>г. Новороссийск, ул. Энгельса 91, ежедневно с 7:30 до 20:00</p>
+              </div>
+              <div class="mobmenu__contact"><img src="images/icons/phone-icon.svg" alt=""><a href="tel:+78617308959">8 (8617) 30-89-59</a></div>
+            </div>
+            <div class="mobmenu__buttons"><a class="button button--small" href=""><span>Запись онлайн</span></a><a class="button button--small button--transparent" href=""><span>Заказать звонок</span></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup popup--full-screen popup--full-screen-search">
+      <div class="popup__close"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.3839 2L2 13.3839M2 2L13.3839 13.3839" stroke="#FE5151" stroke-width="2" stroke-linecap="round"/>
+</svg>
+      </div>
+      <div class="popup__content">
+        <div class="search">
+          <input class="search__input" placeholder="поиск">
+          <input class="search__submit">
+        </div>
+      </div>
+    </div>
+    <div class="popup popup--login-form popup--form">
+      <div class="popup__content popup__content--bg">
+        <div class="popup__close"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.3839 2L2 13.3839M2 2L13.3839 13.3839" stroke="#FE5151" stroke-width="2" stroke-linecap="round"/>
+</svg>
+        </div>
+        <form class="login-form"><img src="images/icons/user-icon.svg" alt="user">
+          <p>Войти</p>
+          <input class="simple" type="text" name="username" placeholder="логин">
+          <input class="simple" type="password" name="userpass" placeholder="пароль">
+          <input class="simple" type="submit" value="Войти">
+          <ul class="login-form__oauth">
+            <li class="login-form__oauth-item"><a><img src="/images/examples/vkid.webp" alt="vk-id"></a></li>
+            <li class="login-form__oauth-item"><a><img src="/images/examples/yandexid.webp" alt="yandex-id"></a></li>
+            <li class="login-form__oauth-item"><a><img src="/images/examples/mailid.webp" alt="mail-id"></a></li>
+          </ul>
+        </form>
+      </div>
+    </div>
     <div class="mobbar">
       <div class="mobbar__wrapper">
-        <li class="menu__item hassubmenu"><a href="/services.html">Услуги</a>
-          <ul class="submenu">
-            <li class="submenu__item"><a href="/services/cardiology">Аллергология</a></li>
-            <li class="submenu__item"><a href="/services/cardiology">Андролог</a></li>
-            <li class="submenu__item"><a href="/services/cardiology">Анестезиология</a></li>
-            <li class="submenu__item"><a href="/services/cardiology">Анестезиология</a></li>
-            <li class="submenu__item"><a href="/services/cardiology">Бактериолог</a></li>
-            <li class="submenu__item"><a href="/services/cardiology">Бальнеолог</a></li>
-            <li class="submenu__item"><a href="/services/cardiology">Валеолог</a></li>
-            <li class="submenu__item"><a href="/services/cardiology">Венеролог</a></li>
-            <li class="submenu__item"><a href="/services/cardiology">Вертебролог</a></li>
-            <li class="submenu__item"><a href="/services/cardiology">Вирусолог</a></li>
-            <li class="submenu__item"><a href="/services/cardiology">Кардиология</a></li>
-            <li class="submenu__item"><a href="/services/cardiology">Компьютерная томография</a></li>
-            <li class="submenu__item"><a href="/services/cardiology">Комплексные исследования</a></li>
-            <li class="submenu__item"><a href="/services/cardiology">Магнитно-резонансная томография</a></li>
-            <li class="submenu__item"><a href="/services/cardiology">Микробиолог</a></li>
-            <li class="submenu__item"><a href="/services/cardiology">Нарколог</a></li>
-            <li class="submenu__item"><a href="/services/cardiology">Нейропсихолог</a></li>
+        <div class="mobbar__slider swiper">
+          <ul class="mobbar__list swiper-wrapper">
+            <div class="swiper-slide">
+              <li class="mobbar__item">
+                <div class="mobbar__icon"><img src="images/icons/mobbar/service-icon.svg"></div><a href="/services.html">Услуги</a>
+              </li>
+            </div>
+            <div class="swiper-slide">
+              <li class="mobbar__item">
+                <div class="mobbar__icon"><img src="images/icons/mobbar/checkup-icon.svg"></div><a href="/checkups.html">Чекапы</a>
+              </li>
+            </div>
+            <div class="swiper-slide">
+              <li class="mobbar__item">
+                <div class="mobbar__icon"><img src="images/icons/mobbar/discount-icon.svg"></div><a href="/discounts.html">Акции</a>
+              </li>
+            </div>
+            <div class="swiper-slide">
+              <li class="mobbar__item">
+                <div class="mobbar__icon"><img src="images/icons/mobbar/doctors-icon.svg"></div><a href="/doctors.html">Врачи</a>
+              </li>
+            </div>
+            <div class="swiper-slide">
+              <li class="mobbar__item">
+                <div class="mobbar__icon"><img src="images/icons/mobbar/clinic-icon.svg"></div><a href="/clinic.html">Клиника</a>
+              </li>
+            </div>
+            <div class="swiper-slide">
+              <li class="mobbar__item">
+                <div class="mobbar__icon"><img src="images/icons/mobbar/articles-icon.svg"></div><a href="/articles.html">Статьи</a>
+              </li>
+            </div>
+            <div class="swiper-slide">
+              <li class="mobbar__item">
+                <div class="mobbar__icon"><img src="images/icons/mobbar/vacancy-icon.svg"></div><a href="/clinic-vacancy.html">Вакансии</a>
+              </li>
+            </div>
+            <div class="swiper-slide">
+              <li class="mobbar__item">
+                <div class="mobbar__icon"><img src="images/icons/mobbar/review-icon.svg"></div><a href="/reviews.html">Отзывы</a>
+              </li>
+            </div>
+            <div class="swiper-slide">
+              <li class="mobbar__item">
+                <div class="mobbar__icon"><img src="images/icons/mobbar/contacts-icon.svg"></div><a href="/contacts.html">Контакты</a>
+              </li>
+            </div>
           </ul>
-        </li>
-        <li class="menu__item"><a href="/checkups.html">Чекапы</a></li>
-        <li class="menu__item"><a href="/discounts.html">Акции</a></li>
-        <li class="menu__item"><a href="/doctors.html">Врачи</a></li>
-        <li class="menu__item"><a href="/clinic.html">Клиника</a></li>
-        <li class="menu__item"><a href="/articles.html">Статьи</a></li>
-        <li class="menu__item"><a href="/clinic-vacancy.html">Вакансии</a></li>
-        <li class="menu__item"><a href="/reviews.html">Отзывы</a></li>
-        <li class="menu__item"><a href="/contacts.html">Контакты</a></li>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
       </div>
     </div>
     <footer class="wrapper">
@@ -378,20 +513,20 @@
           <div class="footer__col footer__group">
             <h3 class="footer__title">Услуги</h3>
             <ul class="footer__menu">
-              <li class="footer__menu-item"><a href="/service-single.html">МРТ</a></li>
-              <li class="footer__menu-item"><a href="/service-single.html">УЗИ</a></li>
-              <li class="footer__menu-item"><a href="/service-single.html">Компьютерная томография</a></li>
-              <li class="footer__menu-item"><a href="/service-single.html">Кардиология</a></li>
-              <li class="footer__menu-item"><a href="/service-single.html">Терапевтия</a></li>
-              <li class="footer__menu-item"><a href="/service-single.html">Гинекология</a></li>
-              <li class="footer__menu-item"><a href="/service-single.html">Эндокринология</a></li>
+              <li class="footer__menu-item"><a href="/services-single.html">МРТ</a></li>
+              <li class="footer__menu-item"><a href="/services-single.html">УЗИ</a></li>
+              <li class="footer__menu-item"><a href="/services-single.html">Компьютерная томография</a></li>
+              <li class="footer__menu-item"><a href="/services-single.html">Кардиология</a></li>
+              <li class="footer__menu-item"><a href="/services-single.html">Терапевтия</a></li>
+              <li class="footer__menu-item"><a href="/services-single.html">Гинекология</a></li>
+              <li class="footer__menu-item"><a href="/services-single.html">Эндокринология</a></li>
               <li class="footer__menu-item"><a href="/checkups.html">Чекапы</a></li>
-              <li class="footer__menu-item"><a href="/service-single.html">Лабораторные исследования</a></li>
-              <li class="footer__menu-item"><a href="/service-single.html">Хирургия</a></li>
-              <li class="footer__menu-item"><a href="/service-single.html">Урология</a></li>
-              <li class="footer__menu-item"><a href="/service-single.html">Неврология</a></li>
-              <li class="footer__menu-item"><a href="/service-single.html">Флебология</a></li>
-              <li class="footer__menu-item"><a href="/service-single.html">Отртопедия</a></li>
+              <li class="footer__menu-item"><a href="/services-single.html">Лабораторные исследования</a></li>
+              <li class="footer__menu-item"><a href="/services-single.html">Хирургия</a></li>
+              <li class="footer__menu-item"><a href="/services-single.html">Урология</a></li>
+              <li class="footer__menu-item"><a href="/services-single.html">Неврология</a></li>
+              <li class="footer__menu-item"><a href="/services-single.html">Флебология</a></li>
+              <li class="footer__menu-item"><a href="/services-single.html">Отртопедия</a></li>
             </ul>
           </div>
           <div class="footer__col">
