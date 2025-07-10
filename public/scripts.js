@@ -908,34 +908,34 @@ $(function() {
 // ВРЕМЕННОЕ РЕШЕНИЕ ДЛЯ ПОНИМАНИЯ - ОТКЛЮЧИ ПОТОМ, КОГДА НА PHP БУДЕТ
 function menuCurrentItem() {
   if($('body').hasClass('page--clinic')) {
-    let currentMenuItem = $('.clinic .menu li.menu__item').eq(4).find('a').addClass('active');
+    let currentMenuItem = $('.clinic .top-menu__nav li.menu__item').eq(4).find('a').addClass('active');
   }
   else if($('body').hasClass('page--doctors')) {
-    let currentMenuItem = $('.doctors .menu li.menu__item').eq(3).find('a').addClass('active');
+    let currentMenuItem = $('.doctors .top-menu__nav li.menu__item').eq(3).find('a').addClass('active');
   }
   else if($('body').hasClass('page--discounts')) {
-    let currentMenuItem = $('.discounts .menu li.menu__item').eq(2).find('a').addClass('active');
+    let currentMenuItem = $('.discounts .top-menu__nav li.menu__item').eq(2).find('a').addClass('active');
   }
   else if($('body').hasClass('page--checkups')) {
-    let currentMenuItem = $('.checkups .menu li.menu__item').eq(1).find('a').addClass('active');
+    let currentMenuItem = $('.checkups .top-menu__nav li.menu__item').eq(1).find('a').addClass('active');
   }
   else if($('body').hasClass('page--services')) {
-    let currentMenuItem = $('.services .menu li.menu__item').eq(0).find('a').addClass('active');
+    let currentMenuItem = $('.services .top-menu__nav li.menu__item').eq(0).find('a').addClass('active');
   }
   else if($('body').hasClass('page--articles')) {
-    let currentMenuItem = $('.articles .menu li.menu__item').eq(5).find('a').addClass('active');
+    let currentMenuItem = $('.articles .top-menu__nav li.menu__item').eq(5).find('a').addClass('active');
   }
   else if($('body').hasClass('page--vacancy')) {
-    let currentMenuItem = $('.vacancy .menu li.menu__item').eq(6).find('a').addClass('active');
+    let currentMenuItem = $('.vacancy .top-menu__nav li.menu__item').eq(6).find('a').addClass('active');
   }
   else if($('body').hasClass('page--clinic-vacancy')) {
-    let currentMenuItem = $('.page--clinic-vacancy .menu li.menu__item').eq(6).find('a').addClass('active');
+    let currentMenuItem = $('.page--clinic-vacancy .top-menu__nav li.menu__item').eq(6).find('a').addClass('active');
   }
   else if($('body').hasClass('page--reviews')) {
-    let currentMenuItem = $('.reviews .menu li.menu__item').eq(7).find('a').addClass('active');
+    let currentMenuItem = $('.reviews .top-menu__nav li.menu__item').eq(7).find('a').addClass('active');
   }
   else if($('body').hasClass('page--contacts')) {
-    let currentMenuItem = $('.contacts .menu li.menu__item').eq(8).find('a').addClass('active');
+    let currentMenuItem = $('.contacts .top-menu__nav li.menu__item').eq(8).find('a').addClass('active');
   }
 }
 menuCurrentItem();
@@ -1296,6 +1296,18 @@ $(function(){
   $(window).scroll(function(){
   });
 });
+// DISCOUNT SLIDER
+setTimeout(()=>{
+const topMenuDiscountSlider = new Swiper('.subsubmenu__discount', {
+    slidesPerView: '1',
+    spaceBetween: 20,
+    loop: true,
+    scrollbar: {
+      el: '.swiper-scrollbar',
+      draggable: true,
+    }
+});
+}, 1000);
 // TOPMENU
 $(function () {
   function createSliderFromTopMenu() {
@@ -1315,16 +1327,15 @@ $(function () {
     // Создаём структуру Swiper
     const swiperContainer = $('<div>', { class: 'swiper top-menu__slider' });
     const swiperWrapper = $('<div>', { class: 'swiper-wrapper' });
-
+    const swiperScrollBar = $('<div>', {class: 'swiper-scrollbar'});
     // Добавляем слайды в .swiper-wrapper
     topMenuSubmenuSlides.forEach(slide => {
       swiperWrapper.append(slide);
     });
 
     // Вставляем структуру Swiper
-    topMenu.find('li.hassubmenu').append(swiperContainer.append(swiperWrapper));
-    let swiperScrollBar = $('<div>', {class: 'swiper-scrollbar'});
-    swiperContainer.append(swiperScrollBar);
+    topMenu.find('li.hassubmenu').append(swiperContainer.append(swiperWrapper, swiperScrollBar));
+
     $('.top-menu__nav .submenu').remove();
   }
   createSliderFromTopMenu();
@@ -1345,12 +1356,50 @@ $(function () {
     topMenuLink.on('click', function (e) {
       if($(this).parent('li.menu__item').hasClass('hassubmenu')){
         e.preventDefault();
+        $(this).toggleClass('active');
         $(this).siblings('.top-menu__slider').slideToggle(300);
       }
     });
 
-});///TOP MENU
+  // open submenu 2
+  const submenuItemsLinks = $('.submenu__item a');
+  submenuItemsLinks.on('click', function (e) {
+  if ($(this).parent('li.submenu__item').hasClass('hassubmenu')) {
+    e.preventDefault();
+    submenuItemsLinks.removeClass('active');
+    let closeThisSub = $('.subsubmenu__close');
+    if(closeThisSub) {
+      closeThisSub.remove();
+      $('.top-menu__nav >.subsubmenu').remove();
+      };
+    $(this).toggleClass('active');
 
+      let currentSubssubMenu = $(this).siblings('.subsubmenu');
+      let menuParent = $(this).closest('.top-menu__nav');
+      currentSubssubMenu.remove();
+      menuParent.append(currentSubssubMenu);
+      currentSubssubMenu.slideDown(600);
+      let closeThisSubssubMenu = $('<div>', {class: 'subsubmenu__close'});
+      $(this).parent('li.submenu__item').append(closeThisSubssubMenu);
+
+
+    closeThisSubssubMenu.on('click', function () {
+      currentSubssubMenu.slideUp(100);
+      setTimeout(function () {
+        let currentSubssubMenuOpened = menuParent.find('.subsubmenu');
+        closeThisSubssubMenu.parent('li.submenu__item.hassubmenu').append(currentSubssubMenuOpened);
+        closeThisSubssubMenu.remove();
+      }, 150);
+
+
+    });
+
+    let topMenuSubmenuHeight = $(this).closest('.top-menu__nav').find('.top-menu__slider').height() + 100;
+    currentSubssubMenu.css('top', topMenuSubmenuHeight);
+  }
+});
+
+});///TOP MENU
 // USER
 $(function(){
     function loginform(){

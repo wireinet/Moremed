@@ -19,6 +19,10 @@
       &:hover
         color: color.$persid
         transition: 0.25s ease-in
+    & > a
+      &.active
+        color: color.$persid
+        font-weight: 600
   &__additions
     display: flex
     gap: 20px
@@ -50,6 +54,9 @@
     display: none
     .submenu
       display: block
+  &__slider, .subsubmenu
+    box-shadow: 0 8px 30px rgba(69, 120, 154, 0.6)
+
 .home
   .top-menu
     @include const.center
@@ -85,7 +92,7 @@
       display: flex
       align-items: center
       border-radius: 100px
-    &__slider
+    &__slider, & .subsubmenu
       width: 910px
       @include const.max(960px)
         width: 100%
@@ -98,6 +105,11 @@
       margin-bottom: 10px
     a
       color: color.$ultramarine
+      &.active
+        color: color.$persid
+        font-weight: 600
+    &.hassubmenu
+      position: relative
 
 .subsubmenu
   position: absolute
@@ -105,4 +117,32 @@
   top: 0
   width: 100%
   height: auto
+  background: white
+  border-radius: 10px
+  padding: 20px
+  z-index: 100
   display: none
+  &__content
+    display: flex
+    gap: 40px
+    justify-content: space-between
+    flex-wrap: nowrap
+  &__list
+    flex: 1 0 50%
+    display: flex
+    flex-direction: column
+    gap: 20px
+  &__discount
+    flex: 0 1 50%
+  &__close
+    position: absolute
+    left: 0
+    top: 0
+    height: 100%
+    background: url(images/icons/expand-arrow.svg) no-repeat
+    background-position: 89% 6px
+    background-size: 10px
+    width: 100%
+    height: 30px
+    cursor: pointer
+    
