@@ -3,6 +3,7 @@
 html
   font-size: 1rem
   overflow-x: hidden
+  scroll-behavior: smooth
 
 .wrapper
   width: 100%
@@ -53,30 +54,43 @@ a.logo-link
 strong
   font-weight: 700
   
-input.simple
-  width: 100%
-  height: 40px
-  background: white
-  border: 1px solid color.$white2
-  text-align: center
-  border-radius: 10px
-  font-size: 1rem
-  transition: 0.25s ease-out
-  &::placeholder
-    color: color.$gray
-  &:focus, &:focus-visible
-    transition: 0.25s ease-in
-    border: 1px solid color.$blue
-    outline: 2px solid color.$blue
-  &[type="submit"]
-    width: 100%
-    border: none
-    background-color: color.$blue
-    color: white
-    transition: 0.25s ease-out
-    &:hover
-      cursor: pointer
-      background-color: color.$persid
+input
+  &.input
+    &:focus, &:focus-visible
+      transition: 0.25s ease-in
+      border: 1px solid color.$blue
+      outline: 2px solid color.$blue
+    &::placeholder
+      color: color.$gray
+    &[type="submit"]
+      width: 100%
+      border: none
+      background-color: color.$blue
+      color: white
+      transition: 0.25s ease-out
+      font-family: inherit
+      &:hover
+        cursor: pointer
+        background-color: color.$persid
+    &--appointment
+      width: 100%
+      height: 40px
+      background: white
+      border: 1px solid color.$white2
+      text-align: left
+      border-radius: 10px
+      font-size: 1rem
+      padding: 10px
+      transition: 0.25s ease-out
+    &--simple
+      width: 100%
+      height: 40px
+      background: white
+      border: 1px solid color.$white2
+      text-align: center
+      border-radius: 10px
+      font-size: 1rem
+      transition: 0.25s ease-out
   &.error
     background: color.$error
     border-color: color.$error
@@ -241,9 +255,9 @@ ul.list
   &--block
     display: grid
     grid-template-columns: repeat(auto-fit, minmax(360px, 1fr))
+    margin-bottom: 40px
     @include const.max(480px)
       grid-template-columns: 1fr
-    margin-bottom: 40px
     li
       display: block
       background: white url(images/check.svg) no-repeat

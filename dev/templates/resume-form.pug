@@ -1,0 +1,15 @@
+form.form.resume__form
+  p.appointment__label Ваше имя
+  input.input.input--appointment(type="text")
+  p.appointment__label Ваш email
+  input.input.input--appointment(type="email")
+  p.appointment__label Телефон
+  input.input.input--appointment(type="tel")
+  p.appointment__label Прикрепить резюме (word, pdf)
+  input.input.input--appointment(type="file" accept=".doc, .docx, .pdf")
+  .form__group
+    .form__agreement
+      input(type="checkbox")
+      p Cоглашаюсь с политикой конфиденциальности
+    button.form__submit.form__submit--simple(disabled)
+      span Отправить

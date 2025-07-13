@@ -3,11 +3,6 @@
 .slider
   position: relative
   z-index: 0
-  @include const.min(1200px)
-    &:hover
-      .slider__arrow
-        opacity: 1
-        transition: opacity 0.25s ease-in-out
   &__arrow
     width: 50px
     height: 50px
@@ -25,7 +20,6 @@
     z-index: 10
     top: calc(50% - 20px)
     left: 0
-    transition: opacity 0.25s ease-in-out
     @include const.max(570px)
       display: none
     @include const.max(480px)
@@ -41,11 +35,8 @@
       top: 25px
       z-index: -1
       transform: scale(1)
-      opacity: 0
       z-index: 2
       transition: 0.5s ease-out
-    @include const.min(1200px)
-      opacity: 0
     &:hover
       cursor: pointer
       &:after

@@ -2,12 +2,14 @@
 $(function(){
     const accessibility = $('.accessibility');
     let accessibilitySaveToStorage = false;
+
     accessibility.click(function(){
         accessibility.toggleClass('active');
         $("body").toggleClass('accessibility');
         accessibilitySaveToStorage = $(this).hasClass('active') ? true : false;
         localStorage.setItem('accessibility', accessibilitySaveToStorage);
         localStorage.getItem('accessibility');
+        accPanel.toggle();
     });
     if(localStorage.getItem('accessibility') === 'true') {
         accessibility.addClass('active');
@@ -481,6 +483,7 @@ const slide1 = new Swiper('.banner__slider', {
 $(function(){
   let checkupFilterItem = $('.filter__check-item');
   let resetFilterButton = $('.filter__reset button');
+  let checkupItems = $('.filter__content .checkup__item');
   
   // filter-checks
     checkupFilterItem.click(function(){
@@ -490,6 +493,7 @@ $(function(){
   // filter-reset
     resetFilterButton.click(function(){
       checkupFilterItem.removeClass('checked');
+      checkupItems.fadeIn(300);
     });
 });
 // CHECKUP SLIDER
@@ -544,13 +548,15 @@ $(function(){
 
   });
 })
+// CHECKUPS FILTERS
 $(function(){
 
   const checkupFilterItems = $('.filter__check-item');
   const checkupItems = $('.checkup__item');
+  const filterButtons = $('.filter__buttons');
   
   checkupFilterItems.click(function(){
-
+  
     $(this).toggleClass('active');
     const activeFilters = $('.filter__check-item.checked')
     .map((i, el) => $(el).text().trim()).get();
@@ -560,18 +566,86 @@ $(function(){
     const checkupForPractice = $(checkupitem).find('.practice').text();
     if (activeFilters.length > 0 && activeFilters.includes(checkupForGender)) {
       $(this).fadeIn(100);
+      filterButtons.fadeIn(100);
+      
     }
     if (activeFilters.length > 0 && activeFilters.includes(checkupForPractice)) {
       $(this).fadeIn(100);
+      filterButtons.fadeIn(100);
     }
     });
 
   if (activeFilters.length === 0) {
     checkupItems.fadeIn(100);
+    filterButtons.fadeOut(100);
   }
 
+  // COUNT
+  let filterCount = activeFilters.length;
+  let filterCountContainer = $('.filter__count');
+  let filterCurrentCount = filterCount;
   });
 
+});
+
+// CHECKUPS FILTERS MOB
+$(function(){
+  const filterSidebar = $('.filter__sidebar');
+  const filterSidebaMob = $('.filter__sidebar-mob');
+  const filterPopup = $('.popup--checkup-filter');
+  const filterContainer = $('.checkups__filter');
+
+  // sticky
+  function stickyFilterMob() {
+
+    let filterSidebaMobFromTop = filterSidebaMob.offset();
+    $(window).scroll(function () {
+        let pageContainer = $('.page__content');
+        let checkupsContainer = $('.checkups__filter');
+        if ($(this).scrollTop() > filterSidebaMobFromTop.top - 60) {
+            filterSidebaMob.addClass('fixed');
+            pageContainer.prepend(filterSidebaMob);
+        }
+        else {
+            filterSidebaMob.removeClass('fixed');
+            checkupsContainer.prepend(filterSidebaMob);
+        }
+    });
+    }
+  if($('body').hasClass('page--checkups')){
+    stickyFilterMob();
+  }
+
+  function filterToMob(){
+    if(matchMedia('(max-width: 700px)').matches){
+      popup(filterSidebaMob, filterPopup);
+      filterPopup.find('.popup__content').append(filterSidebar);
+      let okButton = $('.filter__ok');
+      okButton.click(function(){
+        filterPopup.removeClass('active');
+        enableScrollBody();
+        let anchorToFilterFromTop = $("#checkups-list").offset();
+        let anchorToFilterFromTopY = anchorToFilterFromTop.top - 100;
+        console.log(anchorToFilterFromTopY);
+        console.log($());
+        $('html, body').animate({scrollTop: anchorToFilterFromTopY},'slow');
+      });
+    }
+    else {
+      filterContainer.prepend(filterSidebar);
+    }
+  }
+  if($('body').hasClass('page--checkups')){
+    $(window).resize(function(){ filterToMob()});
+    filterToMob();
+  }
+});
+
+// CHECKUPS ЗАПИСЬ
+$(function(){
+  let checkupAppointentButton = $('.checkup__zapis');
+  let checkupAppointentPopup = $('.popup--checkup-appointent');
+  popup(checkupAppointentButton, checkupAppointentPopup);
 });
 // EQUIPMENT
 setTimeout(()=>{
@@ -615,7 +689,6 @@ const avatar = new Swiper('.clinic-block__slider', {
             left:0;
             width:100%;
             overflow:hidden;
-            height:100vh;
         `
     }
     const enableScrollBody = () => {
@@ -832,6 +905,12 @@ const avatar = new Swiper('.doctor-single__slider', {
     }
 });
 }, 1000);
+// DOCTOR APOINTMENT
+$(function(){
+  let popupAppointment = $('.popup--appointment');
+  let buttonAppointment = $('.doctor__zapis');
+  popup(buttonAppointment, popupAppointment);
+});
 // EQUIPMENT
 setTimeout(()=>{
 const avatar = new Swiper('.equipment__slider', {
@@ -905,6 +984,11 @@ $(function(){
 $(function() {
   $('.swipebox').swipebox();
 });
+// MASKINPUT
+$(function(){
+  $("input[type='tel']").mask("+7(999) 999-9999");
+});
+
 // ВРЕМЕННОЕ РЕШЕНИЕ ДЛЯ ПОНИМАНИЯ - ОТКЛЮЧИ ПОТОМ, КОГДА НА PHP БУДЕТ
 function menuCurrentItem() {
   if($('body').hasClass('page--clinic')) {
@@ -961,7 +1045,7 @@ const mobbarSlider = new Swiper('.mobbar__slider', {
 $(function() {
   const mobmenuTriggerButton = $('.hamburger');
   const mobmenu = $('.popup--mobmenu');
-  const hassubmenu = $('.mobmenu__item.hassubmenu a');
+  const hassubmenu = $('.mobmenu__item.hassubmenu > a');
   hassubmenu.on('click', function(e) {
     e.preventDefault();
     $(this).parent('.hassubmenu').toggleClass('opened');
@@ -1092,37 +1176,77 @@ const popup = function(button, popup) {
     button.click(function(){
       disableScrollBody();
       popup.addClass('active');
+      if(popup.hasClass('popup--checkup-appointent')){
+        // Подставляем заголовок с названием чекапа
+        let currentCheckupName = $(this).closest('.checkup__item').find('.checkup__title h3').text();
+        let popupTitleDefault = popup.find('.popup__title').text();
+        let newPopupTitle = popupTitleDefault + ':' + "\n" + currentCheckupName;
+        $('.popup__title').text(newPopupTitle);
+        // Записываем его в скрытое поле name='checkup-name'
+        let checkupNameField = popup.find('input[name="checkup-name"]');
+        checkupNameField.val(currentCheckupName);
+      }
     });
     popupClose.click(function(){
       let currentPopup = $(this).closest('.popup');
-      if(currentPopup.hasClass('popup--form')){
-        currentPopup.find('input:not([type="submit"])').each(function(){
-          if($(this).val() !== ''){
-            $(this).val('');
-          }
-          $(this).removeClass('error');
-        })
+      function clearFormValues(){
+        if(currentPopup.hasClass('popup--form')){
+          currentPopup.find('input:not([type="submit"])').each(function(){
+            if($(this).val() !== ''){
+              $(this).val('');
+            }
+            $(this).removeClass('error');
+          })
+        }
       }
+      // Если надо очистить форму при закрытии (Но, на esc на очистит, не прописывал):
+      clearFormValues();
       popup.removeClass('active');
       enableScrollBody();
       $(this).find('.popup').find('input').each(function(){
         $(this).val('');
       });
-    })
+      // При закрытии формы, сбрасываем заголовок:
+      function defaultpopupTitle(){
+        if(currentPopup.hasClass('popup--checkup-appointent')){
+          setTimeout(function(){currentPopup.find('.popup__title').text('Запись на чекап')}, 300);
+        }
+      }
+      defaultpopupTitle();
+
+      // При закрытии сбрасываем поле name='checkup-name':
+      let checkupNameField = $('.popup--checkup-appointent.active').find('input[name="checkup-name"]');
+      checkupNameField.val('');
+    });
+
+
       bg.click(function(e){
         if(!$(e.target).closest(popupContent).length){
           popup.removeClass('active');
           enableScrollBody();
         }
       });
+
     // close popup on esc
     $(document).keydown(function(e){
       if(e.keyCode === 27){
         popup.removeClass('active');
         enableScrollBody();
       }
+      let popupAppointment = $('.popup--checkup-appointent');
+      if(popupAppointment){
+        setTimeout(function(){popupAppointment.find('.popup__title').text('Запись на чекап');}, 300);
+      }
     })
 }
+// РЕЗЮМЕ
+$(function() {
+  if($('body').hasClass('page--clinic-vacancy')) {
+    let buttonOpenSendResume = $('.clinic__resume button');
+    let SendResumePopup = $('.popup--resume');
+    popup(buttonOpenSendResume, SendResumePopup);
+  }
+});
 // --SCROLL
 $(function(){
     var hashTagActive = "";
@@ -1327,14 +1451,15 @@ $(function () {
     // Создаём структуру Swiper
     const swiperContainer = $('<div>', { class: 'swiper top-menu__slider' });
     const swiperWrapper = $('<div>', { class: 'swiper-wrapper' });
-    const swiperScrollBar = $('<div>', {class: 'swiper-scrollbar'});
+    const swiperNext = $('<div>', {class: 'swiper-button-next'});
+    const swiperPrev = $('<div>', {class: 'swiper-button-prev'});
     // Добавляем слайды в .swiper-wrapper
     topMenuSubmenuSlides.forEach(slide => {
       swiperWrapper.append(slide);
     });
 
     // Вставляем структуру Swiper
-    topMenu.find('li.hassubmenu').append(swiperContainer.append(swiperWrapper, swiperScrollBar));
+    topMenu.find('li.hassubmenu').append(swiperContainer.append(swiperWrapper, swiperNext, swiperPrev));
 
     $('.top-menu__nav .submenu').remove();
   }
@@ -1345,6 +1470,14 @@ $(function () {
     slidesPerView: 4,
     spaceBetween: 20,
     loop: false,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
     scrollbar: {
       el: '.swiper-scrollbar',
       draggable: true,
@@ -1356,50 +1489,130 @@ $(function () {
     topMenuLink.on('click', function (e) {
       if($(this).parent('li.menu__item').hasClass('hassubmenu')){
         e.preventDefault();
-        $(this).toggleClass('active');
-        $(this).siblings('.top-menu__slider').slideToggle(300);
+        if(!$(this).siblings('.top-menu__slider').hasClass('openSub1')) {
+          $(this).toggleClass('active-submenu');
+          $(this).siblings('.top-menu__slider').slideToggle(300);
+        }
+        $(this).siblings('.top-menu__slider').toggleClass('openSub1');
       }
     });
 
   // open submenu 2
+  const subsubmenus = $('.subsubmenu');
   const submenuItemsLinks = $('.submenu__item a');
   submenuItemsLinks.on('click', function (e) {
   if ($(this).parent('li.submenu__item').hasClass('hassubmenu')) {
     e.preventDefault();
     submenuItemsLinks.removeClass('active');
     let closeThisSub = $('.subsubmenu__close');
-    if(closeThisSub) {
-      closeThisSub.remove();
-      $('.top-menu__nav >.subsubmenu').remove();
-      };
+
     $(this).toggleClass('active');
 
-      let currentSubssubMenu = $(this).siblings('.subsubmenu');
-      let menuParent = $(this).closest('.top-menu__nav');
-      currentSubssubMenu.remove();
-      menuParent.append(currentSubssubMenu);
-      currentSubssubMenu.slideDown(600);
-      let closeThisSubssubMenu = $('<div>', {class: 'subsubmenu__close'});
-      $(this).parent('li.submenu__item').append(closeThisSubssubMenu);
+    // ID search
+    let openedSubsubmenu = $('.top-menu__nav > .subsubmenu'); 
+    let openedSubsubmenuId = openedSubsubmenu.attr('id');
 
-
-    closeThisSubssubMenu.on('click', function () {
-      currentSubssubMenu.slideUp(100);
-      setTimeout(function () {
-        let currentSubssubMenuOpened = menuParent.find('.subsubmenu');
-        closeThisSubssubMenu.parent('li.submenu__item.hassubmenu').append(currentSubssubMenuOpened);
-        closeThisSubssubMenu.remove();
-      }, 150);
-
-
+    // delete close anywhere
+    $('.subsubmenu__close').remove();
+    // По всему меню ищем id чтобы совпал с открытым (чтобы понимать куда вернуть):
+    const menuItems = $('.top-menu__slider .submenu__item > a');
+    menuItems.each(function (index, item) {
+      let menuItemName = $(this).text();
+      if (menuItemName === openedSubsubmenuId) {
+        $(this).parent('.submenu__item.hassubmenu').append(openedSubsubmenu);
+        openedSubsubmenu.slideToggle(100);
+        openedSubsubmenu.toggleClass('opened');
+      }
     });
 
+    // open
+    let currentSubsubMenu = $(this).siblings('.subsubmenu');
+    let currentSubsubmenuFrom = $(this).text();
+    let menuParent = $(this).closest('.top-menu__nav');
+    menuParent.append(currentSubsubMenu);
+    currentSubsubMenu.attr('id', currentSubsubmenuFrom);
+    subsubmenus.removeClass('opened');
+    currentSubsubMenu.addClass('opened');
+    // position
     let topMenuSubmenuHeight = $(this).closest('.top-menu__nav').find('.top-menu__slider').height() + 100;
-    currentSubssubMenu.css('top', topMenuSubmenuHeight);
+    currentSubsubMenu.css('top', topMenuSubmenuHeight);
+
+    // close create
+    let closeThisSubsubMenu = $('<div>', {class: 'subsubmenu__close'});
+    $(this).parent('li.submenu__item').append(closeThisSubsubMenu);
+
+    // open subsubmenu from topmenu
+    currentSubsubMenu.slideToggle(100);
+
+    // close
+    closeThisSubsubMenu.on('click', function () {
+      let currentMenuItemName = $(this).parent('.submenu__item');
+      let currentOpenSubsubmenu = $('.top-menu__nav > .subsubmenu');
+      currentMenuItemName.append(currentOpenSubsubmenu);
+      currentOpenSubsubmenu.slideUp(100);
+      $(this).siblings('a').removeClass('active');
+      currentSubsubMenu.removeClass('opened');
+      $(this).remove();
+    });
   }
 });
 
+
+	$(document).mouseup( function(e){
+    let submenu = $('.top-menu__slider');
+    let menuNavItem = $('.active-submenu');
+		if ( !submenu.is(e.target)
+      && submenu.has(e.target).length === 0 && !subsubmenus.is(e.target) && subsubmenus.has(e.target).length === 0) {
+        closeAllSubmenus();
+        $('.top-menu__slider').removeClass('openSub1');
+      }
+    // if ( menuNavItem.is(e.target)) {
+    //     alert('123');
+    //   }
+	});
+
+    $(document).keydown(function(e){if(e.keyCode === 27){closeAllSubmenus()}});
+
+    function closeAllSubmenus(){
+          if(subsubmenus.hasClass('opened')){
+          currentActiveSubsubmenuName = $('.top-menu__slider .submenu__item > a.active');
+          let currentActiveSubmenuItem = currentActiveSubsubmenuName.parent('.submenu__item');
+          let currentOpenSubsubmenu = $('.top-menu__nav > .subsubmenu.opened');
+          let additionCloseMenuButton = $('.subsubmenu__close');
+          currentOpenSubsubmenu.slideUp(100);
+          currentOpenSubsubmenu.removeClass('opened');
+            setTimeout(function(){
+              currentActiveSubmenuItem.append(currentOpenSubsubmenu);
+              currentActiveSubsubmenuName.removeClass('active');
+              additionCloseMenuButton.remove();
+              $('.active-submenu').removeClass('active-submenu');
+            },100);
+            setTimeout(function(){$('.top-menu__slider').slideUp(100);},100);
+          }
+        else {
+          $('.top-menu__slider').slideUp(100);
+          $('.active-submenu').removeClass('active-submenu');
+        }
+      }
+
+
+
+
 });///TOP MENU
+// TOPBAR
+$(function() {
+  if(!$('body').hasClass('accessibility')) {
+    const topbar = $('.topbar');
+    $(window).scroll(function() {
+      if ($(window).scrollTop() > 100) {
+        topbar.addClass('fixed');
+      } else {
+        topbar.removeClass('fixed');
+      }
+    });
+  }
+
+});
 // USER
 $(function(){
     function loginform(){
@@ -1439,4 +1652,8 @@ $(function(){
         // И все что нужно сделать при залогиненном пользователе...
         // Загрузить аватар и тд..
     }
+});
+// ЗАКАЗ ЗВОНКА
+$(function(){
+  popup($('.zakaz-zvonka'), $('.popup--zakaz-zvonok'));
 });

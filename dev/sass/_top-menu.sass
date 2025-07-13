@@ -1,24 +1,79 @@
 @use 'user'
 @use 'colors' as color
-@use 'accessibility'
 @use 'constants' as const
 .top-menu
   &__nav
     display: flex
+    align-items: center
     gap: 20px
     position: relative
+    .swiper-button-next, .swiper-button-prev
+      width: 40px
+      &::after
+        width: 40px
+        height: 40px
+        background: url(images/icons/top-menu-arrow.svg) no-repeat !important
+        background-size: contain
+        background-position: center
+        font-size: 0 !important
+        right: 0
+    .swiper-button-prev
+      right: 10px !important
+      left: auto
+      &:after
+        left: auto
+        right: 10px
+        background: url(images/icons/top-menu-arrow-back.svg) no-repeat !important
+        background-size: contain
+        background-position: center
+    .swiper-button-disabled
+      opacity: 0
   .menu__item
     a
       color: color.$ultramarine
       transition: 0.5s ease-out
+      border-radius: 100px
+      transition: 0.25s ease-in-out
+      display: inline-block
+      &:after
+        @include const.pseudo
+        width: 6px
+        height: 6px
+        background: white
+        border-radius: 100px
+        left: auto
+        top: 12px
+        right: 0
+        opacity: 0
+        transition: 0.25s ease-in-out
+      &:hover
+        color: color.$persid !important
+        transition: 0.25s ease-in
     &.current-menu-item
       font-weight: 700
-      &.active
-        color: color.$persid
-        font-weight: 600
-      &:hover
-        color: color.$persid
-        transition: 0.25s ease-in
+    &.active
+      color: color.$persid
+      font-weight: 600
+    a.active-submenu
+      color: color.$persid
+      background: #d1eeff !important
+      padding: 4px 10px
+      font-weight: 600
+      border-radius: 100px
+      position: relative
+      left: -10px
+      transition: 0.25s ease-in-out
+      &:after
+        @include const.pseudo
+        width: 6px
+        height: 6px
+        background: #64baec
+        border-radius: 100px
+        left: auto
+        top: 12px
+        right: -15px
+        opacity: 1
+        transition: all 0.25s ease-in-out
     & > a
       &.active
         color: color.$persid
@@ -110,7 +165,6 @@
         font-weight: 600
     &.hassubmenu
       position: relative
-
 .subsubmenu
   position: absolute
   left: 0

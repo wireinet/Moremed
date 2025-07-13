@@ -10,8 +10,13 @@
         background: rgba(255, 255, 255, 0.6)
         &__icon
           background: url(images/icons-bg2.svg) no-repeat
-
-          
+  &__form
+    margin-top: 20px
+    display: flex
+    flex-direction: column
+    gap: 10px
+    .appointment__label
+      margin-bottom: 0
 .filter
   &__sidebar
     flex: 0 0 300px
@@ -20,6 +25,8 @@
     gap: 40px
     opacity: 0.7
     transition: 0.25s ease-in-out
+    .filter__ok
+      display: none
     &:hover
       opacity: 1
       transition: 0.25s ease-in-out
@@ -43,8 +50,38 @@
       background: white
       border-radius: 20px
       padding: 20px
-  &__titl
+      &.fixed
+        position: fixed
+        width: 60px
+        height: 60px
+        top: 20px
+        left: auto
+        right: 50px
+        gap: 0
+        border-radius: 100px
+        z-index: 100
+        box-shadow: 0 10px 30px (rgba(16, 110, 153, 0.6))
+        margin-right: 20px
+        p
+          display: none
+        @include const.max(570px)
+          top: 100px
+  &__count
+    font-size: 1rem
+    color: white
+    font-size: 700px
+  &__header
+    display: flex
+    justify-content: space-between
+    gap: 20px
+    .filter__title
+      margin-bottom: 0 !important
+  &__title
     color: color.$persid
+  &__content
+    display: flex
+    flex-direction: column
+    gap: 40px
   &__group
     .filter__title
       font-size: 1.25rem
@@ -112,5 +149,10 @@
       &::after
         opacity: 1
         transform: scale(1)
-  &__reset
+  &__buttons
     display: none
+    div
+      display: flex
+      justify-content: space-between
+      gap: 10px
+      flex-wrap: wrap

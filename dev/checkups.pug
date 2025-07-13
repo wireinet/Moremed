@@ -33,38 +33,46 @@ html(lang="en")
           .filter__sidebar-mob
             include templates/filter-icon.svg
             p Подберите свой чекап
+            .filter__count
           .filter__sidebar
-            h2.filter__title Подберите свой чекап
-            .filter__group.filter__gender
-              p.filter__title Для кого
-              .filter__options
-                .filter__check-item
-                  p Для женщин
-                .filter__check-item
-                  p Для мужчин
-            .filter__group.filter__practice
-              p.filter__title Направления
-              .filter__options
-                .filter__check-item
-                  p Гастроентерология
-                .filter__check-item
-                  p Гинекология
-                .filter__check-item
-                  p Диетология
-                .filter__check-item
-                  p Кардиология
-                .filter__check-item
-                  p Комплексное обследование
-                .filter__check-item
-                  p Онкология
-                .filter__check-item
-                  p Урология
-                .filter__check-item
-                  p Эндокринология
-            .filter__reset
-              button.button--icon
-                include templates/icon-reset.svg
-                span Сбросить
+            .filter__header
+              h2.filter__title Подберите свой чекап
+            .filter__content
+              .filter__group.filter__gender
+                p.filter__title Для кого
+                .filter__options
+                  .filter__check-item
+                    p Для женщин
+                  .filter__check-item
+                    p Для мужчин
+              .filter__group.filter__practice
+                p.filter__title Направления
+                .filter__options
+                  .filter__check-item
+                    p Гастроентерология
+                  .filter__check-item
+                    p Гинекология
+                  .filter__check-item
+                    p Диетология
+                  .filter__check-item
+                    p Кардиология
+                  .filter__check-item
+                    p Комплексное обследование
+                  .filter__check-item
+                    p Онкология
+                  .filter__check-item
+                    p Урология
+                  .filter__check-item
+                    p Эндокринология
+            .filter__buttons
+              div
+                .filter__reset
+                  button.button--icon
+                    include templates/icon-reset.svg
+                    span Сбросить
+                .filter__ok
+                  button.button
+                    span Просмотреть
           .filter__content
             include templates/checkup-list
       section.checkups-advantages

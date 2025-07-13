@@ -22,6 +22,25 @@
   <body class="page services page--services">
     <div class="page__header">
       <header>
+        <div class="accessibility__panel acc">
+          <div class="acc__controls">
+            <div class="acc__fonts">
+              <p class="acc__title">Размер шрифта</p>
+            </div>
+            <div class="acc__colors">
+              <p class="acc__title">Цвет фона и шрифта</p>
+            </div>
+            <div class="acc__images">
+              <p class="acc__title">Изображения</p>
+            </div>
+            <div class="acc__speach">
+              <p class="acc__title">Озвучивание текста</p>
+            </div>
+            <div class="acc__return accessibility">
+              <button>Обычная версия сайта</button>
+            </div>
+          </div>
+        </div>
         <div class="topbar">
           <div class="topbar__wrapper wrapper">
             <div class="topbar__group">
@@ -50,9 +69,7 @@
                 <p>г. Новороссийск, ул. Энгельса 91,<br/> ежедневно с 7:30 до 20:00</p>
               </div>
             </div>
-            <div class="topbar__group">
-              <button><span>Запись онлайн</span></button>
-            </div>
+            <div class="topbar__group"><a class="button" href="/#zapis-online"><span>Запись онлайн</span></a></div>
             <div class="topbar__group">
               <div class="topbar__search">
                 <div class="mob-search"></div>
@@ -68,10 +85,10 @@
 </svg>
               </div>
               <div class="topbar__contact">
-                <div class="topbar__phone"><a href="tel:+78617308959"><svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <div class="topbar__phone"><a href="tel:+78617308959" title="8 (8617) 30-89-59"><svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M7.03803 2.816L7.68703 3.979C8.27203 5.029 8.03703 6.405 7.11503 7.328C7.11503 7.328 5.99503 8.447 8.02503 10.476C10.052 12.503 11.172 11.386 11.172 11.386C12.095 10.463 13.472 10.228 14.521 10.813L15.684 11.463C17.269 12.347 17.456 14.569 16.063 15.963C15.226 16.799 14.2 17.451 13.067 17.493C11.159 17.566 7.91803 17.083 4.66703 13.833C1.41703 10.582 0.934027 7.341 1.00703 5.433C1.05003 4.3 1.70103 3.274 2.53703 2.437C3.93103 1.044 6.15303 1.231 7.03703 2.817L7.03803 2.816Z" stroke="#25245B" stroke-width="1.5" stroke-linecap="round"/>
 </svg><span>8 (8617) 30-89-59</span></a></div>
-                <button class="button button--simple-text">Заказать звонок</button>
+                <button class="button button--simple-text zakaz-zvonka">Заказать звонок</button>
               </div>
             </div>
           </div>
@@ -128,34 +145,36 @@
                 <li class="submenu__item"><a href="/services-single.html">Вирусолог</a></li>
                 <li class="submenu__item hassubmenu"><a href="/services-single.html">Кардиология</a>
                   <div class="subsubmenu">
-                    <ul class="subsubmenu__list">
-                      <li class="subsubmenu__item"><a href="services-single.html">Кардиология 1</a></li>
-                      <li class="subsubmenu__item"><a href="services-single.html">Кардиология 2</a></li>
-                      <li class="subsubmenu__item"><a href="services-single.html">Кардиология 3</a></li>
-                      <li class="subsubmenu__item"><a href="services-single.html">Кардиология 4</a></li>
-                      <li class="subsubmenu__item"><a href="services-single.html">Кардиология 5</a></li>
-                      <li class="subsubmenu__item"><a href="services-single.html">Кардиология 6</a></li>
-                      <li class="subsubmenu__item"><a href="services-single.html">Кардиология 7</a></li>
-                      <li class="subsubmenu__item"><a href="services-single.html">Кардиология 8</a></li>
-                    </ul>
-                    <div class="subsubmenu__discount swiper">
-                      <ul class="submenu__discount-list swiper-wrapper">
-                        <div class="swiper-slide">
-                          <li class="discount__item"><a class="discount__name" href="discount-single.html">
-                              <h3 class="discount__title">«Мужское / Женское здоровье - комплексный подход - Чекап-базовый» - за 42500 рублей!</h3></a>
-                            <div class="discount__procent">-8%</div>
-                            <div class="discount__date">до 11 декабря 2026 года</div><img class="discount__img" src="images/discount/discount-2.webp">
-                          </li>
-                        </div>
-                        <div class="swiper-slide">
-                          <li class="discount__item swiper-slide"><a class="discount__name" href="discount-single.html">
-                              <h3 class="discount__title">«Мужское / Женское здоровье - комплексный подход - Чекап-базовый» - за 42500 рублей!</h3></a>
-                            <div class="discount__procent">-8%</div>
-                            <div class="discount__date">до 11 декабря 2026 года</div><img class="discount__img" src="images/discount/discount-2.webp">
-                          </li>
-                        </div>
+                    <div class="subsubmenu__content">
+                      <ul class="subsubmenu__list">
+                        <li class="subsubmenu__item"><a href="services-single.html">Кардиология 1</a></li>
+                        <li class="subsubmenu__item"><a href="services-single.html">Кардиология 2</a></li>
+                        <li class="subsubmenu__item"><a href="services-single.html">Кардиология 3</a></li>
+                        <li class="subsubmenu__item"><a href="services-single.html">Кардиология 4</a></li>
+                        <li class="subsubmenu__item"><a href="services-single.html">Кардиология 5</a></li>
+                        <li class="subsubmenu__item"><a href="services-single.html">Кардиология 6</a></li>
+                        <li class="subsubmenu__item"><a href="services-single.html">Кардиология 7</a></li>
+                        <li class="subsubmenu__item"><a href="services-single.html">Кардиология 8</a></li>
                       </ul>
-                      <div class="swiper-scrollbar"></div>
+                      <div class="subsubmenu__discount swiper">
+                        <ul class="submenu__discount-list swiper-wrapper">
+                          <div class="swiper-slide">
+                            <li class="discount__item"><a class="discount__name" href="discount-single.html">
+                                <h3 class="discount__title">«Мужское / Женское здоровье - комплексный подход - Чекап-базовый» - за 42500 рублей!</h3></a>
+                              <div class="discount__procent">-8%</div>
+                              <div class="discount__date">до 11 декабря 2026 года</div><img class="discount__img" src="images/discount/discount-2.webp">
+                            </li>
+                          </div>
+                          <div class="swiper-slide">
+                            <li class="discount__item swiper-slide"><a class="discount__name" href="discount-single.html">
+                                <h3 class="discount__title">«Мужское / Женское здоровье - комплексный подход - Чекап-базовый» - за 42500 рублей!</h3></a>
+                              <div class="discount__procent">-8%</div>
+                              <div class="discount__date">до 11 декабря 2026 года</div><img class="discount__img" src="images/discount/discount-2.webp">
+                            </li>
+                          </div>
+                        </ul>
+                        <div class="swiper-scrollbar"></div>
+                      </div>
                     </div>
                   </div>
                 </li>
@@ -621,23 +640,23 @@
             <ul class="mobmenu__list">
               <li class="mobmenu__item hassubmenu"><a href="/services.html">Услуги</a>
                 <ul class="mobmenu__submenu">
-                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Аллергология</a></li>
-                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Андролог</a></li>
-                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Анестезиология</a></li>
-                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Анестезиология</a></li>
-                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Бактериолог</a></li>
-                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Бальнеолог</a></li>
-                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Валеолог</a></li>
-                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Венеролог</a></li>
-                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Вертебролог</a></li>
-                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Вирусолог</a></li>
-                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Кардиология</a></li>
-                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Компьютерная томография</a></li>
-                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Комплексные исследования</a></li>
-                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Магнитно-резонансная томография</a></li>
-                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Микробиолог</a></li>
-                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Нарколог</a></li>
-                  <li class="mobmenu__submenu-item"><a href="/services/cardiology">Нейропсихолог</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services-single.html">Аллергология</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services-single.html">Андролог</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services-single.html">Анестезиология</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services-single.html">Анестезиология</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services-single.html">Бактериолог</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services-single.html">Бальнеолог</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services-single.html">Валеолог</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services-single.html">Венеролог</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services-single.html">Вертебролог</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services-single.html">Вирусолог</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services-single.html">Кардиология</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services-single.html">Компьютерная томография</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services-single.html">Комплексные исследования</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services-single.html">Магнитно-резонансная томография</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services-single.html">Микробиолог</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services-single.html">Нарколог</a></li>
+                  <li class="mobmenu__submenu-item"><a href="/services-single.html">Нейропсихолог</a></li>
                 </ul>
               </li>
               <li class="mobmenu__item"><a href="/checkups.html">Чекапы</a></li>
@@ -657,7 +676,7 @@
               </div>
               <div class="mobmenu__contact"><img src="images/icons/phone-icon.svg" alt=""><a href="tel:+78617308959">8 (8617) 30-89-59</a></div>
             </div>
-            <div class="mobmenu__buttons"><a class="button button--small" href=""><span>Запись онлайн</span></a><a class="button button--small button--transparent" href=""><span>Заказать звонок</span></a></div>
+            <div class="mobmenu__buttons"><a class="button button--small" href=""><span>Запись онлайн</span></a><a class="button button--small button--transparent zakaz-zvonka" href=""><span>Заказать звонок</span></a></div>
           </div>
         </div>
       </div>
@@ -682,15 +701,232 @@
         </div>
         <form class="login-form"><img src="images/icons/user-icon.svg" alt="user">
           <p>Войти</p>
-          <input class="simple" type="text" name="username" placeholder="логин">
-          <input class="simple" type="password" name="userpass" placeholder="пароль">
-          <input class="simple" type="submit" value="Войти">
+          <input class="input input--simple" type="text" name="username" placeholder="логин">
+          <input class="input input--simple" type="password" name="userpass" placeholder="пароль">
+          <input class="input input--simple" type="submit" value="Войти">
           <ul class="login-form__oauth">
             <li class="login-form__oauth-item"><a><img src="/images/examples/vkid.webp" alt="vk-id"></a></li>
             <li class="login-form__oauth-item"><a><img src="/images/examples/yandexid.webp" alt="yandex-id"></a></li>
             <li class="login-form__oauth-item"><a><img src="/images/examples/mailid.webp" alt="mail-id"></a></li>
           </ul>
         </form>
+      </div>
+    </div>
+    <div class="popup popup--checkup-filter">
+      <div class="popup__content">
+        <div class="popup__close"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.3839 2L2 13.3839M2 2L13.3839 13.3839" stroke="#FE5151" stroke-width="2" stroke-linecap="round"/>
+</svg>
+        </div>
+      </div>
+    </div>
+    <div class="popup popup--appointment">
+      <div class="popup__content popup__content--bg">
+        <div class="popup__close"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.3839 2L2 13.3839M2 2L13.3839 13.3839" stroke="#FE5151" stroke-width="2" stroke-linecap="round"/>
+</svg>
+        </div>
+        <div class="appointment wrapper">
+          <div class="appointment__single">
+            <div class="doctor-single__appointment-avatar"><img src="images/doctor-single-avatar-evstigneev.webp" alt="evstigneev"></div>
+            <div class="doctor-single__appointment-name">
+              <h3 class="section-titles">Евгений Афонасьевич Евстигнеев</h3>
+              <p class="doctor-single__appointment-practice">Гинеколог </p>
+            </div>
+          </div>
+          <div class="appointment__result">
+            <div class="appointment__item appointment__item--result">
+              <p class="appointment__label">Доступно для записи:</p>
+              <div class="appointment__available">
+                <div class="appointment__date">
+                  <div class="swiper">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <div class="appointment__date-item">
+                          <p>4-5 Мар</p>
+                          <p>Вт-Ср</p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="appointment__date-item">
+                          <p>6 Мар</p>
+                          <p>Вт-Ср</p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="appointment__date-item">
+                          <p>7-8 Мар</p>
+                          <p>Пт-Сб</p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="appointment__date-item">
+                          <p>9-11 Мар</p>
+                          <p>Вт-Чт</p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="appointment__date-item">
+                          <p>4-5 Мар</p>
+                          <p>Вт-Ср</p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="appointment__date-item">
+                          <p>6 Мар</p>
+                          <p>Вт-Ср</p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="appointment__date-item">
+                          <p>7-8 Мар</p>
+                          <p>Пт-Сб</p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="appointment__date-item">
+                          <p>9-11 Мар</p>
+                          <p>Вт-Чт</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-scrollbar"></div>
+                  </div>
+                </div>
+                <div class="appointment__time">
+                  <div class="swiper">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <div class="appointment__time-item">
+                          <p>13:30</p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="appointment__time-item">
+                          <p>14:40</p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="appointment__time-item">
+                          <p>16:20</p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="appointment__time-item">
+                          <p>16:50</p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="appointment__time-item">
+                          <p>13:30</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-scrollbar"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="appointment__send">
+            <form>
+              <div class="form form--slim">
+                <div class="form__agreement">
+                  <input type="checkbox">
+                  <p>Cоглашаюсь с политикой конфиденциальности</p>
+                </div>
+                <div class="form__data">
+                  <input name="name" placeholder="Ваше имя">
+                  <input name="phone" placeholder="Телефон">
+                  <input id="form-doctor" hidden name="doctor" value="">
+                  <input id="form-practice" hidden name="practice" value="">
+                  <input id="form-date" hidden name="date" value="">
+                  <input id="form-time" hidden name="time" value="">
+                  <!--send-->
+                  <button class="form__submit" disabled><span>Записаться</span></button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup popup--checkup-appointent">
+      <div class="popup__content popup__content--bg">
+        <div class="popup__header">
+          <div class="popup__title">Запись на чекап</div>
+          <div class="popup__close"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.3839 2L2 13.3839M2 2L13.3839 13.3839" stroke="#FE5151" stroke-width="2" stroke-linecap="round"/>
+</svg>
+          </div>
+        </div>
+        <div class="popup__main">
+          <form class="checkups__form">
+            <p class="appointment__label">Ваше имя</p>
+            <input class="input input--appointment" type="text">
+            <p class="appointment__label">Ваш email</p>
+            <input class="input input--appointment" type="email">
+            <p class="appointment__label">Телефон</p>
+            <input class="input input--appointment" type="tel">
+            <input class="input input--simple" type="submit" value="Записаться">
+            <input type="hidden" name="checkup-name" value="">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="popup popup--resume">
+      <div class="popup__content popup__content--bg">
+        <div class="popup__header">
+          <div class="popup__title">Отправить резюме</div>
+          <div class="popup__close"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.3839 2L2 13.3839M2 2L13.3839 13.3839" stroke="#FE5151" stroke-width="2" stroke-linecap="round"/>
+</svg>
+          </div>
+        </div>
+        <div class="popup__main">
+          <form class="form resume__form">
+            <p class="appointment__label">Ваше имя</p>
+            <input class="input input--appointment" type="text">
+            <p class="appointment__label">Ваш email</p>
+            <input class="input input--appointment" type="email">
+            <p class="appointment__label">Телефон</p>
+            <input class="input input--appointment" type="tel">
+            <p class="appointment__label">Прикрепить резюме (word, pdf)</p>
+            <input class="input input--appointment" type="file" accept=".doc, .docx, .pdf">
+            <div class="form__group">
+              <div class="form__agreement">
+                <input type="checkbox">
+                <p>Cоглашаюсь с политикой конфиденциальности</p>
+              </div>
+              <button class="form__submit form__submit--simple" disabled><span>Отправить</span></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="popup popup--zakaz-zvonok">
+      <div class="popup__content popup__content--bg">
+        <div class="popup__header">
+          <div class="popup__title">Заказать звонок</div>
+          <div class="popup__close"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.3839 2L2 13.3839M2 2L13.3839 13.3839" stroke="#FE5151" stroke-width="2" stroke-linecap="round"/>
+</svg>
+          </div>
+        </div>
+        <div class="popup__main">
+          <form class="form zvonok__form">
+            <p>Оставьте ваш номер телефона и мы вам перезвоним</p>
+            <p class="appointment__label">Телефон</p>
+            <input class="input input--appointment" type="tel">
+            <div class="form__group">
+              <div class="form__agreement">
+                <input type="checkbox">
+                <p>Cоглашаюсь с политикой конфиденциальности</p>
+              </div>
+              <button class="form__submit form__submit--simple" disabled><span>Отправить</span></button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
     <div class="mobbar">
@@ -872,6 +1108,7 @@
     <script src="libs/swiper/swiper-bundle.min.js"></script>
     <script src="libs/jquery.nicescroll.min.js"></script>
     <script src="libs/swipebox/jquery.swipebox.min.js"></script>
+    <script src="libs/jquery.maskedinput.min.js"></script>
     <script src="scripts.js"></script>
   </body>
 </html>

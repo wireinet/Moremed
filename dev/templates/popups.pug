@@ -21,9 +21,9 @@
     form.login-form
       img(src="images/icons/user-icon.svg", alt="user")
       p Войти
-      input.simple(type="text" name="username" placeholder="логин") 
-      input.simple(type="password" name="userpass" placeholder="пароль") 
-      input.simple(type="submit" value="Войти")
+      input.input.input--simple(type="text" name="username" placeholder="логин") 
+      input.input.input--simple(type="password" name="userpass" placeholder="пароль") 
+      input.input.input--simple(type="submit" value="Войти")
       ul.login-form__oauth
         li.login-form__oauth-item
           a
@@ -34,3 +34,36 @@
         li.login-form__oauth-item
           a
             img(src="/images/examples/mailid.webp" alt="mail-id")
+
+.popup.popup--checkup-filter
+  .popup__content
+    include close-popup
+
+.popup.popup--appointment
+  .popup__content.popup__content--bg
+    include close-popup
+    include appointment-single
+
+.popup.popup--checkup-appointent
+  .popup__content.popup__content--bg
+    .popup__header
+      .popup__title Запись на чекап
+      include close-popup
+    .popup__main
+      include checkup-form
+  
+.popup.popup--resume
+  .popup__content.popup__content--bg
+    .popup__header
+      .popup__title Отправить резюме
+      include close-popup
+    .popup__main
+      include resume-form
+
+.popup.popup--zakaz-zvonok
+  .popup__content.popup__content--bg
+    .popup__header
+      .popup__title Заказать звонок
+      include close-popup
+    .popup__main
+      include zvonok-form

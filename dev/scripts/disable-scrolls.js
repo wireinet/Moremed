@@ -7,7 +7,6 @@
             left:0;
             width:100%;
             overflow:hidden;
-            height:100vh;
         `
     }
     const enableScrollBody = () => {
