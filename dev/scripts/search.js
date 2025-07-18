@@ -42,7 +42,7 @@ searchResultOnSearchPage();
 // При маленьком размере экрана (1127px)
 
 function fullScreenSearch() {
-  const searchOnMobile = $('.mob-search');
+  const searchOnMobile = $('.fullscren-search');
   const fullScreenSearchPopup = $('.popup--full-screen-search');
   popup(searchOnMobile, fullScreenSearchPopup);
 }

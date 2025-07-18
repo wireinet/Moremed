@@ -116,6 +116,9 @@
     display: flex
     align-items: center
     justify-content: space-between
+    gap: 20px
+    @include const.max(680px)
+      justify-content: flex-start
   &__title
     font-size: 1.25rem
     line-height: 120%
@@ -135,8 +138,8 @@
     flex-wrap: wrap
     gap: 40px
   &__item
-    max-width: 470px
     min-width: 390px
+    max-width: 470px
     flex: 0 0 470px
     @include const.max(390px)
       min-width: 100%

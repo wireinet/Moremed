@@ -3,7 +3,7 @@ html(lang="en")
   head
     -var title = 'Чекап Кардиологический (расширенный)'
     include templates/head
-  body.page.checkups.page--checkups
+  body.page.checkup.page--checkup-single
     .page__header
       include templates/header
       include templates/top-menu
@@ -39,8 +39,7 @@ html(lang="en")
               a.button.button--transparent.scroll(href="#include")
                 span Что входит
           .page__info-gallery
-            include templates/play
-            img(src="images/checkout-single-general-gallery-image-1.webp", alt="1")
+            include templates/checkup-single-slider
         section.wrapper#for
           h2 Для кого
           p Кардиологические обследования необходимы людям, которые находятся в группе повышенного риска развития сердечно-сосудистых заболеваний. Обследования также рекомендуются людям с вредными привычками, тем, кто ведет сидячий образ жизни, например офисные работники и др.

@@ -68,9 +68,14 @@
       cursor: pointer
   &--video
     background: transparent
+    .popup__content
+      max-width: 90%
+      width: auto
     .video
+      height: 100%
+      max-width: 1000px
       width: 100%
-      max-width: 500px
+      object-fit: contain
       display: block
       margin: 0 auto
       border-radius: 10px
@@ -164,5 +169,6 @@
     .popup__content
       padding-left: 0
       padding-right: 0
+      max-width: max-content
       .appointment
         grid-template-columns: 260px 1fr !important

@@ -44,8 +44,16 @@
       color: color.$persid
       text-decoration: underline
   &__avatar
+    position: relative
+    .play
+      position: absolute
+      left: 2px
+      top: 2px
+      transform: scale(0.75)
     img
       box-shadow: 17px 17px 19px 0 #d8f4ff
+    .video-link
+      display: none
   &__price
     display: flex
     flex-direction: column

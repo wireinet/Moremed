@@ -86,25 +86,26 @@
     @include const.max(700px)
       order: 10
   &.fixed
-    position: fixed
-    top: 10px
-    left: 0
-    width: 100%
-    z-index: 909090
-    opacity: 0
-    transform: translateY(-100px)
-    transition: 0.25s ease-in-out
-    animation: reveal 1s forwards ease-in-out 
-    > .wrapper
-      width: 98%
-      background: white
-      padding: 10px 30px 10px 10px
-      border-radius: 1000px
-      box-shadow: 0 10px 30px (rgba(16, 110, 153, 0.6))
-      .topbar__phone span
-        font-size: 0.8rem
-      @include const.max(570px)
-        max-width: max-content
+    @include const.min(571px)
+      position: fixed
+      top: 10px
+      left: 0
+      width: 100%
+      z-index: 909090
+      opacity: 0
+      transform: translateY(-100px)
+      transition: 0.25s ease-in-out
+      animation: reveal 1s forwards ease-in-out 
+      > .wrapper
+        width: 98%
+        background: white
+        padding: 10px 30px 10px 10px
+        border-radius: 1000px
+        box-shadow: 0 10px 30px (rgba(16, 110, 153, 0.6))
+        .topbar__phone span
+          font-size: 0.8rem
+        @include const.max(570px)
+          max-width: max-content
       
   @keyframes reveal
     0%

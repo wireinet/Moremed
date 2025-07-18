@@ -32,7 +32,6 @@ $(function() {
       if($(this).hasClass('avatar--video')) {
       // add video
       let videoLink = $(this).parent().parent().find('.video-link').text();
-      console.log(videoLink);
       let videoSrc = popupVideo.find('.video').find("source")[0];
       let videoBlock = popupVideo.find('.video');
       let play = popupVideo.find('.play');
@@ -59,7 +58,8 @@ $(function() {
         if(popupVideo.is(e.target)) {
           popupVideo.removeClass('active');
           enableScrollBody();
-          videoSrc.src = ''
+          videoSrc.src = '';
+          play.show();
         }
       });
     }

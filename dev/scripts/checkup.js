@@ -2,7 +2,8 @@
 $(function(){
   const checkupPopupList = $('.checkup__popuplist');
   const checkupSublist = $('.checkup__sublist');
-  if(matchMedia('(max-width:570px)').matches){ 
+  function checkScreenForCheckups() {
+    if(matchMedia('(max-width:570px)').matches){ 
     checkupSublist.click(function(){
       checkupPopupList.removeClass('open');
       $(this).find('.checkup__popuplist').toggleClass('open');
@@ -17,7 +18,21 @@ $(function(){
       checkupPopupList.removeClass('open');
     });
   }
+  }
+  checkScreenForCheckups();
+  $(window).resize(function(){checkScreenForCheckups()});
 });
+
+
+	$(document).mouseup( function(e){
+		var stayOpen = $( ".checkup__popuplist.open" ); // тут указываем ID элемента
+		if ( !stayOpen.is(e.target) // если клик был не по нашему блоку
+      && stayOpen.has(e.target).length === 0 ) {
+			stayOpen.removeClass('open');
+		}
+	});
+
+
 
 // Checkup sublist count
 $(function(){

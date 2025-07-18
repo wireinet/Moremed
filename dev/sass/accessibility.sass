@@ -1,0 +1,65 @@
+@use 'colors' as color 
+.accessibility
+  cursor: pointer
+  &.active
+    path
+      fill: color.$blue
+  &__panel
+    position: fixed
+    width: 100%
+    z-index: 100
+    left: 0
+    top: 0
+    background: white
+    display: none
+
+.acc
+  height: auto
+  min-height: 100px
+  padding: 10px
+  &__title
+    font-size: 1.2rem
+    font-weight: 600
+  &__controls
+    gap: 20px
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+    cursor: default
+  &__options
+    display: flex
+    gap: 10px
+  &__button
+    width: 40px
+    height: 40px
+    border-radius: 6px
+    background: white
+    border: 1px solid black
+    display: flex
+    justify-content: center
+    overflow: hidden
+    cursor: pointer
+    &.active
+      outline: 3px solid black
+      background-color: lightgray
+    &:hover
+      background-color: lightgray
+    img
+      border-radius: 6px
+    &--font-small
+      img
+        width: 20px
+    &--font-normal
+      img
+        width: 28px
+    &--font-big
+      img
+        width: 34px
+    // &--colors-green
+  &__buttons
+    background: black
+    color: white
+    span
+      color: white
+  &__return
+    align-self: center

@@ -14,12 +14,11 @@ const concat = require('gulp-concat');
 
 // svg
 const svgmin = require('gulp-svgmin');
-
 function svg(done) {
-    src('dev/img/**/*.svg')
+    src('./dev/img/**/*.svg')
     .pipe(svgmin())
-    .pipe(dest('public/images'))
-    .pipe(browserSync.stream());
+    .pipe(dest('./public/images'))
+    .pipe(browserSync.stream())
     done()
 }
 
@@ -103,7 +102,7 @@ function copy_libs(){
 function watchers() {
     watch(['dev/*.pug', 'dev/templates/**/*.pug'], views);
     watch('dev/img/**/*', images);
-    watch('dev/img/**/*.svg', svg);
+    watch('dev/img/**/*', svg);
     watch(['dev/sass/*.sass'], style);
     watch('dev/libs/**/*', copy_libs);
     watch('dev/scripts/*.js', scripts);

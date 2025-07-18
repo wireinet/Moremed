@@ -25,20 +25,40 @@
         <div class="accessibility__panel acc">
           <div class="acc__controls">
             <div class="acc__fonts">
-              <p class="acc__title">Размер шрифта</p>
+              <p class="acc__title">Размер шрифта
+                <div class="acc__options">
+                  <div class="acc__button acc__button--font-small"><img src="images/icons/accessability/acc-font.svg"></div>
+                  <div class="acc__button acc__button--font-normal active"><img src="images/icons/accessability/acc-font.svg"></div>
+                  <div class="acc__button acc__button--font-big"><img src="images/icons/accessability/acc-font.svg"></div>
+                </div>
+              </p>
             </div>
             <div class="acc__colors">
               <p class="acc__title">Цвет фона и шрифта</p>
+              <div class="acc__options">
+                <div class="acc__button acc__button--colors-normal active"><img src="images/icons/accessability/acc-colors-norm.svg"></div>
+                <div class="acc__button acc__button--colors-inv"><img src="images/icons/accessability/acc-colors-inv.svg"></div>
+                <div class="acc__button acc__button--colors-blue"><img src="images/icons/accessability/acc-colors-blue.svg"></div>
+                <div class="acc__button acc__button--colors-yellow"><img src="images/icons/accessability/acc-colors-yellow.svg"></div>
+                <div class="acc__button acc__button--colors-green"><img src="images/icons/accessability/acc-colors-green.svg"></div>
+              </div>
             </div>
             <div class="acc__images">
-              <p class="acc__title">Изображения</p>
+              <p class="acc__title">Изображения
+                <div class="acc__options">
+                  <div class="acc__button acc__button--img active"><img src="images/icons/accessability/acc-img.svg"></div>
+                  <div class="acc__button acc__button--no"><img src="images/icons/accessability/acc-no.svg"></div>
+                </div>
+              </p>
             </div>
             <div class="acc__speach">
               <p class="acc__title">Озвучивание текста</p>
+              <div class="acc__options">
+                <div class="acc__button acc__button--voice active"><img src="images/icons/accessability/acc-voice.svg"></div>
+                <div class="acc__button acc__button--no"><img src="images/icons/accessability/acc-no.svg"></div>
+              </div>
             </div>
-            <div class="acc__return accessibility">
-              <button>Обычная версия сайта</button>
-            </div>
+            <div class="acc__return accessibility"><a class="button acc__buttons" href="" title="Обычная версия сайта">Обычная версия сайта</a></div>
           </div>
         </div>
         <div class="topbar">
@@ -72,7 +92,7 @@
             <div class="topbar__group"><a class="button" href="/#zapis-online"><span>Запись онлайн</span></a></div>
             <div class="topbar__group">
               <div class="topbar__search">
-                <div class="mob-search"></div>
+                <div class="mob-search fullscren-search"></div>
                 <div class="search">
                   <input class="search__input" placeholder="поиск">
                   <input class="search__submit" type="submit">
@@ -324,7 +344,7 @@
     </main>
     <div class="popup popup--video">
       <div class="popup__content">
-        <div class="play"><svg width="46" height="47" viewBox="0 0 46 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="play" area-label="Запустить видео"><svg width="46" height="47" viewBox="0 0 46 47" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="22.9309" cy="23.7529" r="22.9097" fill="white"/>
 <path d="M15.0481 30.5959V16.91C15.0481 14.4207 17.7031 12.831 19.8974 14.0065L32.9793 21.0148C35.3233 22.2705 35.2899 25.643 32.9214 26.852L19.8395 33.5297C17.6479 34.6484 15.0481 33.0565 15.0481 30.5959Z" fill="#20AEE4"/>
 </svg>
@@ -358,7 +378,7 @@
 </radialGradient>
 </defs>
 </svg></a>
-            <div class="popup__close"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div class="popup__close" area-label="Закрыть модальное окно"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M13.3839 2L2 13.3839M2 2L13.3839 13.3839" stroke="#FE5151" stroke-width="2" stroke-linecap="round"/>
 </svg>
             </div>
@@ -409,7 +429,7 @@
       </div>
     </div>
     <div class="popup popup--full-screen popup--full-screen-search">
-      <div class="popup__close"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="popup__close" area-label="Закрыть модальное окно"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M13.3839 2L2 13.3839M2 2L13.3839 13.3839" stroke="#FE5151" stroke-width="2" stroke-linecap="round"/>
 </svg>
       </div>
@@ -422,7 +442,7 @@
     </div>
     <div class="popup popup--login-form popup--form">
       <div class="popup__content popup__content--bg">
-        <div class="popup__close"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="popup__close" area-label="Закрыть модальное окно"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M13.3839 2L2 13.3839M2 2L13.3839 13.3839" stroke="#FE5151" stroke-width="2" stroke-linecap="round"/>
 </svg>
         </div>
@@ -441,7 +461,7 @@
     </div>
     <div class="popup popup--checkup-filter">
       <div class="popup__content">
-        <div class="popup__close"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="popup__close" area-label="Закрыть модальное окно"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M13.3839 2L2 13.3839M2 2L13.3839 13.3839" stroke="#FE5151" stroke-width="2" stroke-linecap="round"/>
 </svg>
         </div>
@@ -449,7 +469,7 @@
     </div>
     <div class="popup popup--appointment">
       <div class="popup__content popup__content--bg">
-        <div class="popup__close"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="popup__close" area-label="Закрыть модальное окно"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M13.3839 2L2 13.3839M2 2L13.3839 13.3839" stroke="#FE5151" stroke-width="2" stroke-linecap="round"/>
 </svg>
         </div>
@@ -582,7 +602,7 @@
       <div class="popup__content popup__content--bg">
         <div class="popup__header">
           <div class="popup__title">Запись на чекап</div>
-          <div class="popup__close"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div class="popup__close" area-label="Закрыть модальное окно"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M13.3839 2L2 13.3839M2 2L13.3839 13.3839" stroke="#FE5151" stroke-width="2" stroke-linecap="round"/>
 </svg>
           </div>
@@ -605,7 +625,7 @@
       <div class="popup__content popup__content--bg">
         <div class="popup__header">
           <div class="popup__title">Отправить резюме</div>
-          <div class="popup__close"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div class="popup__close" area-label="Закрыть модальное окно"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M13.3839 2L2 13.3839M2 2L13.3839 13.3839" stroke="#FE5151" stroke-width="2" stroke-linecap="round"/>
 </svg>
           </div>
@@ -635,7 +655,7 @@
       <div class="popup__content popup__content--bg">
         <div class="popup__header">
           <div class="popup__title">Заказать звонок</div>
-          <div class="popup__close"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div class="popup__close" area-label="Закрыть модальное окно"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M13.3839 2L2 13.3839M2 2L13.3839 13.3839" stroke="#FE5151" stroke-width="2" stroke-linecap="round"/>
 </svg>
           </div>
@@ -661,49 +681,44 @@
         <div class="mobbar__slider swiper">
           <ul class="mobbar__list swiper-wrapper">
             <div class="swiper-slide">
-              <li class="mobbar__item">
-                <div class="mobbar__icon"><img src="images/icons/mobbar/service-icon.svg"></div><a href="/services.html">Услуги</a>
-              </li>
+              <li class="mobbar__item"><a class="mobbar__link" href="/services.html">
+                  <div class="mobbar__icon"><img src="images/icons/mobbar/service-icon.svg"></div><span>Услуги</span></a></li>
             </div>
             <div class="swiper-slide">
-              <li class="mobbar__item">
-                <div class="mobbar__icon"><img src="images/icons/mobbar/checkup-icon.svg"></div><a href="/checkups.html">Чекапы</a>
-              </li>
+              <li class="mobbar__item"><a class="mobbar__link" href="/checkups.html">
+                  <div class="mobbar__icon"><img src="images/icons/mobbar/checkup-icon.svg"></div><span>Чекапы</span></a></li>
             </div>
             <div class="swiper-slide">
-              <li class="mobbar__item">
-                <div class="mobbar__icon"><img src="images/icons/mobbar/discount-icon.svg"></div><a href="/discounts.html">Акции</a>
-              </li>
+              <li class="mobbar__item"><a class="mobbar__link" href="/discounts.html">
+                  <div class="mobbar__icon"><img src="images/icons/mobbar/discount-icon.svg"></div><span>Акции</span></a></li>
             </div>
             <div class="swiper-slide">
-              <li class="mobbar__item">
-                <div class="mobbar__icon"><img src="images/icons/mobbar/doctors-icon.svg"></div><a href="/doctors.html">Врачи</a>
-              </li>
+              <li class="mobbar__item"><a class="mobbar__link fullscren-search" href="#">
+                  <div class="mobbar__icon"><img src="images/icons/mobbar/search-icon.svg"></div><span>Поиск</span></a></li>
             </div>
             <div class="swiper-slide">
-              <li class="mobbar__item">
-                <div class="mobbar__icon"><img src="images/icons/mobbar/clinic-icon.svg"></div><a href="/clinic.html">Клиника</a>
-              </li>
+              <li class="mobbar__item"><a class="mobbar__link" href="/doctors.html">
+                  <div class="mobbar__icon"><img src="images/icons/mobbar/doctors-icon.svg"></div><span>Врачи</span></a></li>
             </div>
             <div class="swiper-slide">
-              <li class="mobbar__item">
-                <div class="mobbar__icon"><img src="images/icons/mobbar/articles-icon.svg"></div><a href="/articles.html">Статьи</a>
-              </li>
+              <li class="mobbar__item"><a class="mobbar__link" href="/clinic.html">
+                  <div class="mobbar__icon"><img src="images/icons/mobbar/clinic-icon.svg"></div><span>Клиника</span></a></li>
             </div>
             <div class="swiper-slide">
-              <li class="mobbar__item">
-                <div class="mobbar__icon"><img src="images/icons/mobbar/vacancy-icon.svg"></div><a href="/clinic-vacancy.html">Вакансии</a>
-              </li>
+              <li class="mobbar__item"><a class="mobbar__link" href="/articles.html">
+                  <div class="mobbar__icon"><img src="images/icons/mobbar/articles-icon.svg"></div><span>Статьи</span></a></li>
             </div>
             <div class="swiper-slide">
-              <li class="mobbar__item">
-                <div class="mobbar__icon"><img src="images/icons/mobbar/review-icon.svg"></div><a href="/reviews.html">Отзывы</a>
-              </li>
+              <li class="mobbar__item"><a class="mobbar__link" href="/clinic-vacancy.html">
+                  <div class="mobbar__icon"><img src="images/icons/mobbar/vacancy-icon.svg"></div><span>Вакансии</span></a></li>
             </div>
             <div class="swiper-slide">
-              <li class="mobbar__item">
-                <div class="mobbar__icon"><img src="images/icons/mobbar/contacts-icon.svg"></div><a href="/contacts.html">Контакты</a>
-              </li>
+              <li class="mobbar__item"><a class="mobbar__link" href="/reviews.html">
+                  <div class="mobbar__icon"><img src="images/icons/mobbar/review-icon.svg"></div><span>Отзывы</span></a></li>
+            </div>
+            <div class="swiper-slide">
+              <li class="mobbar__item"><a class="mobbar__link" href="/contacts.html"> 
+                  <div class="mobbar__icon"><img src="images/icons/mobbar/contacts-icon.svg"></div><span>Контакты</span></a></li>
             </div>
           </ul>
         </div>

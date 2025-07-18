@@ -128,7 +128,6 @@ $(function () {
 		if ( !topMenu.is(e.target)
       && topMenu.has(e.target).length === 0 && !subsubmenus.is(e.target) && subsubmenus.has(e.target).length === 0) {
         closeAllSubmenus();
-        $('.top-menu__slider').removeClass('openSub1');
       }
     if ( menuNavItem.is(e.target)) {
         e.preventDefault();
