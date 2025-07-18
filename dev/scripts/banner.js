@@ -15,3 +15,10 @@ const slide1 = new Swiper('.banner__slider', {
     }
 });
 }, 1000);
+
+// SLIDER BANNER 
+$(function(){
+    const bannerVideo = $('.banner__video');
+    bannerVideo.muted = true;
+    bannerVideo[0].play();
+});
