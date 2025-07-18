@@ -75,6 +75,8 @@
     gap: 10px
     padding: 20px
     background: linear-gradient(0deg, #D4F3FF, transparent)
+    @include const.max(400px)
+      padding: 10px
   &__contacts
     display: flex
     gap: 20px
@@ -99,5 +101,10 @@
   &__buttons
     display: flex
     justify-content: space-between
+
+  &__search
+    margin-bottom: 10px
+    .search
+      max-width: 100%
 
 
