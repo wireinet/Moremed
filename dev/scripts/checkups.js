@@ -32,8 +32,15 @@ $(function(){
 
   // COUNT
   let filterCount = activeFilters.length;
-  let filterCountContainer = $('.filter__count');
+  let filterCountBlock = $('.filter__count');
+  let filterCountContainer = $('.filter__count span');
   let filterCurrentCount = filterCount;
+  if(filterCount > 0){
+    filterCountBlock.addClass('active');
+    filterCountContainer.text(filterCurrentCount);
+  }
+  else {filterCountBlock.removeClass('active');}
+
   });
 
 });
@@ -47,7 +54,6 @@ $(function(){
 
   // sticky
   function stickyFilterMob() {
-
     let filterSidebaMobFromTop = filterSidebaMob.offset();
     $(window).scroll(function () {
         let pageContainer = $('.page__content');
@@ -76,8 +82,6 @@ $(function(){
         enableScrollBody();
         let anchorToFilterFromTop = $("#checkups-list").offset();
         let anchorToFilterFromTopY = anchorToFilterFromTop.top - 100;
-        console.log(anchorToFilterFromTopY);
-        console.log($());
         $('html, body').animate({scrollTop: anchorToFilterFromTopY},'slow');
       });
     }

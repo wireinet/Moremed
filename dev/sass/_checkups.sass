@@ -43,33 +43,53 @@
       color: color.$persid  
       margin-bottom: 0
     @include const.max(700px)
-      display: flex
+      display: grid
+      grid-template-columns: 30px 1fr 30px
+      align-items: center
       gap: 20px
       align-items: center
       height: 60px
       background: white
       border-radius: 20px
-      padding: 20px
+      padding: 10px 20px
       &.fixed
         position: fixed
+        display: flex
+        align-items: center
+        justify-content: center
         width: 60px
         height: 60px
-        top: 20px
+        top: 100px
         left: auto
-        right: 50px
+        right: 0
         gap: 0
         border-radius: 100px
         z-index: 100
         box-shadow: 0 10px 30px (rgba(16, 110, 153, 0.6))
         margin-right: 20px
+        padding: 0
         p
           display: none
-        @include const.max(570px)
-          top: 100px
+        .filter__count
+          position: absolute
+          right: -8px
+          top: -8px
+          width: 30px
+          height: 30px
   &__count
     font-size: 1rem
     color: white
-    font-size: 700px
+    font-weight: 700
+    background: #ff6f6f
+    flex: 0 0 auto
+    border-radius: 100px
+    display: none
+    width: 30px
+    height: 30px
+    &.active
+      display: flex
+      align-items: center
+      justify-content: center
   &__header
     display: flex
     justify-content: space-between
@@ -117,6 +137,7 @@
       margin-bottom: 0
       position: relative
       top: -2px
+      flex: 1
       &:hover
         cursor: pointer
     input[type='checkbox']

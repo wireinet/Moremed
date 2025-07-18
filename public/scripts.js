@@ -470,7 +470,7 @@ $(function() {
 setTimeout(()=>{
 const slide1 = new Swiper('.banner__slider', {
     slidesPerView: '1',
-    loop: true,
+    loop: false,
     pagination: {
         el: '.swiper-pagination',
         type: 'bullets',
@@ -498,6 +498,8 @@ $(function(){
     resetFilterButton.click(function(){
       checkupFilterItem.removeClass('checked');
       checkupItems.fadeIn(300);
+      $('.filter__count').removeClass('active');
+      $('.filter__count span').text('');
     });
 });
 // CHECKUP SLIDER
@@ -601,8 +603,15 @@ $(function(){
 
   // COUNT
   let filterCount = activeFilters.length;
-  let filterCountContainer = $('.filter__count');
+  let filterCountBlock = $('.filter__count');
+  let filterCountContainer = $('.filter__count span');
   let filterCurrentCount = filterCount;
+  if(filterCount > 0){
+    filterCountBlock.addClass('active');
+    filterCountContainer.text(filterCurrentCount);
+  }
+  else {filterCountBlock.removeClass('active');}
+
   });
 
 });
@@ -616,7 +625,6 @@ $(function(){
 
   // sticky
   function stickyFilterMob() {
-
     let filterSidebaMobFromTop = filterSidebaMob.offset();
     $(window).scroll(function () {
         let pageContainer = $('.page__content');
@@ -645,8 +653,6 @@ $(function(){
         enableScrollBody();
         let anchorToFilterFromTop = $("#checkups-list").offset();
         let anchorToFilterFromTopY = anchorToFilterFromTop.top - 100;
-        console.log(anchorToFilterFromTopY);
-        console.log($());
         $('html, body').animate({scrollTop: anchorToFilterFromTopY},'slow');
       });
     }
@@ -699,6 +705,12 @@ const avatar = new Swiper('.clinic-block__slider', {
     }
 });
 }, 1000);
+// COOKIE
+$(function() {
+  $(".cookie").click(function() {
+    $(this).fadeOut(100);
+  });
+});
     // disable scroll
     const disableScrollBody = () => {
         document.body.dataset.scrollY = window.scrollY;

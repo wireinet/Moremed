@@ -1,0 +1,27 @@
+@use 'colors' as color
+@use 'constants' as const
+.cookie
+  position: fixed
+  bottom: 0
+  padding: 20px
+  width: 100%
+  z-index: 909090
+  &__main
+    max-width: 1000px
+    border-radius: 6px
+    border: 1px solid color.$blue
+    margin: 0 auto
+    display: flex
+    gap: 20px
+    align-items: center
+    padding: 10px
+    background: white
+    p
+      font-size: 0.96rem
+      line-height: 150%
+      margin-bottom: 0
+    .button
+      flex: 1 0 auto
+    @include const.max(570px)
+      flex-direction: column
+      align-items: flex-start

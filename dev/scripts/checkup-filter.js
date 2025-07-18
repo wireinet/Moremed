@@ -13,5 +13,7 @@ $(function(){
     resetFilterButton.click(function(){
       checkupFilterItem.removeClass('checked');
       checkupItems.fadeIn(300);
+      $('.filter__count').removeClass('active');
+      $('.filter__count span').text('');
     });
 });

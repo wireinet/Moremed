@@ -2,7 +2,7 @@
 setTimeout(()=>{
 const slide1 = new Swiper('.banner__slider', {
     slidesPerView: '1',
-    loop: true,
+    loop: false,
     pagination: {
         el: '.swiper-pagination',
         type: 'bullets',
