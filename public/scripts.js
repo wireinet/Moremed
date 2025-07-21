@@ -1,25 +1,94 @@
 // // ACCESSIBILITY BUTTON
-// $(function(){
-//     const accessibility = $('.accessibility');
-//     let accessibilitySaveToStorage = false;
+$(function(){
+    const accessibility = $('.accessibility');
+    let accessibilitySaveToStorage = false;
+    accessibility.click(function(e){
+        e.preventDefault();
+        accessibility.toggleClass('active');
+        $("body").toggleClass('accessibility acc-colors acc-colors--normal');
+        accessibilitySaveToStorage = $(this).hasClass('active') ? true : false;
+        accPanel.toggle();
+        // add styles
+        if($('body').hasClass('accessibility')) {
+          $('head').append($('<link rel="stylesheet" type="text/css" href="accessibility.css" />'));
+        }
+        else {
+          $('head').find('link[href="accessibility.css"]').attr('href', '');
+        }
+        // local save
+        localStorage.setItem('accessibility', accessibilitySaveToStorage);
+    });
+});
 
-//     accessibility.click(function(){
-//         accessibility.toggleClass('active');
-//         $("body").toggleClass('accessibility');
-//         accessibilitySaveToStorage = $(this).hasClass('active') ? true : false;
-//         localStorage.setItem('accessibility', accessibilitySaveToStorage);
-//         localStorage.getItem('accessibility');
-//         accPanel.toggle();
-//     });
-//     if(localStorage.getItem('accessibility') === 'true') {
-//         accessibility.addClass('active');
-//         $("body").addClass('accessibility');
-//         }
-// });
-// // ACCESSIBILITY PANEL
-// $(function(){
-//     accPanel = $('.accessibility__panel');
+// ACCESSIBILITY PANEL
+$(function(){
+    accPanel = $('.accessibility__panel');
+    if($('body').hasClass('accessibility')) {
+      setTimeout(() => {accPanel.show();},1000);
+    }
+    else {setTimeout(() => {accPanel.hide();},1000);} 
+});
 
+// ACCESSIBILITY PANEL COLLAPSE
+$(function(){
+  const accPanel = $('.accessibility__panel');
+  const accPanelCollapse = $('.acc__collapse');
+  accPanelCollapse.click(function(){
+    accPanel.addClass('collapsed');
+    let expandButton = $('<button>', {class: 'button acc__expand', text: 'Развернуть'});
+    accPanel.append(expandButton);
+    $('.acc__expand').click(function(){
+      accPanel.removeClass('collapsed');
+      $(this).remove();
+    });
+  });
+});
+
+
+// ACCESSABILITY COLORS
+$(function(){
+  const accbuttonColors = $('.acc__button--colors');
+  const accColorsNormal = $('.acc__button--colors-normal');
+  const accColorsInv = $('acc__button--colors-inv');
+  const accColorsBlue = $('acc__button--colors-blue');
+  const accColorsYellow = $('acc__button--colors-yellow');
+  const accColorsGreen = $('acc__button--colors-green');
+  accbuttonColors.click(function(){
+    accbuttonColors.removeClass('active');
+    $('body').removeClass('acc-colors--normal');
+    $(this).addClass('active');
+    $('body').removeClass(function (index, className) {
+        return className.match(/(^|\s)acc-colors--[^\s]*/g)?.join(' ');
+      });
+    if($(this).hasClass('acc__button--colors-normal')) {
+      $('body').addClass('acc-colors--normal');
+    }
+    else if($(this).hasClass('acc__button--colors-inv')) {
+      $('body').addClass('acc-colors--inv');
+    }
+    else if($(this).hasClass('acc__button--colors-blue')) {
+      $('body').addClass('acc-colors--blue');
+    }
+    else if($(this).hasClass('acc__button--colors-yellow')) {
+      $('body').addClass('acc-colors--yellow');
+    }
+    else if($(this).hasClass('acc__button--colors-green')) {
+      $('body').addClass('acc-colors--green');
+    }
+  });
+});
+
+
+
+// STORAGE
+// $(function(){
+//   localStorage.getItem('accessibility');
+//   if(localStorage.getItem('accessibility') === 'true') {
+//     $('.accessibility').addClass('active');
+//     $('.accessibility__panel').addClass('active');
+//     $("body").addClass('accessibility acc-colors acc-colors--normal');
+//     $('head').append($('<link rel="stylesheet" type="text/css" href="accessibility.css" />'));
+//     }
 // });
 // // Alphabet to current
 $(function(){
@@ -470,7 +539,7 @@ $(function() {
 setTimeout(()=>{
 const slide1 = new Swiper('.banner__slider', {
     slidesPerView: '1',
-    loop: false,
+    loop: true,
     pagination: {
         el: '.swiper-pagination',
         type: 'bullets',
@@ -714,8 +783,11 @@ const avatar = new Swiper('.clinic-block__slider', {
 }, 1000);
 // COOKIE
 $(function() {
-  $(".cookie").click(function() {
-    $(this).fadeOut(100);
+  $(".cookie__ok").click(function() {
+    $('.cookie').fadeOut(100);
+  });
+  $(".cookie__close").click(function() {
+    $('.cookie').fadeOut(100);
   });
 });
     // disable scroll
@@ -1739,16 +1811,15 @@ $(function () {
 });///TOP MENU
 // TOPBAR
 $(function() {
-  if(!$('body').hasClass('accessibility')) {
+  $(window).scroll(function() {
     const topbar = $('.topbar');
-    $(window).scroll(function() {
-      if ($(window).scrollTop() > 100) {
-        topbar.addClass('fixed');
-      } else {
-        topbar.removeClass('fixed');
-      }
-    });
-  }
+    if ($(window).scrollTop() > 100 && !$('body').hasClass('accessibility')) {
+      topbar.addClass('fixed');
+    } else {
+      topbar.removeClass('fixed');
+    } 
+  });
+
 });
 // USER
 $(function(){

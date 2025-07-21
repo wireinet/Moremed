@@ -37,7 +37,7 @@
     color: color.$ultramarine
     padding-left: 40px
     display: inline-block
-    padding: 20px 20px 20px 60px
+    padding: 10px 20px 10px 60px
     border: 2px solid color.$blue
     border-radius: 20px
     background-color: white
@@ -46,11 +46,18 @@
     transition: 0.5s ease-out
     a
       padding: 10px 0
+      display: inline-block
+      position: relative
+      &::before
+        @include const.pseudo
+        width: 40px
+        height: 40px
+        left: -50px
     @include const.max(570px)
       display: block
       margin-bottom: 20px
       padding: 14px
-      padding-left: 50px
+      padding-left: 60px
     @include const.min(571px)
       font-size: 1.12rem
     &:hover
@@ -59,39 +66,55 @@
       cursor: pointer
       box-shadow: 12px 25px 70px 0 rgba(32, 174, 228, 0.1)
     &.icon
-      background-repeat: no-repeat !important
-      background-size: 40px !important
-      background-position: 6px center !important
+      a:before
+        background-repeat: no-repeat !important
+        background-size: 45px !important
+        background-position: center !important
       &--berem
-        background-image: url(images/services/berem.svg)
+        a:before
+          background-image: url(images/services/berem.svg)
       &--ginek
-        background-image: url(images/services/ginek.svg)
+        a:before
+          background-image: url(images/services/ginek.svg)
       &--kardiol
-        background-image: url(images/services/kardiol.svg)
+        a:before
+          background-image: url(images/services/kardiol.svg)
       &--kt
-        background-image: url(images/services/kt.svg)
+        a:before
+          background-image: url(images/services/kt.svg)
       &--nevrol
-        background-image: url(images/services/nevrol.svg)
+        a:before
+          background-image: url(images/services/nevrol.svg)
       &--laser
-        background-image: url(images/services/laser.svg)
+        a:before
+          background-image: url(images/services/laser.svg)
       &--lab
-        background-image: url(images/services/lab.svg)
+        a:before
+          background-image: url(images/services/lab.svg)
       &--ortop
-        background-image: url(images/services/ortop.svg)
+        a:before
+          background-image: url(images/services/ortop.svg)
       &--onkol
-        background-image: url(images/services/onkol.svg)
+        a:before
+          background-image: url(images/services/onkol.svg)
       &--terap
-        background-image: url(images/services/terap.svg)
+        a:before
+          background-image: url(images/services/terap.svg)
       &--terap
-        background-image: url(images/services/terap.svg)
+        a:before
+          background-image: url(images/services/terap.svg)
       &--flebo
-        background-image: url(images/services/flebo.svg)
+        a:before
+          background-image: url(images/services/flebo.svg)
       &--hirur
-        background-image: url(images/services/hirur.svg)
+        a:before
+          background-image: url(images/services/hirur.svg)
       &--uzi
-        background-image: url(images/services/uzi.svg)
+        a:before
+          background-image: url(images/services/uzi.svg)
       &--endo
-        background-image: url(images/services/endo.svg)
+        a:before
+          background-image: url(images/services/endo.svg)
       @include const.max(570px)
         background-size: 40px !important
     @include const.min(571px)

@@ -3,7 +3,9 @@
 html
   font-size: 1rem
   overflow-x: hidden
-  // scroll-behavior: smooth
+
+.accessibility__panel
+  display: none
 
 .wrapper
   width: 100%
@@ -230,12 +232,12 @@ ul.list
       &::before
         content: ""
         display: block
-        flex: 0 0 32px
+        flex: 0 0 34px
         border-radius: 100px
-        background: #F4FCFF url(images/check.svg) no-repeat
-        background-position: center
+        background: #e1e8eb url(images/check.svg) no-repeat
+        background-position: 2px center
         background-size: contain
-        width: 32px
+        width: 34px
         height: 32px
         left: 0
         @include const.max(400px)

@@ -1,4 +1,5 @@
 @use 'colors' as color 
+@use 'acc-colors' as acc-color
 .accessibility
   cursor: pointer
   &.active
@@ -12,10 +13,263 @@
     top: 0
     background: white
     display: none
+    &.collapsed
+      background: none !important
+      position: fixed
+      right: 0
+      top: 0
+      width: max-content
+      height: max-content
+      padding: 0
+      border-radius: 0
+      .acc__controls 
+        display: none
+  *
+    box-shadow: none !important
+  &.home
+    &:after
+      display: none
+  .search__input
+    border-color: black !important
+  .advantages__icon
+    background: none
+  button, .button
+    font-size: 1rem
+    &::after
+      display: none
+  .wrap-bg
+    background: none !important
+  .advantages
+    &:after
+      display: none
+  .title
+    background: none
+  // COLORS
+  .slider__arrow
+    svg
+      path
+        stroke-width: 4px
+  .swiper-pagination-bullet
+    background: white
+    opacity: 1
+  .swiper-pagination-bullet-active
+    background: black
+  &.acc-colors
+    &--normal
+      background: white !important
+      p, h1, h2, h3, h4, h5, h6
+        color: black!important
+      button, .button
+        background: black !important
+        color: white !important
+        span
+          color: white !important
+      .slider__arrow
+        background: black
+        svg
+          filter: invert(1)
+          path
+            stroke-width: 4px
+      .advantages__icon img
+        filter: brightness(0)
+      ul.list--short li
+        background: black
+        color: white
+        &:before
+          filter: invert(1) grayscale(1) brightness(3)
+      .alphabet__item
+        border-color: black
+        color: black
+      .services__item-badge
+        background-color: black
+      .services__item
+        border-color: black
+        a
+          color: black
+          &:before
+            filter: brightness(0)
+      .services__item-linked
+        background-color: black
+      *
+        scrollbar-color: black white !important
+    &--inv
+      background: black !important
+      p, h1, h2, h3, h4, h5, h6
+        color: white !important
+      button, .button
+        background: white !important
+        color: black !important
+        span
+          color: black !important
+      .accessibility__panel
+        background: black
+      .banner
+        &__title h2
+          background: black
+        &__subtitle
+          color: black !important
+      .slider__arrow
+        background: white
+      .top-menu
+        &__wrapper
+          background: black
+        .menu__item a
+          color: white
+          &:hover
+            color: white !important
+      .accessibility__panel
+        background: black
+      .advantages__icon img
+        filter: brightness(100)
+      ul.list--short li
+        background: white
+        color: black
+        &:before
+          filter: invert(1) grayscale(1) brightness(2)
+      .alphabet__item
+        border-color: white
+        color: white
+      .services__item-badge
+        background-color: white
+        color: black
+      .services__item
+        border-color: white
+        background-color: black
+        a
+          color: white
+          &:before
+            filter: brightness(0) invert(1)
+      .services__item-linked
+        background-color: white
+      *
+        scrollbar-color: white black !important
+    &--blue
+      background: #9fd7ff !important
+      p, h1, h2, h3, h4, h5, h6
+        color: black !important
+      .banner__title h2
+        background: #9fd7ff
+      button, .button
+        background: #133c58 !important
+        color: #9fd7ff !important
+        span
+          color: #9fd7ff !important
+      .slider__arrow
+        background: #9fd7ff
+      .accessibility__panel
+          background: #9fd7ff
+      .advantages__icon img
+        filter: brightness(0)
+      ul.list--short li
+        background: #133c58
+        color: #9fd7ff
+        &::before
+          filter: hue-rotate(179deg) invert(1) brightness(1.2)
+      .alphabet__item
+        border-color: black
+        color: black
+      .services__item-badge
+        background-color: #133c58
+        color: white
+      .services__item
+        border-color: #133c58
+        a
+          color: #133c58
+          &:before
+            filter: saturate(2)
+            filter: hue-ratate(2)
+            filter: brightness(0.4)
+      .services__item-linked
+        background-color: #133c58
+      *
+        scrollbar-color: #133c58 #9fd7ff !important
+    &--yellow
+      background: #ff0 !important
+      p, h1, h2, h3, h4, h5, h6
+        color: black !important
+      .banner__title h2
+        background: #ff0
+      button, .button
+        background: black !important
+        color: #ff0 !important
+        span
+          color: #ff0 !important
+      .slider__arrow
+        background: #ff0
+      .accessibility__panel
+        background: #ff0
+      .advantages__icon img
+        filter: brightness(0)
+      ul.list--short li
+        background: black
+        &::before
+          filter: hue-rotate(51deg) invert(1) brightness(1) saturate(20)
+        color: #ff0
+      .alphabet__item
+        border-color: black
+        color: black
+      .services__item-badge
+        background-color: black
+        color: #ff0
+      .services__item
+        border-color: black
+        background-color: #ff0
+        a
+          color: black
+          font-weight: 600
+          &:before
+            filter: brightness(0)
+      .services__item-linked
+        background-color: black
+      *
+        scrollbar-color: black #ff0 !important
+    &--green
+      background: black !important
+      p, h1, h2, h3, h4, h5, h6
+        color: #a9dd38 !important
+      button, .button
+        background: #a9dd38 !important
+        color: black !important
+        span
+          color: black !important
+      .banner
+        &__title h2
+          background: black !important
+        &__subtitle
+          color: black !important
+      .slider__arrow
+        background: #a9dd38
+      .accessibility__panel
+        background: black
+      .advantages__icon img
+        filter: hue-rotate(256deg)
+      ul.list--short li
+        background: #a9dd38
+        color: black
+        &::before
+          filter: hue-rotate(82deg) invert(1) brightness(1) saturate(3)
+      .alphabet__item
+        border-color: #a9dd38
+        color: #a9dd38
+      .services__item-badge
+        background-color: #a9dd38
+        color: black
+      .services__item
+        border-color: #a9dd38
+        background-color: black
+        a
+          color: #a9dd38
+          &:before
+            filter: hue-rotate(256deg)
+      .services__item-linked
+        background-color: #a9dd38
+      *
+        scrollbar-color: #a9dd38 black !important
+/// accessibility body class
 
+// .accessibility__panel:
 .acc
   height: auto
-  min-height: 100px
   padding: 10px
   &__title
     font-size: 1.2rem
@@ -34,11 +288,11 @@
     height: 40px
     border-radius: 6px
     background: white
-    border: 1px solid black
     display: flex
     justify-content: center
     overflow: hidden
     cursor: pointer
+    border: 1px solid white
     &.active
       outline: 3px solid black
       background-color: lightgray
@@ -55,11 +309,25 @@
     &--font-big
       img
         width: 34px
-    // &--colors-green
   &__buttons
-    background: black
-    color: white
-    span
-      color: white
-  &__return
+    display: flex
+    flex-direction: column
+    gap: 10px
     align-self: center
+  &__expand
+    width: max-content
+    padding: 10px
+    height: 60px
+    border-radius: 0 0 20px 0
+
+
+// *::-webkit-scrollbar
+//   width: 2px !important
+// *::-webkit-scrollbar-track
+//   background: black
+// *::-webkit-scrollbar-thumb
+//   background-color: black
+//   border-radius: 100px
+//   border: 3px solid white
+// *
+//   scrollbar-color: white !important

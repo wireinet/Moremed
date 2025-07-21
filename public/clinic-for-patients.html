@@ -28,38 +28,40 @@
             <div class="acc__fonts">
               <p class="acc__title">Размер шрифта
                 <div class="acc__options">
-                  <div class="acc__button acc__button--font-small"><img src="images/icons/accessability/acc-font.svg"></div>
-                  <div class="acc__button acc__button--font-normal active"><img src="images/icons/accessability/acc-font.svg"></div>
-                  <div class="acc__button acc__button--font-big"><img src="images/icons/accessability/acc-font.svg"></div>
+                  <div class="acc__button acc__button--font-small" title="Уменьшенный шрифт"><img src="images/icons/accessability/acc-font.svg"></div>
+                  <div class="acc__button acc__button--font-normal active" title="Нормальный шрифт"><img src="images/icons/accessability/acc-font.svg"></div>
+                  <div class="acc__button acc__button--font-big" title="Увеличенный шрифт"><img src="images/icons/accessability/acc-font.svg"></div>
                 </div>
               </p>
             </div>
             <div class="acc__colors">
               <p class="acc__title">Цвет фона и шрифта</p>
               <div class="acc__options">
-                <div class="acc__button acc__button--colors-normal active"><img src="images/icons/accessability/acc-colors-norm.svg"></div>
-                <div class="acc__button acc__button--colors-inv"><img src="images/icons/accessability/acc-colors-inv.svg"></div>
-                <div class="acc__button acc__button--colors-blue"><img src="images/icons/accessability/acc-colors-blue.svg"></div>
-                <div class="acc__button acc__button--colors-yellow"><img src="images/icons/accessability/acc-colors-yellow.svg"></div>
-                <div class="acc__button acc__button--colors-green"><img src="images/icons/accessability/acc-colors-green.svg"></div>
+                <div class="acc__button acc__button--colors acc__button--colors-normal active" title="Чёрный текст, белый фон"><img src="images/icons/accessability/acc-colors-norm.svg"></div>
+                <div class="acc__button acc__button--colors acc__button--colors-inv" title="Белый текст, чёрный фон"><img src="images/icons/accessability/acc-colors-inv.svg"></div>
+                <div class="acc__button acc__button--colors acc__button--colors-blue" title="Белый текст, голубой фон"><img src="images/icons/accessability/acc-colors-blue.svg"></div>
+                <div class="acc__button acc__button--colors acc__button--colors-yellow" title="Чёрный текст, жёлтый фон"><img src="images/icons/accessability/acc-colors-yellow.svg"></div>
+                <div class="acc__button acc__button--colors acc__button--colors-green" title="Зелёный текст, чёрный фон"><img src="images/icons/accessability/acc-colors-green.svg"></div>
               </div>
             </div>
             <div class="acc__images">
               <p class="acc__title">Изображения
                 <div class="acc__options">
-                  <div class="acc__button acc__button--img active"><img src="images/icons/accessability/acc-img.svg"></div>
-                  <div class="acc__button acc__button--no"><img src="images/icons/accessability/acc-no.svg"></div>
+                  <div class="acc__button acc__button--img active" title="Показать изображения"><img src="images/icons/accessability/acc-img.svg"></div>
+                  <div class="acc__button acc__button--no" title="Скрыть изображения"><img src="images/icons/accessability/acc-no.svg"></div>
                 </div>
               </p>
             </div>
             <div class="acc__speach">
               <p class="acc__title">Озвучивание текста</p>
               <div class="acc__options">
-                <div class="acc__button acc__button--voice active"><img src="images/icons/accessability/acc-voice.svg"></div>
-                <div class="acc__button acc__button--no"><img src="images/icons/accessability/acc-no.svg"></div>
+                <div class="acc__button acc__button--voice active" title="Озвучивать текст"><img src="images/icons/accessability/acc-voice.svg"></div>
+                <div class="acc__button acc__button--no" title="Не озвучивать текст"><img src="images/icons/accessability/acc-no.svg"></div>
               </div>
             </div>
-            <div class="acc__return accessibility"><a class="button acc__buttons" href="" title="Обычная версия сайта">Обычная версия сайта</a></div>
+            <div class="acc__buttons"><a class="button" href="" title="Обычная версия сайта">Обычная версия сайта</a>
+              <button class="acc__collapse button" title="Свернуть">Свернуть</button>
+            </div>
           </div>
         </div>
         <div class="topbar">
@@ -809,7 +811,11 @@
       <div class="cookie__main wrapper">
         <p>
           Наш сайт использует файлы cookie. Продолжая им пользоваться, вы соглашаетесь на обработку персональных данных в соответствии с<a href="/politica.html"> Политикой конфиденциальности.</a></p>
-        <button class="button simple"><span>Согласен</span></button>
+        <div class="cookie__ok button button simple"><span>Согласен</span></div>
+        <div class="cookie__close" area-label="Закрыть уведомление о cookie"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.3839 2L2 13.3839M2 2L13.3839 13.3839" stroke="#FE5151" stroke-width="2" stroke-linecap="round"/>
+</svg>
+        </div>
       </div>
     </div>
     <footer class="wrapper">

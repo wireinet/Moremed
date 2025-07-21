@@ -3,38 +3,39 @@
     .acc__fonts
       p.acc__title Размер шрифта
         .acc__options
-          .acc__button.acc__button--font-small
+          .acc__button.acc__button--font-small(title="Уменьшенный шрифт")
             img(src="images/icons/accessability/acc-font.svg")
-          .acc__button.acc__button--font-normal.active
+          .acc__button.acc__button--font-normal.active(title="Нормальный шрифт")
             img(src="images/icons/accessability/acc-font.svg")
-          .acc__button.acc__button--font-big
+          .acc__button.acc__button--font-big(title="Увеличенный шрифт")
             img(src="images/icons/accessability/acc-font.svg")
     .acc__colors
       p.acc__title Цвет фона и шрифта
       .acc__options
-        .acc__button.acc__button--colors-normal.active
-            img(src="images/icons/accessability/acc-colors-norm.svg")
-        .acc__button.acc__button--colors-inv
-            img(src="images/icons/accessability/acc-colors-inv.svg")
-        .acc__button.acc__button--colors-blue
-            img(src="images/icons/accessability/acc-colors-blue.svg")
-        .acc__button.acc__button--colors-yellow
-            img(src="images/icons/accessability/acc-colors-yellow.svg")
-        .acc__button.acc__button--colors-green
-            img(src="images/icons/accessability/acc-colors-green.svg")
+        .acc__button.acc__button--colors.acc__button--colors-normal.active(title="Чёрный текст, белый фон")
+          img(src="images/icons/accessability/acc-colors-norm.svg")
+        .acc__button.acc__button--colors.acc__button--colors-inv(title="Белый текст, чёрный фон")
+          img(src="images/icons/accessability/acc-colors-inv.svg")
+        .acc__button.acc__button--colors.acc__button--colors-blue(title="Белый текст, голубой фон")
+          img(src="images/icons/accessability/acc-colors-blue.svg")
+        .acc__button.acc__button--colors.acc__button--colors-yellow(title="Чёрный текст, жёлтый фон")
+          img(src="images/icons/accessability/acc-colors-yellow.svg")
+        .acc__button.acc__button--colors.acc__button--colors-green(title="Зелёный текст, чёрный фон")
+          img(src="images/icons/accessability/acc-colors-green.svg")
     .acc__images
       p.acc__title Изображения
         .acc__options
-          .acc__button.acc__button--img.active
+          .acc__button.acc__button--img.active(title="Показать изображения")
             img(src="images/icons/accessability/acc-img.svg")
-          .acc__button.acc__button--no
+          .acc__button.acc__button--no(title="Скрыть изображения")
             img(src="images/icons/accessability/acc-no.svg")
     .acc__speach
       p.acc__title Озвучивание текста
       .acc__options
-        .acc__button.acc__button--voice.active
+        .acc__button.acc__button--voice.active(title="Озвучивать текст")
           img(src="images/icons/accessability/acc-voice.svg")
-        .acc__button.acc__button--no
+        .acc__button.acc__button--no(title="Не озвучивать текст")
           img(src="images/icons/accessability/acc-no.svg")
-    .acc__return.accessibility
-      a(href="" title="Обычная версия сайта").button.acc__buttons Обычная версия сайта
+    .acc__buttons
+      a(href="" title="Обычная версия сайта").button Обычная версия сайта
+      button.acc__collapse(title="Свернуть").button Свернуть

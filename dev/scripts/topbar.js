@@ -1,13 +1,12 @@
 // TOPBAR
 $(function() {
-  if(!$('body').hasClass('accessibility')) {
+  $(window).scroll(function() {
     const topbar = $('.topbar');
-    $(window).scroll(function() {
-      if ($(window).scrollTop() > 100) {
-        topbar.addClass('fixed');
-      } else {
-        topbar.removeClass('fixed');
-      }
-    });
-  }
+    if ($(window).scrollTop() > 100 && !$('body').hasClass('accessibility')) {
+      topbar.addClass('fixed');
+    } else {
+      topbar.removeClass('fixed');
+    } 
+  });
+
 });
