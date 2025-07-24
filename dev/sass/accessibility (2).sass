@@ -1,0 +1,2132 @@
+@use 'colors' as color 
+@use 'acc-colors' as acc-color
+*
+  scrollbar-color: white black !important
+.accessibility
+  cursor: pointer
+  &.active
+    path
+      fill: color.$blue
+  &__panel
+    position: fixed
+    width: 100%
+    z-index: 100
+    left: 0
+    top: 0
+    background: white
+    display: none
+    border-bottom: 2px solid black
+    &.collapsed
+      background: none !important
+      position: fixed
+      right: 0
+      top: 0
+      width: max-content
+      height: max-content
+      padding: 0
+      border-radius: 0
+      border: none !important
+      .acc__controls 
+        display: none
+  *
+    box-shadow: none !important
+  .documents__download
+    display: none
+  //HOME
+  &.home
+    &:after
+      display: none
+  .search__input
+    border-color: black !important
+  .advantages__icon
+    background: none
+  button, .button
+    font-size: 1rem
+    &::after
+      display: none
+  .wrap-bg
+    background: none !important
+  .advantages
+    &:after
+      display: none
+  .title
+    background: none
+  .doctor-practice:before
+    display: none !important
+
+  // PAGES
+  .page__bg-wrapper1
+    &::before, &::after
+      display: none
+  .services-links-block
+    background: none
+    padding: 40px 0
+    border-radius: 0
+    &:before, &:after
+      display: none
+  ul.list--block li
+    background: none
+    padding: 10px
+    border: 2px solid gray
+    margin-bottom: 20px
+  &.page
+    .page
+      &__header
+        background: none
+        &::after
+          display: none
+    .top-menu__wrapper
+      background: none !important
+      border: none !important
+    .block-moreinfo
+      border-radius: 0
+      padding: 0
+      background: none
+    .doctor-single__price
+      .price-table
+        &__row
+          border: none
+          background: none !important
+    .play
+      path
+        fill: black
+    .doctor-single__appointment-avatar
+      img
+        filter: drop-shadow(0 0 0)
+  // COLORS IN PAGES
+  &.acc-colors
+    &--normal
+      .top-menu__wrapper
+        border: 2px solid black !important
+        border-left: none !important
+        border-right: none !important
+      .top-menu__nav, .top-menu__additions
+        background: white !important
+      .pagination__item.current
+        background: black
+      .discount-single__alert
+        svg
+          width: 40px
+          height: 40px
+          path
+            stroke: white
+          & > path:nth-child(1)
+            fill: black
+      .doctor__filter-item
+        &:hover
+          border-color: black
+        &.active
+          background: black
+          border: none
+      .doctor-single__rating
+        &
+          a
+            color: black
+        svg
+          filter: grayscale(1)
+      .doctor-single__appointment-avatar
+        img
+          filter: drop-shadow(0 0 0)
+        &:after
+          filter: grayscale(1) brightness(0)
+      .tabs__tab-label
+        border: 2px solid black
+        background: white
+        &.active
+          background: black
+          font-weight: 600
+      .article
+        &__tag
+          background: black
+          color: white
+        &__description
+          color: black
+      .light
+        color: black !important
+      .clinic
+        &__aside
+          border: 2px solid black
+        &__parts
+          li
+            a
+              color: black
+              &.active
+                background: black
+                color: white
+        &__part-content
+          a
+            color: black
+            font-weight: 600
+            text-decoration: underline
+          .documents__item
+            filter: grayscale(1) !important
+          ol li, ol li::marker
+            color: black
+          .organs__item
+            border: 2px solid black
+      ul.list--small li
+        padding-left: 10px
+        color: black
+        font-size: 1rem
+        background: none
+        &:before
+          content: '-'
+      .articles
+        &__filter
+          border: 2px solid black
+          &-header
+            a
+              color: gray
+              &.current
+                color: black
+          &-themes, &-authors
+            li
+              color: black
+              background: lightgray
+              &.active
+                background: black
+                color: white
+          &-info
+            svg
+              &
+                path:nth-child(1)
+                  display: none
+                path
+                  stroke: black
+
+    &--inv
+      .top-menu__wrapper
+        border: 2px solid white !important
+        border-left: none !important
+        border-right: none !important
+      .top-menu__nav, .top-menu__additions
+        background: black !important
+      .search--special
+        &::before
+          filter: grayscale(1) brightness(0)
+      .pagination__item
+        a
+          color: white
+        &.current
+          background: white
+          a
+            color: black
+      .discount-single__alert
+        svg
+          width: 40px
+          height: 40px
+          path
+            stroke: white
+          & > path:nth-child(1)
+            fill: black
+      .doctor__filter-item
+        background: black
+        border: 2px solid gray
+        color: lightgray
+        &:hover
+          border-color: white
+        &.active
+          background: white
+          color: black
+          border-color: white
+      .play
+        circle
+          fill: black
+        path
+          fill: white
+      .doctor-single__rating
+        a
+          color: white
+        svg
+          circle
+            display: none
+          filter: grayscale(1) brightness(10)
+      .doctor-single__appointment-avatar
+        &:after
+          filter: brightness(10)
+      .tabs__tab-label
+        background: black
+        border: 2px solid white
+        color: white
+        &.active
+          background: white
+          color: black
+      .article
+        &__tag
+          background: black
+          color: white
+        &__description
+          color: gray
+      .light
+        color: white !important
+      .clinic
+        &__aside
+          background: none
+          border: 2px solid white
+        &__parts
+          li
+            a
+              color: white
+              &.active
+                background: white
+                color: black
+        &__part-content
+          a
+            color: white
+            font-weight: 600
+            text-decoration: underline
+          .documents__item
+            background: none
+            border: 2px solid white
+          ol li, ol li::marker
+            color: white
+          .organs__item
+            background: none
+            border: 2px solid white
+      ul.list--small li
+        padding-left: 10px
+        color: white
+        font-size: 1rem
+        background: none
+        &:before
+          content: '-'
+      .articles
+        &__filter
+          background: none
+          border: 2px solid white
+          &-header
+            a
+              color: gray
+              &.current
+                color: white
+          &-themes, &-authors
+            li
+              color: white
+              background: none
+              border: 2px solid white
+              &.active
+                background: white
+                color: black
+          &-info
+            svg
+              &
+                path:nth-child(1)
+                  display: none
+                path
+                  stroke: white
+
+    &--blue
+      .top-menu__wrapper
+        background: #133c58 !important
+        border: 2px solid #133c58 !important
+        border-left: none !important
+        border-right: none !important
+      .top-menu__nav, .top-menu__additions
+        background: none
+      .pagination__item
+        a
+          color: #133c58
+        &.current
+          background: #133c58
+          a
+            color: #9fd7ff
+      .discount-single__alert
+        svg
+          width: 40px
+          height: 40px
+          path
+            stroke: #9fd7ff
+          & > path:nth-child(1)
+            fill: #133c58 
+      .doctor__filter-item
+        background: none
+        border: 2px solid #133c58
+        color: #133c58
+        &:hover
+          border-color: white
+        &.active
+          background: #133c58
+          color: #9fd7ff
+          border-color: #133c58
+      .doctor-single__rating
+        &
+          a
+            color: black
+        svg
+          filter: grayscale(1)
+      .doctor-single__appointment-avatar
+        img
+          filter: drop-shadow(0 0 0)
+        &:after
+          filter: grayscale(1) brightness(0)
+      .play
+        circle
+          fill: #9fd7ff
+        path
+          fill: #133c58
+      .price-table
+        &__row
+          p.price-table__service, p.price-table__price
+            color: #133c58 !important
+      .doctor-single__rating
+        &
+          a
+            color: black
+        svg
+          circle
+            display: none
+          filter: grayscale(1) brightness(0)
+      .tabs__tab-label
+        border: 2px solid #133c58
+        background: #9fd7ff
+        &.active
+          background: #133c58
+          font-weight: 600
+      .article
+        &__tag
+          background: #133c58
+          color: white
+        &__description
+          color: #246088
+      .light
+        color: white !important
+      .clinic
+        &__aside
+          border: 2px solid #133c58
+          background: none
+        &__parts
+          li
+            a
+              color: #133c58
+              &.active
+                background: #133c58
+                color: #9fd7ff
+        &__part-content
+          a
+            color: #133c58
+            font-weight: 600
+            text-decoration: underline
+          .documents
+            &__item
+              background: none
+              border: 2px solid #133c58
+            &__icon
+              background-color: #133c58
+              border: 3px solid #133c58
+              border-radius: 10px
+          ol li, ol li::marker
+            color: black
+          .organs__item
+            background: none
+            border: 2px solid #133c58
+      ul.list--small li
+        padding-left: 10px
+        color: #133c58
+        font-size: 1rem
+        background: none
+        &:before
+          content: '-'
+      .articles
+        &__filter
+          background: none
+          border: 2px solid #133c58
+          &-header
+            a
+              color: #5b98c1
+              &.current
+                color: #133c58
+          &-themes, &-authors
+            li
+              color: #133c58
+              background: none
+              border: 2px solid #133c58
+              &.active
+                background: #133c58
+                color: #9fd7ff
+          &-info
+            svg
+              &
+                path:nth-child(1)
+                  display: none
+                path
+
+    &--yellow
+      .top-menu__wrapper
+        background: #ff0 !important
+        border: 2px solid black !important
+        border-left: none !important
+        border-right: none !important
+      .top-menu__nav, .top-menu__additions
+        background: none
+      .pagination__item
+        a
+          color: black
+        &.current
+          background: black
+          a
+            color: #ff0
+      .discount-single__alert
+        svg
+          width: 40px
+          height: 40px
+          path
+            stroke: #ff0
+          & > path:nth-child(1)
+            fill: black 
+      .doctor__filter-item
+        background: none
+        border: 2px solid black
+        color: black
+        &:hover
+          border-color: white
+        &.active
+          background: black
+          color: white
+          border-color: black
+      .doctor-single__rating
+        &
+          a
+            color: black
+        svg
+          filter: grayscale(1)
+      .doctor-single__appointment-avatar
+        img
+          filter: drop-shadow(0 0 0)
+        &:after
+          filter: grayscale(1) brightness(0)
+      .play
+        circle
+          fill: black
+        path
+          fill: #ff0
+      .breadcrumbs
+        a
+          &:hover
+            background: #ff0
+          color: black
+          &.active
+            background: black
+            color: #ff0
+          &::after
+            filter: grayscale(1) brightness(0)
+      .doctor-single__rating
+        &
+          a
+            color: black
+        svg
+          circle
+            display: none
+          filter: grayscale(1) brightness(0)
+      .tabs__tab-label
+        border: 2px solid black
+        background: none
+        &.active
+          background: black
+          color: #ff0
+          font-weight: 600
+      .article
+        &__tag
+          background: black
+          color: #ff0
+        &__description
+          color: black
+      .light
+        color: black !important
+      .clinic
+        &__aside
+          border: 2px solid black
+          background: none
+        &__parts
+          li
+            a
+              color: black
+              &.active
+                background: black
+                color: #ff0
+        &__part-content
+          a
+            color: black
+            font-weight: 600
+            text-decoration: underline
+          .documents
+            &__item
+              background: none
+              border: 2px solid black
+            &__icon
+              background-color: black
+              border: 3px solid black
+              border-radius: 10px
+          ol li, ol li::marker
+            color: black
+          .organs__item
+            background: none
+            border: 2px solid black
+      ul.list--small li
+        padding-left: 10px
+        color: black
+        font-size: 1rem
+        background: none
+        &:before
+          content: '-'
+
+    &--green
+      .top-menu__wrapper
+        background: black !important
+        border: 2px solid #a9dd38 !important
+        border-left: none !important
+        border-right: none !important
+      .top-menu__nav, .top-menu__additions
+        background: none
+      .pagination__item
+        a
+          color: #a9dd38
+        &.current
+          background: #a9dd38
+          a
+            color: black
+      .discount-single__alert
+        svg
+          width: 40px
+          height: 40px
+          path
+            stroke: #a9dd38
+          & > path:nth-child(1)
+            fill: black
+      .doctor__filter-item
+        background: none
+        border: 2px solid #a9dd38
+        color: #a9dd38
+        &:hover
+          border-color: white
+        &.active
+          background: #a9dd38
+          border-color: #a9dd38
+          color: #a9dd38
+      .doctor-single__rating
+        &
+          a
+            color: #a9dd38
+        svg
+          circle
+            display: none
+          filter: brightness(2) hue-rotate(27deg)
+      .doctor-single__appointment-avatar
+        img
+          filter: drop-shadow(0 0 0)
+        &:after
+          filter: grayscale(1) brightness(0)
+      .tabs__tab-label
+        border: 2px solid #a9dd38
+        background: none
+        color: #a9dd38
+        &.active
+          background: #a9dd38
+          color: black
+          font-weight: 600
+      .article
+        &__tag
+          background: #a9dd38
+          color: black
+        &__description
+          color: #709227
+      .light
+        color: black !important
+      .clinic
+        &__aside
+          border: 2px solid #a9dd38
+          background: none
+        &__parts
+          li
+            a
+              color: #a9dd38
+              &.active
+                background: #a9dd38
+                color: black
+                font-weight: 600
+        &__part-content
+          a
+            color: #a9dd38
+            font-weight: 600
+            text-decoration: underline
+          .documents
+            &__item
+              background: none
+              border: 2px solid #a9dd38
+            &__icon
+              border-radius: 10px
+          ol li, ol li::marker
+            color: #a9dd38
+          .organs__item
+            background: none
+            border: 2px solid #a9dd38
+      ul.list--small li
+        padding-left: 10px
+        color: #a9dd38
+        font-size: 1rem
+        background: none
+        &:before
+          content: '-'
+
+  // COLORS
+  .slider__arrow
+    svg
+      path
+        stroke-width: 4px
+  .swiper-pagination-bullet
+    background: white
+    opacity: 1
+  .swiper-pagination-bullet-active
+    background: black
+  .doctors-block
+    background: none
+    &::before, &::after
+      display: none
+    .block-item
+      &::after
+        display: none
+    .doctor-practice::before
+      display: none
+  .equipment
+    &-block
+      background: none
+      &:before, &:after
+        display: none
+    &__name
+      background: none
+  .clinic-block
+    background: none
+  &.acc-colors
+    &--normal
+      .accessibility.active
+        path
+          fill: black
+      .acc__button
+        border: 1px solid black
+      .logo
+        filter: grayscale(1) brightness(0.8) contrast(10)
+      .topbar
+        .button--simple-text
+          padding-left: 0
+          background: none !important
+          color: black !important
+        &__phone
+          span
+            color: black
+            font-weight: 600
+          svg
+            filter: invert(1) brightness(0)
+      .search
+        &__input
+          background: white !important
+          &::placeholder
+            color: black
+        &__submit
+          filter: grayscale(1) brightness(0)
+      background: white !important
+      .top-menu
+        &__wrapper
+          background: white
+          border: 2px solid black
+        .menu__item a, .subsubmenu__item a
+          color: black
+          &:hover
+            color: black !important
+        a.active-submenu
+          background: black !important
+          color: white !important
+          border: 2px solid white
+          &:hover
+            color: white !important
+          &::after
+            background: black
+        &__slider
+          background: white
+          .swiper-slide:not(:last-child)::after
+            background: black
+        &__nav
+          .swiper-button-next::after, .swiper-button-prev::after, .subsubmenu__close
+            filter: grayscale(1) brightness(0)
+      p, h1, h2, h3, h4, h5, h6
+        color: black!important
+      button, .button
+        background: black !important
+        color: white !important
+        span
+          color: white !important
+      .slider__arrow
+        background: black
+        svg
+          filter: invert(1) grayscale(1) brightness(2)
+          path
+            stroke-width: 4px
+      .advantages__icon img
+        filter: brightness(0)
+      ul.list--short li
+        background: black
+        color: white
+        &:before
+          filter: invert(1) grayscale(1) brightness(3)
+      .alphabet__item
+        border-color: black
+        color: black
+        &.active
+          background: black
+          color: white
+          font-weight: 600
+      .alphabet__reset
+        background-color: black
+      .services__item-badge
+        background-color: black
+      .services__item
+        border-color: black
+        a
+          color: black
+          &:before
+            filter: brightness(0)
+      .services__item-linked
+        background-color: black
+      *
+        scrollbar-color: black white !important
+      .block-item
+        background: white
+        border: 2px solid black
+        &::after
+          display: none
+      .doctor
+        &__name, &__exp, &__practice, &__reception, &__price, &__review-add
+          color: black!important
+          font-size: 1rem
+        &__name
+          font-size: 1.2rem
+        .button
+          background: black !important
+          span
+            color: white !important
+      .avatar
+        border-color: lightgray
+        &__slide:after
+          background: #808080
+        &--video
+          border-color: black
+      .swiper-scrollbar-drag
+        background: black
+      .appointment
+        &__label
+          color: black
+          font-size: 1rem
+        &__list
+          background: white
+          border-color: black
+          li
+            color: black
+        &__doctors
+          &-list
+            border: none
+        &__doctor
+          background-color: white
+          border: none
+        &__selected
+          background: white
+          border: 2px solid black
+          border-radius: 6px
+          span
+            color: black
+          &:after
+            filter: grayscale(1) brightness(0)
+        &__date-item, &__time-item
+          background: white
+          border: 2px solid black
+          &.selected
+            background: black
+            p
+              color: white !important
+      .form
+        &__data input
+          border: 2px solid black
+          &::placeholder
+            color: black
+        &__sended
+          filter: grayscale(1) brightness(0)
+      .discount
+        &-block
+          background: none
+          &::after, &:before
+            display: none
+        &__date, &__procent
+          background-color: black
+          color: white
+      .checkup
+        &__title h3, &__price, &__price span
+          color: black !important
+        &__for p, &__label
+          background: white
+          border: 2px solid black
+          padding: 2px 6px
+        &__sublist
+          border: 2px solid black
+          &:hover
+            background: lightgray
+          span
+            background-color: black
+        &__popuplist
+          border: 2px solid black
+        &__footer
+          .button, button
+            background: black !important
+            span
+              color: white !important
+      .footer
+        background: white
+        border: 2px solid black
+        a
+          color: black
+        &__icon, &__contact
+          svg
+            filter: grayscale(1) brightness(0.8) contrast(10)
+        .social__icon
+          border: 2px solid black
+          svg
+            width: 40px
+            filter: grayscale(1) brightness(0)
+        &__row:not(:last-child)
+          border-bottom: 1px solid black
+      .cookie
+        &__main
+          border-color: black
+          a
+            color: black!important
+            text-decoration: underline
+        &__close
+          svg path
+            stroke: black
+      .breadcrumbs
+        a
+          color: black
+          &.active
+            background: black
+            color: white
+          &::after
+            filter: grayscale(1) brightness(0)
+      ul.list--block li
+        border-color: black
+      .hash
+        &__item
+          background: white
+          border: 2px solid black
+          a
+            color: black
+            &:before
+                border-color: black
+            &:hover
+              &:before
+                border-color: black
+          &::after
+            background: black
+          &::before
+            filter: grayscale(1) brightness(2)
+      .price-table
+        &__row
+          border: 2px solid black
+          background: white !important
+      .openbox
+        &__item
+          background: none
+          border: 2px solid black
+        &__header::after, img
+            filter: grayscale(1) brightness(0)
+      .block-moreinfo
+        padding: 20px 0
+        &-text p b
+          color: black
+      .services-single__icon
+        filter: grayscale(1) brightness(0)
+      .search--special
+        &::before
+          filter: grayscale(1) brightness(0)
+
+    &--inv
+      .acc__button.active
+        outline: 3px solid white !important
+      .accessibility__panel
+        border-bottom: 2px solid white
+      .logo
+        filter: grayscale(1) brightness(100) contrast(10)
+      .accessibility__icon
+        path
+          fill: white
+      .topbar
+        .button--simple-text
+          padding-left: 0
+          background: none !important
+          color: white !important
+        &__phone
+          span
+            color: white
+            font-weight: 600
+          svg
+            filter: invert(1) brightness(100)
+      .search
+        &__input
+          background: white !important
+          &::placeholder
+            color: black
+        &__submit
+          filter: grayscale(1) brightness(0)
+      background: black !important
+      p, h1, h2, h3, h4, h5, h6
+        color: white !important
+      button, .button
+        background: white !important
+        color: black !important
+        span
+          color: black !important
+      .accessibility__panel
+        background: black
+      .banner
+        &__title h2
+          background: black
+        &__subtitle
+          color: black !important
+      .slider__arrow
+        background: white
+      .top-menu
+        &__wrapper, .subsubmenu
+          background: black
+        .menu__item a, .subsubmenu__item a
+          color: white
+          &:hover
+            color: white !important
+        a.active-submenu
+          background: black !important
+          color: white !important
+          border: 2px solid white
+          &:hover
+            color: white !important
+          &::after
+            background: white
+        &__slider
+          background: black
+          .swiper-slide:not(:last-child)::after
+            background: white
+        &__nav
+          .swiper-button-next::after, .swiper-button-prev::after, .subsubmenu__close
+            filter: grayscale(1) brightness(5)
+      .accessibility__panel
+        background: black
+      .advantages__icon img
+        filter: brightness(100)
+      ul.list--short li
+        background: white
+        color: black
+        padding-left: 12px !important
+        &:before
+          display: none
+      .alphabet__item
+        border-color: white
+        color: white
+        &.active
+          background: white
+          color: black
+          font-weight: 600
+      .alphabet__reset
+        background: white url(images/reset-acc.svg)
+        background-repeat: no-repeat
+        background-position: center
+      .services__item-badge
+        background-color: white
+        color: black
+      .services__item
+        border-color: white
+        background-color: black
+        a
+          color: white
+          &:before
+            filter: brightness(0) invert(1)
+      .services__item-linked
+        background-color: white
+      *
+        scrollbar-color: white black !important
+      .block-item
+        background-color: black
+        border: 2px solid white
+        &::after
+          display: none
+      .doctor
+        &__name, &__exp, &__practice, &__reception, &__price, &__review-add
+          color: white!important
+          font-size: 1rem
+        &__name
+          font-size: 1.2rem
+        .button
+          background: white !important
+          span
+            color: black !important
+      .avatar
+        border-color: gray
+        &__slide:after
+          background: #808080
+        &--video
+          border-color: white
+      .swiper-scrollbar-drag
+        background: black
+      .appointment
+        &__label
+          color: white
+          font-size: 1rem
+        &__list
+          background: black
+          border-color: white
+          li
+            color: white
+        &__selected
+          background: black
+          border: 2px solid white
+          span
+            color: white
+          &:after
+            filter: grayscale(1) brightness(2)
+        &__date-item, &__time-item
+          background: black
+          border: 2px solid white
+          &.selected
+            background: white
+            p
+              color: black !important
+        &__doctors-list
+          border: none
+          background: none
+        .appointment__doctor
+          &-name, &-date
+            font-size: 1rem
+          &.selected
+            background: black
+      .form
+        &__data input
+          border: 2px solid black
+          &::placeholder
+            color: white
+        &__sended
+          filter: grayscale(1) brightness(10)
+      .discount
+        &-block
+          background: none
+          &::after, &:before
+            display: none
+        &__title
+          background: black
+        &__date, &__procent
+          background-color: black
+          color: white
+      .swiper-scrollbar-drag
+        background: white
+      .checkup
+        &__title h3, &__price, &__price span
+          color: white !important
+        &__for p, &__label
+          background: black
+          color: white
+          border: 2px solid white
+          padding: 2px 6px
+        &__sublist
+          border: 2px solid white
+          color: white
+          background: black
+          &:hover
+            background: gray
+          span
+            background-color: white
+            color: black
+        &__popuplist
+          background: black
+          border: 2px solid white
+        &__footer
+          .button, button
+            background: white !important
+            span
+              color: black !important
+      .footer
+        background: black
+        border: 2px solid white
+        a
+          color: white
+        &__icon, &__contact
+          svg
+            filter: invert(1) grayscale(1) brightness(3)
+        .social__icon
+          border: 2px solid black
+          svg
+            width: 40px
+            filter: grayscale(1) brightness(0)
+        &__row:not(:last-child)
+          border-bottom: 1px solid white
+      .cookie
+        &__main
+          border-color: white
+          background: black
+          a
+            color: white!important
+            text-decoration: underline
+        &__close
+          svg path
+            stroke: white
+      .breadcrumbs
+        a
+          color: white
+          &.active
+            background: white
+            color: black
+          &::after
+            filter: grayscale(1) brightness(10)
+      ul.list--block li
+        border-color: white
+        color: white
+      .hash
+        &__item
+          background: black
+          border: 2px solid white
+          a
+            color: white
+            &:before
+              border-color: white
+            &:hover
+              &:before
+                border-color: white
+          &::after
+            background: white
+          &::before
+            filter: grayscale(1) brightness(0)
+      .price-table
+        &__row
+          border: 2px solid white
+          background: none !important
+      .openbox
+        &__item
+          background: none
+          border: 2px solid white
+        &__header::after, img
+            filter: grayscale(1) brightness(10)
+      .block-moreinfo
+        background: none
+        padding: 20px 0
+        &-text p b
+          color: white
+      .services-single__icon
+        filter: grayscale(1) brightness(10)
+
+    &--blue
+      p, h1, h2, h3, h4, h5, h6
+        color: #133c58 !important
+      .acc__button
+        border: none
+        background: none
+        &.active
+          background: #86b8ff
+      .accessibility__panel
+        border-bottom: 2px solid #133c58
+      .topbar
+        .button--simple-text
+          padding-left: 0
+          background: none !important
+          color: black !important
+        &__phone
+          span
+            color: black
+            font-weight: 600
+          svg
+            filter: invert(1) brightness(0)
+      .search
+        &__input
+          background: white !important
+          &::placeholder
+            color: black
+        &__submit
+          filter: grayscale(1) brightness(0)
+      background: #9fd7ff !important
+      .banner__title h2
+        background: #9fd7ff
+      button, .button
+        background: #133c58 !important
+        color: #9fd7ff !important
+        span
+          color: #9fd7ff !important
+      .slider__arrow
+        background: #9fd7ff
+      .user
+        svg
+          .user__ident
+            path
+              stroke: #9fd7ff
+      .top-menu
+        &__wrapper, .subsubmenu
+          background: #133c58
+        .menu__item a, .subsubmenu__item a
+          color: #9fd7ff 
+          &:hover
+            color: #9fd7ff !important
+        a.active-submenu
+          background: #133c58 !important
+          color: #9fd7ff !important
+          border: 2px solid #9fd7ff
+          &:hover
+            color: #9fd7ff !important
+          &::after
+            background: #9fd7ff
+        &__slider
+          background: #133c58
+          .swiper-slide:not(:last-child)::after
+            background: #9fd7ff
+        &__nav
+          .swiper-button-next::after, .swiper-button-prev::after, .subsubmenu__close
+            filter: hue-rotate(20deg) brightness(1.2)
+      .accessibility__panel
+          background: #9fd7ff
+      .advantages__icon img
+        filter: brightness(0)
+      ul.list--short li
+        background: #133c58
+        color: #9fd7ff
+        &::before
+          filter: hue-rotate(179deg) invert(1) brightness(1.2)
+      .alphabet__item
+        border-color: #133c58
+        color: #133c58
+        &.active
+          background: #133c58
+          color: #9fd7ff
+          font-weight: 600
+      .alphabet__reset
+        background-color: #133c58
+      .services__item-badge
+        background-color: #133c58
+        color: white
+      .services__item
+        border-color: #133c58
+        a
+          color: #133c58
+          &:before
+            filter: saturate(2)
+            filter: hue-ratate(2)
+            filter: brightness(0.4)
+      .services__item-linked
+        background-color: #133c58
+      *
+        scrollbar-color: #9fd7ff #133c58 !important
+      .block-item
+        background-color:#133c58
+        &::after
+          display: none
+      .doctor
+        &__name, &__exp, &__practice, &__reception, &__price, &__review-add
+          color: #9fd7ff!important
+          font-size: 1rem
+        &__name
+          font-size: 1.2rem
+        .button
+          background: #9fd7ff !important
+          span
+            color: #133c58 !important
+      .avatar
+        border-color: #1d5a83
+        &__slide:after
+          background: #808080
+        &--video
+          border-color: #9fd7ff
+      .swiper-scrollbar-drag
+        background: #1d5a83
+      .appointment
+        &__label
+          color: black
+          font-size: 1rem
+        &__list
+          background: #1d5a83
+          border-color: #1d5a83
+          li
+            color: #9fd7ff
+        &__doctors
+          &-list
+            background: none
+            border: none
+        &__doctor
+          background-color: #9fd7ff
+          border: none
+        &__selected
+          background: #1d5a83
+          border: 2px solid #1d5a83
+          border-radius: 6px
+          span
+            color: #9fd7ff
+          &:after
+            filter: brightness(1)
+        &__date-item, &__time-item
+          background: #9fd7ff
+          p
+            color: #1d5a83 !important
+          border: 2px solid #1d5a83
+          &.selected
+            background: #1d5a83
+            p
+              color: #9fd7ff !important
+      .form
+        &__data input
+          border: 2px solid #9fd7ff
+          background: #1d5a83
+          color: #9fd7ff
+          &::placeholder
+            color: #9fd7ff
+        &__sended
+          filter: grayscale(1) brightness(0)
+        &__submit
+          background: #1d5a83
+          border-color: #9fd7ff
+      .discount
+        &-block
+          background: none
+          &::after, &:before
+            display: none
+        &__title
+          background: #1d5a83
+          color: #9fd7ff !important
+        &__date, &__procent
+          background: #1d5a83
+          color: #9fd7ff
+        &__date
+          padding-left: 10px
+      .checkup
+        &__title h3, &__price, &__price span
+          color: white !important
+        &__for p, &__label
+          background: #133c58
+          color: #9fd7ff !important
+          border: 2px solid #9fd7ff
+          padding: 2px 6px
+        &__sublist
+          border: 2px solid #9fd7ff
+          color: #9fd7ff
+          background: #133c58
+          &:hover
+            background: gray
+          span
+            background-color: #9fd7ff
+            color: #133c58
+        &__popuplist
+          background: black
+          border: 2px solid white
+        &__footer
+          .button, button
+            background: #9fd7ff !important
+            span
+              color: #133c58 !important
+      .footer
+        .social__icon
+          border: 2px solid #9fd7ff
+          background: none
+          svg
+            width: 40px
+            path
+              fill: #9fd7ff
+        .logo
+          filter: invert(1) brightness(1.2) hue-rotate(175deg)
+        background: #133c58
+        a, &__title, p
+          color: #9fd7ff !important
+        &__icon, &__contact
+          svg
+            filter: invert(1) grayscale(1) brightness(3)
+      .cookie
+        &__main
+          border-color: #9fd7ff
+          background: #133c58
+          p
+            color: #9fd7ff !important
+          a
+            color: #9fd7ff!important
+            text-decoration: underline
+        &__close
+          svg path
+            stroke: #9fd7ff
+        &__ok
+          background: #9fd7ff !important
+          span
+            color: #133c58 !important
+      .breadcrumbs
+        a
+          color: #133c58
+          &.active
+            background: #133c58
+            color: #9fd7ff
+          &::after
+            filter: grayscale(1) brightness(0)
+      ul.list--block li
+        border-color: #133c58
+      .hash
+        &__item
+          background: black
+          border: 2px solid #133c58
+          a
+            color:  #9fd7ff
+            &:hover
+              &:before
+                border-color: #9fd7ff
+          &::after
+            background:  #9fd7ff
+          &::before
+            filter: grayscale(1) brightness(0)
+      .price-table
+        &__row
+          border: 2px solid #133c58
+          background: none
+          p
+            color: #9fd7ff !important
+      .openbox
+        &__item
+          background: none
+          border: 2px solid #133c58
+        &__header::after, img
+            filter: grayscale(1) brightness(0)
+      .block-moreinfo
+        background: none
+        border-radius: 0
+        padding: 20px 0
+        &-text p b
+          color: #133c58
+      .services-single__icon
+        filter: grayscale(1) brightness(0)
+      .light
+        color: #133c58 !important
+
+    &--yellow
+      .acc__button
+        border: 2px solid black
+        background: none
+        &.active
+          background: #dcdc0d
+      .logo
+        filter: grayscale(1) brightness(0) contrast(10)
+      .topbar
+        .button--simple-text
+          padding-left: 0
+          background: none !important
+          color: black !important
+        &__phone
+          span
+            color: black
+            font-weight: 600
+          svg
+            filter: grayscale(1) brightness(0) !important
+      .search
+        &__input
+          background: #ff0 !important
+          &::placeholder
+            color: black
+        &__submit
+          filter: grayscale(1) brightness(0)
+      background: #ff0 !important
+      p, h1, h2, h3, h4, h5, h6
+        color: black !important
+      .banner__title h2
+        background: #ff0
+      button, .button
+        background: black !important
+        color: #ff0 !important
+        span
+          color: #ff0 !important
+      .slider__arrow
+        background: #ff0
+      .user
+        svg
+          path
+            stroke: black
+      .accessibility__icon
+        path
+          fill: black
+      .top-menu
+        &__wrapper, .subsubmenu
+          background: #ff0
+          border: 2px solid black
+        .menu__item a, .subsubmenu__item a
+          color: black 
+          &:hover
+            color: black !important
+        a.active-submenu
+          background: #ff0 !important
+          color: black !important
+          border: 2px solid black
+          &:hover
+            color: #ff0 !important
+          &::after
+            background: black
+        &__slider
+          background: #ff0
+          border: 2px solid black
+          .swiper-slide:not(:last-child)::after
+            background: black
+        &__nav
+          .swiper-button-next::after, .swiper-button-prev::after, .subsubmenu__close
+            filter: grayscale(1) brightness(0)
+      .accessibility__panel
+        background: #ff0
+      .advantages__icon img
+        filter: brightness(0)
+      ul.list--short li
+        background: black
+        &::before
+          filter: hue-rotate(51deg) invert(1) brightness(1) saturate(20)
+        color: #ff0
+      .alphabet__item
+        border-color: black
+        color: black
+        &::after
+          background: black
+        &.active
+          background: black
+          color: #ff0
+          font-weight: 600
+      .alphabet__reset
+        background-color: black
+      .services__item-badge
+        background-color: black
+        color: #ff0
+      .services__item
+        border-color: black
+        background-color: #ff0
+        a
+          color: black
+          font-weight: 600
+          &:before
+            filter: brightness(0)
+      .services__item-linked
+        background-color: black
+      *
+        scrollbar-color: black #ff0 !important
+      .block-item
+        background: #ff0
+        border: 2px solid black
+        &::after
+          display: none
+      .doctor
+        &__name, &__exp, &__practice, &__reception, &__price, &__review-add
+          color: black!important
+          font-size: 1rem
+        &__name
+          font-size: 1.2rem
+        .button
+          background: black !important
+          span
+            color: #ff0 !important
+      .avatar
+        border-color: #cdcd9b
+        &__slide:after
+          background: #808080
+        &--video
+          border-color: black
+      .swiper-scrollbar-drag
+        background: black
+      .appointment
+        &__label
+          color: black
+          font-size: 1rem
+        &__list
+          background: #ff0
+          border-color: black
+          li
+            color: black
+        &__doctors
+          &-list
+            background: none
+            border: none
+        &__doctor
+          background-color: #ff0
+          border: none
+        &__selected
+          background: #ff0
+          border: 2px solid black
+          border-radius: 6px
+          span
+            color: black
+          &:after
+            filter: grayscale(1) brightness(0)
+        &__date-item, &__time-item
+          background: #ff0
+          border: 2px solid black
+          &.selected
+            background: black
+            p
+              color: white !important
+      .form
+        &__data input
+          background: #ff0
+          border: 2px solid black
+          &::placeholder
+            color: black
+        &__sended
+          filter: grayscale(1) brightness(0)
+      .discount
+        &-block
+          background: none
+          &::after, &:before
+            display: none
+        &__title
+          background: #ff0
+          color: black !important
+        &__date, &__procent
+          background: black
+          color: #ff0
+        &__date
+          padding-left: 10px
+      .checkup
+        &__title h3, &__price, &__price span
+          color: black !important
+        &__for p, &__label
+          background: #ff0
+          color: black !important
+          border: 2px solid black
+          padding: 2px 6px
+        &__sublist
+          border: 2px solid black
+          color: black
+          background: #ff0
+          &:hover
+            background: #ffff83
+          span
+            background-color: black
+            color: #ff0
+        &__popuplist
+          background: #ff0
+          border: 2px solid black
+        &__footer
+          .button, button
+            background: black !important
+            span
+              color: #ff0 !important
+      .footer
+        .social__icon
+          background: none
+          border-color: black !important
+          svg
+            filter: brightness(0) !important
+        .logo
+          filter: grayscale(1) brightness(0)
+        background: none
+        border: 2px solid black
+        a, &__title, p
+          color: black !important
+        &__icon, &__contact
+          svg
+            filter: grayscale(1) brightness(0)
+        .social__icon
+          border: 2px solid black
+          svg
+            width: 40px
+            filter: grayscale(1) brightness(0)
+        &__row:not(:last-child)
+          border-bottom: 1px solid black
+      .cookie
+        &__main
+          border-color: black
+          background: #ff0
+          p
+            color: black !important
+          a
+            color: black!important
+            text-decoration: underline
+        &__close
+          svg path
+            stroke: black
+        &__ok
+          background: black !important
+          span
+            color: #ff0 !important
+      ul.list--block li
+        border-color: black
+      .hash
+        &__item
+          background: #ff0
+          border: 2px solid black
+          a
+            color:  black
+            &:before
+              border-color: black
+            &:hover
+              &:before
+                border-color: black
+          &::after
+            background: #ffff83
+            border: 2px solid black
+          &::before
+            filter: grayscale(1) brightness(0)
+      .price-table
+        &__row
+          border: 2px solid black
+          background: none !important
+          p
+            color: black !important
+      .openbox
+        &__item
+          background: none
+          border: 2px solid black
+        &__header::after, img
+            filter: grayscale(1) brightness(0)
+      .block-moreinfo-text
+        p b
+          color: black
+      .services-single__icon
+        filter: grayscale(1) brightness(0)
+      .search--special
+        &::before
+          filter: grayscale(1) brightness(0)
+
+    &--green
+      .acc__button.active
+        background: #a9dd38
+        outline: 3px solid white !important
+      .accessibility__panel
+        border-bottom: 2px solid #a9dd38
+      .logo
+        filter: hue-rotate(189deg) brightness(4)
+        &__sign
+          filter: hue-rotate(56deg) brightness(0.3)
+      .topbar
+        .button--simple-text
+          padding-left: 0
+          background: none !important
+          color: #a9dd38 !important
+        &__phone
+          span
+            color: #a9dd38
+            font-weight: 600
+          svg
+            filter: invert(1) hue-rotate(56deg)
+      .search
+        &__input
+          background: #a9dd38 !important
+          &::placeholder
+            color: black
+        &__submit
+          filter: grayscale(1) brightness(0)
+      .swiper-scrollbar-drag 
+        background: #a9dd38 !important
+      background: black !important
+      p, h1, h2, h3, h4, h5, h6
+        color: #a9dd38 !important
+      button, .button
+        background: #a9dd38 !important
+        color: black !important
+        border-color: black
+        height: 40px
+        span
+          color: black !important
+      .banner
+        &__title h2
+          background: black !important
+        &__subtitle
+          color: black !important
+      .slider__arrow
+        background: #a9dd38
+      .user
+        svg
+          path
+            stroke: #a9dd38
+      .accessibility__icon
+        path
+          fill: #a9dd38
+      .top-menu
+        &__wrapper, .subsubmenu
+          background: black
+        .menu__item a, .subsubmenu__item a
+          color: #a9dd38 
+          &:hover
+            color: #a9dd38 !important
+        a.active-submenu
+          background: #a9dd38 !important
+          color: black
+          &:hover
+            color: black !important
+          &::after
+            background: #a9dd38
+        &__slider
+          background: black
+          .swiper-slide:not(:last-child)::after
+            background: #a9dd38
+        &__nav
+          .swiper-button-next::after, .swiper-button-prev::after, .subsubmenu__close
+            filter: hue-rotate(250deg)
+      .accessibility__panel
+        background: black
+      .advantages__icon img
+        filter: hue-rotate(256deg)
+      ul.list--short li
+        background: black
+        border: 2px solid #a9dd38
+        color: #a9dd38
+        padding-left: 10px !important
+        &::before
+          display: none
+          padding-left: 10px
+          position: relative
+          left: -1px
+          filter: hue-rotate(57deg) invert(1) brightness(1.2) saturate(3)
+      .alphabet__item
+        border-color: #a9dd38
+        color: #a9dd38
+        &::after
+          background: #a9dd38
+        &.active
+          background: #a9dd38
+          color: black
+          font-weight: 600
+      .alphabet__reset
+        background: #a9dd38 url(images/reset-acc.svg)
+        background-repeat: no-repeat
+        background-position: center
+      .services__item-badge
+        background-color: #a9dd38
+        color: black
+      .services__item
+        border-color: #a9dd38
+        background-color: black
+        a
+          color: #a9dd38
+          &:before
+            filter: hue-rotate(256deg)
+      .services__item-linked
+        background-color: #a9dd38
+      *
+        scrollbar-color: #a9dd38 black !important
+      .block-item
+        background-color: black
+        border: 2px solid #a9dd38
+        &::after
+          display: none
+      .doctor
+        &__name, &__exp, &__practice, &__reception, &__price, &__review-add
+          color: #a9dd38!important
+          font-size: 1rem
+        &__name
+          font-size: 1.2rem
+        .button
+          background: #a9dd38 !important
+          span
+            color: black !important
+      .avatar
+        border-color: lightgray
+        &__slide:after
+          background: #808080
+        &--video
+          border-color: #a9dd38
+      .swiper-scrollbar-drag
+        background: black
+      .appointment
+        &__label
+          color: #a9dd38
+          font-size: 1rem
+        &__list
+          background: black
+          border-color: #a9dd38
+          li
+            color: #a9dd38
+        &__doctors
+          &-list
+            background: none
+            border: none
+        &__doctor
+          background: none
+          border: none
+        &__selected
+          background: black
+          border: 2px solid #a9dd38
+          border-radius: 6px
+          span
+            color: #a9dd38
+          &:after
+            filter: grayscale(1) brightness(0)
+        &__date-item, &__time-item
+          background: black
+          border: 2px solid #a9dd38
+          &.selected
+            background: #a9dd38
+            p
+              color: black !important
+      .form
+        &__data input
+          background: #a9dd38
+          border: 2px solid black
+          &::placeholder
+            color: black
+        &__sended
+          filter: hue-rotate(350deg)
+          p
+            color: white !important
+      .discount
+        &-block
+          background: none
+          &::after, &:before
+            display: none
+        &__title
+          background: black
+          color: #a9dd38 !important
+        &__date, &__procent
+          background: black
+          color: #a9dd38
+        &__date
+          padding-left: 10px
+      .checkup
+        &__title h3, &__price, &__price span
+          color: #a9dd38 !important
+        &__for p, &__label
+          background: black
+          color: #a9dd38
+          border: 2px solid #a9dd38
+          padding: 2px 6px
+        &__sublist
+          border: 2px solid #a9dd38
+          color: #a9dd38
+          background: black
+          &:hover
+            background: gray
+          span
+            background-color: #a9dd38
+            color: black
+        &__popuplist
+          background: black
+          border: 2px solid #a9dd38
+        &__footer
+          .button, button
+            background: #a9dd38 !important
+            span
+              color: black !important
+      .footer
+        .social__icon
+          border: 2px solid #a9dd38
+          background: none
+          svg
+            width: 40px
+            path
+              fill: #a9dd38
+        background: none
+        border: 2px solid #a9dd38
+        a, &__title, p
+          color: #a9dd38 !important
+        &__icon, &__contact
+          svg
+            filter: hue-rotate(250deg)
+        &__row:not(:last-child)
+          border-bottom: 1px solid #a9dd38
+      .cookie
+        &__main
+          border-color: black
+          background: #a9dd38
+          p
+            color: black !important
+          a
+            color: black!important
+            text-decoration: underline
+        &__close
+          svg path
+            stroke: black
+        &__ok
+          background: black !important
+          border: 2px solid black
+          span
+            color: #a9dd38 !important
+      .breadcrumbs
+        a
+          color: #a9dd38
+          &:hover
+            background: none
+            color: #a9dd38
+          &.active
+            background: #a9dd38
+            color: black
+          &::after
+            filter: brightness(2) hue-rotate(265deg)
+      ul.list--block li
+        border-color: #a9dd38
+      .hash
+        &__item
+          background: black
+          border: 2px solid #a9dd38
+          a
+            color:  #a9dd38
+            &:before
+              border-color: #a9dd38
+            &:hover
+              &:before
+                border-color: #a9dd38
+          &::after
+            background: #a9dd38
+          &::before
+            filter: grayscale(1) brightness(0)
+      .price-table
+        &__row
+          border: 2px solid #a9dd38
+          background: none !important
+          p
+            color: #a9dd38 !important
+      .openbox
+        &__item
+          background: none
+          border: 2px solid #a9dd38
+        &__header::after, img
+            filter: hue-rotate(248deg)
+      .block-moreinfo-text
+        p b
+          color: #a9dd38
+      .services-single__icon
+        filter: hue-rotate(242deg) brightness(1.2)
+      .search--special
+        &::before
+          filter: grayscale(1) brightness(0)
+/// accessibility body class
+
+// .accessibility__panel:
+.acc
+  height: auto
+  padding: 10px
+  &__title
+    font-size: 1.2rem
+    font-weight: 600
+  &__controls
+    gap: 20px
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+    cursor: default
+  &__options
+    display: flex
+    gap: 10px
+  &__button
+    width: 40px
+    height: 40px
+    border-radius: 8px
+    background: white
+    display: flex
+    justify-content: center
+    overflow: hidden
+    cursor: pointer
+    border: 1px solid white
+    &.active
+      outline: 3px solid black
+      background-color: lightgray
+    &:hover
+      background-color: lightgray
+    img
+      border-radius: 6px
+    &--font-small
+      img
+        width: 20px
+    &--font-normal
+      img
+        width: 28px
+    &--font-big
+      img
+        width: 34px
+  &__buttons
+    display: flex
+    flex-direction: column
+    gap: 10px
+    align-self: center
+  &__expand
+    width: max-content
+    padding: 10px
+    height: 60px
+    border-radius: 0 0 20px 0

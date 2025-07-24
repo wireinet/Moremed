@@ -12,7 +12,7 @@ $(function(){
   function formSend(){
     console.log('sending...');
     const form = $('.form');
-    let sendFormOk = `<div class="form__sended"><strong>Спасибо!</strong>Мы с вами свяжемся как можно скорее!</div>`;
+    let sendFormOk = `<div class="form__sended"><p><strong>Спасибо!</strong>Мы с вами свяжемся как можно скорее!</p></div>`;
     form.html(sendFormOk);
   }
 
