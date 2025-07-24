@@ -3,7 +3,7 @@ $(function(){
     const accessibility = $('.accessibility');
     let accessibilitySaveToStorage = false;
     accessibility.click(function(e){
-        $('.topbar').css('zIndex', 0);
+        $('.topbar').css('zIndex', 2);
         e.preventDefault();
         accessibility.toggleClass('active');
         $("body").toggleClass('accessibility acc-colors acc-colors--normal');
