@@ -3,6 +3,36 @@
 *
   scrollbar-color: white black !important
 .accessibility
+  &.politica
+    h2
+      span
+        font-weight: 600
+        padding: 0
+        background: none !important
+        color: inherit !important
+  .popup
+    &.active
+      background: black
+    &__header
+      align-items: center
+    &__content
+      border: 2px solid black
+      border-radius: 20px
+    &__close
+      padding: 40px
+    &--full-screen
+      background: black !important
+    &--checkup-appointent
+      .popup__close
+        padding: 20px
+    &__content--bg
+      &::after
+        display: none
+  .mobmenu
+    &__header, &__footer
+      padding: 20px
+
+      background: none
   cursor: pointer
   &.active
     path
@@ -28,6 +58,12 @@
       border: none !important
       .acc__controls 
         display: none
+      @media(max-width:570px)
+        top: 80px !important
+        transform: translateX(-50%)
+        left: 50%
+        .acc__expand
+          border-radius: 0 0 20px 20px !important
   *
     box-shadow: none !important
   .documents__download
@@ -96,6 +132,27 @@
   // COLORS IN PAGES
   &.acc-colors
     &--normal
+      .mobbar
+        .swiper-button-next, .swiper-button-prev
+          color: black
+        &__wrapper
+          background: white
+          border: 2px solid black
+        &__item::after
+          background: black
+        img
+          display: block
+          margin: 0 auto
+          filter: grayscale(1) brightness(0)
+        span
+          color: black
+          font-size: 1rem
+        input
+          &.input--appointment
+          border: 2px solid black
+          &.input[type=submit]
+            background: black
+
       .table-like
         a
           color: black
@@ -222,7 +279,7 @@
           filter: grayscale(1) brightness(0)
       ul.list li
         background: none
-        padding-left: 0
+        padding-left: 10px
         &::before
           content: '- '
       .filter__sidebar-mob
@@ -231,14 +288,28 @@
           filter: invert(1) brightness(0)
 
     &--inv
+      .mobbar
+        .swiper-button-next, .swiper-button-prev
+          color: white
+        &__wrapper
+          background: black
+          border: 2px solid white
+        &__item::after
+          background: white
+        img
+          display: block
+          margin: 0 auto
+          filter: grayscale(1) brightness(10)
+        span
+          color: white
+          font-size: 1rem
       .table-like
         a
           color: white
           text-decoration: underline
       .top-menu__wrapper
         border: 2px solid white !important
-        border-left: none !important
-        border-right: none !important
+        width: 100%
       .top-menu__nav, .top-menu__additions
         background: black !important
       .search--special
@@ -397,15 +468,29 @@
           filter: invert(1) brightness(10)
 
     &--blue
+      .mobbar
+        .swiper-button-next, .swiper-button-prev
+          color: #9fd7ff
+        &__wrapper
+          background: #133c58
+          border: 2px solid #9fd7ff
+        &__item::after
+          background: #133c58
+        img
+          display: block
+          margin: 0 auto
+          filter: hue-rotate(21deg) brightness(0.9)
+        span
+          color: #9fd7ff
+          font-size: 1rem
       .table-like
         a
           color: #133c58
           text-decoration: underline
       .top-menu__wrapper
         background: #133c58 !important
-        border: 2px solid #133c58 !important
-        border-left: none !important
-        border-right: none !important
+        border-radius: 10px
+        width: 100%
       .top-menu__nav, .top-menu__additions
         background: none
       .pagination__item
@@ -576,8 +661,27 @@
         border: 2px solid #133c58
         svg
           filter: invert(1) hue-rotate(187deg) brightness(0.4)
-
+      .topbar__contact
+        @media (max-width: 700px)
+          background: none
+          border: 2px solid #133c58
     &--yellow
+      .mobbar
+        .swiper-button-next, .swiper-button-prev
+          color: black
+        &__wrapper
+          background: #ff0
+          border: 2px solid black
+        &__item::after
+          background: #ff0
+        img
+          display: block
+          margin: 0 auto
+          filter: grayscale(1) brightness(0)
+        span
+          color: black
+          font-size: 0.9rem
+
       .table-like
         a
           color: black
@@ -764,8 +868,30 @@
         border: 2px solid black
         svg
           filter: invert(1) brightness(0)
+      .mob-search, .hamburger
+        background-color: #ff0
+        border: 2px solid black
+      .topbar__contact
+        @media(max-width: 700px)
+          background: none
+          border: 2px solid black
 
     &--green
+      .mobbar
+        .swiper-button-next, .swiper-button-prev
+          color: black
+        &__wrapper
+          background: black
+          border: 2px solid #a9dd38
+        &__item::after
+          background: black
+        img
+          display: block
+          margin: 0 auto
+          filter: hue-rotate(256deg) brightness(1)
+        span
+          color: #a9dd38
+          font-size: 0.9rem
       .table-like
         a
           color: #a9dd38
@@ -801,7 +927,8 @@
         &.active
           background: #a9dd38
           border-color: #a9dd38
-          color: #a9dd38
+          color: black
+          font-weight: 600
       .doctor-single__rating
         &
           a
@@ -963,6 +1090,11 @@
     background: none
   &.acc-colors
     &--normal
+      .input--simple
+        border-color: black
+        border-width: 2px
+        &::placeholder
+          color: black
       .accessibility.active
         path
           fill: black
@@ -992,7 +1124,9 @@
       .top-menu
         &__wrapper
           background: white
-          border: 2px solid black
+          border: 2px solid black !important
+          border-radius: 10px
+          width: 100%
         .menu__item a, .subsubmenu__item a
           color: black
           &:hover
@@ -1218,8 +1352,69 @@
           &__wrapper
             background: white
             border: 2px solid black
+      // mobmenu--normal
+      .mobmenu
+        .logo__sign
+          filter: brightness(0)
+        .search__input
+          background: white !important
+          border-width: 2px
+        &__item
+          a
+            color: black
+          &.hassubmenu
+            & > a::after
+              filter: grayscale(1) brightness(0)
+            &.opened > a
+              background: black
+              color: white
+              border: 2px solid black
+              ul a
+                border: none !important
+        &__submenu-item
+          border-color: black
+        &__contact
+          a
+            color: black
+          img
+            filter: grayscale(1) brightness(0)
+      // popup--normal
+      .popup
+        &--full-screen
+          background: white !important
+          .popup__content
+            border: none
+        &__close
+          filter: grayscale(1) brightness(0)
+        &__content
+          border-color: black
+          background: white !important
+      .services-single__title
+        span
+          color: black !important
 
     &--inv
+      .login-form > img
+        filter: grayscale(1) brightness(10)
+      .input--simple
+        border-color: white
+        background-color: black
+        color: white
+        border-width: 2px
+        &::placeholder
+          color: white
+      .user
+        svg
+          path
+            stroke: white
+      input
+        &.input--appointment
+        border: 2px solid black
+        &.input[type=submit]
+          background: white
+          border: 2px solid white
+          color: black !important
+          font-weight: 600
       .acc__button.active
         outline: 3px solid white !important
       .accessibility__panel
@@ -1501,8 +1696,74 @@
               filter: invert(0) !important
               path
                 stroke: black !important
-
+      // mobmenu--inv
+      .mobmenu
+        .logo__sign
+          filter: brightness(0.7)
+        &__item
+          a
+            color: white
+          &.hassubmenu
+            & > a::after
+              filter: grayscale(1) brightness(10)
+            &.opened > a
+              background: white
+              color: black
+              border: 2px solid white
+              ul a
+                border: none !important
+        &__submenu-item
+          border-color: white
+        &__contact
+          a
+            color: white
+          img
+            filter: grayscale(1) brightness(10)
+      // popup--inv
+      .popup
+        &--full-screen
+          background: black !important
+          input
+            border: none !important
+            border-bottom: 2px solid white !important
+          .popup__content
+            border: none
+        &__title
+          color: white !important
+        &__close
+          filter: grayscale(1) brightness(10)
+        &__content
+          border-color: white
+          background: black !important
+          .search
+            &__input
+              background: none !important
+              color: white !important
+              border-color: white !important
+              &::placeholder
+                color: white !important
+            &__submit
+              filter: brightness(10)
+      .services-single__title
+        span
+          color: white !important
+  
     &--blue
+      .login-form > img
+        filter: grayscale(1) brightness(0)
+      .input--simple, .input--simple[type="submit"]
+        border-color: #133c58
+        background-color: #9fd7ff
+        border: 2px solid #133c58
+        color: #133c58
+        &::placeholder
+          color: #133c58
+      .hamburger
+        background: none
+        border: 2px solid #133c58
+        svg
+          rect
+            fill: #133c58 !important
       p, h1, h2, h3, h4, h5, h6
         color: #133c58 !important
       .acc__button
@@ -1525,7 +1786,8 @@
             filter: invert(1) brightness(0)
       .search
         &__input
-          background: white !important
+          background: #9fd7ff !important
+          border-width: 2px
           &::placeholder
             color: black
         &__submit
@@ -1793,8 +2055,78 @@
             border: 2px solid black
           &__contact, .mob-search, .hamburger
             background-color: #9fd7ff 
-
+      // mobmenu--blue
+      .mobmenu
+        input
+          &.input--appointment
+          border: 2px solid #133c58
+          &.input[type=submit]
+            background: #133c58
+            border: 2px solid #133c58
+            color: #86b8ff !important
+            font-weight: 600
+        .logo__sign
+          filter: brightness(0.7)
+        .search__input
+          background: #9fd7ff !important
+        &__item
+          a
+            color: black
+          &.hassubmenu
+            & > a::after
+              filter: brightness(0)
+            &.opened > a
+              background: #9fd7ff
+              color: #133c58
+              border: 2px solid #133c58
+              ul a
+                border: none !important
+        &__submenu-item
+          border-color: #133c58
+        &__contact
+          a
+            color: black
+          img
+            filter: brightness(0)
+      // popup--blue
+      .popup
+        &--full-screen
+          background: #5ba1d4 !important
+          .popup__content
+            border: none !important
+          .search__input
+            background-color: #5ba1d4 !important
+            border: none !important
+            border-bottom: 2px solid #133c58 !important
+        &__close
+          filter: brightness(0)
+        &__content
+          border-color: black
+          background: #5ba1d4 !important
+      .services-single__title
+        span
+          color: #133c58 !important
+      .mob-search
+        background-color: #9fd7ff
+        border: 2px solid #133c58
+    
     &--yellow
+      .login-form > img
+        filter: grayscale(1) brightness(0)
+      .input--simple, .input--simple[type="submit"]
+        border-color: #133c58
+        background-color: #ff0
+        border: 2px solid black
+        color: black
+        &::placeholder
+          color: black
+      input
+        border-width: 2px
+        &.input[type=submit]
+          background: black
+          color: #ff0 !important
+          font-weight: 600
+
       .acc__button
         border: 2px solid black
         background: none
@@ -2085,8 +2417,50 @@
             border: 2px solid black
           &__contact, .mob-search, .hamburger
             background-color: #ff0 
+      // mobmenu--yellow
+      .mobmenu
+        &__item
+          a
+            color: black
+          &.hassubmenu
+            & > a::after
+              filter: brightness(0)
+            &.opened > a
+              background: #ff0
+              color: black
+              border: 2px solid black
+              ul a
+                border: none !important
+        &__submenu-item
+          border-color: black
+        &__contact
+          a
+            color: black
+          img
+            filter: brightness(0)
+      // popup--yellow
+      .popup
+        &__close
+          filter: brightness(0)
+        &__content
+          border-color: black
+          background: #ff0 !important
+      .services-single__title
+        span
+          color: black !important
 
     &--green
+      .login-form > img
+        filter: brightness(1) hue-rotate(30deg)
+      .input--simple, .input--simple[type="submit"]
+        background-color: black
+        border: 2px solid #a9dd38
+        color: #a9dd38
+        &::placeholder
+          color: #a9dd38
+      .login-form
+        img
+          filter: invert(1) brightness(0.6) hue-rotate(51deg)
       .acc__button.active
         background: #a9dd38
         outline: 3px solid white !important
@@ -2106,14 +2480,23 @@
             color: #a9dd38
             font-weight: 600
           svg
-            filter: invert(1) hue-rotate(56deg)
+            filter: invert(1) hue-rotate(10deg)
+        .mob-search, .hamburger
+          background-color: #a9dd38
+        &__contact
+          @media(max-width:700px)
+            background-color: #a9dd38
+            .topbar__phone
+              filter: grayscale(1) brightness(0)
+
       .search
         &__input
           background: #a9dd38 !important
+          border: 2px solid #a9dd38
           &::placeholder
             color: black
         &__submit
-          filter: grayscale(1) brightness(0)
+          filter: brightness(0)
       .swiper-scrollbar-drag 
         background: #a9dd38 !important
       background: black !important
@@ -2394,12 +2777,46 @@
       @media(max-width:570px)
         .topbar
           &__wrapper
-            background: #a9dd38
-            border: 2px solid black
+            background: black
+            border: 2px solid #a9dd38
           &__contact, .mob-search, .hamburger
-            background-color: black 
+            background-color: #a9dd38
+          &__phone
+            svg
+              filter: invert(0) !important
+              path
+                stroke: black !important
+      // mobmenu--green
+      .mobmenu
+        &__item
+          a
+            color: #a9dd38 !important
+          &.hassubmenu
+            & > a::after
+              filter: hue-rotate(256deg)
+            &.opened > a
+              background: black
+              border: 2px solid #a9dd38
+              ul a
+                border: none !important
+        &__submenu-item
+          border-color: #a9dd38
+        &__contact
+          a
+            color: #a9dd38
+          img
+            filter: hue-rotate(197deg) brightness(4)
+      // popup--green
+      .popup
+        &__close
+          filter: hue-rotate(86deg) brightness(2)
+        &__content
+          border-color: #a9dd38
+          background: black !important
+      .services-single__title
+        span
+          color: #a9dd38 !important
 /// accessibility body class
-
 // .accessibility__panel:
 .acc
   height: auto
@@ -2413,6 +2830,7 @@
     align-items: flex-start
     justify-content: space-between
     cursor: default
+    flex-wrap: wrap
   &__options
     display: flex
     gap: 10px
@@ -2452,3 +2870,7 @@
     padding: 10px
     height: 60px
     border-radius: 0 0 20px 0
+
+.invisible
+  visibility: hidden
+  opacity: 0

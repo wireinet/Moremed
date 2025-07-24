@@ -3,7 +3,9 @@ const popup = function(button, popup) {
     const popupClose = $('.popup__close');
     const popupContent = $('.popup__content');
     let bg = $('.popup');
-    button.click(function(){
+    button.click(function(e){
+      $('.popup').removeClass('active');
+      e.preventDefault();
       disableScrollBody();
       popup.addClass('active');
       if(popup.hasClass('popup--checkup-appointent')){
@@ -62,10 +64,10 @@ const popup = function(button, popup) {
       if(e.keyCode === 27){
         popup.removeClass('active');
         enableScrollBody();
-      }
-      let popupAppointment = $('.popup--checkup-appointent');
-      if(popupAppointment){
-        setTimeout(function(){popupAppointment.find('.popup__title').text('Запись на чекап');}, 300);
+        let popupAppointment = $('.popup--checkup-appointent');
+        if(popupAppointment){
+          setTimeout(function(){popupAppointment.find('.popup__title').text('Запись на чекап');}, 300);
+        }
       }
     })
 }
