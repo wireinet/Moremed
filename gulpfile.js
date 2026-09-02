@@ -14,12 +14,11 @@ const concat = require('gulp-concat');
 
 // svg
 const svgmin = require('gulp-svgmin');
-function svg(done) {
-    src('./dev/img/**/*.svg')
+function svg() {
+    return src('./dev/img/**/*.svg')
     .pipe(svgmin())
     .pipe(dest('./public/images'))
-    .pipe(browserSync.stream())
-    done()
+    .pipe(browserSync.stream());
 }
 
 // browser-sync
@@ -54,6 +53,11 @@ function copyfonts() {
 function copyFavicon() {
     return src('./dev/fav/**.*')
     .pipe(dest('./public/fav'))
+}
+function videos() {
+    return src('./dev/video/**.*')
+    .pipe(dest('./public/video'))
+    .pipe(browserSync.stream());
 }
 function libs() {
     return src('./dev/libs/**.*')
@@ -105,6 +109,7 @@ function watchers() {
     watch('dev/img/**/*', svg);
     watch(['dev/sass/*.sass'], style);
     watch('dev/libs/**/*', copy_libs);
+    watch('dev/video/**/*', videos);
     watch('dev/scripts/*.js', scripts);
     // watch('dev/templates/*.json', data);
 }
@@ -117,6 +122,7 @@ exports.browsersync = browsersync;
 exports.scripts = scripts;
 exports.copyfonts = copyfonts;
 exports.svg = svg;
+exports.videos = videos;
 exports.copy_libs = copy_libs;
 // exports.data = data;
-exports.default = parallel(views, copyfonts, scripts, style, svg, libs, copy_libs, images, copyFavicon, watchers, browsersync);
+exports.default = parallel(views, copyfonts, scripts, style, svg, libs, copy_libs, images, copyFavicon, videos, watchers, browsersync);
